@@ -1,0 +1,24 @@
+.filtersContainer {
+	position: relative;
+}
+
+.filtersList {
+	display: flex;
+	padding: var(--container-padding-mobile);
+	margin: 0 calc(-1 * var(--container-padding-mobile)) 1.25rem;
+	column-gap: 0.5rem;
+
+	overflow-x: scroll;
+	// для Chrome, Safari, Opera
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	// Firefox
+	scrollbar-width: none;
+	// IE и Edge
+	-ms-overflow-style: none;
+}
+
+.content {
+	padding-bottom: 3.75rem;
+}

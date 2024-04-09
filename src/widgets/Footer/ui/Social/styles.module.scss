@@ -1,0 +1,27 @@
+.socialMenu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 1.5rem;
+	padding: 1.25rem 1.25rem 2.0625rem;
+}
+
+.full {
+	padding: 2.75rem 1.25rem 1.25rem;
+}
+
+.link {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #fff;
+	opacity: 0.4;
+
+	@media(any-hover: hover) {
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	&:focus, &:active {
+		opacity: 0.8;
+	}
+}

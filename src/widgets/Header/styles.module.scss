@@ -1,0 +1,26 @@
+.header {
+	position: fixed;
+	width: 100%;
+	height: var(--header-height-mobile);
+	z-index: 10;
+	background-color: var(--header-background-color);
+	display: flex;
+	align-items: center;
+}
+
+.rootFull {
+	height: var(--header-height);
+}
+
+.gridContainer {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	column-gap: var(--header-gap-items);
+	height: 100%;
+}
+
+.containerFull {
+	padding: 0 2.5rem;
+}
+
+

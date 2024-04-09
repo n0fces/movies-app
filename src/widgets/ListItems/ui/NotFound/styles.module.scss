@@ -1,0 +1,19 @@
+.notFound {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 18.75rem;
+	line-height: 1.333;
+}
+
+.heading {
+	margin: 0 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+.text {
+	font-size: 0.9375rem;
+	color: #777;
+}

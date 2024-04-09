@@ -1,0 +1,78 @@
+.basicMediaSectionMobile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.content {
+	margin-top: 1.5rem;
+}
+
+.title {
+	text-align: center;
+}
+
+.subTitleRoot {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 0.375rem;
+
+	margin-top: 0.75rem;
+}
+
+.alternativeName {
+	font-size: 0.8125rem;
+	letter-spacing: -0.0269em;
+	word-break: break-word;
+	color: #1b1b1b;
+}
+
+.titleMetaRoot {
+	font-size: 0.8125rem;
+	line-height: 1.3846;
+	text-align: center;
+	color: var(--text-minor-color);
+
+	margin-top: 0.125rem;
+	margin-bottom: 1rem;
+}
+
+.countriesAndDuration {
+	margin-top: 0.125rem;
+}
+
+.features {
+	display: flex;
+	justify-content: center;
+	column-gap: 0.125rem;
+
+	padding: 1rem 0 1.25rem;
+}
+
+.feature {
+	padding: 0 1rem;
+	height: 3.25rem;
+	font-size: 0.6875rem;
+	opacity: 0.6;
+
+	> svg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+
+	&:focus {
+		opacity: 0.6;
+	}
+}
+
+.shortDescription {
+	font-size: 1.125rem;
+	line-height: 1.222;
+}

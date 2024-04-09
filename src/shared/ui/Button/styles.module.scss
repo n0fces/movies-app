@@ -1,0 +1,117 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+
+	line-height: 1.2;
+	white-space: nowrap;
+
+	transition: transform var(--button-transition-duration) ease,
+		background var(--button-transition-duration) ease;
+}
+
+.default {
+	font-weight: 500;
+	background: var(--button-default-color);
+	column-gap: 0.8em;
+	border-radius: 0.533em;
+	@media (any-hover: hover) {
+		&:hover {
+			background: var(--button-default-color-intense);
+		}
+	}
+
+	&:focus {
+		background: var(--button-default-color-intense);
+	}
+	justify-content: space-between;
+
+	text-align: left;
+}
+
+.useFeature {
+	background: var(--button-default-color);
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.05) translateZ(0);
+			background: var(--button-default-color-intense);
+		}
+	}
+
+	&:focus {
+		transform: scale(1.05) translateZ(0);
+		background: var(--button-default-color-intense);
+	}
+}
+
+.useFeature,
+.gradient {
+	border-radius: 7.692em;
+	justify-content: center;
+	column-gap: 0.462em;
+	font-weight: 600;
+}
+
+.gradient {
+	background: linear-gradient(
+		135deg,
+		var(--kp-main-color) 69.93%,
+		var(--kp-secondary-color)
+	);
+	color: #fff;
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.05) translateZ(0);
+			background: linear-gradient(
+				135deg,
+				var(--kp-main-color) 75%,
+				var(--kp-secondary-color)
+			);
+		}
+	}
+
+	&:focus {
+		transform: scale(1.05) translateZ(0);
+		background: linear-gradient(
+			135deg,
+			var(--kp-main-color) 75%,
+			var(--kp-secondary-color)
+		);
+	}
+}
+
+.clear {
+	background: none;
+	justify-content: center;
+}
+
+.textBelow {
+	background: none;
+	flex-direction: column;
+	row-gap: 0.462em;
+}
+
+.modal {
+	font-weight: 500;
+	text-align: left;
+	justify-content: space-between;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background: var(--button-default-color);
+		}
+	}
+
+	&:focus {
+		background: var(--button-default-color);
+	}
+}
+
+.modalFull {
+	font-weight: 500;
+	border-bottom: 0.0625rem solid var(--delimiter-color);
+	text-align: left;
+	justify-content: flex-start;
+	column-gap: 1.333em;
+}

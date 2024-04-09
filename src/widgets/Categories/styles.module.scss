@@ -1,0 +1,33 @@
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.gap {
+	padding: 0;
+	@media (min-width: 48em){
+		padding: 0 5.625rem;
+	}
+	@media (min-width: 80em){
+		padding: 0 11.125rem;
+	}
+}
+
+.titles {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title {
+	font-size: 0.75rem;
+	font-weight: 600;
+	line-height: 1.167;
+	letter-spacing: 0.083em;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.wrapperItems {
+	margin: 0 calc(-1 * var(--container-padding-mobile));
+}

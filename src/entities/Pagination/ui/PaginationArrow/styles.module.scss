@@ -1,0 +1,25 @@
+.arrow {
+	width: 2.76923em;
+	height: 2.76923em;
+	border: none;
+	background-color: #fff;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+}
+
+.end {
+	transform: rotate(180deg);
+}
+
+.arrowPagination {
+	width: 1.25rem;
+	height: 1.25rem;
+}

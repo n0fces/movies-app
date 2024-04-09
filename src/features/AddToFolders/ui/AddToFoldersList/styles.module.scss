@@ -1,0 +1,20 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+
+	overflow-y: auto;
+	overscroll-behavior-y: contain;
+	scrollbar-width: thin;
+	max-height: 15.75rem;
+}
+
+.button {
+	font-size: 0.9375rem;
+	min-height: 2.5rem;
+	padding: 0 1.25rem;
+
+	// * пока хз, нужно ли это здесь
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}

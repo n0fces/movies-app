@@ -1,0 +1,26 @@
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	min-width: 2.76923em;
+	min-height: 2.76923em;
+	
+	border: none;
+	border-radius: 0.61538em;
+	background-color: #fff;
+	transition: background-color 0.1s ease;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--button-default-color);
+		}
+	}
+
+	cursor: pointer;
+}
+
+.active {
+	color: #fff;
+	background-color: var(--button-active-color) !important;
+}

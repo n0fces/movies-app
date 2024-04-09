@@ -1,0 +1,34 @@
+.rating {
+	text-align: center;
+	line-height: 1.53846;
+	font-weight: 600;
+
+	background-color: var(--default-rating-color);
+	color: var(--default-rating-color);
+}
+
+.positiveValue {
+	background-color: var(--positive-rating-color);
+	color: var(--positive-rating-color);
+}
+
+.negativeValue {
+	background-color: var(--negative-rating-color);
+	color: var(--negative-rating-color);
+}
+
+.default {
+	background-color: transparent;
+}
+
+.nameplate {
+	padding-left: 0.3846em;
+	padding-right: 0.3846em;
+	color: #fff;
+}
+
+.top {
+	background: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

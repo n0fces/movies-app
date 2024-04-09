@@ -1,0 +1,15 @@
+.main {
+	padding: 1.5rem 0 3rem;
+	@media (min-width: 48em){
+		padding: 2.5rem 0 4.375rem;
+	}
+}
+
+.header {
+	padding: 0 1.5rem;
+}
+
+.titleContainer {
+	padding-bottom: 1rem;
+	border-bottom: 0.0625rem solid var(--delimiter-color);
+}

@@ -1,0 +1,23 @@
+.voiting {
+	padding: 1.375rem 1rem;
+	display: flex;
+	justify-content: space-around;
+}
+
+.choiceIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: rgba(0, 0, 0, 0.2);
+}
+
+.default {
+	fill: var(--default-rating-color);
+}
+
+.positive {
+	fill: var(--positive-rating-color);
+}
+
+.negative {
+	fill: var(--negative-rating-color);
+}

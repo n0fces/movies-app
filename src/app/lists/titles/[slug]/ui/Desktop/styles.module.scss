@@ -1,0 +1,34 @@
+.mainContainer {
+	margin: 0 auto;
+	display: grid;
+	grid-template-areas: 'topbar topbar' 'aside content';
+	grid-template-columns: 13.75rem 1fr;
+	max-width: 60rem;
+	@media (min-width: 80em) {
+		grid-template-columns: 16.25rem 1fr;
+		max-width: 75rem;
+	}
+
+	padding-bottom: 3.75rem;
+
+	row-gap: 3rem;
+	column-gap: 2.5rem;
+}
+
+.topbarSlot {
+	grid-area: topbar;
+}
+
+.asideSlot {
+	grid-area: aside;
+	// position: relative;
+}
+
+.sticky {
+	position: sticky;
+	top: calc(var(--header-height) + 1.25rem);
+}
+
+.contentSlot {
+	grid-area: content;
+}

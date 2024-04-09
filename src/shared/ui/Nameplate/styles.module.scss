@@ -1,0 +1,22 @@
+.nameplate {
+	background-color: var(--kp-main-color);
+	font-size: 0.8125rem;
+
+	display: flex;
+	align-items: center;
+	column-gap: 0.23076em;
+
+	padding-left: 0.3846em;
+	padding-right: 0.3846em;
+
+	min-width: 2.46153em;
+	text-align: center;
+	line-height: 1.53846;
+	font-weight: 600;
+	color: #fff;
+}
+
+.icon {
+	width: 0.75rem;
+	height: 0.75rem;
+}

@@ -1,0 +1,26 @@
+.watchingService {
+}
+
+.service {
+	display: inline-flex;
+	align-items: center;
+	column-gap: 0.75rem;
+
+	line-height: 1.3846;
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--kp-main-color);
+		}
+	}
+
+	&:focus {
+		color: var(--kp-main-color);
+	}
+}
+
+.serviceLogo {
+	display: inline-block;
+	border-radius: 50%;
+	overflow: hidden;
+}

@@ -1,0 +1,30 @@
+.item {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	column-gap: 0.267em;
+	justify-content: space-between;
+
+	padding: 0.667em 1.333em;
+	line-height: 1.333;
+
+	background-color: #fff;
+	outline: none;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--button-default-color);
+		}
+	}
+	&:focus,
+	&:active {
+		background-color: var(--button-default-color);
+	}
+}
+
+.icon {
+	flex: 0 0 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+
+	fill: var(--kp-main-color);
+}

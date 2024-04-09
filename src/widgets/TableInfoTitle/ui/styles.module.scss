@@ -1,0 +1,35 @@
+.tableInfo {
+}
+
+.titleHeader {
+	margin-bottom: 0.5625rem;
+}
+
+.restrictionLink {
+	display: flex;
+	column-gap: 0.5rem;
+
+	&:hover {
+		.restrictionDescription {
+			color: var(--text-minor-color);
+			display: block;
+		}
+	}
+}
+
+.restrictionDescription {
+	display: none;
+	opacity: 0.4;
+	word-wrap: break-word;
+}
+
+.highContrast {
+	align-self: flex-start;
+	padding: 0.1875rem 0.25rem;
+	color: rgba(51, 51, 51, 0.9);
+	border: 0.0625rem solid rgba(51, 51, 51, 0.9);
+
+	font-size: 0.8125rem;
+	font-weight: 600;
+	line-height: 1;
+}

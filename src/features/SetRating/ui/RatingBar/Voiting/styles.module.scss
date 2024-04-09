@@ -1,0 +1,26 @@
+.voitingChoice {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	column-gap: 0.5rem;
+}
+
+.choiceIcon {
+	width: 1rem;
+	height: 1rem;
+}
+
+.default {
+	fill: var(--default-rating-color);
+	stroke: var(--default-rating-color);
+}
+
+.positive {
+	fill: var(--positive-rating-color);
+	stroke: var(--positive-rating-color);
+}
+
+.negative {
+	fill: var(--negative-rating-color);
+	stroke: var(--negative-rating-color);
+}

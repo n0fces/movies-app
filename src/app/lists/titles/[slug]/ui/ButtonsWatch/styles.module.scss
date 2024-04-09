@@ -1,0 +1,17 @@
+.root {
+	display: flex;
+	justify-content: space-between;
+}
+
+.rootFull {
+	padding: 0 var(--padding-hor-list-item);
+}
+
+.buttons {
+	display: flex;
+	column-gap: 2.1875rem;
+}
+
+.button {
+	min-width: 6rem;
+}

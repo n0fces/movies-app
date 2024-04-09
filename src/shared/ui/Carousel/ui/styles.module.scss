@@ -1,0 +1,36 @@
+.carousel {
+	position: relative;
+}
+
+.scrollBarWrapper {
+	margin: 0 calc(-1 * var(--container-padding-mobile));
+}
+
+.scrollBar {
+	display: flex;
+
+	overflow-x: auto;
+	overflow-y: hidden;
+
+	// для Chrome, Safari, Opera
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	// Firefox
+	scrollbar-width: none;
+	// IE и Edge
+	-ms-overflow-style: none;
+
+	&:focus {
+		outline: 0.125rem solid black;
+		border-radius: 0.125rem;
+	}
+}
+
+.scrollBarSmall {
+	padding: 0 var(--container-padding-mobile);
+}
+
+.instructions {
+	display: none;
+}

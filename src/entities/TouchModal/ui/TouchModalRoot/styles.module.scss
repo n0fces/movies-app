@@ -1,0 +1,33 @@
+.modal {
+	margin: auto auto 0;
+	min-width: 100vw;
+	background-color: #fff;
+	border-radius: 0.9375rem 0.9375rem 0 0;
+	padding-bottom: 1rem;
+}
+
+.headerContainer {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 1rem 1.5rem;
+	border-block-end: 0.0625rem solid var(--delimiter-color);
+}
+
+.closeBtnContainer {
+	align-self: flex-start;
+}
+
+.closeBtn {
+	height: 1.75rem;
+	width: 1.75rem;
+}
+
+.closeIcon {
+	width: 1rem;
+	height: 1rem;
+	fill: rgba(0, 0, 0, 0.4);
+}
+
+.contentWrapper {
+	overflow-y: auto;
+}

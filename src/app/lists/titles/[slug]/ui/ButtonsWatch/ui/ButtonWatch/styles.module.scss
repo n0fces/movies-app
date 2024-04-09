@@ -1,0 +1,23 @@
+.link {
+	font-size: 1.5rem;
+	padding-bottom: 0.75em;
+	color: var(--text-minor-color);
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: rgba(0, 0, 0, 1);
+		}
+	}
+}
+
+.active {
+	color: rgba(0, 0, 0, 1);
+	border-bottom: 0.125em solid var(--kp-main-color);
+}
+
+.category {
+	font-weight: 600;
+	line-height: 1.25;
+	white-space: nowrap;
+	letter-spacing: -0.0083em;
+}

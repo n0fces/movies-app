@@ -1,0 +1,57 @@
+.card {
+	display: flex;
+	flex-direction: column;
+
+	@media (any-hover: hover) {
+		&:hover {
+			img {
+				filter: brightness(0.9);
+				transition: filter 0.2s ease;
+			}
+			.title {
+				color: var(--kp-main-color);
+				transition: color 0.2s ease;
+			}
+		}
+	}
+
+	&:focus, &:active {
+		outline: none;
+		img {
+			filter: brightness(0.9);
+			transition: filter 0.2s ease;
+		}
+		.title {
+			color: var(--kp-main-color);
+			transition: color 0.2s ease;
+		}
+	}
+}
+.captions {
+	width: 100%;
+	margin-top: 0.5rem;
+}
+
+.title {
+	font-size: 0.9375rem;
+	font-weight: 500;
+	line-height: 1.2;
+	color: #000;
+
+	margin-bottom: 0.266em;
+}
+
+.linkItem {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.info {
+	hyphens: auto;
+	font-size: 0.8125rem;
+	font-weight: 400;
+	line-height: 1.230769;
+	color: var(--text-minor-color);
+}

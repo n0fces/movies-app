@@ -1,0 +1,31 @@
+.row {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.listTitle {
+	font-size: 0.8125rem;
+	line-height: 1.3846;
+	font-weight: 500;
+}
+
+.list {
+	font-size: 0.75rem;
+	line-height: 1.5;
+	transition: color 0.1s;
+
+	a {
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--kp-main-color);
+			}
+		}
+
+		&:focus,
+		&:active {
+			color: var(--kp-main-color);
+		}
+	}
+}

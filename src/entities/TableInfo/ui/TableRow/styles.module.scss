@@ -1,0 +1,35 @@
+.tableRow {
+	display: flex;
+
+	padding: 0.5rem 0;
+	font-size: 0.8125rem;
+	line-height: 1.3846;
+	color: var(--text-minor-color);
+}
+
+.titleRow {
+	min-width: 10rem;
+}
+
+.valueRow {
+	flex-grow: 1;
+
+	display: flex;
+
+	a {
+		color: #000;
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--kp-main-color);
+			}
+		}
+
+		&:focus {
+			color: var(--kp-main-color);
+		}
+	}
+}
+
+.value {
+	flex-grow: 1;
+}

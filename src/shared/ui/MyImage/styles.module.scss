@@ -1,0 +1,47 @@
+.image {
+	position: relative;
+	font-size: inherit;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		background-color: #ccc;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&::after {
+		content: '\2639'' ' attr(alt);
+		display: inline-block;
+		margin: auto;
+
+		width: 75%;
+		height: 50%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+		color: rgb(100, 100, 100);
+
+		position: absolute;
+		z-index: 2;
+		top: 25%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.imageCap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ccc;
+}
+
+.svgCap {
+	width: 33%;
+	fill: #fff;
+}

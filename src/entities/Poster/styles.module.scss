@@ -1,0 +1,32 @@
+.posterWrapper {
+	position: relative;
+}
+
+.posterOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.ratingSlot {
+	position: absolute;
+	top: 2.67%;
+	left: 4%;
+	font-size: 0.8125rem;
+}
+
+.nameplateSlot {
+	position: absolute;
+	right: 4%;
+	bottom: 2.67%;
+}
+
+.buttonsSlot {
+	position: absolute;
+	top: 2.67%;
+	right: 4%;
+}

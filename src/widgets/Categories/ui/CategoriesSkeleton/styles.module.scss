@@ -1,0 +1,33 @@
+.card {
+	display: flex;
+	width: 100%;
+	padding: 1rem 0;
+}
+
+.cardFull {
+	padding: 1rem;
+}
+
+.meta {
+	flex-grow: 1;
+	margin-left: 1rem;
+}
+
+.title {
+	width: 80%;
+	height: 1.125rem;
+	margin-bottom: 0.5rem;
+}
+
+.titleFull {
+	height: 1.5rem;
+}
+
+.subTitle {
+	width: 40%;
+	height: 1rem;
+}
+
+.subTitleFull {
+	height: 1.125rem;
+}

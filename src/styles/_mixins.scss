@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+//Percent
+@function percent($px, $from) {
+	$result: math.div($px, $from) * 100%;
+	@return $result;
+}
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+@mixin adaptiveValue($property, $minViewportWidth, $maxViewportWidth, $minValue, $maxValue) {
+	$addSize: math.div($maxValue - $minValue, 16);
+	$slope: math.div(($maxValue - $minValue), ($maxViewportWidth - $minViewportWidth));
+	$yAxisIntersection: -$minViewportWidth * $slope + $minValue;
+	$flyValue: #{rem($yAxisIntersection)}" + " #{$slope * 100}vw;
+	$propertyValue: #{"clamp(" rem($minValue) "," $flyValue "," rem($maxValue) ")"};
+	#{$property}: $propertyValue;
+}

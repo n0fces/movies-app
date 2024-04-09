@@ -1,0 +1,43 @@
+@import '@/styles/_mixins.scss';
+
+.item {
+	a {
+		position: relative;
+		display: flex;
+		align-items: center;
+		column-gap: 0.467em;
+
+		span {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	opacity: 0.6;
+	transition: opacity 0.2s ease;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.active {
+	opacity: 1;
+	font-weight: 700;
+
+	a:after {
+		content: '';
+		position: absolute;
+		top: 1.733em;
+		left: 0.067em;
+		display: block;
+		width: 1.467em;
+		height: 0.2em;
+		background-color: #f50;
+	}
+}
+
+.icon {
+	width: 1.6em;
+	height: 1.6em;
+}

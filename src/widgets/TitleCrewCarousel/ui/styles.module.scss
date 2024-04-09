@@ -1,0 +1,44 @@
+.allLinkCast {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	line-height: 1.6;
+	color: var(--kp-main-color);
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 0 1.5rem;
+}
+
+.cast {
+	overflow-x: auto;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+
+	margin: 0 calc(-1 * var(--container-padding-mobile));
+}
+
+.list {
+	display: grid;
+	grid-auto-flow: column;
+	column-gap: 1rem;
+	row-gap: 1.25rem;
+
+	padding: 0 var(--container-padding-mobile);
+}
+
+.listActors {
+	grid-template-rows: repeat(4, 60px);
+}
+
+.listCreators {
+	grid-template-rows: repeat(2, 60px);
+}
+
+.listItem {
+	width: 15.625rem;
+}

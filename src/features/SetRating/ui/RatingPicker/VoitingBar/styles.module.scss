@@ -1,0 +1,50 @@
+.voitingBar {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	display: flex;
+
+	font-size: 1.25rem;
+	font-weight: 600;
+	padding: 0.25rem 1rem;
+
+	background-color: var(--button-default-color-without-opacity);
+	border-radius: 2rem;
+}
+
+.iconStar {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 0.25rem;
+	opacity: 0.2;
+}
+
+.button {
+	flex: 0 0 1.75rem;
+	width: 1.75rem;
+	height: 1.5rem;
+	text-align: center;
+
+	opacity: 0.2;
+	transition: all 0.2s ease;
+}
+
+.default {
+	color: var(--default-rating-color);
+}
+
+.positive {
+	color: var(--positive-rating-color);
+}
+
+.negative {
+	color: var(--negative-rating-color);
+}
+
+.default,
+.positive,
+.negative {
+	opacity: 1;
+	transform: scale(1.2);
+}

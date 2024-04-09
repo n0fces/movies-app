@@ -1,0 +1,40 @@
+.modal {
+	margin: 0;
+	min-width: 100vw;
+	min-height: 100vh;
+
+	background-color: #fff;
+}
+
+.modalRoot {
+	padding: 1rem;
+	min-height: 100vh;
+}
+
+.modalHeader {
+	position: relative;
+	margin-bottom: 2rem;
+	padding: 0.625rem 0;
+}
+
+.modalTitle {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	line-height: 1.333;
+	text-align: center;
+}
+
+.closeBtn {
+	position: absolute;
+	top: 0.625rem;
+	right: 0;
+
+	height: 1.75rem;
+	width: 1.75rem;
+}
+
+.closeIcon {
+	width: 0.875rem;
+	height: 0.875rem;
+	fill: rgba(0, 0, 0, 0.4);
+}

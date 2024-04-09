@@ -1,0 +1,19 @@
+.loadingBackdrop {
+	display: flex;
+	align-items: center;
+	
+	justify-content: center;
+	height: 6.8em;
+	padding: 0 3.2em 0.533em;
+	font-size: 0.9375rem;
+	line-height: 0.8333;
+	text-align: center;
+	color: var(--text-minor-color);
+	background-color: #fff;
+
+	@media (min-width: 48em) {
+		border-radius: 0.5rem;
+	}
+
+	box-shadow: var(--box-shadow-header-items);
+}

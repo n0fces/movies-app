@@ -1,0 +1,50 @@
+.basicMediaSection {
+	display: flex;
+	flex-direction: column;
+}
+
+.poster {
+	width: 13.875rem;
+	height: 20.8125rem;
+
+	@media (min-width: 80em) {
+		width: 18.875rem;
+		height: 28.3125rem;
+	}
+}
+
+.trailer {
+	width: 100%;
+	padding-bottom: 56.25%;
+}
+
+.trailerWrapper {
+	width: 100%;
+	margin-bottom: 0.5rem;
+}
+
+.linkTrailers {
+	color: #000;
+
+	line-height: 1.2;
+	font-size: 0.9375rem;
+	font-weight: 500;
+	transition: color 0.1s ease-in-out;
+
+	&:hover,
+	&:focus {
+		color: var(--kp-main-color);
+	}
+}
+
+.posterContainer {
+	margin-bottom: 1.5rem;
+}
+
+.trailerContainer {
+	margin-bottom: 1.5rem;
+}
+
+.socialControlsContainer {
+	margin-top: auto;
+}

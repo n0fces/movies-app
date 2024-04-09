@@ -1,0 +1,129 @@
+.video {
+	@media (any-hover: hover) {
+		&:hover {
+			.button {
+				opacity: 1;
+			}
+		}
+	}
+
+	&:focus-within {
+		.button {
+			opacity: 1;
+		}
+	}
+}
+
+.withBtn {
+	cursor: pointer;
+}
+
+.image {
+	position: relative;
+	font-size: inherit;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		background-color: #ccc;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&::after {
+		content: '\2639'' ' attr(alt);
+		display: inline-block;
+		margin: auto;
+
+		width: 75%;
+		height: 50%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+
+		color: rgb(100, 100, 100);
+
+		position: absolute;
+		z-index: 2;
+		top: 25%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.previewInfo {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.buttonWrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	// * надо будет сделать переменные под z-index, чтобы я мог отследить, что кого перекрывает
+	z-index: 5;
+}
+
+.button {
+	width: 3.75rem;
+	height: 3.75rem;
+
+	opacity: 0;
+
+	border-radius: 50%;
+}
+
+.btnGradient {
+	display: inline-flex;
+	align-items: center;
+
+	line-height: 1.2;
+	white-space: nowrap;
+
+	transition: transform var(--button-transition-duration) ease,
+		background var(--button-transition-duration) ease;
+
+	justify-content: center;
+
+	background: linear-gradient(
+		135deg,
+		var(--kp-main-color) 69.93%,
+		var(--kp-secondary-color)
+	);
+	color: #fff;
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.05) translateZ(0);
+			background: linear-gradient(
+				135deg,
+				var(--kp-main-color) 75%,
+				var(--kp-secondary-color)
+			);
+		}
+	}
+
+	&:focus {
+		transform: scale(1.05) translateZ(0);
+		background: linear-gradient(
+			135deg,
+			var(--kp-main-color) 75%,
+			var(--kp-secondary-color)
+		);
+	}
+}
+
+.icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #fff;
+}

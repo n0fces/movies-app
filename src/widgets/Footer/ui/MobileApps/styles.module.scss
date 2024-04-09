@@ -1,0 +1,22 @@
+.mobileAppsMenu {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.9375rem;
+	padding: 2.1875rem 0 3.5rem;
+}
+
+.mobileAppsItem {
+	width: 9.625rem;
+	height: 2.875rem;
+	opacity: 0.8;
+
+	@media(any-hover: hover) {
+		&:hover {
+			opacity: 1;
+		}
+	}
+	&:focus, &:active {
+		opacity: 1;
+	}
+}

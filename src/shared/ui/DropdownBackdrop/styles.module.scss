@@ -1,0 +1,16 @@
+.dropdownBackdrop {
+	position: absolute;
+	z-index: 1;
+	overflow: hidden;
+
+	background: #fff;
+	box-shadow: var(--box-shadow-default);
+}
+
+.dropdownBackdropLeft {
+	left: 0;
+}
+
+.dropdownBackdropRight {
+	right: 0;
+}

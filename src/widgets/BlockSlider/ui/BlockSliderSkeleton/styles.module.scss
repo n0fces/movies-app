@@ -1,0 +1,15 @@
+.mainTitle {
+	margin-bottom: 1rem;
+}
+
+.carousel {
+	overflow: hidden;
+	display: flex;
+	column-gap: 0.5rem;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.3125rem;
+}

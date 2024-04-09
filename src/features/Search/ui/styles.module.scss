@@ -1,0 +1,30 @@
+.inputContainer {
+	position: relative;
+}
+
+.computer {
+	width: max(50%, 12.5rem);
+}
+
+.suggestContainer {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	top: calc(100% + 0.25rem);
+	left: 0;
+}
+
+.mobile {
+	position: fixed;
+	width: 100vw;
+	top: var(--header-height-mobile);
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--overlay-background-color);
+}

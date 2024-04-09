@@ -1,0 +1,76 @@
+.socialServices {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 0.5rem;
+}
+
+.service {
+	width: 3.25rem;
+	height: 3.25rem;
+}
+
+.link {
+	height: 100%;
+	border-radius: 50%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: background-color var(--button-transition-duration) ease,
+		transform var(--button-transition-duration) ease;
+
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		// пока это не работает почему-то
+		&:hover .vk {
+			background-color: black
+		}
+
+		&:hover .twitter {
+			background-color: #55acee;
+		}
+
+		&:hover .telegram {
+			background-color: #08c;
+		}
+	}
+
+	&:focus {
+		transform: scale(1.05);
+	}
+
+	&:focus .vk {
+		background-color: #4c74a2;
+	}
+
+	&:focus .twitter {
+		background-color: #55acee;
+	}
+
+	&:focus .telegram {
+		background-color: #08c;
+	}
+}
+
+.vk {
+	background-color: #4c74a2;
+}
+
+.twitter {
+	background-color: #55acee;
+}
+
+.telegram {
+	background-color: #08c;
+}
+
+.icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: #fff;
+}

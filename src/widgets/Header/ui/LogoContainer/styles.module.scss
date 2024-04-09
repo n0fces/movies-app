@@ -1,0 +1,103 @@
+.logoContainer {
+	column-gap: var(--header-gap-items);
+	font-size: 1.6875rem;
+	color: #fff;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: relative;
+}
+
+.fullLogoContainer {
+	font-size: 2rem;
+}
+
+.dropdownWrapper {
+	padding-top: calc(var(--header-height) - var(--header-dropdown-padding));
+}
+
+.linkMain,
+.buttonBurger {
+	display: flex;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+}
+
+.buttonBurger {
+	display: block;
+	visibility: visible;
+	width: 1.125rem;
+	height: 0.875rem;
+	cursor: pointer;
+
+	transition: opacity 0.2s ease;
+	opacity: 0.6;
+
+	&::before,
+	&::after,
+	& span {
+		position: absolute;
+		left: 0;
+		height: 0.0625rem;
+		width: 100%;
+		transition: all 0.2s ease 0s;
+		background-color: #fff;
+	}
+	&::before,
+	&::after {
+		content: '';
+	}
+	&::before {
+		top: 0;
+	}
+	&::after {
+		bottom: 0;
+	}
+	& span {
+		top: 50%;
+		transform: scale(1) translate(0px, -50%);
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.buttonBurgerActive {
+	span {
+		transform: scale(0) translate(0px, -50%);
+	}
+	&::before {
+		top: 50%;
+		transform: rotate(-45deg) translate(0px, -50%);
+	}
+	&::after {
+		bottom: 50%;
+		transform: rotate(45deg) translate(0px, 50%);
+	}
+}
+
+@media (min-width: 80em) {
+	.hasSidebar {
+		display: none;
+		visibility: hidden;
+
+		& + div {
+			visibility: hidden;
+		}
+	}
+}
+
+.logo {
+	width: 1.375rem;
+	height: 1.375rem;
+	fill: #fff;
+}
+
+.fullLogo {
+	width: 1.625rem;
+	height: 1.625rem;
+}

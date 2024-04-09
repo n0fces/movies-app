@@ -1,0 +1,18 @@
+.userMenu {
+	color: #fff;
+}
+
+.userName {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.2222;
+
+	margin-bottom: var(--header-dropdown-padding);
+}
+
+.list {
+	font-size: 16px;
+	li:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}

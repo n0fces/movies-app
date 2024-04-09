@@ -1,0 +1,15 @@
+.footer {
+	background-color: var(--footer-background-color);
+
+	> * {
+		margin: 0 auto;
+	}
+
+	* {
+		outline: none;
+	}
+}
+
+.mobile {
+	padding: 1.25rem 0 3.875rem;
+}

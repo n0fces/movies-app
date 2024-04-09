@@ -1,0 +1,25 @@
+.section{
+	display: block;
+}
+
+.title {
+	margin-bottom: 1rem;
+}
+
+.link {
+	height: auto;
+	display: inline-flex;
+	align-items: center;
+	column-gap: 0.25rem;
+
+	&:focus, &:active {
+		outline: 0.125rem solid black;
+		outline-offset: 0.125rem;
+		border-radius: 0.125rem;
+	}
+}
+
+.arrowLink {
+	width: 1.25rem;
+	height: 1.25rem;
+}

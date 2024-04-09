@@ -1,0 +1,70 @@
+.userItems {
+	display: flex;
+	column-gap: 0.25rem;
+}
+
+.column {
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.plannedToWatch {
+	font-size: 0.8125rem;
+	height: 2rem;
+	min-width: 2rem;
+
+	@media (min-width: 80em) {
+		padding: 0 1.231em;
+	}
+
+	@media (max-width: 80em) {
+		span {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			white-space: nowrap;
+			clip-path: inset(100%);
+			clip: rect(0 0 0 0);
+			border: 0;
+			padding: 0;
+		}
+	}
+
+	svg {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+}
+
+.iconDesk {
+	svg {
+		width: 1rem;
+		height: 1rem;
+	}
+}
+
+.plannedToWatchSmall {
+	opacity: 0.6;
+	transition: opacity 0.2s ease;
+
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&:focus,
+	&:active {
+		opacity: 1;
+	}
+}
+
+.setRating,
+.moreOption {
+	font-size: 0.8125rem;
+	height: 2rem;
+	width: 2rem;
+}

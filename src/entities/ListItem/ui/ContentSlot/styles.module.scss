@@ -1,0 +1,38 @@
+.content {
+	display: inline-block;
+	max-width: 22.5rem;
+}
+
+.title {
+	font-size: 1.125rem;
+	font-weight: 500;
+	line-height: 1.222;
+	color: #000;
+}
+
+.titleSmall {
+	font-size: 0.9375rem;
+}
+
+.secondaryTitle,
+.additionalInfo {
+	font-size: 0.8125rem;
+	line-height: 1.231;
+}
+
+.secondaryTitle {
+	color: #000;
+	margin-top: 0.3125rem;
+}
+
+.additionalInfo {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.25rem;
+	color: var(--text-minor-color);
+	margin-top: 0.5rem;
+}
+
+.watchItems {
+	margin-top: 1rem;
+}

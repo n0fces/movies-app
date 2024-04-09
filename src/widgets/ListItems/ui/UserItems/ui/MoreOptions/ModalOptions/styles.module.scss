@@ -1,0 +1,56 @@
+.button {
+	opacity: 0.6;
+	transition: opacity 0.2s ease;
+
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&:focus,
+	&:active {
+		opacity: 1;
+	}
+}
+
+.buttonIcon {
+	width: 1rem;
+	height: 1rem;
+}
+
+.buttonsCnt {
+	display: flex;
+	flex-direction: column;
+}
+
+.trailerBtn {
+	font-size: 0.9375rem;
+	height: 4rem;
+	margin: 0 1rem;
+}
+
+.ratingBtn {
+	height: 4rem;
+	margin: 0 1rem;
+
+	svg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}
+
+.addToFoldersModal {
+	height: 4rem;
+	margin: 0 1rem;
+
+	svg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}
+
+.icon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
