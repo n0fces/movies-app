@@ -28,13 +28,13 @@ export default async function CategoryDescription({
 					})}>
 					{name}
 				</Title>
-				<div className={styles.text}>
+				{/* <div className={styles.text}>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Esse sed illum modi debitis quidem in assumenda aliquid
 					possimus explicabo dolore sint dignissimos minima adipisci
 					dicta delectus praesentium magni repellat inventore fuga
 					culpa maxime, quas a sunt. Ipsa sit temporibus eos.
-				</div>
+				</div> */}
 			</div>
 			<MyImage
 				className={styles.image}
