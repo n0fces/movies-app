@@ -1,19 +1,18 @@
-import { getTitle } from '@/app/(title)/api/getTitle';
+import { Watchability } from '@/shared/types';
 import { WatchingServicesDetails } from './ui/WatchingServicesDetails';
 import { WatchingServicesMobile } from './ui/WatchingServicesMobile';
 
 interface WatchingServicesProps {
 	className?: string;
 	isMobile: boolean;
-	id: number;
+	watchability?: Watchability;
 }
 
 export const WatchingServices = async ({
 	className,
 	isMobile,
-	id,
+	watchability,
 }: WatchingServicesProps) => {
-	const { watchability } = await getTitle(id);
 	return watchability?.items?.length ? (
 		<div className={className}>
 			{isMobile ? (
