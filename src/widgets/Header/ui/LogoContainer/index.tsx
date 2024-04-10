@@ -21,8 +21,8 @@ export const LogoHeader = ({ isMobile }: LogoProps) => {
 			className={clsx(styles.logoContainer, {
 				[styles.fullLogoContainer]: !isMobile,
 			})}
-			onMouseEnter={() => setIsOpen(true)}
-			onMouseLeave={() => setIsOpen(false)}>
+			onMouseEnter={isMobile ? undefined : () => setIsOpen(true)}
+			onMouseLeave={isMobile ? undefined : () => setIsOpen(false)}>
 			<button
 				className={clsx(styles.buttonBurger, {
 					[styles.buttonBurgerActive]: isOpen,

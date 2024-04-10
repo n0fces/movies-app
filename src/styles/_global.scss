@@ -18,7 +18,7 @@ a:active {
 }
 html,
 body {
-	// height: 100%;
+	height: 100%;
 }
 .full {
 	min-width: 1024px;
@@ -99,6 +99,7 @@ body {
 
 .noscroll {
 	overflow: hidden;
+	position: relative;
 }
 
 .container {
@@ -107,7 +108,7 @@ body {
 	padding-left: var(--container-padding-mobile);
 	padding-right: var(--container-padding-mobile);
 	margin: 0 auto;
-	
+
 	@media (min-width: 80em) {
 		max-width: var(--container-width);
 	}

@@ -32,8 +32,8 @@ export const UserHeader = ({ isMobile }: UserHeaderProps) => {
 				className={clsx(styles.buttonMenu, {
 					[styles.computer]: !isMobile,
 				})}
-				onMouseEnter={() => setIsOpen(true)}
-				onMouseLeave={() => setIsOpen(false)}>
+				onMouseEnter={isMobile ? undefined : () => setIsOpen(true)}
+				onMouseLeave={isMobile ? undefined : () => setIsOpen(false)}>
 				<button
 					className={styles.userAvatar}
 					aria-expanded={!isOpen ? 'false' : 'true'}
