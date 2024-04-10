@@ -17,12 +17,17 @@ const openSans = Open_Sans({
 	weight: ['400', '500', '600', '700'],
 });
 
-export const metadata: Metadata = {
-	title: 'KinoStar',
-	description:
-		'Поиск фильмов, новости кино, отзывы пользователей, афиша кинотеатров, фотографии, постеры, трейлеры, кассовые сборы и многое другое.',
-	viewport: 'width=device-width',
-};
+export function generateMetadata(): Metadata {
+	const isMobile = deviceDetectServer();
+	return {
+		title: 'KinoStar',
+		description:
+			'Поиск фильмов, новости кино, отзывы пользователей, афиша кинотеатров, фотографии, постеры, трейлеры, кассовые сборы и многое другое.',
+		viewport: isMobile
+			? 'initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width'
+			: 'width=device-width',
+	};
+}
 
 export default function RootLayout({
 	children,

@@ -67,21 +67,20 @@ export const Modal = ({
 	useEffect(() => {
 		const dialog = dialogRef.current;
 		if (isOpen) {
-			showModal();
 			document.body.classList.add('noscroll');
 			dialog?.addEventListener('keydown', onKeyDown);
 			dialog?.addEventListener('keydown', focusTrap);
 			dialog?.addEventListener('click', clickByBackdrop);
+			showModal();
 		}
 
 		return () => {
-			dialog?.removeEventListener('keydown', onKeyDown);
-			dialog?.addEventListener('keydown', focusTrap);
-			dialog?.addEventListener('click', clickByBackdrop);
-
 			if (document.getElementById('modal-root')?.children.length === 0) {
 				document.body.classList.remove('noscroll');
 			}
+			dialog?.removeEventListener('keydown', onKeyDown);
+			dialog?.addEventListener('keydown', focusTrap);
+			dialog?.addEventListener('click', clickByBackdrop);
 		};
 	}, [
 		isOpen,
