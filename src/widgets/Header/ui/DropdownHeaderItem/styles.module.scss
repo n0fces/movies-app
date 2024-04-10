@@ -22,7 +22,7 @@
 	border-top: 0.1px solid rgba(255, 255, 255, 0.2);
 	left: 0;
 	width: 100vw;
-	height: calc(100vh - var(--header-height-mobile));
+	height: calc(100dvh - var(--header-height-mobile));
 }
 
 .dropdownActive {
