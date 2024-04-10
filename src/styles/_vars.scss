@@ -43,3 +43,7 @@
 
 	--footer-background-color: #000;
 }
+
+::backdrop {
+	--color-backdrop: rgba(0, 0, 0, 0.7);
+}

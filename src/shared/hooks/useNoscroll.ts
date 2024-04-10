@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export const useNoscroll = (isMobile: boolean, isOpen: boolean) => {
 	useEffect(() => {
@@ -9,4 +9,4 @@ export const useNoscroll = (isMobile: boolean, isOpen: boolean) => {
 				: body.classList.remove('noscroll');
 		}
 	}, [isOpen, isMobile]);
-}
+};
