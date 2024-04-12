@@ -18,14 +18,10 @@ export const Modal = ({
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	// * нужно не забыть подключать полифил на тот случай, если в браузере пользователя не поддерживается данный тег
 	const showModal = useCallback(() => {
-		document.body.classList.add('noscroll');
 		dialogRef.current?.showModal();
 	}, []);
 
 	const unmountModal = useCallback(() => {
-		if (document.getElementById('modal-root')?.children.length === 0) {
-			document.body.classList.remove('noscroll');
-		}
 		dialogRef.current?.close();
 		closeModal();
 	}, [closeModal]);
@@ -74,6 +70,7 @@ export const Modal = ({
 	useEffect(() => {
 		const dialog = dialogRef.current;
 		if (isOpen) {
+			document.body.classList.add('noscroll');
 			dialog?.addEventListener('keydown', onKeyDown);
 			dialog?.addEventListener('keydown', focusTrap);
 			dialog?.addEventListener('click', clickByBackdrop);
@@ -81,6 +78,9 @@ export const Modal = ({
 		}
 
 		return () => {
+			if (document.getElementById('modal-root')?.children.length === 0) {
+				document.body.classList.remove('noscroll');
+			}
 			dialog?.removeEventListener('keydown', onKeyDown);
 			dialog?.addEventListener('keydown', focusTrap);
 			dialog?.addEventListener('click', clickByBackdrop);
