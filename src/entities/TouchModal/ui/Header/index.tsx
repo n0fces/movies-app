@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { TouchModalProps } from '../../';
 import styles from './styles.module.scss';
 import { MyImage } from '@/shared/ui/MyImage';
@@ -6,16 +7,19 @@ interface HeaderProps
 	extends Pick<
 		TouchModalProps,
 		'isTitle' | 'poster' | 'title' | 'secondaryTitle'
-	> {}
+	> {
+	className?: string;
+}
 
 export const Header = ({
 	poster,
 	title,
 	secondaryTitle,
 	isTitle,
+	className,
 }: HeaderProps) => {
 	return isTitle ? (
-		<div className={styles.header}>
+		<div className={clsx(styles.header, className)}>
 			<MyImage
 				src={poster}
 				alt={title || secondaryTitle}

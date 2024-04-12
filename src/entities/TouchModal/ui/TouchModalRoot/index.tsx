@@ -25,7 +25,7 @@ const TouchModalRoot = ({
 			aria-labelledby={`dialog-${title || secondaryTitle}`}>
 			<div className={styles.headerContainer}>
 				{/* надо будет переименовать, чтобы точно понимал, что это хедер модалки */}
-				<Header {...otherProps} />
+				<Header {...otherProps} className={styles.header} />
 				<div className={styles.closeBtnContainer}>
 					<Button
 						theme='useFeature'

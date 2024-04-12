@@ -8,9 +8,13 @@
 
 .headerContainer {
 	display: flex;
-	justify-content: space-between;
+	column-gap: 1rem;
 	padding: 1rem 1rem 1.5rem;
 	border-block-end: 0.0625rem solid var(--delimiter-color);
+}
+
+.header {
+	flex-grow: 1;
 }
 
 .closeBtnContainer {
