@@ -24,34 +24,67 @@ export const ObserverItem = ({
 				entry.isIntersecting
 					? entry.target.classList.add('visible')
 					: entry.target.classList.remove('visible');
-
-				if (index === 0 && entry.intersectionRatio < 0.75) {
-					leftButtonRef.current?.classList.add(styles.visible);
-				}
-				if (index === 0 && entry.intersectionRatio >= 0.75) {
-					leftButtonRef.current?.classList.remove(styles.visible);
-				}
-
-				if (index === length - 1 && entry.intersectionRatio < 0.75) {
-					rightButtonRef.current?.classList.add(styles.visible);
-				}
-				if (index === length - 1 && entry.intersectionRatio >= 0.75) {
-					rightButtonRef.current?.classList.remove(styles.visible);
-				}
 			},
 			{
 				root: carouselRef.current,
-				threshold: [0, 0.75],
 			}
 		);
 
-		// * В будущем нужно будет подумать над следующим. Может стоит сделать еще два обсервера, но уже конкретно для первого и последнего элемента карусели, чтобы только там два раза срабатывали колбэки (threshold: [0, 0.75]). Сейчас у меня для каждого элемента карусели будет выполняться данный колбэк
+		let carouselObserverFirstItem: IntersectionObserver | undefined;
+		if (index === 0) {
+			carouselObserverFirstItem = new IntersectionObserver(
+				([entry]) => {
+					if (entry.intersectionRatio < 0.75) {
+						leftButtonRef.current?.classList.add(styles.visible);
+					}
+					if (entry.intersectionRatio >= 0.75) {
+						leftButtonRef.current?.classList.remove(styles.visible);
+					}
+				},
+				{
+					root: carouselRef.current,
+					threshold: [0.75],
+				}
+			);
+		}
+
+		let carouselObserverLastItem: IntersectionObserver | undefined;
+		if (index === length - 1) {
+			carouselObserverLastItem = new IntersectionObserver(
+				([entry]) => {
+					if (entry.intersectionRatio < 0.75) {
+						rightButtonRef.current?.classList.add(styles.visible);
+					}
+					if (entry.intersectionRatio >= 0.75) {
+						rightButtonRef.current?.classList.remove(
+							styles.visible
+						);
+					}
+				},
+				{
+					root: carouselRef.current,
+					threshold: [0.75],
+				}
+			);
+		}
 
 		carouselObserver.observe(ref.current!);
+		if (carouselObserverFirstItem !== undefined) {
+			carouselObserverFirstItem.observe(ref.current!);
+		}
+		if (carouselObserverLastItem !== undefined) {
+			carouselObserverLastItem.observe(ref.current!);
+		}
 
 		const refVar = ref.current;
 		return () => {
 			carouselObserver.unobserve(refVar!);
+			if (carouselObserverFirstItem !== undefined) {
+				carouselObserverFirstItem.unobserve(refVar!);
+			}
+			if (carouselObserverLastItem !== undefined) {
+				carouselObserverLastItem.unobserve(refVar!);
+			}
 		};
 	}, [carouselRef, index, leftButtonRef, length, rightButtonRef]);
 
