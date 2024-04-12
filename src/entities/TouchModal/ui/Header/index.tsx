@@ -38,7 +38,7 @@ export const Header = ({
 		</div>
 	) : (
 		<div
-			className={styles.headerTitle}
+			className={clsx(styles.headerTitle, className)}
 			id={`dialog-${title}`}>
 			{title}
 		</div>
