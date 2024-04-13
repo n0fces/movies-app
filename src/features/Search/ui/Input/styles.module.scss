@@ -1,0 +1,29 @@
+.search,
+.searchTouch {
+	display: block;
+	width: 100%;
+	color: #fff;
+	font-size: 0.9375rem;
+	padding: 0.53333em 0 0.53333em 1.066667em;
+
+	&:placeholder-shown {
+		text-overflow: ellipsis;
+	}
+}
+
+.search {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-radius: 0.466667em;
+}
+
+.focus {
+	color: #000;
+	outline: none;
+	background-color: #fff;
+}
+
+.searchTouch {
+	border: none;
+	outline: none;
+	background: transparent;
+}

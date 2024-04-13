@@ -1,16 +1,23 @@
 import { useEffect } from 'react';
 
-import { useInputValue, useIsLoading, useIsOpen, useSuggests } from './context';
+import {
+	useInputValue,
+	useIsChange,
+	useIsOpen,
+	useSetters,
+	useSuggests,
+} from './context';
 
 export const useModel = () => {
-	const { setIsLoading } = useIsLoading();
-	const { setSuggests } = useSuggests();
-	const { value } = useInputValue();
-	const { isOpen } = useIsOpen();
+	const { setSuggests, setIsLoading, setIsChange } = useSetters();
+	const value = useInputValue();
+	const isOpen = useIsOpen();
+	const isChange = useIsChange();
+	const suggests = useSuggests();
 
 	useEffect(() => {
 		let controller: AbortController | undefined;
-		if (isOpen) {
+		if (isOpen && (isChange || suggests.length === 0)) {
 			controller = new AbortController();
 			const signal = controller.signal;
 			setIsLoading(true);
@@ -23,14 +30,13 @@ export const useModel = () => {
 					});
 					const res = await response.json();
 					setSuggests(res);
-					setIsLoading(false);
 				} catch (error) {
-					if (signal.aborted) {
-						console.log(error);
-					} else {
+					if (!signal.aborted) {
 						console.error(error);
-						setIsLoading(false);
 					}
+				} finally {
+					setIsChange(false);
+					setIsLoading(false);
 				}
 			})();
 		}
@@ -40,5 +46,13 @@ export const useModel = () => {
 				controller.abort();
 			}
 		};
-	}, [value, setIsLoading, setSuggests, isOpen]);
+	}, [
+		value,
+		setIsLoading,
+		setSuggests,
+		isChange,
+		isOpen,
+		suggests.length,
+		setIsChange,
+	]);
 };

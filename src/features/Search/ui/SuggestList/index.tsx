@@ -5,14 +5,11 @@ import Link from 'next/link';
 import { SuggestItem } from '../SuggestItem';
 import { useInputValue, useIsLoading, useSuggests } from '../../model/context';
 import { LoadingBackdrop } from '../LoadingBackdrop';
-// import { useModel } from '../../model';
 
 const SuggestList = () => {
-	const { isLoading } = useIsLoading();
-	const { suggests } = useSuggests();
-	const { value } = useInputValue();
-
-	// useModel();
+	const isLoading = useIsLoading();
+	const suggests = useSuggests();
+	const value = useInputValue();
 
 	return (
 		<div className={styles.suggestList}>

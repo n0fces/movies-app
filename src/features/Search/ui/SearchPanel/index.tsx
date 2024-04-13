@@ -1,62 +1,38 @@
 'use client';
 
-import styles from './styles.module.scss';
-import { ChangeEvent, useEffect } from 'react';
-import { useDebouce } from '@/shared/hooks/useDebounce';
-import { clsx } from 'clsx';
 import { Icon } from '@/shared/ui/Icon';
-import { useInputValue, useIsOpen } from '../../model/context';
-import { usePathname } from 'next/navigation';
+import { clsx } from 'clsx';
+import { useIsOpen, useSetters } from '../../model/context';
+import { Input } from '../Input';
+import styles from './styles.module.scss';
 
-interface SearchPanelProps {
+export interface SearchPanelProps {
 	isMobile: boolean;
 }
 
-const Input = ({ isMobile }: SearchPanelProps) => {
-	const pathname = usePathname();
-	const { setValue } = useInputValue();
-	const { isOpen, setIsOpen } = useIsOpen();
-
-	useEffect(() => {
-		return () => setValue('');
-	}, [setValue]);
-
-	return (
-		<input
-			className={clsx({
-				[styles.search]: !isMobile,
-				[styles.searchTouch]: isMobile,
-				[styles.focus]: isOpen && !isMobile,
-			})}
-			key={pathname}
-			autoFocus={isMobile}
-			onFocus={() => setIsOpen(true)}
-			type='search'
-			placeholder='Фильмы, сериалы, персоны'
-			title='Заполните это поле.'
-			onChange={useDebouce((e: ChangeEvent<HTMLInputElement>) => {
-				setValue(e.target.value);
-			}, 500)}
-		/>
-	);
-};
-
 export const SearchPanel = ({ isMobile }: SearchPanelProps) => {
-	const { isOpen, setIsOpen } = useIsOpen();
+	const { setIsOpen } = useSetters();
+	const isOpen = useIsOpen();
 
 	return isMobile ? (
-		<div
-			className={clsx(styles.searchContainer, {
-				[styles.searchContainerActive]: isOpen,
-			})}>
+		<>
 			<button
 				className={styles.button}
-				aria-label={isOpen ? 'Скрыть поиск' : 'Найти'}
-				onClick={() => setIsOpen(!isOpen)}>
+				aria-label={'Найти'}
+				onClick={() => setIsOpen(true)}>
 				<Icon name='search' />
 			</button>
 			{isOpen && (
-				<>
+				<div
+					className={clsx(styles.searchContainer, {
+						[styles.searchContainerActive]: isOpen,
+					})}>
+					<button
+						className={styles.button}
+						aria-label={'Скрыть поиск'}
+						onClick={() => setIsOpen(false)}>
+						<Icon name='search' />
+					</button>
 					<Input isMobile={isMobile} />
 					<button
 						className={styles.button}
@@ -66,9 +42,9 @@ export const SearchPanel = ({ isMobile }: SearchPanelProps) => {
 							className={styles.closeIcon}
 						/>
 					</button>
-				</>
+				</div>
 			)}
-		</div>
+		</>
 	) : (
 		<Input isMobile={isMobile} />
 	);

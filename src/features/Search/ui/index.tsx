@@ -8,6 +8,7 @@ import {
 	ContextProvider,
 	useInputValue,
 	useIsOpen,
+	useSetters,
 	useSuggests,
 } from '../model/context';
 import { useNoscroll } from '@/shared/hooks/useNoscroll';
@@ -27,10 +28,9 @@ const SuggestList = dynamic(() => import('./SuggestList'), {
 });
 
 export const SearchObj = ({ isMobile }: SuggestProps) => {
-	const { isOpen, setIsOpen } = useIsOpen();
+	const isOpen = useIsOpen();
 	const pathname = usePathname();
-	const { setValue } = useInputValue();
-	const { setSuggests } = useSuggests();
+	const { setValue, setSuggests, setIsOpen } = useSetters();
 
 	// * Затем надо будет добавить поиск по персонам
 	useNoscroll(isMobile, isOpen);
@@ -49,8 +49,6 @@ export const SearchObj = ({ isMobile }: SuggestProps) => {
 			className={!isMobile ? styles.computer : undefined}>
 			<SearchPanel isMobile={isMobile} />
 			{isOpen ? (
-				// возможно надо будет переработать немного DropdownBackdrop
-				// для мобильного устройства данная подложка будет иначе позиционироваться
 				<div
 					className={clsx(styles.suggestContainer, {
 						[styles.mobile]: isMobile,

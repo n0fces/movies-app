@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 export const useNoscroll = (isMobile: boolean, isOpen: boolean) => {
 	useEffect(() => {
 		if (isMobile) {
-			// const root = document.getElementById('root')!;
 			const root = document.body;
 			isOpen
 				? root.classList.add('noscroll')
