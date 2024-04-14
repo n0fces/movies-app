@@ -1,24 +1,8 @@
-.item {
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	column-gap: 0.267em;
-	justify-content: space-between;
-
+.itemBtn {
+	width: 100%;
+	white-space: normal !important;
 	padding: 0.667em 1.333em;
-	line-height: 1.333;
-
-	background-color: #fff;
-	outline: none;
-	@media (any-hover: hover) {
-		&:hover {
-			background-color: var(--button-default-color);
-		}
-	}
-	&:focus,
-	&:active {
-		background-color: var(--button-default-color);
-	}
+	column-gap: 0.267em;
 }
 
 .icon {

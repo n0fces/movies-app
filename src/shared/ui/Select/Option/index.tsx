@@ -1,7 +1,8 @@
-import { Icon } from '@/shared/ui/Icon';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
 import { OptionProps } from '../types';
+import { Button } from '../../Button';
+import { Icon } from '../../Icon';
+import styles from './styles.module.scss';
 
 export interface OptionPropsExtented extends OptionProps {
 	choiceAction: (value: string, label: string) => void;
@@ -23,15 +24,19 @@ export const Option = ({
 			tabIndex={-1}
 			role='option'
 			aria-selected={selected}
-			onClick={() => choiceAction(value, label)}
-			className={clsx(styles.item, className)}>
-			{label}
-			{selected ? (
-				<Icon
-					name='selected-option'
-					className={styles.icon}
-				/>
-			) : null}
+			className={className}>
+			<Button
+				theme='modal'
+				onClick={() => choiceAction(value, label)}
+				className={styles.itemBtn}>
+				{label}
+				{selected ? (
+					<Icon
+						name='selected-option'
+						className={styles.icon}
+					/>
+				) : null}
+			</Button>
 		</li>
 	);
 };
