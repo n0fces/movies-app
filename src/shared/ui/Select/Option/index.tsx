@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { OptionProps } from '../types';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';

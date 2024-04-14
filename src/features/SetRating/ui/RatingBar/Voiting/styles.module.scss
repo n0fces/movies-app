@@ -5,6 +5,12 @@
 	column-gap: 0.5rem;
 }
 
+.voitingBtn {
+	&:focus {
+		outline: 2px solid var(--default-rating-color);
+	}
+}
+
 .choiceIcon {
 	width: 1rem;
 	height: 1rem;

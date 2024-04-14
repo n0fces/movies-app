@@ -7,6 +7,7 @@ import {
 	useSetRating,
 } from '../../../context';
 import styles from './styles.module.scss';
+import { useEffect, useRef } from 'react';
 
 interface DropdownMenuRatingProps {
 	className?: string;
@@ -16,15 +17,23 @@ export const DropdownMenuRating = ({ className }: DropdownMenuRatingProps) => {
 	const { setIsOpen } = useIsOpenBar();
 	const { setIsOpenDropdown } = useIsOpenDropdownMenu();
 	const { setRating, setValue } = useSetRating();
+	const ref = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		ref.current?.focus();
+	}, []);
+
 	return (
 		<DropdownBackdrop
+			ref={ref}
+			tabIndex={0}
+			aria-label='Выберите действие'
 			className={clsx(styles.dropdownMenuRating, className)}>
 			<ul className={styles.dropdownList}>
 				<li className={styles.dropdownItem}>
 					<Button
 						theme='modal'
 						onClick={() => {
-							setValue(undefined);
 							setIsOpenDropdown(false);
 							setIsOpen(true);
 						}}

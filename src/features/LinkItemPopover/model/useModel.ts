@@ -64,11 +64,6 @@ export const useModel = (
 					(async () => {
 						try {
 							const res = await response();
-							// const response = await fetch('/api/person', {
-							// 	method: 'POST',
-							// 	body: JSON.stringify(9144),
-							// });
-							// const res = await response.json();
 							setData(res);
 						} catch (error) {
 							// здесь надо будет не общим образом отлавливать ошибку. Здесь надо как-то отображать на карточке каокй-то занимательный контент

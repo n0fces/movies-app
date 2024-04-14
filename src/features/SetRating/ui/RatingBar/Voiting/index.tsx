@@ -30,7 +30,8 @@ export const Voiting = () => {
 							setRating(i);
 							setIsOpen(false);
 							// * здесь будет логика по установлению рейтинга со стороны пользователя
-						}}>
+						}}
+						className={styles.voitingBtn}>
 						<Icon
 							name='ratingStroked'
 							className={clsx(

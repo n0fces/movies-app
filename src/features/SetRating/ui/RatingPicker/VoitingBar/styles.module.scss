@@ -27,24 +27,36 @@
 	text-align: center;
 
 	opacity: 0.2;
+	outline: none;
 	transition: all 0.2s ease;
 }
 
+@mixin ratingStyles($color) {
+	& {
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--#{$color}-rating-color);
+				opacity: 1;
+				transform: scale(1.2);
+			}
+		}
+		
+		&:focus {
+			color: var(--#{$color}-rating-color);
+			opacity: 1;
+			transform: scale(1.2);
+		}
+	}
+}
+
 .default {
-	color: var(--default-rating-color);
+	@include ratingStyles(default);
 }
 
 .positive {
-	color: var(--positive-rating-color);
+	@include ratingStyles(positive);
 }
 
 .negative {
-	color: var(--negative-rating-color);
-}
-
-.default,
-.positive,
-.negative {
-	opacity: 1;
-	transform: scale(1.2);
+	@include ratingStyles(negative);
 }

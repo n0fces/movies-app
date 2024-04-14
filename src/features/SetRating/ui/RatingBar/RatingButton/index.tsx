@@ -23,8 +23,8 @@ export const RatingButton = () => {
 					setIsOpen(true);
 				}
 			}}
-			onMouseOver={onMouseEnter}
-			onMouseOut={onMouseLeave}
+			onMouseOver={rating ? onMouseEnter : undefined}
+			onMouseOut={rating ? onMouseLeave : undefined}
 			className={clsx(styles.button)}
 			aria-label={rating ? 'Удалить оценку' : 'Оценить'}
 			title={rating ? 'Удалить оценку' : 'Оценить'}>

@@ -1,5 +1,9 @@
 import { colorChoice } from './colorChoice';
 
+// value - текущее активное значение рейтинга
+// если навешиваем классы через css (не нужно использование useState),
+// то при использовании данной функции ставим вместо value i
+
 export const setColorClasses = (
 	styles: {
 		readonly [key: string]: string;

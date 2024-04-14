@@ -1,8 +1,8 @@
 'use client';
 
-import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+import { Movie } from '@/shared/types';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
+import { clsx } from 'clsx';
 import {
 	IsOpenBarProvider,
 	IsOpenDropdownMenu,
@@ -10,10 +10,10 @@ import {
 	useIsOpenBar,
 	useIsOpenDropdownMenu,
 } from '../../context';
+import { DropdownMenuRating } from './DropdownMenuRating';
 import { RatingButton } from './RatingButton';
 import { VoitingBar } from './VoitingBar';
-import { DropdownMenuRating } from './DropdownMenuRating';
-import { Movie } from '@/shared/types';
+import styles from './styles.module.scss';
 
 interface RatingPickerProps extends Pick<Movie, 'isSeries'> {
 	className?: string;
