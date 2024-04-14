@@ -4,9 +4,10 @@ import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
 import { clsx } from 'clsx';
 import { useEffect, useRef } from 'react';
 import {
-	IsOpenBarProvider,
-	SetRatingProvider,
-	useIsOpenBar,
+	ContextValueProvider,
+	SetRatingBaseProvider,
+	useIsOpen,
+	useSettersBase,
 } from '../../context';
 import { Indicator } from './Indicator';
 import { RatingButton } from './RatingButton';
@@ -20,7 +21,8 @@ interface SetRatingProps {
 
 export const RatingBarObj = ({ className }: SetRatingProps) => {
 	// * по умолчанию потом будет браться значение с бд. Если оно есть, то сразу будет установлено. При установленном значении мы сможем сначала только убрать текущий рейтинг, а потом снова выбрать
-	const { isOpen, setIsOpen } = useIsOpenBar();
+	const { setIsOpen } = useSettersBase();
+	const isOpen = useIsOpen();
 	const ref = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
@@ -50,9 +52,9 @@ export const RatingBarObj = ({ className }: SetRatingProps) => {
 };
 
 export const RatingBar = ({ className }: SetRatingProps) => (
-	<SetRatingProvider>
-		<IsOpenBarProvider>
+	<SetRatingBaseProvider>
+		<ContextValueProvider>
 			<RatingBarObj className={className} />
-		</IsOpenBarProvider>
-	</SetRatingProvider>
+		</ContextValueProvider>
+	</SetRatingBaseProvider>
 );

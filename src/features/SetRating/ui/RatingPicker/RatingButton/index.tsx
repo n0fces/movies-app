@@ -1,23 +1,26 @@
-import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { Button } from '@/shared/ui/Button';
-import {
-	useSetRating,
-	useIsOpenBar,
-	useIsOpenDropdownMenu,
-} from '../../../context';
-import { Icon } from '@/shared/ui/Icon';
-import { setColorClasses } from '../../../lib/setColorClasses';
 import { Movie } from '@/shared/types';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { clsx } from 'clsx';
+import {
+	useIsOpenDropdown,
+	useIsOpenDropdownSetter,
+	useRating,
+	useSettersBase
+} from '../../../context';
+import { setColorClasses } from '../../../lib/setColorClasses';
+import styles from './styles.module.scss';
 
 interface RatingButtonProps extends Pick<Movie, 'isSeries'> {
 	className?: string;
 }
 
 export const RatingButton = ({ className, isSeries }: RatingButtonProps) => {
-	const { setIsOpen } = useIsOpenBar();
-	const { setIsOpenDropdown, isOpenDropdown } = useIsOpenDropdownMenu();
-	const { rating } = useSetRating();
+	const { setIsOpen } = useSettersBase();
+	const isOpenDropdown = useIsOpenDropdown();
+	const setIsOpenDropdown = useIsOpenDropdownSetter();
+	const rating = useRating();
+
 	return (
 		<Button
 			theme='useFeature'

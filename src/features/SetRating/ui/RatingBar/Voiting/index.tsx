@@ -1,13 +1,14 @@
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
-import { useIsOpenBar, useSetRating } from '../../../context';
+import { useSettersBase, useValue, useValueSetter } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
 
 export const Voiting = () => {
-	const { setValue, setRating, value } = useSetRating();
-	const { setIsOpen } = useIsOpenBar();
+	const { setRating, setIsOpen } = useSettersBase();
+	const setValue = useValueSetter();
+	const value = useValue();
 
 	return (
 		<div className={styles.voitingChoice}>

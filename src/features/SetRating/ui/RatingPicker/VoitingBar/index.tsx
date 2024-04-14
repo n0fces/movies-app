@@ -1,7 +1,7 @@
 import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
 import { useEffect, useRef } from 'react';
-import { useIsOpenBar, useSetRating } from '../../../context';
+import { useSettersBase } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
 
@@ -10,8 +10,7 @@ interface VoitingBarProps {
 }
 
 export const VoitingBar = ({ className }: VoitingBarProps) => {
-	const { setRating } = useSetRating();
-	const { setIsOpen } = useIsOpenBar();
+	const { setRating, setIsOpen } = useSettersBase();
 	const ref = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {

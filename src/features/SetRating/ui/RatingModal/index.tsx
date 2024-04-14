@@ -4,7 +4,11 @@ import { TouchModal } from '@/entities/TouchModal';
 import { ListItemProps, ThemeButton } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 import { useEffect } from 'react';
-import { SetRatingProvider, useSetRating } from '../../context';
+import {
+	ContextValueProvider,
+	SetRatingBaseProvider,
+	useValueSetter
+} from '../../context';
 import { PreviewRating } from './PreviewRating';
 import { SetRatingButtons } from './SetRatingButtons';
 import { Voiting } from './Voiting';
@@ -29,7 +33,7 @@ const RatingModalObj = ({
 	className,
 	theme = 'default',
 }: RatingModalProps) => {
-	const { setValue } = useSetRating();
+	const setValue = useValueSetter();
 
 	useEffect(() => {
 		return () => setValue(undefined);
@@ -52,7 +56,9 @@ const RatingModalObj = ({
 };
 
 export const RatingModal = (props: RatingModalProps) => (
-	<SetRatingProvider>
-		<RatingModalObj {...props} />
-	</SetRatingProvider>
+	<SetRatingBaseProvider>
+		<ContextValueProvider>
+			<RatingModalObj {...props} />
+		</ContextValueProvider>
+	</SetRatingBaseProvider>
 );

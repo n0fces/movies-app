@@ -1,10 +1,18 @@
-import { Button } from '@/shared/ui/Button';
-import styles from './styles.module.scss';
-import { useSetRating } from '../../../context';
 import { useTouchModal } from '@/entities/TouchModal/context';
+import { Button } from '@/shared/ui/Button';
+import {
+	useRating,
+	useSettersBase,
+	useValue,
+	useValueSetter
+} from '../../../context';
+import styles from './styles.module.scss';
 
 export const SetRatingButtons = () => {
-	const { value, rating, setRating, setValue } = useSetRating();
+	const value = useValue();
+	const rating = useRating();
+	const { setRating } = useSettersBase();
+	const setValue = useValueSetter();
 	const { closeModal } = useTouchModal();
 
 	return (

@@ -1,12 +1,14 @@
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
-import { useSetRating } from '../../../context';
+import { useValue, useValueSetter } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
 
 export const Voiting = () => {
-	const { value, setValue } = useSetRating();
+	const value = useValue();
+	const setValue = useValueSetter();
+
 	return (
 		<div className={styles.voiting}>
 			{[...Array(10)].map((_, i) => {

@@ -2,13 +2,14 @@ import { useHover } from '@/shared/hooks/useHover';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
-import { useIsOpenBar, useSetRating } from '../../../context';
-import styles from './styles.module.scss';
+import { useRating, useSettersBase, useValueSetter } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
+import styles from './styles.module.scss';
 
 export const RatingButton = () => {
-	const { rating, setRating, setValue } = useSetRating();
-	const { setIsOpen } = useIsOpenBar();
+	const rating = useRating();
+	const { setIsOpen, setRating } = useSettersBase();
+	const setValue = useValueSetter();
 	const { isHover, onMouseEnter, onMouseLeave } = useHover();
 
 	return (

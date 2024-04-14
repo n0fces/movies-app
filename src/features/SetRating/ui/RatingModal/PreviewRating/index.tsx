@@ -1,10 +1,12 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { useSetRating } from '../../../context';
+import { useRating, useValue } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
+import styles from './styles.module.scss';
 
 export const PreviewRating = () => {
-	const { value, rating } = useSetRating();
+	const value = useValue();
+	const rating = useRating();
+
 	return (
 		<div
 			className={clsx(

@@ -1,10 +1,10 @@
-import styles from './styles.module.scss';
 import { Icon } from '@/shared/ui/Icon';
-import { useIsOpenBar, useSetRating } from '../../../context';
+import { useSettersBase, useValue } from '../../../context';
+import styles from './styles.module.scss';
 
 export const Indicator = () => {
-	const { value } = useSetRating();
-	const { setIsOpen } = useIsOpenBar();
+	const value = useValue();
+	const { setIsOpen } = useSettersBase();
 
 	return (
 		<div className={styles.indicator}>

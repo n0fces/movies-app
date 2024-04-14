@@ -4,11 +4,13 @@ import { Movie } from '@/shared/types';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
 import { clsx } from 'clsx';
 import {
-	IsOpenBarProvider,
-	IsOpenDropdownMenu,
-	SetRatingProvider,
-	useIsOpenBar,
-	useIsOpenDropdownMenu,
+	ContextIsOpenDropdownProvider,
+	ContextValueProvider,
+	SetRatingBaseProvider,
+	useIsOpen,
+	useIsOpenDropdown,
+	useIsOpenDropdownSetter,
+	useSettersBase,
 } from '../../context';
 import { DropdownMenuRating } from './DropdownMenuRating';
 import { RatingButton } from './RatingButton';
@@ -20,12 +22,14 @@ interface RatingPickerProps extends Pick<Movie, 'isSeries'> {
 }
 
 const RatingPickerObj = ({ className, isSeries }: RatingPickerProps) => {
-	const { isOpen, setIsOpen } = useIsOpenBar();
-	const { isOpenDropdown, setIsOpenDropdown } = useIsOpenDropdownMenu();
+	const isOpen = useIsOpen();
+	const { setIsOpen } = useSettersBase();
+	const isOpenDropdown = useIsOpenDropdown();
+	const setIsOpenDropdown = useIsOpenDropdownSetter();
 
 	return (
 		<DropdownWrapper
-			setIsOpen={isOpen ? setIsOpen : setIsOpenDropdown}
+			setIsOpen={isOpenDropdown ? setIsOpenDropdown : setIsOpen}
 			className={clsx(styles.ratingPicker, className)}>
 			<RatingButton isSeries={isSeries} />
 			{isOpen && <VoitingBar />}
@@ -35,11 +39,11 @@ const RatingPickerObj = ({ className, isSeries }: RatingPickerProps) => {
 };
 
 export const RatingPicker = (props: RatingPickerProps) => (
-	<SetRatingProvider>
-		<IsOpenBarProvider>
-			<IsOpenDropdownMenu>
+	<SetRatingBaseProvider>
+		<ContextValueProvider>
+			<ContextIsOpenDropdownProvider>
 				<RatingPickerObj {...props} />
-			</IsOpenDropdownMenu>
-		</IsOpenBarProvider>
-	</SetRatingProvider>
+			</ContextIsOpenDropdownProvider>
+		</ContextValueProvider>
+	</SetRatingBaseProvider>
 );

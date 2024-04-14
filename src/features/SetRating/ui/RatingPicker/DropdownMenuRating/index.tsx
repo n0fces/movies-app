@@ -1,22 +1,22 @@
 import { Button } from '@/shared/ui/Button';
 import { DropdownBackdrop } from '@/shared/ui/DropdownBackdrop';
 import { clsx } from 'clsx';
+import { useEffect, useRef } from 'react';
 import {
-	useIsOpenBar,
-	useIsOpenDropdownMenu,
-	useSetRating,
+	useIsOpenDropdownSetter,
+	useSettersBase,
+	useValueSetter
 } from '../../../context';
 import styles from './styles.module.scss';
-import { useEffect, useRef } from 'react';
 
 interface DropdownMenuRatingProps {
 	className?: string;
 }
 
 export const DropdownMenuRating = ({ className }: DropdownMenuRatingProps) => {
-	const { setIsOpen } = useIsOpenBar();
-	const { setIsOpenDropdown } = useIsOpenDropdownMenu();
-	const { setRating, setValue } = useSetRating();
+	const { setIsOpen, setRating } = useSettersBase();
+	const setIsOpenDropdown = useIsOpenDropdownSetter();
+	const setValue = useValueSetter();
 	const ref = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
