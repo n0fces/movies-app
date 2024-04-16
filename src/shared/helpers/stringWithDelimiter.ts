@@ -1,6 +1,6 @@
-export const stringWithDelimiter = (
+export const stringWithDelimiter = <T = 'string'>(
 	delimiter: string,
-	arr: Array<string | number | null | undefined> | null | undefined
+	arr: Array<T | null | undefined> | null | undefined
 ) => {
 	if (Array.isArray(arr)) {
 		return arr.filter(Boolean).join(delimiter);
