@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import styles from './styles.module.scss';
 import { TopListLinksBlock } from '@/entities/TopListLinksBlock';
-import { getTitle } from '@/app/(title)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
 import { sortPersons } from '@/shared/helpers/sortPersons';
 import { getPath } from '@/shared/helpers/getPath';
 import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';

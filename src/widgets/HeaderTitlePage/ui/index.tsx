@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(title)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
 import { HeaderNamespace } from '@/entities/HeaderNamespace';
 import { MoreOptionsDropdown } from '@/entities/MoreOptionsDropdown';
 import { RatingBlockTitle } from '@/entities/RatingBlockTitle';
@@ -13,12 +13,15 @@ import { clsx } from 'clsx';
 import styles from './styles.module.scss';
 import { RatingPicker } from '@/features/SetRating/ui/RatingPicker';
 
-interface HeaderTitleProps {
+interface HeaderTitlePageProps {
 	className?: string;
 	id: number;
 }
 
-export const HeaderTitle = async ({ className, id }: HeaderTitleProps) => {
+export const HeaderTitlePage = async ({
+	className,
+	id,
+}: HeaderTitlePageProps) => {
 	const isMobile = deviceDetectServer();
 	const {
 		watchability,
@@ -46,7 +49,7 @@ export const HeaderTitle = async ({ className, id }: HeaderTitleProps) => {
 			<HeaderNamespace
 				title={`${name} (${timestamp})`}
 				subtitle={alternativeName || enName}
-				ageRating={ageRating}
+				ageRating={ageRating ? `${ageRating}+` : null}
 				className={styles.headerNamespace}>
 				<div className={styles.btnsContainer}>
 					{ticketsOnSale ? (

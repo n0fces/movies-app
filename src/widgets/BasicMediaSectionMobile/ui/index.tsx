@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(title)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
 import { RatingValue } from '@/entities/RatingValue';
 import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
 import { PlannedToWatch } from '@/features/PlannedToWatch';

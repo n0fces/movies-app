@@ -1,0 +1,1 @@
+export { BasicMediaPerson } from './ui';

@@ -5,8 +5,8 @@ interface HeaderNamespaceProps {
 	className?: string;
 	title?: string | null;
 	subtitle?: string | null;
-	ageRating?: number | null;
-	children: React.ReactNode;
+	ageRating?: string | null;
+	children?: React.ReactNode;
 }
 
 export const HeaderNamespace = ({
@@ -23,7 +23,7 @@ export const HeaderNamespace = ({
 				{subtitle && (
 					<div className={styles.subtitle}>
 						<span>{subtitle}</span>
-						<span>{ageRating}+</span>
+						<span>{ageRating}</span>
 					</div>
 				)}
 			</div>

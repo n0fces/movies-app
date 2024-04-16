@@ -1,5 +1,5 @@
 import { BasicMediaSection } from '@/widgets/BasicMediaSection';
-import { HeaderTitle } from '@/widgets/HeaderTitle';
+import { HeaderTitlePage } from '@/widgets/HeaderTitlePage';
 import { TableInfoTitle } from '@/widgets/TableInfoTitle';
 import { TitleCrew } from '@/widgets/TitleCrew';
 import styles from './styles.module.scss';
@@ -11,14 +11,16 @@ interface DesktopProps {
 export const Desktop = ({ id }: DesktopProps) => {
 	return (
 		<div className={styles.desktop}>
-			<BasicMediaSection
-				id={id}
-				className={styles.sidebar}
-			/>
+			<aside className={styles.sidebar}>
+				<BasicMediaSection id={id} />
+			</aside>
 			<div className={styles.main}>
-				<HeaderTitle id={id} />
+				<HeaderTitlePage id={id} />
 				<div className={styles.infoMain}>
-					<TableInfoTitle id={id} className={styles.tableInfoTitle} />
+					<TableInfoTitle
+						id={id}
+						className={styles.tableInfoTitle}
+					/>
 					<div className={styles.infoSidebar}>
 						<TitleCrew id={id} />
 					</div>

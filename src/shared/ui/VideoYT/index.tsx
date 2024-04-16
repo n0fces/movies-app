@@ -1,14 +1,14 @@
 'use client';
 
-import styles from './styles.module.scss';
+import { Video } from '@/shared/types';
 import { clsx } from 'clsx';
+import Image from 'next/image';
+import { useCallback, useRef } from 'react';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { Video } from '@/shared/types';
+import { generateURL } from './lib/generateURL';
 import { parseMediaURL } from './lib/parseMediaURL';
-import { useCallback, useRef } from 'react';
-import { createIframe } from './lib/createIframe';
-import Image from 'next/image';
+import styles from './styles.module.scss';
 
 interface VideoProps extends Video {
 	withBtn?: boolean;
@@ -27,7 +27,9 @@ export const VideoYT = ({
 	const previewRef = useRef<HTMLDivElement | null>(null);
 	const videoRef = useRef<HTMLDivElement | null>(null);
 	const id = parseMediaURL(url);
-	const iframe = createIframe(id);
+	const iframe = document.createElement('iframe');
+	iframe.setAttribute('allowfullscreen', '');
+	iframe.setAttribute('src', generateURL(id));
 
 	const addIframe = useCallback(() => {
 		imageRef.current?.remove();

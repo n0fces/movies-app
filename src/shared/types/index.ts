@@ -783,7 +783,8 @@ export type IconName =
 	| 'addToFolder'
 	| 'ratingFilled'
 	| 'subscribe'
-	| 'star';
+	| 'star'
+	| 'favourite';
 
 export interface InfoItem {
 	titleRow: string;

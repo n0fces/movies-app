@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(title)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
 import { LinkItems } from '@/entities/LinkItems';
 import { TableInfo } from '@/entities/TableInfo';
 import { ratingMpaaDescription } from '@/shared/constants/ratingMpaaDescription';

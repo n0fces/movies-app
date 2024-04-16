@@ -1,8 +1,7 @@
-import { getTitle } from '@/app/(title)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
 import { AddToFoldersDropdown } from '@/features/AddToFolders/ui/AddToFoldersDropdown';
 import { ModalTrailer } from '@/features/ModalTrailer';
 import { SocialServices } from '@/features/SocialServices';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { Video as VideoAPI } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
 import { VideoYT } from '@/shared/ui/VideoYT';
@@ -29,10 +28,9 @@ export const BasicMediaSection = async ({
 }: BasicMediaSectionProps) => {
 	const title = await getTitle(id);
 	const { poster, name, alternativeName, enName, videos } = title;
-	const isMobile = deviceDetectServer();
 
 	return (
-		<aside className={clsx(styles.basicMediaSection, className)}>
+		<div className={clsx(styles.basicMediaSection, className)}>
 			<div className={styles.posterContainer}>
 				{/* здесь будет линка на страницу со всеми постерами */}
 				<Link href={'#'}>
@@ -50,7 +48,7 @@ export const BasicMediaSection = async ({
 					<>
 						<ModalTrailer
 							className={styles.trailerWrapper}
-							isMobile={isMobile}
+							isMobile={false}
 							isSidebar
 							theme='clear'
 							btnContent={TrailerBtnContent(
@@ -72,6 +70,6 @@ export const BasicMediaSection = async ({
 			<div className={styles.socialControlsContainer}>
 				<SocialServices {...title} />
 			</div>
-		</aside>
+		</div>
 	);
 };

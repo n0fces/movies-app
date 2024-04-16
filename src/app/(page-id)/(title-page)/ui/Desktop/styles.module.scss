@@ -1,0 +1,29 @@
+.desktop {
+	display: flex;
+	column-gap: 1.875rem;
+}
+
+.sidebar {
+	flex: 0 0 13.875rem;
+
+	@media (min-width: 80em) {
+		flex: 0 0 18.875rem;
+	}
+}
+
+.main {
+	flex-grow: 1;
+}
+
+.infoMain {
+	display: flex;
+	column-gap: 1.25rem;
+}
+
+.tableInfoTitle {
+	flex-grow: 1;
+}
+
+.infoSidebar {
+	flex: 0 0 12.5rem;
+}

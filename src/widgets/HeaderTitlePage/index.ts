@@ -1,0 +1,1 @@
+export { HeaderTitlePage } from './ui';

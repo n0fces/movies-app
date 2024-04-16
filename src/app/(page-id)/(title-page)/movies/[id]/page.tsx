@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { getTitle } from '../../api/getTitle';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { Mobile } from '../../ui/Mobile';
+import { getTitle } from '../../api/getTitle';
 import { Desktop } from '../../ui/Desktop';
+import { Mobile } from '../../ui/Mobile';
 
 export async function generateMetadata({
 	params,
