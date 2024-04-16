@@ -3,6 +3,7 @@ import { MyImage } from '@/shared/ui/MyImage';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import { SocialServices } from '@/features/SocialServices';
 
 interface BasicMediaPersonProps {
 	className?: string;
@@ -15,6 +16,7 @@ export const BasicMediaPerson = async ({
 }: BasicMediaPersonProps) => {
 	const person = await getPerson(id);
 	const { photo, name, enName } = person;
+	const text = `${name} (${enName}): фильмы, биография, семья, фильмография — KinoStar`;
 
 	return (
 		<div className={clsx(styles.basicMediaPerson, className)}>
@@ -30,7 +32,9 @@ export const BasicMediaPerson = async ({
 				</Link>
 			</div>
 			<div className={styles.userControlsContainer}></div>
-			<div className={styles.socialControlsContainer}></div>
+			<div className={styles.socialControlsContainer}>
+				<SocialServices text={text} />
+			</div>
 		</div>
 	);
 };

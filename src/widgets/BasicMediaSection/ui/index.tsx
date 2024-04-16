@@ -27,7 +27,20 @@ export const BasicMediaSection = async ({
 	id,
 }: BasicMediaSectionProps) => {
 	const title = await getTitle(id);
-	const { poster, name, alternativeName, enName, videos } = title;
+	const {
+		poster,
+		name,
+		alternativeName,
+		enName,
+		videos,
+		isSeries,
+		seasonsInfo,
+		releaseYears,
+		year,
+	} = title;
+	const text = isSeries
+		? `${name}, (сериал, 1-${seasonsInfo?.length} сезоны, все серии), ${releaseYears?.[0].start}-${releaseYears?.[0].end} — Описание, интересные факты — KinoStar`
+		: `${name}, ${year} — Описание, интересные факты — KinoStar`;
 
 	return (
 		<div className={clsx(styles.basicMediaSection, className)}>
@@ -68,7 +81,7 @@ export const BasicMediaSection = async ({
 				<AddToFoldersDropdown />
 			</div>
 			<div className={styles.socialControlsContainer}>
-				<SocialServices {...title} />
+				<SocialServices text={text} />
 			</div>
 		</div>
 	);

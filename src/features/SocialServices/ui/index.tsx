@@ -1,16 +1,13 @@
-import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+import { IconName } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
-import Link from 'next/link';
+import { clsx } from 'clsx';
 import { headers } from 'next/headers';
-import { IconName, Movie } from '@/shared/types';
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
-interface SocialServicesProps
-	extends Pick<
-		Movie,
-		'name' | 'year' | 'seasonsInfo' | 'releaseYears' | 'isSeries'
-	> {
+interface SocialServicesProps {
 	className?: string;
+	text: string;
 }
 
 interface SocialServicesItem {
@@ -40,19 +37,9 @@ const SocialService = ({
 	</li>
 );
 
-export const SocialServices = ({
-	className,
-	name,
-	isSeries,
-	releaseYears,
-	seasonsInfo,
-	year,
-}: SocialServicesProps) => {
+export const SocialServices = ({ className, text }: SocialServicesProps) => {
 	const headersList = headers();
 	const url = encodeURI(headersList.get('referer')!);
-	const text = isSeries
-		? `${name}, (сериал, 1-${seasonsInfo?.length} сезоны, все серии), ${releaseYears?.[0].start}-${releaseYears?.[0].end} — Описание, интересные факты — KinoStar`
-		: `${name}, ${year} — Описание, интересные факты — KinoStar`;
 	const msg = encodeURIComponent(text);
 
 	const socialServicesList: SocialServicesItem[] = [
