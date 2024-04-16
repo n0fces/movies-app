@@ -566,7 +566,8 @@ export interface Person {
 	age?: number | null;
 	birthPlace?: BirthPlace[];
 	deathPlace?: DeathPlace[];
-	spouses?: Spouses;
+	// здесь надо массив, хотя с сваггера приходит просто Spouses
+	spouses?: Spouses[];
 	countAwards?: number;
 	profession?: Profession[];
 	facts?: FactInPerson[];

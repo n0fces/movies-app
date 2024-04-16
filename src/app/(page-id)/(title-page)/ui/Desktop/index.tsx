@@ -12,10 +12,10 @@ export const Desktop = ({ id }: DesktopProps) => {
 	return (
 		<div className={styles.desktop}>
 			<aside className={styles.sidebar}>
-				<BasicMediaSection id={id} />
+				<BasicMediaSection id={id} className={styles.basicMediaSection} />
 			</aside>
 			<div className={styles.main}>
-				<HeaderTitlePage id={id} />
+				<HeaderTitlePage id={id} className={styles.headerTitlePage} />
 				<div className={styles.infoMain}>
 					<TableInfoTitle
 						id={id}

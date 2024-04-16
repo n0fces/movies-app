@@ -1,0 +1,1 @@
+export { TableInfoPerson } from './ui';
