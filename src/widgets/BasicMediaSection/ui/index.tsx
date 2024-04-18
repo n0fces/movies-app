@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { AddToFoldersDropdown } from '@/features/AddToFolders/ui/AddToFoldersDropdown';
 import { ModalTrailer } from '@/features/ModalTrailer';
 import { SocialServices } from '@/features/SocialServices';

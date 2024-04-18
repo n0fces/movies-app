@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { HeaderNamespace } from '@/entities/HeaderNamespace';
 import { MoreOptionsDropdown } from '@/entities/MoreOptionsDropdown';
 import { RatingBlockTitle } from '@/entities/RatingBlockTitle';

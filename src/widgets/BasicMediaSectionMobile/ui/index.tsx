@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { RatingValue } from '@/entities/RatingValue';
 import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
 import { PlannedToWatch } from '@/features/PlannedToWatch';
@@ -64,6 +64,7 @@ export const BasicMediaSectionMobile = async ({
 
 	return (
 		<div className={clsx(styles.basicMediaSectionMobile, className)}>
+			{/* ================================================ */}
 			<MyImage
 				alt={titleName}
 				src={poster?.previewUrl}
@@ -112,6 +113,9 @@ export const BasicMediaSectionMobile = async ({
 						</div>
 					) : null}
 				</div>
+				{/* ================================================ */}
+
+				{/* ================================================ */}
 				<div className={styles.features}>
 					<RatingModal
 						theme='textBelow'
@@ -136,11 +140,15 @@ export const BasicMediaSectionMobile = async ({
 						className={styles.feature}
 					/>
 				</div>
+				{/* ================================================ */}
+
+				{/* ================================================ */}
 				{shortDescription ? (
 					<div className={styles.shortDescription}>
 						{shortDescription}
 					</div>
 				) : null}
+				{/* ================================================ */}
 			</div>
 		</div>
 	);

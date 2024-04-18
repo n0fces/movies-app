@@ -1,4 +1,4 @@
-import { getPerson } from '@/app/(page-id)/(person-page)/api/getPerson';
+import { getPerson } from '@/app/(page-id)/api/getPerson';
 import { MyImage } from '@/shared/ui/MyImage';
 import { clsx } from 'clsx';
 import Link from 'next/link';

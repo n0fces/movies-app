@@ -1,4 +1,4 @@
-import { getPerson } from '@/app/(page-id)/(person-page)/api/getPerson';
+import { getPerson } from '@/app/(page-id)/api/getPerson';
 import { HeaderNamespace } from '@/entities/HeaderNamespace';
 import { SetFavouritePerson } from '@/features/SetFavouritePerson';
 import styles from './styles.module.scss';
@@ -20,7 +20,7 @@ export const HeaderPersonPage = async ({
 			<HeaderNamespace
 				title={name}
 				subtitle={enName}>
-				<SetFavouritePerson className={styles.setFavouritePerson}/>
+				<SetFavouritePerson className={styles.setFavouritePerson} />
 			</HeaderNamespace>
 		</div>
 	);

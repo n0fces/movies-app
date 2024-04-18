@@ -1,22 +1,22 @@
 import { BasicMediaSectionMobile } from '@/widgets/BasicMediaSectionMobile/ui';
-import styles from './styles.module.scss';
 import { TitleCrewCarousel } from '@/widgets/TitleCrewCarousel';
-import { WatchingServices } from '@/entities/WatchingServices';
+import styles from './styles.module.scss';
 import { getTitle } from '../../api/getTitle';
+import { WatchingServices } from '@/entities/WatchingServices';
 
 interface MobileProps {
 	id: number;
 }
 
-export const Mobile = async ({ id }: MobileProps) => {
+export const MobileTitle = async ({ id }: MobileProps) => {
 	const { watchability } = await getTitle(id);
 	return (
 		<div>
 			<BasicMediaSectionMobile id={id} />
 			<WatchingServices
-				className={styles.watchingServices}
 				watchability={watchability}
 				isMobile={true}
+				className={styles.watchingServices}
 			/>
 			<TitleCrewCarousel
 				id={id}

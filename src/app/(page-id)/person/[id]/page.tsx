@@ -1,12 +1,16 @@
-import { Metadata } from 'next';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { Desktop } from '../../ui/Desktop';
-import { Mobile } from '../../ui/Mobile';
-import { getPerson } from '../../api/getPerson';
 import { months } from '@/shared/constants/months';
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { BasicMediaPerson } from '@/widgets/BasicMediaPerson';
+import { HeaderPersonPage } from '@/widgets/HeaderPersonPage';
+import { TableInfoPerson } from '@/widgets/TableInfoPerson';
 import { getBirthday } from '@/widgets/TableInfoPerson/lib/getBirthday';
 import { getProfessions } from '@/widgets/TableInfoPerson/lib/getProfessions';
+import { Metadata } from 'next';
+import { getPerson } from '../../api/getPerson';
+import { Desktop } from '../../ui/Desktop';
+import { MobilePerson } from '../../ui/MobilePerson';
+import styles from './styles.module.scss';
 
 export async function generateMetadata({
 	params,
@@ -54,5 +58,18 @@ export default async function TitleRoot({
 }) {
 	const isMobile = deviceDetectServer();
 
-	return !isMobile ? <Desktop id={params.id} /> : <Mobile id={params.id} />;
+	return !isMobile ? (
+		<Desktop
+			basicMediaSection={() => (
+				<BasicMediaPerson
+					id={params.id}
+					className={styles.basicMediaPerson}
+				/>
+			)}
+			headerTitle={() => <HeaderPersonPage id={params.id} />}
+			tableInfo={() => <TableInfoPerson id={params.id} />}
+		/>
+	) : (
+		<MobilePerson />
+	);
 }

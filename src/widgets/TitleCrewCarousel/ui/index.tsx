@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(page-id)/(title-page)/api/getTitle';
+import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { Title } from '@/shared/ui/Title';
 import { clsx } from 'clsx';
 import Link from 'next/link';

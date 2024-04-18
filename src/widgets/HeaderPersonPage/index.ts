@@ -1,0 +1,1 @@
+export { HeaderPersonPage } from './ui';

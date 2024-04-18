@@ -1,17 +1,22 @@
-'use client'
+'use client';
 
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import styles from './styles.module.scss';
+import { ThemeButton } from '@/shared/types';
 
 interface SetFavouritePersonProps {
 	className?: string;
+	theme?: ThemeButton;
 }
 
-export const SetFavouritePerson = ({ className }: SetFavouritePersonProps) => {
+export const SetFavouritePerson = ({
+	className,
+	theme = 'useFeature',
+}: SetFavouritePersonProps) => {
 	return (
 		<Button
-			theme='useFeature'
+			theme={theme}
 			className={className}
 			onClick={() => {
 				// * здесь будет логика по открытию модального окна с фильмом

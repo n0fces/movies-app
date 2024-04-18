@@ -1,4 +1,4 @@
-.desktop {
+.rootTop {
 	display: flex;
 	column-gap: 1.875rem;
 }
@@ -9,10 +9,6 @@
 	@media (min-width: 80em) {
 		flex: 0 0 18.875rem;
 	}
-}
-
-.basicMediaSection {
-	height: 100%;
 }
 
 .main {
