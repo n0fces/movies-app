@@ -809,3 +809,25 @@ export type EnProfession =
 	| 'editor'
 	| 'actor'
 	| 'voice_actor';
+
+export type ZodiacSign =
+	| 'Овен'
+	| 'Телец'
+	| 'Близнецы'
+	| 'Рак'
+	| 'Лев'
+	| 'Дева'
+	| 'Весы'
+	| 'Скорпион'
+	| 'Стрелец'
+	| 'Козерог'
+	| 'Водолей'
+	| 'Рыбы';
+
+export interface ZodiacSignDateRange {
+	sign: ZodiacSign;
+	startMonth: number;
+	startDate: number;
+	endMonth: number;
+	endDate: number;
+}
