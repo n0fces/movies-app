@@ -32,7 +32,6 @@ export const ReadMoreTextBlock = ({
 
 	useEffect(() => {
 		if (paragraphRef.current) {
-			console.log(paragraphRef.current.scrollHeight, paragraphRef.current.clientHeight)
 			setShowReadMoreBtn(
 				paragraphRef.current.scrollHeight !==
 					paragraphRef.current.clientHeight
