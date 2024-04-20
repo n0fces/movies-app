@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getArrayStuffForRender } from '../lib/getArrayStuffForRender';
 import { TitleCrewItem } from './TitleCrewItem';
 import styles from './styles.module.scss';
+import { Button } from '@/shared/ui/Button';
 
 export type TitleCrewCarouselType = 'actors' | 'creators';
 
@@ -32,11 +33,13 @@ export const TitleCrewCarousel = async ({
 					as='h3'>
 					{type === 'actors' ? 'Актёры' : 'Создатели'}
 				</Title>
-				<Link
+				<Button
+					component={Link}
+					theme='orange'
 					href={href}
 					className={styles.allLinkCast}>
 					Все
-				</Link>
+				</Button>
 			</div>
 			<div className={styles.cast}>
 				<ul

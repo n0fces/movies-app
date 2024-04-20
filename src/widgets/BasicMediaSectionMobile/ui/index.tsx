@@ -11,6 +11,7 @@ import { clsx } from 'clsx';
 import { MoreOptions } from './MoreOptions';
 import styles from './styles.module.scss';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
+import { ReadMoreTextBlock } from '@/entities/ReadMoreTextBlock';
 
 interface BasicMediaSectionMobileProps {
 	className?: string;
@@ -40,6 +41,7 @@ export const BasicMediaSectionMobile = async ({
 		genres,
 		shortDescription,
 		seasonsInfo,
+		description,
 	} = title;
 
 	const titleName = name || alternativeName || enName;
@@ -148,6 +150,7 @@ export const BasicMediaSectionMobile = async ({
 						{shortDescription}
 					</div>
 				) : null}
+				{description ? <ReadMoreTextBlock text={description} /> : null}
 				{/* ================================================ */}
 			</div>
 		</div>

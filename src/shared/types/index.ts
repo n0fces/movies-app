@@ -743,7 +743,8 @@ export type ThemeButton =
 	| 'clear'
 	| 'textBelow'
 	| 'modal'
-	| 'modalFull';
+	| 'modalFull'
+	| 'orange';
 
 export type IconName =
 	| 'watch'
