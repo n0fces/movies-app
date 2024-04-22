@@ -1,0 +1,15 @@
+.readMoreComp {
+	max-height: 0px;
+	transition: max-height 0.7s;
+	transform: translateZ(0);
+}
+
+.isOpen {
+	margin-bottom: 1.5rem;
+	max-height: 2000px;
+}
+
+.readMoreCnt {
+	display: flex;
+	justify-content: center;
+}
