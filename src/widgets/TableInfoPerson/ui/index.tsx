@@ -3,8 +3,8 @@ import { TableInfo } from '@/entities/TableInfo';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';
 import { getDatePersonString } from '../lib/getDatePersonString';
-import { getGrowth } from '../lib/getGrowth';
-import { getProfessions } from '../lib/getProfessions';
+import { getGrowth } from '../../../shared/helpers/getGrowth';
+import { getProfessions } from '../../../shared/helpers/getProfessions';
 import { getSpousesData } from '../lib/getSpousesData';
 
 interface TableInfoPersonProps {

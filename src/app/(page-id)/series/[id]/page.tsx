@@ -1,13 +1,13 @@
 import { Desktop } from '@/app/(page-id)/ui/Desktop';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { BasicMediaSection } from '@/widgets/BasicMediaSection';
+import { BasicMediaMovie } from '@/widgets/BasicMediaMovie';
 import { HeaderTitlePage } from '@/widgets/HeaderTitlePage';
 import { TableInfoTitle } from '@/widgets/TableInfoTitle';
 import { TitleCrew } from '@/widgets/TitleCrew';
 import { Metadata } from 'next';
-import styles from './styles.module.scss';
 import { getTitle } from '../../api/getTitle';
 import { MobileTitle } from '../../ui/MobileTitle';
+import styles from './styles.module.scss';
 
 export async function generateMetadata({
 	params,
@@ -32,7 +32,7 @@ export default async function TitleRoot({
 	return !isMobile ? (
 		<Desktop
 			basicMediaSection={() => (
-				<BasicMediaSection
+				<BasicMediaMovie
 					id={params.id}
 					className={styles.basicMediaSection}
 				/>

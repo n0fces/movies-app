@@ -1,26 +1,21 @@
 import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
 import { RatingValue } from '@/entities/RatingValue';
-import { ReadMoreTextBlock } from '@/entities/ReadMoreTextBlock';
-import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
-import { PlannedToWatch } from '@/features/PlannedToWatch';
-import { RatingModal } from '@/features/SetRating/ui/RatingModal';
 import { convertMinutes } from '@/shared/helpers/convertMinutes';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { clsx } from 'clsx';
-import { MoreOptions } from './MoreOptions';
 import styles from './styles.module.scss';
 
-interface BasicMediaSectionMobileProps {
+interface BasicMediaMovieMobileProps {
 	className?: string;
 	id: number;
 }
 
-export const BasicMediaSectionMobile = async ({
+export const BasicMediaMovieMobile = async ({
 	className,
 	id,
-}: BasicMediaSectionMobileProps) => {
+}: BasicMediaMovieMobileProps) => {
 	const title = await getTitle(id);
 	const {
 		name,
@@ -38,9 +33,7 @@ export const BasicMediaSectionMobile = async ({
 		ageRating,
 		countries,
 		genres,
-		shortDescription,
 		seasonsInfo,
-		description,
 	} = title;
 
 	const titleName = name || alternativeName || enName;
@@ -75,7 +68,7 @@ export const BasicMediaSectionMobile = async ({
 	]);
 
 	return (
-		<div className={clsx(styles.basicMediaSectionMobile, className)}>
+		<div className={clsx(styles.basicMediaMovieMobile, className)}>
 			<BasicSectionMobile
 				title={titleName}
 				secondaryTitle={secondaryTitle}
@@ -92,36 +85,6 @@ export const BasicMediaSectionMobile = async ({
 				metaInfo={[firstMetaLine, secondMetaLine]}
 				className={styles.basicSection}
 			/>
-			<div className={styles.features}>
-				<RatingModal
-					theme='textBelow'
-					className={styles.feature}
-					{...title}
-				/>
-				<PlannedToWatch
-					theme='textBelow'
-					className={styles.feature}
-				/>
-				<AddToFoldersModal
-					poster={poster?.previewUrl}
-					title='Добавить'
-					secondaryTitle={secondaryTitle}
-					theme='textBelow'
-					className={styles.feature}
-				/>
-				<MoreOptions
-					poster={poster?.previewUrl}
-					title={titleName}
-					secondaryTitle={secondaryTitle}
-					className={styles.feature}
-				/>
-			</div>
-			{shortDescription ? (
-				<div className={styles.shortDescription}>
-					{shortDescription}
-				</div>
-			) : null}
-			{description ? <ReadMoreTextBlock text={description} /> : null}
 		</div>
 	);
 };

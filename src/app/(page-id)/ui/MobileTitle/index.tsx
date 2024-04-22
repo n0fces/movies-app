@@ -1,18 +1,27 @@
-import { BasicMediaSectionMobile } from '@/widgets/BasicMediaSectionMobile/ui';
-import { TitleCrewCarousel } from '@/widgets/TitleCrewCarousel';
-import styles from './styles.module.scss';
-import { getTitle } from '../../api/getTitle';
+import { ReadMoreTextBlock } from '@/entities/ReadMoreTextBlock';
 import { WatchingServices } from '@/entities/WatchingServices';
+import { FeaturesMoviePage } from '@/widgets/FeaturesMoviePage';
+import { TitleCrewCarousel } from '@/widgets/TitleCrewCarousel';
+import { getTitle } from '../../api/getTitle';
+import styles from './styles.module.scss';
+import { BasicMediaMovieMobile } from '@/widgets/BasicMediaMovieMobile';
 
 interface MobileProps {
 	id: number;
 }
 
 export const MobileTitle = async ({ id }: MobileProps) => {
-	const { watchability } = await getTitle(id);
+	const { watchability, shortDescription, description } = await getTitle(id);
 	return (
 		<div>
-			<BasicMediaSectionMobile id={id} />
+			<BasicMediaMovieMobile id={id} />
+			<FeaturesMoviePage id={id} />
+			{shortDescription && (
+				<div className={styles.shortDescription}>
+					{shortDescription}
+				</div>
+			)}
+			{description && <ReadMoreTextBlock text={description} />}
 			<WatchingServices
 				watchability={watchability}
 				isMobile={true}

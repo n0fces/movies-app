@@ -1,13 +1,4 @@
-.basicMediaSectionMobile {
-	display: flex;
-	flex-direction: column;
-}
-
-.basicSection {
-	margin-bottom: 1rem;
-}
-
-.features {
+.featuresMoviePage {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -36,10 +27,4 @@
 	&:focus {
 		opacity: 0.6;
 	}
-}
-
-.shortDescription {
-	font-size: 1.125rem;
-	line-height: 1.222;
-	margin-bottom: 1rem;
 }

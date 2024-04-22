@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 
-interface BasicMediaSectionProps {
+interface BasicMediaMovieProps {
 	className?: string;
 	id: number;
 }
@@ -22,10 +22,10 @@ const TrailerBtnContent = (props?: VideoAPI) => (
 	/>
 );
 
-export const BasicMediaSection = async ({
+export const BasicMediaMovie = async ({
 	className,
 	id,
-}: BasicMediaSectionProps) => {
+}: BasicMediaMovieProps) => {
 	const title = await getTitle(id);
 	const {
 		poster,
@@ -43,7 +43,7 @@ export const BasicMediaSection = async ({
 		: `${name}, ${year} — Описание, интересные факты — KinoStar`;
 
 	return (
-		<div className={clsx(styles.basicMediaSection, className)}>
+		<div className={clsx(styles.basicMediaMovie, className)}>
 			<div className={styles.posterContainer}>
 				{/* здесь будет линка на страницу со всеми постерами */}
 				<Link href={'#'}>

@@ -9,7 +9,7 @@ interface BasicSectionMobileProps {
 	poster: string | null | undefined;
 	secondaryTitle: string | null | undefined;
 	ratingBlock?: () => JSX.Element;
-	metaInfo?: Array<string | undefined>;
+	metaInfo?: Array<string | undefined | null>;
 }
 
 export const BasicSectionMobile = ({
@@ -34,14 +34,12 @@ export const BasicSectionMobile = ({
 					className={styles.title}>
 					{title}
 				</Title>
-				{ratingBlock && secondaryTitle && (
+				{secondaryTitle && (
 					<div className={styles.subTitleRoot}>
-						{ratingBlock && <span>{ratingBlock?.()}</span>}
-						{secondaryTitle && (
-							<span className={styles.alternativeName}>
-								{secondaryTitle}
-							</span>
-						)}
+						<span>{ratingBlock?.()}</span>
+						<span className={styles.alternativeName}>
+							{secondaryTitle}
+						</span>
 					</div>
 				)}
 				{metaInfo && (

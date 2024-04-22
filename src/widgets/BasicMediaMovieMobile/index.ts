@@ -1,0 +1,1 @@
+export { BasicMediaMovieMobile } from './ui';

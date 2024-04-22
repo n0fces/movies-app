@@ -4,8 +4,8 @@ import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { BasicMediaPerson } from '@/widgets/BasicMediaPerson';
 import { HeaderPersonPage } from '@/widgets/HeaderPersonPage';
 import { TableInfoPerson } from '@/widgets/TableInfoPerson';
-import { getBirthday } from '@/widgets/TableInfoPerson/lib/getBirthday';
-import { getProfessions } from '@/widgets/TableInfoPerson/lib/getProfessions';
+import { getBirthday } from '@/shared/helpers/getBirthday';
+import { getProfessions } from '@/shared/helpers/getProfessions';
 import { Metadata } from 'next';
 import { getPerson } from '../../api/getPerson';
 import { Desktop } from '../../ui/Desktop';
@@ -70,6 +70,6 @@ export default async function TitleRoot({
 			tableInfo={() => <TableInfoPerson id={params.id} />}
 		/>
 	) : (
-		<MobilePerson />
+		<MobilePerson id={params.id} />
 	);
 }
