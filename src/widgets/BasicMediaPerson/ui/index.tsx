@@ -1,9 +1,10 @@
 import { getPerson } from '@/app/(page-id)/api/getPerson';
+import { AddToFoldersPersonDropdown } from '@/features/AddToFoldersPerson/ui/AddToFoldersPersonDropdown';
+import { SocialServices } from '@/features/SocialServices';
 import { MyImage } from '@/shared/ui/MyImage';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './styles.module.scss';
-import { SocialServices } from '@/features/SocialServices';
 
 interface BasicMediaPersonProps {
 	className?: string;
@@ -15,7 +16,7 @@ export const BasicMediaPerson = async ({
 	id,
 }: BasicMediaPersonProps) => {
 	const person = await getPerson(id);
-	const { photo, name, enName } = person;
+	const { photo, name, enName, profession } = person;
 	const text = `${name} (${enName}): фильмы, биография, семья, фильмография — KinoStar`;
 
 	return (
@@ -31,7 +32,9 @@ export const BasicMediaPerson = async ({
 					/>
 				</Link>
 			</div>
-			<div className={styles.userControlsContainer}></div>
+			<div className={styles.userControlsContainer}>
+				<AddToFoldersPersonDropdown profession={profession} />
+			</div>
 			<div className={styles.socialControlsContainer}>
 				<SocialServices text={text} />
 			</div>

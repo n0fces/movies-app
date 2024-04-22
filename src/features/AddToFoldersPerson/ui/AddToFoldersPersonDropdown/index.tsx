@@ -1,21 +1,24 @@
 'use client';
 
+import { Profession } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { DropdownBackdrop } from '@/shared/ui/DropdownBackdrop';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
 import { Icon } from '@/shared/ui/Icon';
 import Link from 'next/link';
 import { useState } from 'react';
-import { AddToFoldersList } from '../AddToFoldersList';
+import { AddToFoldersPersonList } from '../AddToFoldersPersonList';
 import styles from './styles.module.scss';
 
-interface AddToFoldersDropdownProps {
+interface AddToFoldersPersonDropdownProps {
 	className?: string;
+	profession: Profession[] | undefined;
 }
 
-export const AddToFoldersDropdown = ({
+export const AddToFoldersPersonDropdown = ({
 	className,
-}: AddToFoldersDropdownProps) => {
+	profession,
+}: AddToFoldersPersonDropdownProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -34,7 +37,7 @@ export const AddToFoldersDropdown = ({
 			</Button>
 			{isOpen && (
 				<DropdownBackdrop className={styles.backdrop}>
-					<AddToFoldersList />
+					<AddToFoldersPersonList profession={profession} />
 					<div className={styles.afterSlot}>
 						<Button
 							component={Link}

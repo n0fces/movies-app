@@ -1,3 +1,22 @@
 .basicMediaPerson {
-	
+	display: flex;
+	flex-direction: column;
+}
+
+.poster {
+	width: 13.875rem;
+	height: 20.8125rem;
+
+	@media (min-width: 80em) {
+		width: 18.875rem;
+		height: 28.3125rem;
+	}
+}
+
+.posterContainer {
+	margin-bottom: 1.5rem;
+}
+
+.socialControlsContainer {
+	margin-top: auto;
 }
