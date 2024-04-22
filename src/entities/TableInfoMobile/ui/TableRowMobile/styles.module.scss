@@ -1,23 +1,23 @@
 .tableRow {
 	display: flex;
-
-	padding: 0.5rem 0;
-	font-size: 0.8125rem;
-	line-height: 1.3846;
-	color: var(--text-minor-color);
 }
 
 .titleRow {
 	flex: 0 0 10rem;
+	font-size: 0.8125rem;
+	line-height: 1.3846;
+	color: var(--text-minor-color);
 }
 
 .valueRow {
 	flex-grow: 1;
 
 	display: flex;
+	font-size: 0.9375rem;
+	line-height: 1.333;
 
 	a {
-		color: #000;
+		font-weight: 500;
 		@media (any-hover: hover) {
 			&:hover {
 				color: var(--kp-main-color);

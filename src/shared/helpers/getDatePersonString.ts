@@ -1,17 +1,18 @@
-import { months } from '@/shared/constants/months';
-import { getBirthday } from '../../../shared/helpers/getBirthday';
-import { getZodiac } from '@/shared/helpers/getZodiac';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { months } from '../constants/months';
+import { getBirthday } from './getBirthday';
+import { getZodiac } from './getZodiac';
+import { stringWithDelimiter } from './stringWithDelimiter';
 
 export const getDatePersonString = (
 	date: string | null | undefined,
-	age?: number | null
+	age?: number | null,
+	withZodiac?: boolean
 ) => {
 	const birthData = getBirthday(date);
 	let birth: string | null = null;
 	if (birthData) {
 		const { day, month, year } = birthData;
-		const zodiac = getZodiac(date);
+		const zodiac = withZodiac ? getZodiac(date) : null;
 		let ageString: string | null = null;
 		if (age) {
 			const word =

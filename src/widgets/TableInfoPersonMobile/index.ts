@@ -1,0 +1,1 @@
+export { TableInfoPersonMobile } from './ui';
