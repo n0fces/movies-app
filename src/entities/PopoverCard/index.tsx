@@ -8,10 +8,10 @@ import { AdditionalInfo } from './ui/AdditionalInfo';
 interface PopoverCardProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
 	isLoading?: boolean;
-	image?: JSX.Element;
-	titleName?: string | null;
+	image?: () => JSX.Element | null;
+	titleName?: () => JSX.Element | null;
 	subtitle?: string | null;
-	featureBtns?: JSX.Element;
+	featureBtns?: () => JSX.Element | null;
 	additionalInfo?: AdditionalInfoList;
 }
 
@@ -34,21 +34,15 @@ export const PopoverCard = ({
 					<RectSkeleton className={styles.skeleton} />
 				) : (
 					<>
-						<div className={styles.image}>{image}</div>
+						<div className={styles.image}>{image?.()}</div>
 						<div className={styles.info}>
-							{titleName && (
-								<div className={styles.title}>{titleName}</div>
-							)}
-							{subtitle && (
-								<div className={styles.subtitle}>
-									{subtitle}
-								</div>
-							)}
-							{featureBtns && (
-								<div className={styles.features}>
-									{featureBtns}
-								</div>
-							)}
+							<div className={styles.title}>{titleName?.()}</div>
+							<div className={styles.subtitle}>
+								{subtitle}
+							</div>
+							<div className={styles.features}>
+								{featureBtns?.()}
+							</div>
 							{additionalInfo && (
 								<div className={styles.additionalInfo}>
 									<AdditionalInfo

@@ -3,7 +3,7 @@ import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { CardItemEntity } from '@/shared/types';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
-import { IsLink } from './ui/IsLink';
+import { IsLink } from '../../shared/ui/IsLink';
 
 // * Здесь надо будет сузить интерфейс (не все штуки, которые поступают, на самом деле здесь нужны)
 interface CardItemProps extends CardItemEntity {
@@ -35,6 +35,8 @@ export const CarouselTitleCard = ({
 								name={text}
 								id={id}
 								data={otherProps}
+								href={href}
+								wordIsLink={false}
 								className={styles.linkItem}
 							/>
 						) : null}

@@ -41,7 +41,7 @@ export async function generateMetadata({
 	}
 
 	return {
-		title: `${name} (${enName}): фильмы, биография, семья, фильмография — KinoStar`,
+		title: `${name}${enName ? `(${enName})` : ''}: фильмы, биография, семья, фильмография — KinoStar`,
 		description: stringWithDelimiter('. ', [
 			name,
 			birth,

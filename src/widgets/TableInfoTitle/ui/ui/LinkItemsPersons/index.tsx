@@ -1,5 +1,4 @@
 import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';
-import { getPath } from '@/shared/helpers/getPath';
 import { PersonInMovie } from '@/shared/types';
 import Link from 'next/link';
 
@@ -29,7 +28,6 @@ export const LinkItemsPersons = ({
 					<>
 						<LinkItemPerson
 							key={index}
-							href={getPath.person(id)}
 							name={text}
 							id={id}
 						/>

@@ -7,14 +7,17 @@ interface AdditionalInfoListProps {
 }
 
 export const AdditionalInfo = ({ additionalInfo }: AdditionalInfoListProps) => {
-	return Object.entries(additionalInfo).map(([key, value], i) =>
-		value ? (
+	return Object.entries(additionalInfo).map(([key, value], i) => {
+		// Если это массив строк, то делаем проверку на длину этого массива.
+		// Если это не массив, то это может быть либо jsx.element, либо null
+		const conditional = Array.isArray(value) ? value.length > 0 : value;
+		return conditional ? (
 			<div
 				key={i}
 				className={styles.row}>
 				<span className={styles.listTitle}>{key}: </span>
 				<span className={styles.list}>
-					{Array.isArray(value) && value.length
+					{Array.isArray(value)
 						? value.map((item, j) => (
 								<Fragment key={j}>
 									{item}
@@ -24,6 +27,6 @@ export const AdditionalInfo = ({ additionalInfo }: AdditionalInfoListProps) => {
 						: value}
 				</span>
 			</div>
-		) : null
-	);
+		) : null;
+	});
 };

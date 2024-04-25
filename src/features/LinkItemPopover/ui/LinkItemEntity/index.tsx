@@ -16,8 +16,9 @@ export const LinkItemEntity = ({
 	setPosition,
 	name,
 	href,
+	wordIsLink,
 }: LinkItemEntityProps) => {
-	return href ? (
+	return href && wordIsLink ? (
 		<Link
 			href={href}
 			className={className}

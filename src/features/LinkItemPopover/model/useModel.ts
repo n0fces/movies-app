@@ -30,7 +30,7 @@ export interface useModelReturned {
 export const useModel = (
 	data: any,
 	setData: Dispatch<SetStateAction<any>>,
-	response: () => Promise<any>,
+	response: () => Promise<any>
 ): useModelReturned => {
 	const { isHover, onMouseEnter, onMouseLeave } = useHover();
 	const [isOpen, setIsOpen] = useState(false);

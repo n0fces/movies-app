@@ -1,10 +1,12 @@
 'use client';
 
 import { PopoverCard } from '@/entities/PopoverCard';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { getPath } from '@/shared/helpers/getPath';
+import { getProfessions } from '@/shared/helpers/getProfessions';
 import { Person } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { IsLink } from '@/shared/ui/IsLink';
 import { MyImage } from '@/shared/ui/MyImage';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -27,8 +29,9 @@ export const LinkItemPerson = ({
 	className,
 	id,
 	name,
-	href,
 	data,
+	href: h,
+	wordIsLink = true
 }: LinkItemPersonProps) => {
 	const [person, setPerson] = useState<typeof data>(data);
 
@@ -61,6 +64,37 @@ export const LinkItemPerson = ({
 		isLoading,
 	} = useModel(person, setPerson, response);
 
+	const href = h ? h : getPath.person(id);
+
+	const professions = getProfessions(person?.profession);
+
+	const TitleName = () => <IsLink href={href}>{person?.name}</IsLink>;
+
+	const PosterPerson = () => (
+		<IsLink href={href}>
+			<MyImage
+				src={person?.photo}
+				alt={person?.name || person?.enName}
+				width={112}
+				height={168}
+			/>
+		</IsLink>
+	);
+
+	const FeaturesBtns = () => (
+		<Button
+			component={Link}
+			href={'#'}
+			theme='useFeature'
+			className={styles.subscribeBtn}>
+			<Icon
+				name='subscribe'
+				className={styles.subscribeIcon}
+			/>
+			Подписаться
+		</Button>
+	);
+
 	// короче, здесь можно провести некоторые махинации по оптимизации, но я не знаю, насколько это нужно здесь
 	// можно PopoverCard обернуть в memo, а также ноды, которые мы в нее передаем. Тогда при переключении isHover
 	// не будет лишний раз ререндерится карточка с доп инфой. Но не знаю, насколько это вообще нужно
@@ -74,41 +108,17 @@ export const LinkItemPerson = ({
 					className={className}
 					name={name}
 					href={href}
+					wordIsLink={wordIsLink}
 				/>
 				{isOpen && (
 					<PopoverCard
 						onMouseLeave={onMouseLeave}
 						onMouseEnter={onMouseEnter}
 						style={{ top, left }}
-						image={
-							<MyImage
-								src={person?.photo}
-								alt={person?.name || person?.enName}
-								width={112}
-								height={168}
-							/>
-						}
-						featureBtns={
-							<Button
-								component={Link}
-								href={'#'}
-								theme='useFeature'
-								className={styles.subscribeBtn}>
-								<Icon
-									name='subscribe'
-									className={styles.subscribeIcon}
-								/>
-								Подписаться
-							</Button>
-						}
-						titleName={person?.name}
-						subtitle={stringWithDelimiter(
-							', ',
-							person?.profession
-								?.filter(Boolean)
-								.map((prof) => prof.value)
-								.slice(0, 3)
-						)}
+						image={PosterPerson}
+						featureBtns={FeaturesBtns}
+						titleName={TitleName}
+						subtitle={professions}
 						additionalInfo={additionalInfo}
 						isLoading={isLoading}
 					/>

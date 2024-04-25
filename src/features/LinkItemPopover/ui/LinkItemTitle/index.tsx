@@ -2,6 +2,7 @@
 
 import { LinkItems } from '@/entities/LinkItems';
 import { PopoverCard } from '@/entities/PopoverCard';
+import { Poster } from '@/entities/Poster';
 import { PlannedToWatch } from '@/features/PlannedToWatch';
 import { TicketsOnSaleBtn } from '@/features/TicketsOnSaleBtn';
 import { WatchButton } from '@/features/WatchButton';
@@ -10,14 +11,13 @@ import { getPath } from '@/shared/helpers/getPath';
 import { sortPersons } from '@/shared/helpers/sortPersons';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { CardItemEntity, LinkItem } from '@/shared/types';
-import { MyImage } from '@/shared/ui/MyImage';
+import { IsLink } from '@/shared/ui/IsLink';
+import { clsx } from 'clsx';
 import { useState } from 'react';
 import { useModel } from '../../model/useModel';
 import { AdditionalInfoList, LinkItemProps } from '../../types';
 import { LinkItemEntity } from '../LinkItemEntity';
 import styles from './styles.module.scss';
-import { clsx } from 'clsx';
-import { Poster } from '@/entities/Poster';
 
 interface TitleLoaded extends CardItemEntity {}
 
@@ -31,6 +31,7 @@ export const LinkItemTitle = ({
 	name,
 	href,
 	data,
+	wordIsLink = true,
 }: LinkItemPersonProps) => {
 	const [title, setTitle] = useState<typeof data>(data);
 
@@ -62,6 +63,8 @@ export const LinkItemTitle = ({
 
 	const titleName = title?.name || title?.alternativeName || title?.enName;
 
+	const TitleName = () => <IsLink href={href}>{titleName}</IsLink>;
+
 	const response = (id: number | null | undefined) => async () => {
 		const response = await fetch('/api/title', {
 			method: 'POST',
@@ -80,6 +83,35 @@ export const LinkItemTitle = ({
 		isLoading,
 	} = useModel(title, setTitle, response(id));
 
+	const PosterComp = () => (
+		<Poster
+			widthPoster={112}
+			heightPoster={168}
+			alt={titleName}
+			poster={title?.poster}
+			rating={title?.rating}
+		/>
+	);
+
+	const FeaturesBtns = () => (
+		<>
+			{title?.ticketsOnSale ? (
+				<TicketsOnSaleBtn
+					id={id}
+					className={clsx(styles.btn, styles.btnFull)}
+				/>
+			) : (
+				isKP && (
+					<WatchButton className={clsx(styles.btn, styles.btnFull)} />
+				)
+			)}
+			<PlannedToWatch
+				small={title?.ticketsOnSale || isKP}
+				className={styles.btn}
+			/>
+		</>
+	);
+
 	// короче, здесь можно провести некоторые махинации по оптимизации, но я не знаю, насколько это нужно здесь
 	// можно PopoverCard обернуть в memo, а также ноды, которые мы в нее передаем. Тогда при переключении isHover
 	// не будет лишний раз ререндерится карточка с доп инфой. Но не знаю, насколько это вообще нужно
@@ -93,48 +125,16 @@ export const LinkItemTitle = ({
 					className={className}
 					name={name}
 					href={href}
+					wordIsLink={wordIsLink}
 				/>
 				{isOpen && (
 					<PopoverCard
 						onMouseLeave={onMouseLeave}
 						onMouseEnter={onMouseEnter}
 						style={{ top, left }}
-						image={
-							<Poster
-								widthPoster={112}
-								heightPoster={168}
-								alt={titleName}
-								poster={title?.poster}
-								rating={title?.rating}
-							/>
-						}
-						featureBtns={
-							<>
-								{title?.ticketsOnSale ? (
-									<TicketsOnSaleBtn
-										id={id}
-										className={clsx(
-											styles.btn,
-											styles.btnFull
-										)}
-									/>
-								) : (
-									isKP && (
-										<WatchButton
-											className={clsx(
-												styles.btn,
-												styles.btnFull
-											)}
-										/>
-									)
-								)}
-								<PlannedToWatch
-									small={title?.ticketsOnSale || isKP}
-									className={styles.btn}
-								/>
-							</>
-						}
-						titleName={titleName}
+						image={PosterComp}
+						featureBtns={FeaturesBtns}
+						titleName={TitleName}
 						subtitle={stringWithDelimiter(', ', [
 							title?.alternativeName || title?.enName,
 							title?.year,
