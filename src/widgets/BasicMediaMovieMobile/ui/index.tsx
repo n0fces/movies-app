@@ -1,4 +1,3 @@
-import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
 import { RatingValue } from '@/entities/RatingValue';
 import { convertMinutes } from '@/shared/helpers/convertMinutes';
@@ -6,6 +5,7 @@ import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { clsx } from 'clsx';
 import styles from './styles.module.scss';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface BasicMediaMovieMobileProps {
 	className?: string;

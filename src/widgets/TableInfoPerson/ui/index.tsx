@@ -1,4 +1,4 @@
-import { getPerson } from '@/app/(page-id)/api/getPerson';
+import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 import { TableInfo } from '@/entities/TableInfo';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';

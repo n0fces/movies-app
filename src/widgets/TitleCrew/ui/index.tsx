@@ -1,13 +1,13 @@
-import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 import { TopListLinksBlock } from '@/entities/TopListLinksBlock';
-import { getTitle } from '@/app/(page-id)/api/getTitle';
-import { sortPersons } from '@/shared/helpers/sortPersons';
-import { getPath } from '@/shared/helpers/getPath';
 import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';
-import { PersonInMovie } from '@/shared/types';
-import Link from 'next/link';
+import { getPath } from '@/shared/helpers/getPath';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
+import { sortPersons } from '@/shared/helpers/sortPersons';
+import { PersonInMovie } from '@/shared/types';
+import { clsx } from 'clsx';
+import Link from 'next/link';
+import styles from './styles.module.scss';
 
 interface TitleCrewProps {
 	className?: string;

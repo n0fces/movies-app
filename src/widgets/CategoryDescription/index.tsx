@@ -9,7 +9,7 @@ interface DescriptionCategoryProps {
 	params: { [key: string]: string };
 }
 
-export default async function CategoryDescription({
+export async function CategoryDescription({
 	params,
 }: DescriptionCategoryProps) {
 	const isMobile = deviceDetectServer();

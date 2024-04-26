@@ -1,4 +1,3 @@
-import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { AddToFoldersDropdown } from '@/features/AddToFolders/ui/AddToFoldersDropdown';
 import { ModalTrailer } from '@/features/ModalTrailer';
 import { SocialServices } from '@/features/SocialServices';
@@ -8,6 +7,7 @@ import { VideoYT } from '@/shared/ui/VideoYT';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface BasicMediaMovieProps {
 	className?: string;

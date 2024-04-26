@@ -1,11 +1,11 @@
-import { ToggleFilters } from '../ToggleFilters';
-import { Topbar } from '../Topbar';
-import styles from './styles.module.scss';
-import { ButtonsWatch } from '../ButtonsWatch';
-import CategoryDescription from '@/widgets/CategoryDescription';
 import { SelectOptions } from '@/features/SelectOptions';
 import { SelectSortType } from '@/features/SelectSortType';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { CategoryDescription } from '@/widgets/CategoryDescription';
+import { ButtonsWatch } from '../ButtonsWatch';
+import { ToggleFilters } from '../ToggleFilters';
+import { Topbar } from '../Topbar';
+import styles from './styles.module.scss';
 
 export const Mobile = ({
 	params,

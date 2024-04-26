@@ -1,4 +1,3 @@
-import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { LinkItems } from '@/entities/LinkItems';
 import { TableInfo } from '@/entities/TableInfo';
 import { ratingMpaaDescription } from '@/shared/constants/ratingMpaaDescription';
@@ -12,6 +11,7 @@ import { setTime } from '../lib/setTime';
 import styles from './styles.module.scss';
 import { Audiences } from './ui/Audiences';
 import { LinkItemsPersons } from './ui/LinkItemsPersons';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface TableInfoProps {
 	className?: string;

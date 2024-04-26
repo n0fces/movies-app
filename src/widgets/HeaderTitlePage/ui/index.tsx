@@ -1,4 +1,3 @@
-import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { HeaderNamespace } from '@/entities/HeaderNamespace';
 import { MoreOptionsDropdown } from '@/entities/MoreOptionsDropdown';
 import { RatingBlockTitle } from '@/entities/RatingBlockTitle';
@@ -12,6 +11,7 @@ import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
 import styles from './styles.module.scss';
 import { RatingPicker } from '@/features/SetRating/ui/RatingPicker';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface HeaderTitlePageProps {
 	className?: string;

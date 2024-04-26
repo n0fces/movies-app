@@ -1,4 +1,4 @@
-import { getPerson } from '@/app/(page-id)/api/getPerson';
+import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
 import { getGrowth } from '@/shared/helpers/getGrowth';
 import { getProfessions } from '@/shared/helpers/getProfessions';

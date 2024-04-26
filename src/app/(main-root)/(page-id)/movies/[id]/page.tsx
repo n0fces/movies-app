@@ -1,4 +1,3 @@
-import { Desktop } from '@/app/(page-id)/ui/Desktop';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { HeaderTitlePage } from '@/widgets/HeaderTitlePage';
 import { TableInfoTitle } from '@/widgets/TableInfoTitle';
@@ -8,6 +7,7 @@ import { getTitle } from '../../api/getTitle';
 import { MobileTitle } from '../../ui/MobileTitle';
 import styles from './styles.module.scss';
 import { BasicMediaMovie } from '@/widgets/BasicMediaMovie';
+import { Desktop } from '../../ui/Desktop';
 
 export async function generateMetadata({
 	params,

@@ -1,7 +1,7 @@
-import { getPerson } from '@/app/(page-id)/api/getPerson';
 import { HeaderNamespace } from '@/entities/HeaderNamespace';
 import { SetFavouritePerson } from '@/features/SetFavouritePerson';
 import styles from './styles.module.scss';
+import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 
 interface HeaderPersonPageProps {
 	className?: string;

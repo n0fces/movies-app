@@ -1,4 +1,3 @@
-import { getPerson } from '@/app/(page-id)/api/getPerson';
 import { ReadMoreComponent } from '@/entities/ReadMoreComponent';
 import { TableInfoMobile } from '@/entities/TableInfoMobile';
 import { getDatePersonString } from '@/shared/helpers/getDatePersonString';
@@ -7,6 +6,7 @@ import { getProfessions } from '@/shared/helpers/getProfessions';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';
 import styles from './styles.module.scss';
+import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 
 interface TableInfoPersonMobileProps {
 	className?: string;

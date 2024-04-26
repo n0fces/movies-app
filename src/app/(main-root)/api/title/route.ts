@@ -1,4 +1,4 @@
-import { getTitle } from '@/app/(page-id)/api/getTitle';
+import { getTitle } from '../../(page-id)/api/getTitle';
 
 export async function POST(req: Request) {
 	const query = await req.json();

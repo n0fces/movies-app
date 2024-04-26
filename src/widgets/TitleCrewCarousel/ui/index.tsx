@@ -1,4 +1,3 @@
-import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { Title } from '@/shared/ui/Title';
 import { clsx } from 'clsx';
 import Link from 'next/link';
@@ -6,6 +5,7 @@ import { getArrayStuffForRender } from '../lib/getArrayStuffForRender';
 import { TitleCrewItem } from './TitleCrewItem';
 import styles from './styles.module.scss';
 import { Button } from '@/shared/ui/Button';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 export type TitleCrewCarouselType = 'actors' | 'creators';
 

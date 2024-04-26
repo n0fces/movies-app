@@ -1,6 +1,6 @@
+import { SelectOptions } from '@/features/SelectOptions';
+import { CategoryDescription } from '@/widgets/CategoryDescription';
 import { ButtonsWatch } from '../ButtonsWatch';
-import CategoryDescription from '../../../../../../widgets/CategoryDescription';
-import { SelectOptions } from '../../../../../../features/SelectOptions';
 import { ToggleFilters } from '../ToggleFilters';
 import { Topbar } from '../Topbar';
 import styles from './styles.module.scss';

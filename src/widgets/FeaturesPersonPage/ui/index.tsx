@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import styles from './styles.module.scss';
 import { SetFavouritePerson } from '@/features/SetFavouritePerson';
 import { AddToFoldersPersonModal } from '@/features/AddToFoldersPerson/ui/AddToFoldersPersonModal';
-import { getPerson } from '@/app/(page-id)/api/getPerson';
+import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 
 interface FeaturesPersonPageProps {
 	className?: string;

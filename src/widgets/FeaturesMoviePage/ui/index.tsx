@@ -1,10 +1,10 @@
 import { clsx } from 'clsx';
 import styles from './styles.module.scss';
-import { getTitle } from '@/app/(page-id)/api/getTitle';
 import { RatingModal } from '@/features/SetRating/ui/RatingModal';
 import { PlannedToWatch } from '@/features/PlannedToWatch';
 import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
 import { MoreOptions } from './MoreOptions';
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface FeaturesMoviePageProps {
 	className?: string;

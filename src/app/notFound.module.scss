@@ -1,29 +1,148 @@
 .notFound {
-	display: flex;
-	flex-direction: column;
-	row-gap: 1.25rem;
+	min-height: 100vh;
+	background-color: #141414;
+}
+
+.errorContainer {
+	width: 89vw;
+	margin: 0 auto;
+
+	@media (min-width: 64em) {
+		max-width: 62.5rem;
+	}
+
+	@media (max-width: 64em) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.imageLink {
+	padding: 1.5rem 0 15vh;
+	@media (min-width: 48em) {
+		padding: 5rem 0 6.25rem;
+	}
+	@media (min-width: 64em) {
+		padding: 11vh 0 0;
+	}
+}
+
+.linkMain {
+	position: relative;
+
+	display: inline-flex;
 	align-items: center;
-	justify-content: center;
+	font-size: 1.6875rem;
+	color: #fff;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -0.375rem;
+		left: 0;
+		width: 0;
+		height: 0.125rem;
+		background-color: var(--kp-main-color);
+		transition: width 0.25s ease-out;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				width: 100%;
+			}
+		}
+	}
+
+	&:focus,
+	&:active {
+		&::after {
+			width: 100%;
+		}
+	}
+}
+
+.logo {
+	width: 1.375rem;
+	height: 1.375rem;
+	fill: #fff;
+}
+
+.content {
+	display: flex;
+
+	@media (min-width: 64em) {
+		padding-top: 17vh;
+	}
+
+	@media (min-width: 64em) {
+		justify-content: space-between;
+	}
+
+	@media (max-width: 64em) {
+		flex-direction: column-reverse;
+		row-gap: 3.75rem;
+		text-align: center;
+	}
+}
+
+.columnLeft {
+	flex-basis: 25.625rem;
+	max-width: 25.625rem;
 }
 
 .title {
-	color: rgba(0, 0, 0, 1);
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.description {
+	padding-top: 1.25em;
+	font-size: 1rem;
+	line-height: 1.375;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.links {
+	margin-top: 3.75em;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.875em;
+
+	font-size: 1rem;
+	font-weight: 500;
 }
 
 .link {
-	line-height: 1.25;
-	font-size: 1.25rem;
-	font-weight: 500;
+	align-self: center;
+	@media (min-width: 64em) {
+		align-self: flex-start;
+	}
 
-	color: rgba(0, 0, 0, 1);
+	color: rgba(255, 255, 255, 0.7);
+	transition: color 0.1s ease-out;
 	@media (any-hover: hover) {
 		&:hover {
-			color: rgba(0, 0, 0, 0.7);
+			color: rgba(255, 255, 255, 1);
 		}
 	}
-	&:focus {
-		color: rgba(0, 0, 0, 0.7);
-	}
 
-	transition: background-color 0.1s ease-out;
+	&:focus,
+	&:active {
+		color: rgba(255, 255, 255, 1);
+	}
+}
+
+.columnRight {
+	flex-grow: 1;
+	max-width: 500px;
+}
+
+.videoCnt {
+	padding-bottom: 56.25%;
+}
+
+.video {
+	border-radius: 0.25rem;
 }
