@@ -51,8 +51,10 @@ export default function NotFound() {
 					<div className={styles.columnRight}>
 						<div className={clsx('ibg', styles.videoCnt)}>
 							<video
-								autoPlay={true}
-								loop={true}
+								autoPlay
+								loop
+								muted
+								playsInline
 								className={styles.video}
 								src={`/error-page/${randomGif}.mp4`}></video>
 						</div>

@@ -31,7 +31,7 @@ export const LinkItemPerson = ({
 	name,
 	data,
 	href: h,
-	wordIsLink = true
+	wordIsLink = true,
 }: LinkItemPersonProps) => {
 	const [person, setPerson] = useState<typeof data>(data);
 
@@ -68,6 +68,7 @@ export const LinkItemPerson = ({
 
 	const professions = getProfessions(person?.profession);
 
+	// В будущем здесь надо продолжить рефакторинг и подумать над лишними реактовскими ререндерами при изменении isHover. Но приоритетность этого небольшая
 	const TitleName = () => <IsLink href={href}>{person?.name}</IsLink>;
 
 	const PosterPerson = () => (

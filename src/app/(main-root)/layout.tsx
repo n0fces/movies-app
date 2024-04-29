@@ -1,21 +1,12 @@
-// import '@/styles/main.scss';
-
 import NextTopLoader from 'nextjs-toploader';
 
 import type { Metadata } from 'next';
-
-// import { Open_Sans } from 'next/font/google';
 
 import styles from './styles.module.scss';
 import { clsx } from 'clsx';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { Header } from '@/widgets/Header';
 import { Footer } from '@/widgets/Footer';
-
-// const openSans = Open_Sans({
-// 	subsets: ['cyrillic', 'latin'],
-// 	weight: ['400', '500', '600', '700'],
-// });
 
 export function generateMetadata(): Metadata {
 	const isMobile = deviceDetectServer();
@@ -61,12 +52,6 @@ export default function RootLayout({
 				</div>
 				<Footer />
 			</div>
-			{/* <div
-				id='modal-root'
-				className={styles.modalRoot}></div>
-			<div
-				id='popover-root'
-				className={styles.popoverRoot}></div> */}
 		</>
 	);
 }

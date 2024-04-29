@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	// min-height: 100lvh;
 }
 
 .container {
@@ -51,15 +50,3 @@
 		max-width: calc(100% - 12.5rem);
 	}
 }
-
-// .modalRoot {
-// 	position: absolute;
-// 	top: 0;
-// 	z-index: 2;
-// }
-
-// .popoverRoot {
-// 	position: absolute;
-// 	top: 0;
-// 	z-index: 2;
-// }
