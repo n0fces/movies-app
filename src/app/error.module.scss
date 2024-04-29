@@ -1,0 +1,55 @@
+.errorRoot {
+	min-height: 100vh;
+	background-color: var(--error-background-color);
+}
+
+.errorCnt {
+	width: 89vw;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 1.5rem;
+
+	@media (min-width: 48em) {
+		row-gap: 5vh;
+	}
+	
+	@media (min-width: 64em) {
+		max-width: 62.5rem;
+	}
+}
+
+.subtitle {
+	padding-top: 1.5rem;
+	@media (min-width: 48em) {
+		padding-top: 10vh;
+	}
+	@media (min-width: 64em) {
+		padding-top: 15vh;
+	}
+
+	color: var(--title-error-color);
+}
+
+.title {
+	color: var(--title-error-color) !important;
+}
+
+.message {
+	color: var(--text-minor-color-reverse);
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+.btn {
+	height: 2.5rem;
+	padding: 0 1rem;
+}

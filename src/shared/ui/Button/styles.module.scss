@@ -6,7 +6,8 @@
 	white-space: nowrap;
 
 	transition: transform var(--button-transition-duration) ease,
-		background var(--button-transition-duration) ease;
+		background var(--button-transition-duration) ease,
+		color var(--button-transition-duration) ease;
 }
 
 .default {
@@ -119,4 +120,24 @@
 .orange {
 	font-weight: 600;
 	color: var(--kp-main-color);
+}
+
+.outlineWhite {
+	border: 0.125em solid #fff;
+	border-radius: 0.533em;
+	font-weight: 500;
+	color: #fff;
+	background: transparent;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background: #fff;
+			color: var(--error-background-color);
+		}
+	}
+
+	&:focus {
+		background: #fff;
+		color: var(--error-background-color);
+	}
 }
