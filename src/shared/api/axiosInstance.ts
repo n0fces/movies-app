@@ -10,7 +10,7 @@ export const api = axios.create({
 		'Content-type': 'application/json',
 		'X-API-KEY': process.env.API_KEY,
 	},
-	timeout: 1,
+	timeout: 60000,
 	paramsSerializer: (params) => {
 		return qs.stringify(params, { arrayFormat: 'repeat' });
 	},
