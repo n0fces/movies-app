@@ -6,10 +6,10 @@ export const getArrayStuffForRender = (
 	type: TitleCrewCarouselType,
 	persons?: PersonInMovie[]
 ) => {
-	if (persons) {
+	if (persons && persons.length > 0) {
 		const stuff = sortPersons(persons);
 		if (type === 'actors') {
-			return stuff.actor.slice(0, 12);
+			return stuff.actor.length ? stuff.actor.slice(0, 12) : null;
 		} else {
 			const stuffMap: Map<number | null | undefined, PersonInMovie> =
 				new Map();
@@ -27,7 +27,8 @@ export const getArrayStuffForRender = (
 				}
 			}
 
-			return Array.from(stuffMap.values()).slice(0, 6);
+			const arr = Array.from(stuffMap.values());
+			return arr.length ? arr.slice(0, 6) : null;
 		}
 	}
 };

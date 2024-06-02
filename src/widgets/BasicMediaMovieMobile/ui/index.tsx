@@ -64,7 +64,7 @@ export const BasicMediaMovieMobile = async ({
 	const secondMetaLine = stringWithDelimiter(', ', [
 		countries?.[0].name,
 		duringRender,
-		`${ageRating}+`,
+		ageRating ? `${ageRating}+` : null,
 	]);
 
 	return (
