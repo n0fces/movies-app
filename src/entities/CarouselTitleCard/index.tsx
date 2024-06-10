@@ -4,6 +4,7 @@ import { CardItemEntity } from '@/shared/types';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
 import { IsLink } from '../../shared/ui/IsLink';
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 
 // * Здесь надо будет сузить интерфейс (не все штуки, которые поступают, на самом деле здесь нужны)
 interface CardItemProps extends CardItemEntity {
@@ -22,6 +23,8 @@ export const CarouselTitleCard = ({
 }: CardItemProps) => {
 	const { name, alternativeName, enName, year, genres, id } = otherProps;
 	const text = name || alternativeName || enName || null;
+	const isMobile = deviceDetectServer();
+
 	return (
 		<div className={clsx(styles.card, className)}>
 			<IsLink href={href}>
@@ -38,6 +41,7 @@ export const CarouselTitleCard = ({
 								href={href}
 								wordIsLink={false}
 								className={styles.linkItem}
+								isMobile={isMobile}
 							/>
 						) : null}
 					</div>

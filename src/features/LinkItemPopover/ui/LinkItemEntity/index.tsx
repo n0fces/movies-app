@@ -17,25 +17,26 @@ export const LinkItemEntity = ({
 	name,
 	href,
 	wordIsLink,
+	isMobile = false,
 }: LinkItemEntityProps) => {
 	return href && wordIsLink ? (
 		<Link
 			href={href}
 			className={className}
-			onMouseEnter={(e) => {
+			onMouseEnter={!isMobile ? (e) => {
 				onMouseEnter();
 				setPosition(e);
-			}}
+			} : undefined}
 			onMouseLeave={onMouseLeave}>
 			{name}
 		</Link>
 	) : (
 		<span
 			className={className}
-			onMouseEnter={(e) => {
+			onMouseEnter={!isMobile ? (e) => {
 				onMouseEnter();
 				setPosition(e);
-			}}
+			} : undefined}
 			onMouseLeave={onMouseLeave}>
 			{name}
 		</span>

@@ -32,6 +32,7 @@ export const LinkItemTitle = ({
 	href,
 	data,
 	wordIsLink = true,
+	isMobile,
 }: LinkItemPersonProps) => {
 	const [title, setTitle] = useState<typeof data>(data);
 
@@ -126,6 +127,7 @@ export const LinkItemTitle = ({
 					name={name}
 					href={href}
 					wordIsLink={wordIsLink}
+					isMobile={isMobile}
 				/>
 				{isOpen && (
 					<PopoverCard
