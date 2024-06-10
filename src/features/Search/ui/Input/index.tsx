@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { ChangeEvent, useEffect } from 'react';
-import { useInputValue, useIsOpen, useSetters } from '../../model/context';
+import { useIsOpen, useSetters } from '../../model/context';
 import { clsx } from 'clsx';
 import styles from './styles.module.scss';
 import { SearchPanelProps } from '../SearchPanel';
@@ -9,18 +9,17 @@ import { useDebouce } from '@/shared/hooks/useDebounce';
 export const Input = ({ isMobile }: SearchPanelProps) => {
 	const pathname = usePathname();
 	const { setValue, setIsOpen, setIsChange, setSuggests } = useSetters();
-	const value = useInputValue();
 	const isOpen = useIsOpen();
 
 	useEffect(() => {
 		return () => {
-			if (value !== '') {
+			if (isMobile) {
 				setValue('');
-				setIsChange(true);
+				setIsChange(false);
 				setSuggests([]);
 			}
 		};
-	}, [setIsChange, setValue, value, setSuggests]);
+	}, [setIsChange, setValue, isMobile, setSuggests]);
 
 	return (
 		<input

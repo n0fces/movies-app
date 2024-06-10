@@ -19,17 +19,11 @@ const SuggestList = () => {
 				<>
 					{suggests.length !== 0 ? (
 						<>
-							{value === '' ? (
-								<div className={styles.title}>
-									Входит в топ 10 за месяц
-								</div>
-							) : (
-								suggests.length !== 0 && (
-									<div className={styles.title}>
-										Возможно, вы искали
-									</div>
-								)
-							)}
+							<div className={styles.title}>
+								{value === ''
+									? 'Входит в топ 10 за месяц'
+									: 'Возможно, вы искали'}
+							</div>
 							<ul className={styles.list}>
 								{suggests.map((suggest) => (
 									<SuggestItem
@@ -38,13 +32,14 @@ const SuggestList = () => {
 									/>
 								))}
 							</ul>
-							{value !== '' && (
+							{/* потом надо добавить */}
+							{/* {value !== '' && (
 								<Link
 									href={'#'}
 									className={styles.showAll}>
 									Показать все
 								</Link>
-							)}
+							)} */}
 						</>
 					) : (
 						<div className={styles.emptySuggest}>

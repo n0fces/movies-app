@@ -14,6 +14,6 @@ export const getSearch = cache(async (query?: string, limit = 8) => {
 		});
 		return data.docs;
 	} else {
-		return (await getTop10KP()).slice(0, 8);
+		return (await getTop10KP()).slice(0, limit);
 	}
 });

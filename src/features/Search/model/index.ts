@@ -30,19 +30,19 @@ export const useModel = () => {
 					});
 					const res = await response.json();
 					setSuggests(res);
+					setIsChange(false);
+					setIsLoading(false);
 				} catch (error) {
 					if (!signal.aborted) {
 						console.error(error);
+						setIsLoading(false);
 					}
-				} finally {
-					setIsChange(false);
-					setIsLoading(false);
 				}
 			})();
 		}
 
 		return () => {
-			if (value !== '' && controller !== undefined) {
+			if (controller !== undefined) {
 				controller.abort();
 			}
 		};
