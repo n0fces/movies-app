@@ -11,14 +11,12 @@ import { ListItemProps } from '@/shared/types';
 interface ModalTrailerRootProps extends ListItemProps {
 	isOpen: boolean;
 	closeModal: () => void;
-	isMobile: boolean;
 	isSidebar?: boolean;
 }
 
 const ModalTrailerRoot = ({
 	isOpen,
 	closeModal,
-	isMobile,
 	isSidebar,
 	...otherProps
 }: ModalTrailerRootProps) => {
@@ -26,8 +24,8 @@ const ModalTrailerRoot = ({
 	return (
 		<Modal
 			className={clsx(styles.trailerRoot, {
-				[styles.trailerRootSmall]: isMobile,
-				[styles.trailerRootFull]: !isMobile,
+				[styles.trailerRootSmall]: !isSidebar,
+				[styles.trailerRootFull]: isSidebar,
 			})}
 			isOpen={isOpen}
 			closeModal={closeModal}>

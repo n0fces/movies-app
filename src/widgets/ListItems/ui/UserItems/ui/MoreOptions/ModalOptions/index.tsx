@@ -49,7 +49,6 @@ export const ModalOptions = (props: ModalOptions) => {
 					theme='modalFull'
 					btnContent={BtnContentTrailer()}
 					className={styles.trailerBtn}
-					isSidebar={!isMobile}
 				/>
 				<RatingModal
 					{...props}

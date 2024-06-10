@@ -32,7 +32,6 @@ export const WatchItems = ({ isMobile, ...props }: WatchItemsProps) => {
 					theme='useFeature'
 					className={isKP ? styles.buttonSmall : styles.button}
 					btnContent={BtnContent(isKP)}
-					isMobile={isMobile}
 					isSidebar
 					{...props}
 				/>

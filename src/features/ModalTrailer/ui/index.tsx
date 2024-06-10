@@ -8,7 +8,6 @@ import { useCallback, useState } from 'react';
 
 interface ModalTrailerProps extends ListItemProps {
 	className?: string;
-	isMobile: boolean;
 	isSidebar?: boolean;
 	theme?: ThemeButton;
 	btnContent?: React.ReactNode;
