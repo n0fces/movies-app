@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 interface IsLinkProps {
-	href?: string;
+	href?: string | null;
 	className?: string;
 	children: React.ReactNode;
 }

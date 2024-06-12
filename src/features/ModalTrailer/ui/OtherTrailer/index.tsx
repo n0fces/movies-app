@@ -1,41 +1,31 @@
 import { VideoYT } from '@/shared/ui/VideoYT';
 import styles from './styles.module.scss';
-import { clsx } from 'clsx';
 import { Video } from '@/shared/types';
-import Link from 'next/link';
 
 interface OtherTrailerProps extends Video {
 	className?: string;
+	trailer: Video;
+	changeCurrentTrailer: (trailer: Video) => void;
 }
 
 export const OtherTrailer = ({
+	trailer,
 	className,
-	...otherProps
+	changeCurrentTrailer,
 }: OtherTrailerProps) => {
-	const { name, url } = otherProps;
+	const { name } = trailer;
 	return (
-		<li className={clsx(styles.otherTrailer, className)}>
-			{url ? (
-				<Link
-					href={url}
-					className={clsx(styles.link, {
-						[styles.otherTrailer]: url,
-					})}>
-					<VideoYT
-						className={styles.trailerImage}
-						{...otherProps}
-					/>
-					<div className={styles.trailerName}>{name}</div>
-				</Link>
-			) : (
-				<>
-					<VideoYT
-						className={styles.trailerImage}
-						{...otherProps}
-					/>
-					<div className={styles.trailerName}>{name}</div>
-				</>
-			)}
+		<li className={className}>
+			<button
+				onClick={() => changeCurrentTrailer(trailer)}
+				className={styles.otherTrailer}
+				aria-label={`Посмотреть трейлер ${name}`}>
+				<VideoYT
+					className={styles.trailerImage}
+					{...trailer}
+				/>
+				<div className={styles.trailerName}>{name}</div>
+			</button>
 		</li>
 	);
 };
