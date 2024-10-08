@@ -1,7 +1,7 @@
 export const generatePagination = (
 	currentPage: number,
 	totalPages: number,
-	isMobile: boolean
+	isMobile: boolean,
 ): (number | '...')[] => {
 	if (totalPages <= 5) {
 		return Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -25,7 +25,7 @@ export const generatePagination = (
 				'...',
 				...Array.from(
 					{ length: totalPages - currentPage + 1 + 1 },
-					(_, i) => currentPage - 1 + i
+					(_, i) => currentPage - 1 + i,
 				),
 			];
 		}
@@ -56,7 +56,7 @@ export const generatePagination = (
 				'...',
 				...Array.from(
 					{ length: totalPages - currentPage + 1 + 3 },
-					(_, i) => currentPage - 3 + i
+					(_, i) => currentPage - 3 + i,
 				),
 			];
 		}

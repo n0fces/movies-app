@@ -1,14 +1,17 @@
+import { Suspense } from 'react';
+
 import { ListItem } from '@/entities/ListItem';
 import { Pagination } from '@/entities/Pagination';
+import { RatingValue } from '@/entities/RatingValue';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { Suspense } from 'react';
+
 import { getTitles } from '../api/getTitles';
+import { ListItemsSkeleton } from './ListItemsSkeleton';
 import { NotFound } from './NotFound';
 import { UserItems } from './UserItems';
 import { WatchItems } from './WatchItems';
 import styles from './styles.module.scss';
-import { ListItemsSkeleton } from './ListItemsSkeleton';
-import { RatingValue } from '@/entities/RatingValue';
 
 interface ListItemsProps {
 	params: { [key: string]: string };
@@ -35,18 +38,8 @@ async function ListItemsObj({ params, searchParams, limit }: ListItemsProps) {
 							votes={title.votes}
 						/>
 					)}
-					userItems={() => (
-						<UserItems
-							isMobile={isMobile}
-							{...title}
-						/>
-					)}
-					watchItems={() => (
-						<WatchItems
-							isMobile={isMobile}
-							{...title}
-						/>
-					)}
+					userItems={() => <UserItems isMobile={isMobile} {...title} />}
+					watchItems={() => <WatchItems isMobile={isMobile} {...title} />}
 					{...title}
 					key={title.id}
 				/>

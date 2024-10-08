@@ -1,12 +1,20 @@
 'use client';
 
-import { Button } from '@/shared/ui/Button';
-import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
+
+import { Button } from '@/shared/ui/Button';
+import {
+	BorderRadiusBtn,
+	ReverseDirection,
+	ShapeButton,
+	SizeButton,
+	ThemeButton,
+} from '@/shared/ui/Button/types';
 import { ModalLoader } from '@/shared/ui/ModalLoader';
+
 import { TouchModalProvider, useTouchModal } from './context';
-import { BorderRadiusBtn, ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 export interface TouchModalProps {
 	children: React.ReactNode;
@@ -66,10 +74,7 @@ const TouchModalObj = ({
 				{btnContent}
 			</Button>
 			{isOpen && (
-				<TouchModalRoot
-					isOpen={isOpen}
-					closeModal={closeModal}
-					{...otherProps}>
+				<TouchModalRoot isOpen={isOpen} closeModal={closeModal} {...otherProps}>
 					{children}
 				</TouchModalRoot>
 			)}

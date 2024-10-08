@@ -1,22 +1,30 @@
 'use client';
 
-import { TouchModal } from '@/entities/TouchModal';
-import { ListItemProps } from '@/shared/types';
-import { Icon } from '@/shared/ui/Icon';
 import { useEffect } from 'react';
+
+import { TouchModal } from '@/entities/TouchModal';
+
+import { ListItemProps } from '@/shared/types';
+import {
+	ReverseDirection,
+	ShapeButton,
+	SizeButton,
+	ThemeButton,
+} from '@/shared/ui/Button/types';
+import { Icon } from '@/shared/ui/Icon';
+
 import {
 	ContextValueProvider,
 	SetRatingBaseProvider,
-	useValueSetter
+	useValueSetter,
 } from '../../context';
 import { PreviewRating } from './PreviewRating';
 import { SetRatingButtons } from './SetRatingButtons';
 import { Voiting } from './Voiting';
-import { ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 const BtnContent = () => (
 	<>
-		<Icon name='ratingStroked' />
+		<Icon name="ratingStroked" />
 		Оценить
 	</>
 );
@@ -40,7 +48,7 @@ const RatingModalObj = ({
 	shape,
 	size,
 	withoutPadding,
-	reverseDirection
+	reverseDirection,
 }: RatingModalProps) => {
 	const setValue = useValueSetter();
 

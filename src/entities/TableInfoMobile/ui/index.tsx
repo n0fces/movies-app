@@ -1,8 +1,10 @@
+import { clsx } from 'clsx';
+
+import { InfoItem } from '@/shared/types';
 import { Title } from '@/shared/ui/Title';
+
 import { TableRowMobile } from './TableRowMobile';
 import styles from './styles.module.scss';
-import { InfoItem } from '@/shared/types';
-import { clsx } from 'clsx';
 
 interface TableInfoMobileProps {
 	className?: string;
@@ -17,18 +19,12 @@ export const TableInfoMobile = ({
 }: TableInfoMobileProps) => {
 	return (
 		<>
-			<Title
-				as='h3'
-				size='medium'
-				className={styles.titleHeader}>
+			<Title as="h3" size="medium" className={styles.titleHeader}>
 				{title}
 			</Title>
 			<div className={clsx(styles.tableInfoMobile, className)}>
 				{infoList.map((item, index) => (
-					<TableRowMobile
-						key={index}
-						{...item}
-					/>
+					<TableRowMobile key={index} {...item} />
 				))}
 			</div>
 		</>

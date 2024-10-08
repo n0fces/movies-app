@@ -1,12 +1,13 @@
+import { clsx } from 'clsx';
+import type { Metadata } from 'next';
 import NextTopLoader from 'nextjs-toploader';
 
-import type { Metadata } from 'next';
+import { Footer } from '@/widgets/Footer';
+import { Header } from '@/widgets/Header';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 
 import styles from './styles.module.scss';
-import { clsx } from 'clsx';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { Header } from '@/widgets/Header';
-import { Footer } from '@/widgets/Footer';
 
 export function generateMetadata(): Metadata {
 	const isMobile = deviceDetectServer();
@@ -31,18 +32,16 @@ export default function RootLayout({
 	return (
 		<>
 			<NextTopLoader
-				color='#f50'
+				color="#f50"
 				initialPosition={0.08}
 				crawlSpeed={200}
 				height={3}
 				crawl={true}
 				showSpinner={false}
-				easing='ease'
+				easing="ease"
 				speed={200}
 			/>
-			<div
-				className={styles.root}
-				id='root'>
+			<div className={styles.root} id="root">
 				<Header />
 				<div
 					className={clsx('container', styles.container, {

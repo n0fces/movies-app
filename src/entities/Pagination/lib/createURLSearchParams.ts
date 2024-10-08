@@ -1,7 +1,7 @@
 export const createURLSearchParams = (
 	searchParams: { [key: string]: string },
 	typeParam: string,
-	valueParam: string
+	valueParam: string,
 ) => {
 	const arr = [];
 	let selectedParam = false;
@@ -16,8 +16,7 @@ export const createURLSearchParams = (
 	}
 	if (
 		(!selectedParam && valueParam !== '') ||
-		(typeParam === 'watchability.items.name' &&
-			valueParam === 'Kinopoisk HD')
+		(typeParam === 'watchability.items.name' && valueParam === 'Kinopoisk HD')
 	) {
 		arr.push(`${typeParam}=${valueParam}`);
 	}

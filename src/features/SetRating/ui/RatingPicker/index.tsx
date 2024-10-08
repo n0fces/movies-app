@@ -1,8 +1,10 @@
 'use client';
 
+import { clsx } from 'clsx';
+
 import { Movie } from '@/shared/types';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
-import { clsx } from 'clsx';
+
 import {
 	ContextIsOpenDropdownProvider,
 	ContextValueProvider,

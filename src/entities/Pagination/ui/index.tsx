@@ -1,9 +1,11 @@
 import { clsx } from 'clsx';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import { generatePagination } from '../model';
 import { PaginationArrow } from './PaginationArrow';
 import { PaginationItem } from './PaginationItem';
 import styles from './styles.module.scss';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 
 export interface PaginationProps {
 	pages: number;
@@ -21,10 +23,7 @@ export const Pagination = (props: PaginationProps) => {
 
 	return (
 		<div className={clsx(styles.pagination, props.className)}>
-			<PaginationArrow
-				{...props}
-				type='Назад'
-			/>
+			<PaginationArrow {...props} type="Назад" />
 			<div className={styles.list}>
 				{allPages.map((item, index) => {
 					return (
@@ -38,10 +37,7 @@ export const Pagination = (props: PaginationProps) => {
 					);
 				})}
 			</div>
-			<PaginationArrow
-				{...props}
-				type='Вперед'
-			/>
+			<PaginationArrow {...props} type="Вперед" />
 		</div>
 	);
 };

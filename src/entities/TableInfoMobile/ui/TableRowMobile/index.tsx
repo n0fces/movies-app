@@ -1,5 +1,7 @@
-import { InfoItem } from '@/shared/types';
 import { clsx } from 'clsx';
+
+import { InfoItem } from '@/shared/types';
+
 import styles from './styles.module.scss';
 
 interface TableRowMobileProps extends InfoItem {

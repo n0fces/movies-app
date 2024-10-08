@@ -1,8 +1,10 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { getCurrentYear } from '@/shared/helpers/getCurrentYear';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { getCurrentYear } from '@/shared/helpers/getCurrentYear';
+
+import styles from './styles.module.scss';
 
 interface BottomSectionItemProps {
 	href: string;
@@ -30,9 +32,7 @@ const list: BottomSectionItemProps[] = [
 
 const BottomSectionItem = ({ href, text }: BottomSectionItemProps) => (
 	<li className={styles.bottomSectionItem}>
-		<Link
-			href={href}
-			target='_blank'>
+		<Link href={href} target="_blank">
 			{text}
 		</Link>
 	</li>
@@ -47,13 +47,8 @@ export const BottomSections = () => {
 				[styles.mobile]: isMobile,
 			})}>
 			<div className={styles.bottomSectionInfo}>
-				<span className={styles.year}>
-					©&nbsp;2023 — {getCurrentYear()},
-				</span>
-				<Link
-					href={'/'}
-					target='_blank'
-					className={styles.link}>
+				<span className={styles.year}>©&nbsp;2023 — {getCurrentYear()},</span>
+				<Link href={'/'} target="_blank" className={styles.link}>
 					KinoStar
 				</Link>
 				{!isMobile && <span className={styles.age}>18+</span>}
@@ -61,10 +56,7 @@ export const BottomSections = () => {
 			{!isMobile && (
 				<ul className={styles.bottomSectionMenu}>
 					{list.map((item, index) => (
-						<BottomSectionItem
-							key={index}
-							{...item}
-						/>
+						<BottomSectionItem key={index} {...item} />
 					))}
 				</ul>
 			)}

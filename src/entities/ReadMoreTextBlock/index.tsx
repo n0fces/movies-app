@@ -1,9 +1,11 @@
 'use client';
 
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
 import { CSSProperties, useEffect, useMemo, useRef, useState } from 'react';
+
 import { Button } from '@/shared/ui/Button';
+
+import styles from './styles.module.scss';
 
 interface ReadMoreTextBlockProps {
 	className?: string;
@@ -27,14 +29,13 @@ export const ReadMoreTextBlock = ({
 			WebkitBoxOrient: 'vertical',
 			overflow: 'hidden',
 		}),
-		[amountOfRows]
+		[amountOfRows],
 	);
 
 	useEffect(() => {
 		if (paragraphRef.current) {
 			setShowReadMoreBtn(
-				paragraphRef.current.scrollHeight !==
-					paragraphRef.current.clientHeight
+				paragraphRef.current.scrollHeight !== paragraphRef.current.clientHeight,
 			);
 		}
 	}, []);
@@ -51,7 +52,7 @@ export const ReadMoreTextBlock = ({
 			</p>
 			{showReadMoreBtn && (
 				<Button
-					theme='moreButton'
+					theme="moreButton"
 					className={styles.readMoreBtn}
 					onClick={() => setIsOpen(!isOpen)}>
 					{isOpen ? 'Свернуть' : 'Полное описание'}

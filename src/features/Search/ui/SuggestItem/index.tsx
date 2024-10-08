@@ -1,11 +1,13 @@
-import styles from './styles.module.scss';
 import Link from 'next/link';
-import { MyImage } from '@/shared/ui/MyImage';
-import { SearchMovie } from '@/shared/types';
+
 import { getPath } from '@/shared/helpers/getPath';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { SearchMovie } from '@/shared/types';
+import { MyImage } from '@/shared/ui/MyImage';
 import { Nameplate } from '@/shared/ui/Nameplate';
 import { Rating } from '@/shared/ui/Rating';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+
+import styles from './styles.module.scss';
 
 export const SuggestItem = ({
 	id,
@@ -32,10 +34,7 @@ export const SuggestItem = ({
 				<div className={styles.text}>
 					<div className={styles.title}>{name}</div>
 					<div className={styles.description}>
-						<Rating
-							rating={rating}
-							className={styles.rating}
-						/>
+						<Rating rating={rating} className={styles.rating} />
 						{stringWithDelimiter(', ', [alternativeName, year])}
 					</div>
 				</div>

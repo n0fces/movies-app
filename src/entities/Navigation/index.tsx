@@ -1,9 +1,10 @@
-import { RoutesEnum } from '@/shared/routes';
-import styles from './styles.module.scss';
-
-import { NavigationItem } from './ui';
-import { Item } from './types';
 import { clsx } from 'clsx';
+
+import { RoutesEnum } from '@/shared/routes';
+
+import styles from './styles.module.scss';
+import { Item } from './types';
+import { NavigationItem } from './ui';
 
 interface NavigationProps {
 	isOpen?: boolean;
@@ -23,10 +24,7 @@ export const Navigation = ({ isOpen }: NavigationProps) => {
 					[styles.invert]: typeof isOpen === 'boolean',
 				})}>
 				{items.map((item) => (
-					<NavigationItem
-						{...item}
-						key={item.text}
-					/>
+					<NavigationItem {...item} key={item.text} />
 				))}
 			</ul>
 		</nav>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { LinkItem } from '@/shared/types';
 
 interface LinkItemsProps {
@@ -20,10 +21,7 @@ export const LinkItems = ({
 	if (array && array.length > 0) {
 		const mappedArr = array.map(({ name, href }, index) => (
 			<>
-				<Link
-					key={index}
-					href={href}
-					className={className}>
+				<Link key={index} href={href} className={className}>
 					{name}
 				</Link>
 				{array?.length && index !== array.length - 1 && ', '}
@@ -34,13 +32,10 @@ export const LinkItems = ({
 			mappedArr.push(
 				<>
 					,{' '}
-					<Link
-						key={limitItems}
-						href={moreLink}
-						className={className}>
+					<Link key={limitItems} href={moreLink} className={className}>
 						...
 					</Link>
-				</>
+				</>,
 			);
 		}
 

@@ -16,11 +16,20 @@
 	@return $result;
 }
 
-@mixin adaptiveValue($property, $minViewportWidth, $maxViewportWidth, $minValue, $maxValue) {
+@mixin adaptiveValue(
+	$property,
+	$minViewportWidth,
+	$maxViewportWidth,
+	$minValue,
+	$maxValue
+) {
 	$addSize: math.div($maxValue - $minValue, 16);
-	$slope: math.div(($maxValue - $minValue), ($maxViewportWidth - $minViewportWidth));
+	$slope: math.div(
+		($maxValue - $minValue),
+		($maxViewportWidth - $minViewportWidth)
+	);
 	$yAxisIntersection: -$minViewportWidth * $slope + $minValue;
-	$flyValue: #{rem($yAxisIntersection)}" + " #{$slope * 100}vw;
-	$propertyValue: #{"clamp(" rem($minValue) "," $flyValue "," rem($maxValue) ")"};
+	$flyValue: #{rem($yAxisIntersection)}' + ' #{$slope * 100}vw;
+	$propertyValue: #{'clamp(' rem($minValue) ',' $flyValue ',' rem($maxValue) ')'};
 	#{$property}: $propertyValue;
 }

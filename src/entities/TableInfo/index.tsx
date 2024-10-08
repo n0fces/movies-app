@@ -1,6 +1,7 @@
-import styles from './styles.module.scss';
-import { Title } from '@/shared/ui/Title';
 import { InfoItem } from '@/shared/types';
+import { Title } from '@/shared/ui/Title';
+
+import styles from './styles.module.scss';
 import { TableRow } from './ui/TableRow';
 
 interface TableInfoProps {
@@ -12,10 +13,7 @@ interface TableInfoProps {
 export const TableInfo = ({ className, title, infoList }: TableInfoProps) => {
 	return (
 		<div className={className}>
-			<Title
-				as='h3'
-				size='medium'
-				className={styles.titleHeader}>
+			<Title as="h3" size="medium" className={styles.titleHeader}>
 				{title}
 			</Title>
 			{infoList.map((item, index) => (

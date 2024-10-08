@@ -1,11 +1,12 @@
 'use client';
 
+import { clsx } from 'clsx';
 import { Children } from 'react';
-import styles from './styles.module.scss';
+
 import { ContextProvider, useShare } from '../model';
 import { Buttons } from './Buttons';
 import { ObserverItem } from './ObserverItem';
-import { clsx } from 'clsx';
+import styles from './styles.module.scss';
 
 interface CarouselProps {
 	children: React.ReactElement[];
@@ -31,28 +32,22 @@ const CarouselObj = ({
 						[styles.scrollBarSmall]: isMobile,
 					})}
 					style={{ columnGap: `${gap / 16}rem` }}
-					role='region'
+					role="region"
 					aria-label={ariaLabel}
-					aria-describedby='focus'
+					aria-describedby="focus"
 					tabIndex={0}
 					ref={carouselRef}>
 					{Children.map(children, (child, index) => (
-						<ObserverItem
-							index={index}
-							length={children.length}>
+						<ObserverItem index={index} length={children.length}>
 							{child}
 						</ObserverItem>
 					))}
 				</ul>
 			</div>
-			<Buttons
-				ariaLabel={ariaLabel}
-				isMobile={isMobile}
-			/>
+			<Buttons ariaLabel={ariaLabel} isMobile={isMobile} />
 			<div className={styles.instructions}>
-				<p id='focus'>
-					Используйте клавиши со стрелками для того, чтобы увидеть
-					больше
+				<p id="focus">
+					Используйте клавиши со стрелками для того, чтобы увидеть больше
 				</p>
 			</div>
 		</div>

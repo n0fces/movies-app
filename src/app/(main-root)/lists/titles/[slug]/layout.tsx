@@ -1,4 +1,5 @@
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import { Desktop } from './ui/Desktop';
 import { Mobile } from './ui/Mobile';
 

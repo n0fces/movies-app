@@ -1,10 +1,12 @@
+import { clsx } from 'clsx';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import styles from './styles.module.scss';
 import { BottomSections } from './ui/BottomSection';
 import { ContentLinks } from './ui/ContentLinks';
 import { MobileApps } from './ui/MobileApps';
 import { Social } from './ui/Social';
-import { clsx } from 'clsx';
 
 export const Footer = () => {
 	const isMobile = deviceDetectServer();

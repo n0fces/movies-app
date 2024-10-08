@@ -1,9 +1,14 @@
 'use client';
 
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
-import { SearchPanel } from './SearchPanel';
+import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+
+import { useNoscroll } from '@/shared/hooks/useNoscroll';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
+
+import { useModel } from '../model';
 import {
 	ContextProvider,
 	useInputValue,
@@ -11,12 +16,9 @@ import {
 	useSetters,
 	useSuggests,
 } from '../model/context';
-import { useNoscroll } from '@/shared/hooks/useNoscroll';
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
 import { LoadingBackdrop } from './LoadingBackdrop';
-import dynamic from 'next/dynamic';
-import { useModel } from '../model';
+import { SearchPanel } from './SearchPanel';
+import styles from './styles.module.scss';
 
 interface SuggestProps {
 	isMobile: boolean;
@@ -57,9 +59,7 @@ export const SearchObj = ({ isMobile }: SuggestProps) => {
 				</div>
 			) : null}
 			{isOpen && isMobile && (
-				<div
-					className={styles.overlay}
-					onClick={() => setIsOpen(false)}></div>
+				<div className={styles.overlay} onClick={() => setIsOpen(false)}></div>
 			)}
 		</DropdownWrapper>
 	);

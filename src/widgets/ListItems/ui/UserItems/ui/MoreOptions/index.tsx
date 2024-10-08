@@ -1,8 +1,9 @@
 'use client';
 
-import { ModalOptions } from './ModalOptions';
-import { DropdownOptions } from './DropdownOptions';
 import { ListItemProps } from '@/shared/types';
+
+import { DropdownOptions } from './DropdownOptions';
+import { ModalOptions } from './ModalOptions';
 
 interface MoreOptionsProps extends ListItemProps {
 	isMobile: boolean;
@@ -15,11 +16,7 @@ export const MoreOptions = ({
 	...otherProps
 }: MoreOptionsProps) => {
 	return isMobile ? (
-		<ModalOptions
-			isMobile={isMobile}
-			className={className}
-			{...otherProps}
-		/>
+		<ModalOptions isMobile={isMobile} className={className} {...otherProps} />
 	) : (
 		<DropdownOptions className={className} />
 	);

@@ -1,12 +1,13 @@
 'use client';
 
-import styles from './styles.module.scss';
-
+import { clsx } from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { clsx } from 'clsx';
+
 import { Icon } from '@/shared/ui/Icon';
+
 import { Item } from '../types';
+import styles from './styles.module.scss';
 
 export const NavigationItem = ({ text, route, code }: Item) => {
 	const pathname = usePathname();

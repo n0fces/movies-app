@@ -1,13 +1,16 @@
 'use client';
 
-import Link from 'next/link';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
-import { Icon } from '@/shared/ui/Icon';
+import Link from 'next/link';
+
 import { Navigation } from '@/entities/Navigation';
+
 import { RoutesEnum } from '@/shared/routes';
+import { Icon } from '@/shared/ui/Icon';
+
 import { useModel } from '../../model';
 import { DropdownHeaderItem } from '../DropdownHeaderItem';
+import styles from './styles.module.scss';
 
 interface LogoProps {
 	isMobile: boolean;
@@ -29,13 +32,11 @@ export const LogoHeader = ({ isMobile }: LogoProps) => {
 					[styles.hasSidebar]: !isMobile && pathname === '/',
 				})}
 				aria-expanded={!isOpen ? 'false' : 'true'}
-				aria-controls='nav-menu'
+				aria-controls="nav-menu"
 				onClick={() => setIsOpen(!isOpen)}>
 				<span></span>
 			</button>
-			<DropdownHeaderItem
-				isOpen={isOpen}
-				isMobile={isMobile}>
+			<DropdownHeaderItem isOpen={isOpen} isMobile={isMobile}>
 				<div
 					className={clsx({
 						[styles.dropdownWrapper]: !isMobile,
@@ -43,11 +44,9 @@ export const LogoHeader = ({ isMobile }: LogoProps) => {
 					<Navigation isOpen={isOpen} />
 				</div>
 			</DropdownHeaderItem>
-			<Link
-				href={RoutesEnum.Home}
-				className={styles.linkMain}>
+			<Link href={RoutesEnum.Home} className={styles.linkMain}>
 				<Icon
-					name='main-logo'
+					name="main-logo"
 					className={clsx(styles.logo, {
 						[styles.fullLogo]: !isMobile,
 					})}

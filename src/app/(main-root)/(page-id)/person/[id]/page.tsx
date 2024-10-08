@@ -1,12 +1,15 @@
-import { months } from '@/shared/constants/months';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { Metadata } from 'next';
+
 import { BasicMediaPerson } from '@/widgets/BasicMediaPerson';
 import { HeaderPersonPage } from '@/widgets/HeaderPersonPage';
 import { TableInfoPerson } from '@/widgets/TableInfoPerson';
+
+import { months } from '@/shared/constants/months';
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { getBirthday } from '@/shared/helpers/getBirthday';
 import { getProfessions } from '@/shared/helpers/getProfessions';
-import { Metadata } from 'next';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+
 import { getPerson } from '../../api/getPerson';
 import { Desktop } from '../../ui/Desktop';
 import { MobilePerson } from '../../ui/MobilePerson';
@@ -18,7 +21,7 @@ export async function generateMetadata({
 	params: { id: number };
 }): Promise<Metadata> {
 	const { name, enName, birthday, profession, movies } = await getPerson(
-		params.id
+		params.id,
 	);
 
 	const birthData = getBirthday(birthday);
@@ -42,12 +45,7 @@ export async function generateMetadata({
 
 	return {
 		title: `${name}${enName ? `(${enName})` : ''}: фильмы, биография, семья, фильмография — KinoStar`,
-		description: stringWithDelimiter('. ', [
-			name,
-			birth,
-			professions,
-			works,
-		]),
+		description: stringWithDelimiter('. ', [name, birth, professions, works]),
 	};
 }
 
@@ -61,10 +59,7 @@ export default async function TitleRoot({
 	return !isMobile ? (
 		<Desktop
 			basicMediaSection={() => (
-				<BasicMediaPerson
-					id={params.id}
-					className={styles.basicMediaPerson}
-				/>
+				<BasicMediaPerson id={params.id} className={styles.basicMediaPerson} />
 			)}
 			headerTitle={() => <HeaderPersonPage id={params.id} />}
 			tableInfo={() => <TableInfoPerson id={params.id} />}

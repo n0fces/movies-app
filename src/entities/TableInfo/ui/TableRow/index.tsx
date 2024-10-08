@@ -1,6 +1,8 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
 import { InfoItem } from '@/shared/types';
+
+import styles from './styles.module.scss';
 
 interface TableRowProps extends InfoItem {
 	className?: string;

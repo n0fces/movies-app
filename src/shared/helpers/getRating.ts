@@ -3,7 +3,7 @@ import { Rating } from '@/shared/types';
 type getRatingReturned = [string, keyof Rating] | null;
 
 export const getRating = (
-	rating: Rating | null | undefined
+	rating: Rating | null | undefined,
 ): getRatingReturned => {
 	if (rating) {
 		const availableSources: Array<keyof Rating> = [
@@ -15,8 +15,7 @@ export const getRating = (
 		for (const source of availableSources) {
 			const x = rating[source];
 			if (x) {
-				const returnVal =
-					source === 'await' ? x.toFixed(0) : x.toFixed(1);
+				const returnVal = source === 'await' ? x.toFixed(0) : x.toFixed(1);
 				return [returnVal, source];
 			}
 		}

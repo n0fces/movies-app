@@ -1,13 +1,16 @@
 'use client';
 
-import Link from 'next/link';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
 import { UserMenu } from '@/entities/UserMenu';
+
+import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+
 import { useModel } from '../../model';
 import { DropdownHeaderItem } from '../DropdownHeaderItem';
-import { Button } from '@/shared/ui/Button';
+import styles from './styles.module.scss';
 
 interface UserHeaderProps {
 	isMobile: boolean;
@@ -21,12 +24,9 @@ export const UserHeader = ({ isMobile }: UserHeaderProps) => {
 	return (
 		<div className={styles.userContainer}>
 			{!isMobile && (
-				<Link href='#'>
-					<span className='visually-hidden'>Избранное</span>
-					<Icon
-						name='bookmarked'
-						className={styles.bookmarked}
-					/>
+				<Link href="#">
+					<span className="visually-hidden">Избранное</span>
+					<Icon name="bookmarked" className={styles.bookmarked} />
 				</Link>
 			)}
 			<div
@@ -36,15 +36,14 @@ export const UserHeader = ({ isMobile }: UserHeaderProps) => {
 				onMouseEnter={isMobile ? undefined : () => setIsOpen(true)}
 				onMouseLeave={isMobile ? undefined : () => setIsOpen(false)}>
 				<Button
-				size='size_40'
-				shape='circle'
+					size="size_40"
+					shape="circle"
 					className={styles.userAvatar}
 					aria-expanded={!isOpen ? 'false' : 'true'}
-					aria-controls='user-menu'
-					onClick={() => setIsOpen(!isOpen)}/>
-				<DropdownHeaderItem
-					isOpen={isOpen}
-					isMobile={isMobile}>
+					aria-controls="user-menu"
+					onClick={() => setIsOpen(!isOpen)}
+				/>
+				<DropdownHeaderItem isOpen={isOpen} isMobile={isMobile}>
 					<UserMenu />
 				</DropdownHeaderItem>
 			</div>

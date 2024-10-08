@@ -1,6 +1,8 @@
+import Link from 'next/link';
+
 import { WatchabilityItem } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
-import Link from 'next/link';
+
 import styles from './styles.module.scss';
 
 interface WatchingServiceProps extends WatchabilityItem {
@@ -19,9 +21,9 @@ export const WatchingService = ({
 		<li className={className}>
 			<Link
 				href={url}
-				target='_blank'
+				target="_blank"
 				className={styles.service}
-				rel='noopener noreferrer nofollow'>
+				rel="noopener noreferrer nofollow">
 				<div className={styles.serviceLogo}>
 					<MyImage
 						src={logo?.url}

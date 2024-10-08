@@ -1,7 +1,9 @@
 import { cache } from 'react';
-import { getTop10KP } from './getTop10KP';
+
 import { api } from '@/shared/api';
 import { SearchMovies } from '@/shared/types';
+
+import { getTop10KP } from './getTop10KP';
 
 export const getSearch = cache(async (query?: string, limit = 8) => {
 	if (query) {

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
+
 import styles from './styles.module.scss';
 
 interface TitleOwnProps<E extends ElementType = ElementType> {
@@ -25,9 +26,7 @@ export const Title = <E extends ElementType = typeof DEFAULT_ELEMENT>({
 	const Element = as || DEFAULT_ELEMENT;
 
 	return (
-		<Element
-			className={clsx(styles.title, styles[size], className)}
-			{...props}>
+		<Element className={clsx(styles.title, styles[size], className)} {...props}>
 			{children}
 		</Element>
 	);

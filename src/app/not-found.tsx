@@ -1,10 +1,12 @@
-import { Title } from '@/shared/ui/Title';
+import { clsx } from 'clsx';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import styles from './notFound.module.scss';
-import { clsx } from 'clsx';
+
 import { getRandomInt } from '@/shared/helpers/getRandomInt';
 import { Icon } from '@/shared/ui/Icon';
+import { Title } from '@/shared/ui/Title';
+
+import styles from './notFound.module.scss';
 
 export const metadata: Metadata = {
 	title: '404 - Страница не найдена',
@@ -19,31 +21,22 @@ export default function NotFound() {
 		<div className={styles.notFound}>
 			<div className={styles.errorContainer}>
 				<div className={styles.imageLink}>
-					<Link
-						href='/'
-						className={styles.linkMain}>
-						<Icon
-							name='main-logo'
-							className={styles.logo}
-						/>
+					<Link href="/" className={styles.linkMain}>
+						<Icon name="main-logo" className={styles.logo} />
 						<span>KinoStar</span>
 					</Link>
 				</div>
 				<div className={styles.content}>
 					<div className={styles.columnLeft}>
-						<Title
-							size='xl'
-							className={styles.title}>
+						<Title size="xl" className={styles.title}>
 							404. Страница не найдена
 						</Title>
 						<p className={styles.description}>
-							Возможно, она была перемещена, или вы просто неверно
-							указали адрес страницы.
+							Возможно, она была перемещена, или вы просто неверно указали адрес
+							страницы.
 						</p>
 						<div className={styles.links}>
-							<Link
-								href='/'
-								className={styles.link}>
+							<Link href="/" className={styles.link}>
 								Перейти на главную
 							</Link>
 						</div>

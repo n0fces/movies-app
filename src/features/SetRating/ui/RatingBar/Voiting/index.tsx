@@ -1,5 +1,7 @@
-import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
+
+import { Icon } from '@/shared/ui/Icon';
+
 import { useSettersBase, useValue, useValueSetter } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
@@ -32,10 +34,10 @@ export const Voiting = () => {
 						}}
 						className={styles.voitingBtn}>
 						<Icon
-							name='ratingStroked'
+							name="ratingStroked"
 							className={clsx(
 								styles.choiceIcon,
-								setColorClasses(styles, value, i, true)
+								setColorClasses(styles, value, i, true),
 							)}
 						/>
 					</button>

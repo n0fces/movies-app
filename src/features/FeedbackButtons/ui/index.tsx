@@ -1,10 +1,12 @@
 'use client';
 
-import { Icon } from '@/shared/ui/Icon';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+
 import { Button } from '@/shared/ui/Button';
 import { BaseButtonProps, ThemeButton } from '@/shared/ui/Button/types';
+import { Icon } from '@/shared/ui/Icon';
+
+import styles from './styles.module.scss';
 
 type ThemeFeedbackButtons = Extract<ThemeButton, 'list' | 'modal'>;
 
@@ -19,23 +21,20 @@ export const FeedbackButtons = ({
 }: FeedbackButtonsProps) => {
 	const generalProps: Partial<BaseButtonProps<'button'>> = {
 		theme: theme,
-				size: theme === 'list' ? 'size_40' : 'size_64',
-				withoutPadding: theme === 'modal',
-				reverseDirection: theme === 'modal' ? 'rowReverse' : undefined,
-	}
+		size: theme === 'list' ? 'size_40' : 'size_64',
+		withoutPadding: theme === 'modal',
+		reverseDirection: theme === 'modal' ? 'rowReverse' : undefined,
+	};
 	return (
 		<div className={clsx(styles.buttonsContainer, className)}>
 			<Button
-			{...generalProps}
+				{...generalProps}
 				className={styles[theme]}
 				onClick={() => {
 					// Здесь будет логика по отметке фильма в опред категорию
 				}}>
 				<span className={styles.textButton}>Неинтересно</span>
-				<Icon
-					name='not-interesting'
-					className={styles.iconButton}
-				/>
+				<Icon name="not-interesting" className={styles.iconButton} />
 			</Button>
 			<Button
 				{...generalProps}
@@ -44,10 +43,7 @@ export const FeedbackButtons = ({
 					// Здесь будет логика по отметке фильма в опред категорию
 				}}>
 				<span className={styles.textButton}>Просмотрено</span>
-				<Icon
-					name='watched'
-					className={styles.iconButton}
-				/>
+				<Icon name="watched" className={styles.iconButton} />
 			</Button>
 		</div>
 	);

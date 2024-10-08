@@ -1,5 +1,7 @@
-import { Video } from '@/shared/types';
 import { clsx } from 'clsx';
+
+import { Video } from '@/shared/types';
+
 import { OtherTrailer } from '../OtherTrailer';
 import styles from './styles.module.scss';
 

@@ -1,10 +1,12 @@
-'use client'
+'use client';
 
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { Button } from '@/shared/ui/Button';
-import { ItemFolderProps } from '../../types';
+
 import { Profession } from '@/shared/types';
+import { Button } from '@/shared/ui/Button';
+
+import { ItemFolderProps } from '../../types';
+import styles from './styles.module.scss';
 
 interface AddToFoldersPersonListProps {
 	className?: string;
@@ -13,8 +15,8 @@ interface AddToFoldersPersonListProps {
 
 const ItemFolder = ({ category, text }: ItemFolderProps) => (
 	<Button
-		theme='list'
-		size='size_40'
+		theme="list"
+		size="size_40"
 		className={styles.button}
 		onClick={() => {
 			// * здесь будет логика по добавлению тайтла в папку
@@ -71,12 +73,8 @@ export const AddToFoldersPersonList = ({
 		<div className={clsx(styles.wrapper, className)}>
 			{list.map(({ text, category }, index) =>
 				text ? (
-					<ItemFolder
-						key={index}
-						text={text}
-						category={category}
-					/>
-				) : null
+					<ItemFolder key={index} text={text} category={category} />
+				) : null,
 			)}
 		</div>
 	);

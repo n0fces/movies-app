@@ -1,10 +1,12 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { PersonInMovie } from '@/shared/types';
-import { TitleCrewCarouselType } from '../';
-import { MyImage } from '@/shared/ui/MyImage';
 import Link from 'next/link';
+
 import { getPath } from '@/shared/helpers/getPath';
+import { PersonInMovie } from '@/shared/types';
+import { MyImage } from '@/shared/ui/MyImage';
+
+import { TitleCrewCarouselType } from '../';
+import styles from './styles.module.scss';
 
 interface TitleCrewItemProps {
 	className?: string;

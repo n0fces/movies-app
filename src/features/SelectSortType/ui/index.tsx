@@ -1,11 +1,13 @@
 'use client';
 
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
-import { sortTypes } from '@/shared/constants/sortTypes';
 import { useSearchParams } from 'next/navigation';
-import { useModel } from '../model';
+
+import { sortTypes } from '@/shared/constants/sortTypes';
 import { Select } from '@/shared/ui/Select';
+
+import { useModel } from '../model';
+import styles from './styles.module.scss';
 
 interface SelectSortTypeProps {
 	className?: string;
@@ -27,9 +29,9 @@ export const SelectSortType = ({
 			})}
 			options={sortTypes}
 			value={searchParams.get('sortField') ?? undefined}
-			description='Выбор категории: сортировка'
-			name='sortField'
-			position='right'
+			description="Выбор категории: сортировка"
+			name="sortField"
+			position="right"
 			action={model('sortField')}
 		/>
 	);

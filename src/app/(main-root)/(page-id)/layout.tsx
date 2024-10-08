@@ -1,6 +1,8 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
+import styles from './styles.module.scss';
 
 export default function TitleRoot({ children }: { children: React.ReactNode }) {
 	const isMobile = deviceDetectServer();

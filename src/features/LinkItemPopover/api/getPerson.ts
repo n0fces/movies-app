@@ -1,5 +1,7 @@
-import { api } from '@/shared/api';
 import { cache } from 'react';
+
+import { api } from '@/shared/api';
+
 import { PersonLoaded } from '../ui/LinkItemPerson';
 
 export const getPerson = cache(async (id: number) => {

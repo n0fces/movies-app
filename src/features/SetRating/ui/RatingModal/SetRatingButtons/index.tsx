@@ -1,10 +1,12 @@
 import { useTouchModal } from '@/entities/TouchModal/context';
+
 import { Button } from '@/shared/ui/Button';
+
 import {
 	useRating,
 	useSettersBase,
 	useValue,
-	useValueSetter
+	useValueSetter,
 } from '../../../context';
 import styles from './styles.module.scss';
 
@@ -18,9 +20,9 @@ export const SetRatingButtons = () => {
 	return (
 		<div className={styles.setRatingButtons}>
 			<Button
-				theme='primary'
-				size='size_48'
-				shape='rounded'
+				theme="primary"
+				size="size_48"
+				shape="rounded"
 				withoutPadding
 				maxWidth
 				onClick={() => {
@@ -33,9 +35,9 @@ export const SetRatingButtons = () => {
 			</Button>
 			{value && (
 				<Button
-					theme='gradient'
-					shape='rounded'
-					size='size_48'
+					theme="gradient"
+					shape="rounded"
+					size="size_48"
 					withoutPadding
 					maxWidth
 					onClick={() => {

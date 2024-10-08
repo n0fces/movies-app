@@ -1,6 +1,7 @@
 import { cache } from 'react';
-import { CardItemReq } from '@/shared/types';
+
 import { api } from '@/shared/api';
+import { CardItemReq } from '@/shared/types';
 
 export const getInCinema = cache(async () => {
 	const { data } = await api.get<CardItemReq>('v1.4/movie', {

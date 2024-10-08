@@ -1,10 +1,13 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { RatingModal } from '@/features/SetRating/ui/RatingModal';
-import { PlannedToWatch } from '@/features/PlannedToWatch';
-import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
-import { MoreOptions } from './MoreOptions';
+
 import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
+
+import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
+import { PlannedToWatch } from '@/features/PlannedToWatch';
+import { RatingModal } from '@/features/SetRating/ui/RatingModal';
+
+import { MoreOptions } from './MoreOptions';
+import styles from './styles.module.scss';
 
 interface FeaturesMoviePageProps {
 	className?: string;
@@ -23,21 +26,14 @@ export const FeaturesMoviePage = async ({
 
 	return (
 		<div className={clsx(styles.featuresMoviePage, className)}>
-			<RatingModal
-				theme='textBelow'
-				className={styles.feature}
-				{...title}
-			/>
-			<PlannedToWatch
-				theme='textBelow'
-				className={styles.feature}
-			/>
+			<RatingModal theme="textBelow" className={styles.feature} {...title} />
+			<PlannedToWatch theme="textBelow" className={styles.feature} />
 			<AddToFoldersModal
 				poster={poster?.previewUrl}
-				title='Добавить'
+				title="Добавить"
 				secondaryTitle={secondaryTitle}
-				theme='textBelow'
-				size='size_52'
+				theme="textBelow"
+				size="size_52"
 				className={styles.feature}
 			/>
 			<MoreOptions

@@ -1,6 +1,7 @@
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import styles from './styles.module.scss';
+
 import { RectSkeleton } from '../../../../shared/ui/Skeleton';
+import styles from './styles.module.scss';
 
 interface SkeletonProps {
 	countCards: number;
@@ -10,18 +11,9 @@ interface SkeletonProps {
 
 const Card = ({ width, height }: Omit<SkeletonProps, 'countCards'>) => (
 	<div className={styles.card}>
-		<RectSkeleton
-			width={width}
-			height={height}
-		/>
-		<RectSkeleton
-			width={width}
-			height={24}
-		/>
-		<RectSkeleton
-			width={width * 0.6}
-			height={24}
-		/>
+		<RectSkeleton width={width} height={height} />
+		<RectSkeleton width={width} height={24} />
+		<RectSkeleton width={width * 0.6} height={24} />
 	</div>
 );
 
@@ -41,11 +33,7 @@ export const BlockSliderSkeleton = ({
 			/>
 			<div className={styles.carousel}>
 				{[...Array(countCards)].map((_, i) => (
-					<Card
-						key={i}
-						width={width}
-						height={height}
-					/>
+					<Card key={i} width={width} height={height} />
 				))}
 			</div>
 		</>

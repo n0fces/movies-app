@@ -1,8 +1,10 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
 import { BasicMediaPersonMobile } from '@/widgets/BasicMediaPersonMobile';
 import { FeaturesPersonPage } from '@/widgets/FeaturesPersonPage/ui';
 import { TableInfoPersonMobile } from '@/widgets/TableInfoPersonMobile';
+
+import styles from './styles.module.scss';
 
 interface MobilePersonProps {
 	className?: string;

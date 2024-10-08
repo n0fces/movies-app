@@ -1,7 +1,9 @@
 import { clsx } from 'clsx';
+
+import { MyImage } from '@/shared/ui/MyImage';
+
 import { TouchModalProps } from '../../';
 import styles from './styles.module.scss';
-import { MyImage } from '@/shared/ui/MyImage';
 
 interface HeaderProps
 	extends Pick<
@@ -28,18 +30,14 @@ export const Header = ({
 				height={96}
 			/>
 			<div className={styles.info}>
-				<div
-					className={styles.title}
-					id={`dialog-${title || secondaryTitle}`}>
+				<div className={styles.title} id={`dialog-${title || secondaryTitle}`}>
 					{title}
 				</div>
 				<div className={styles.secondaryTitle}>{secondaryTitle}</div>
 			</div>
 		</div>
 	) : (
-		<div
-			className={clsx(styles.headerTitle, className)}
-			id={`dialog-${title}`}>
+		<div className={clsx(styles.headerTitle, className)} id={`dialog-${title}`}>
 			{title}
 		</div>
 	);

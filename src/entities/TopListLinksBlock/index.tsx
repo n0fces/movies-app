@@ -1,8 +1,10 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { Title } from '@/shared/ui/Title';
 import Link from 'next/link';
+
 import { Icon } from '@/shared/ui/Icon';
+import { Title } from '@/shared/ui/Title';
+
+import styles from './styles.module.scss';
 
 interface TopListLinksBlockProps {
 	className?: string;
@@ -21,17 +23,10 @@ export const TopListLinksBlock = ({
 }: TopListLinksBlockProps) => {
 	return (
 		<div className={clsx(styles.topListLinksBlock, className)}>
-			<Title
-				size='small'
-				as='h3'
-				className={styles.titleBlock}>
+			<Title size="small" as="h3" className={styles.titleBlock}>
 				{href ? (
 					<Link href={href} className={styles.link}>
-						{text}{' '}
-						<Icon
-							name='arrow-link'
-							className={styles.arrowLink}
-						/>
+						{text} <Icon name="arrow-link" className={styles.arrowLink} />
 					</Link>
 				) : (
 					text
@@ -39,12 +34,12 @@ export const TopListLinksBlock = ({
 			</Title>
 			<ul className={styles.list}>
 				{list.map((item, index) => (
-					<li key={index} className={styles.listItem}>{item}</li>
+					<li key={index} className={styles.listItem}>
+						{item}
+					</li>
 				))}
 			</ul>
-			{seeMoreLink && (
-				<div className={styles.seeMoreLink}>{seeMoreLink}</div>
-			)}
+			{seeMoreLink && <div className={styles.seeMoreLink}>{seeMoreLink}</div>}
 		</div>
 	);
 };

@@ -1,8 +1,10 @@
 'use client';
 
-import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
 import { clsx } from 'clsx';
 import { useEffect, useRef } from 'react';
+
+import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
+
 import {
 	ContextValueProvider,
 	SetRatingBaseProvider,
@@ -41,7 +43,7 @@ export const RatingBarObj = ({ className }: SetRatingProps) => {
 					ref={ref}
 					className={styles.choiceBar}
 					tabIndex={0}
-					aria-label='Панель выставления рейтинга'>
+					aria-label="Панель выставления рейтинга">
 					<Voiting />
 					<Separator />
 					<Indicator />

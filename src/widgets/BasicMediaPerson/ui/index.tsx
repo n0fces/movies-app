@@ -1,10 +1,14 @@
-import { AddToFoldersPersonDropdown } from '@/features/AddToFoldersPerson/ui/AddToFoldersPersonDropdown';
-import { SocialServices } from '@/features/SocialServices';
-import { MyImage } from '@/shared/ui/MyImage';
 import { clsx } from 'clsx';
 import Link from 'next/link';
-import styles from './styles.module.scss';
+
 import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
+
+import { AddToFoldersPersonDropdown } from '@/features/AddToFoldersPerson/ui/AddToFoldersPersonDropdown';
+import { SocialServices } from '@/features/SocialServices';
+
+import { MyImage } from '@/shared/ui/MyImage';
+
+import styles from './styles.module.scss';
 
 interface BasicMediaPersonProps {
 	className?: string;

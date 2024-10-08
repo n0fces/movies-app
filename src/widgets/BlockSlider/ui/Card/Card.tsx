@@ -1,5 +1,6 @@
 import { CarouselTitleCard } from '@/entities/CarouselTitleCard';
 import { Poster } from '@/entities/Poster';
+
 import { getPath } from '@/shared/helpers/getPath';
 import { CardItemEntity } from '@/shared/types';
 
@@ -31,10 +32,6 @@ export const Card = (props: CardProps) => {
 	const href = isSeries ? getPath.series(id) : getPath.movie(id);
 
 	return (
-		<CarouselTitleCard
-			href={href}
-			PosterNode={PosterNode(props)}
-			{...props}
-		/>
+		<CarouselTitleCard href={href} PosterNode={PosterNode(props)} {...props} />
 	);
 };

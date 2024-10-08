@@ -6,7 +6,7 @@
 	width: 90%;
 	padding: 1.75rem 0 1.8125rem;
 
-	border-top: 1px solid hsla(0,0%,100%,.05);
+	border-top: 1px solid hsla(0, 0%, 100%, 0.05);
 	color: #fff;
 	font-size: 0.8125rem;
 	line-height: 0.867;
@@ -31,12 +31,13 @@
 	display: inline-block;
 	margin-left: 0.25rem;
 
-	@media(any-hover: hover) {
+	@media (any-hover: hover) {
 		&:hover {
 			opacity: 0.8;
 		}
 	}
-	&:focus, &:active {
+	&:focus,
+	&:active {
 		opacity: 0.8;
 	}
 }
@@ -58,12 +59,13 @@
 .bottomSectionItem a {
 	opacity: 0.5;
 
-	@media(any-hover: hover) {
+	@media (any-hover: hover) {
 		&:hover {
 			opacity: 0.8;
 		}
 	}
-	&:focus, &:active {
+	&:focus,
+	&:active {
 		opacity: 0.8;
 	}
 }

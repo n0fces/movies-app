@@ -1,7 +1,10 @@
+import { HTMLAttributes } from 'react';
+
 import { AdditionalInfoList } from '@/features/LinkItemPopover/types';
+
 import { Popover } from '@/shared/ui/Popover';
 import { RectSkeleton } from '@/shared/ui/Skeleton';
-import { HTMLAttributes } from 'react';
+
 import styles from './styles.module.scss';
 import { AdditionalInfo } from './ui/AdditionalInfo';
 
@@ -26,9 +29,7 @@ export const PopoverCard = ({
 	...otherProps
 }: PopoverCardProps) => {
 	return (
-		<Popover
-			className={className}
-			{...otherProps}>
+		<Popover className={className} {...otherProps}>
 			<div className={styles.popoverCard}>
 				{isLoading ? (
 					<RectSkeleton className={styles.skeleton} />
@@ -37,17 +38,11 @@ export const PopoverCard = ({
 						<div className={styles.image}>{image?.()}</div>
 						<div className={styles.info}>
 							<div className={styles.title}>{titleName?.()}</div>
-							<div className={styles.subtitle}>
-								{subtitle}
-							</div>
-							<div className={styles.features}>
-								{featureBtns?.()}
-							</div>
+							<div className={styles.subtitle}>{subtitle}</div>
+							<div className={styles.features}>{featureBtns?.()}</div>
 							{additionalInfo && (
 								<div className={styles.additionalInfo}>
-									<AdditionalInfo
-										additionalInfo={additionalInfo}
-									/>
+									<AdditionalInfo additionalInfo={additionalInfo} />
 								</div>
 							)}
 						</div>

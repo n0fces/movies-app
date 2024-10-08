@@ -1,6 +1,8 @@
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
+import styles from './styles.module.scss';
 import { ToggleButton } from './ui/ToggleButton';
 
 export const ToggleFilters = () => {
@@ -40,10 +42,7 @@ export const ToggleFilters = () => {
 				[styles.wrap]: !isMobile,
 			})}>
 			{list.map((item, index) => (
-				<ToggleButton
-					key={index}
-					{...item}
-				/>
+				<ToggleButton key={index} {...item} />
 			))}
 		</div>
 	);

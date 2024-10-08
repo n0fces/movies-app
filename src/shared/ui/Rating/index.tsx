@@ -1,7 +1,9 @@
 import clsx from 'clsx';
-import styles from './styles.module.scss';
+
 import { getRating } from '@/shared/helpers/getRating';
 import { Rating as RatingType } from '@/shared/types';
+
+import styles from './styles.module.scss';
 
 export type ThemeRating = 'default' | 'nameplate' | 'top';
 
@@ -29,9 +31,7 @@ export const Rating = ({
 		const isPositive = isAwait
 			? Number(ratingVal) > 70
 			: Number(ratingVal) >= 7;
-		const isNegative = isAwait
-			? Number(ratingVal) < 50
-			: Number(ratingVal) < 5;
+		const isNegative = isAwait ? Number(ratingVal) < 50 : Number(ratingVal) < 5;
 
 		return (
 			<div
@@ -42,10 +42,10 @@ export const Rating = ({
 						[styles.positiveValue]: isPositive,
 						[styles.negativeValue]: isNegative,
 					},
-					className
+					className,
 				)}>
-				<span className='visually-hidden'>{description}</span>
-				<span aria-hidden='true'>{value}</span>
+				<span className="visually-hidden">{description}</span>
+				<span aria-hidden="true">{value}</span>
 			</div>
 		);
 	} else {

@@ -1,11 +1,17 @@
-'use client'
+'use client';
+
+import dynamic from 'next/dynamic';
+import { useCallback, useState } from 'react';
 
 import { ListItemProps } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
-import { ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
+import {
+	ReverseDirection,
+	ShapeButton,
+	SizeButton,
+	ThemeButton,
+} from '@/shared/ui/Button/types';
 import { ModalLoader } from '@/shared/ui/ModalLoader';
-import dynamic from 'next/dynamic';
-import { useCallback, useState } from 'react';
 
 interface ModalTrailerProps extends ListItemProps {
 	className?: string;

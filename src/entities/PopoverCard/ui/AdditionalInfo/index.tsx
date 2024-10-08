@@ -1,5 +1,7 @@
-import { AdditionalInfoList } from '@/features/LinkItemPopover/types';
 import { Fragment } from 'react';
+
+import { AdditionalInfoList } from '@/features/LinkItemPopover/types';
+
 import styles from './styles.module.scss';
 
 interface AdditionalInfoListProps {
@@ -12,9 +14,7 @@ export const AdditionalInfo = ({ additionalInfo }: AdditionalInfoListProps) => {
 		// Если это не массив, то это может быть либо jsx.element, либо null
 		const conditional = Array.isArray(value) ? value.length > 0 : value;
 		return conditional ? (
-			<div
-				key={i}
-				className={styles.row}>
+			<div key={i} className={styles.row}>
 				<span className={styles.listTitle}>{key}: </span>
 				<span className={styles.list}>
 					{Array.isArray(value)
@@ -23,7 +23,7 @@ export const AdditionalInfo = ({ additionalInfo }: AdditionalInfoListProps) => {
 									{item}
 									{j !== value.length - 1 && ', '}
 								</Fragment>
-						  ))
+							))
 						: value}
 				</span>
 			</div>

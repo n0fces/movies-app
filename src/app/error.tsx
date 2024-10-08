@@ -1,11 +1,13 @@
 'use client';
 
-import { Title } from '@/shared/ui/Title';
-import { startTransition } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import styles from './error.module.scss';
+import { useRouter } from 'next/navigation';
+import { startTransition } from 'react';
+
 import { Button } from '@/shared/ui/Button';
+import { Title } from '@/shared/ui/Title';
+
+import styles from './error.module.scss';
 
 export default function Error({
 	error,
@@ -25,17 +27,15 @@ export default function Error({
 		<div className={styles.errorRoot}>
 			<div className={styles.errorCnt}>
 				<div className={styles.subtitle}>Что-то пошло не так...</div>
-				<Title
-					size='xl'
-					className={styles.title}>
+				<Title size="xl" className={styles.title}>
 					{error.name}
 				</Title>
 				<div className={styles.message}>{error.message}</div>
 				<div className={styles.actions}>
 					<Button
-						theme='outlineWhite'
-						size='size_40'
-						shape='rounded'
+						theme="outlineWhite"
+						size="size_40"
+						shape="rounded"
 						onClick={() => {
 							router.refresh();
 							startTransition(reset);
@@ -43,11 +43,11 @@ export default function Error({
 						Попробуйте еще раз
 					</Button>
 					<Button
-						theme='outlineWhite'
-						size='size_40'
-						shape='rounded'
+						theme="outlineWhite"
+						size="size_40"
+						shape="rounded"
 						component={Link}
-						href='/'>
+						href="/">
 						Вернуться на главную
 					</Button>
 				</div>

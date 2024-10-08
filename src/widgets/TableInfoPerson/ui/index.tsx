@@ -1,7 +1,10 @@
 import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
+
 import { TableInfo } from '@/entities/TableInfo';
+
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';
+
 import { getDatePersonString } from '../../../shared/helpers/getDatePersonString';
 import { getGrowth } from '../../../shared/helpers/getGrowth';
 import { getProfessions } from '../../../shared/helpers/getProfessions';
@@ -71,10 +74,6 @@ export const TableInfoPerson = async ({
 	];
 
 	return (
-		<TableInfo
-			title={'О персоне'}
-			infoList={infoList}
-			className={className}
-		/>
+		<TableInfo title={'О персоне'} infoList={infoList} className={className} />
 	);
 };

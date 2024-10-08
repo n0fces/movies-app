@@ -1,4 +1,4 @@
-import { ItemFolderProps } from "./types";
+import { ItemFolderProps } from './types';
 
 export const list: ItemFolderProps[] = [
 	{

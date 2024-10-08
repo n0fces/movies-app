@@ -1,10 +1,12 @@
-import styles from './styles.module.scss';
-import { ListItemPropsEx } from '../index';
-import Link from 'next/link';
-import { getPath } from '@/shared/helpers/getPath';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { getPath } from '@/shared/helpers/getPath';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+
+import { ListItemPropsEx } from '../index';
+import styles from './styles.module.scss';
 
 interface ContentSlotProps
 	extends Pick<
@@ -48,8 +50,7 @@ export const ContentSlot = ({
 	const country = countries?.length ? countries[0].name : null;
 	const genre = genres?.length ? genres[0].name : null;
 	const director =
-		persons?.find((person) => person.profession === 'режиссеры')?.name ??
-		null;
+		persons?.find((person) => person.profession === 'режиссеры')?.name ?? null;
 	const cast = persons
 		?.filter((person) => person.profession === 'актеры')
 		.map((person) => person.name)
@@ -68,27 +69,15 @@ export const ContentSlot = ({
 						{title}
 					</div>
 					<div className={styles.secondaryTitle}>
-						{stringWithDelimiter(', ', [
-							secondaryTitle,
-							timestamp,
-							duration,
-						])}
+						{stringWithDelimiter(', ', [secondaryTitle, timestamp, duration])}
 					</div>
 					<div className={styles.additionalInfo}>
 						<div>
-							<span>
-								{stringWithDelimiter(' • ', [country, genre])}
-							</span>
-							{!isMobile && (
-								<span>&nbsp;&nbsp;Режиссёр: {director}</span>
-							)}
+							<span>{stringWithDelimiter(' • ', [country, genre])}</span>
+							{!isMobile && <span>&nbsp;&nbsp;Режиссёр: {director}</span>}
 						</div>
 						{!isMobile && (
-							<div>
-								{cast?.length
-									? `В ролях: ${cast.join(', ')}`
-									: null}
-							</div>
+							<div>{cast?.length ? `В ролях: ${cast.join(', ')}` : null}</div>
 						)}
 					</div>
 				</div>

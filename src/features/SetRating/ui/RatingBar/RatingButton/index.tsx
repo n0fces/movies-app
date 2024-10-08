@@ -1,7 +1,9 @@
+import { clsx } from 'clsx';
+
 import { useHover } from '@/shared/hooks/useHover';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
-import { clsx } from 'clsx';
+
 import { useRating, useSettersBase, useValueSetter } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
@@ -14,8 +16,8 @@ export const RatingButton = () => {
 
 	return (
 		<Button
-			theme='primary'
-			shape='circle'
+			theme="primary"
+			shape="circle"
 			maxWidth
 			maxHeight
 			onClick={() => {
@@ -35,27 +37,18 @@ export const RatingButton = () => {
 				<>
 					{isHover && (
 						<div className={styles.deleteWrapper}>
-							<Icon
-								name='close-black'
-								className={styles.ratingIcon}
-							/>
+							<Icon name="close-black" className={styles.ratingIcon} />
 						</div>
 					)}
 					{!isHover && (
 						<span
-							className={clsx(
-								styles.rating,
-								setColorClasses(styles, rating)
-							)}>
+							className={clsx(styles.rating, setColorClasses(styles, rating))}>
 							{rating}
 						</span>
 					)}
 				</>
 			) : (
-				<Icon
-					name='ratingStroked'
-					className={styles.ratingIcon}
-				/>
+				<Icon name="ratingStroked" className={styles.ratingIcon} />
 			)}
 		</Button>
 	);

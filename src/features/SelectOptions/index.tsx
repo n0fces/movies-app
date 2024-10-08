@@ -1,4 +1,5 @@
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import { DetailsFilters } from './ui/DetailsFilters';
 import { Filters } from './ui/Filters';
 

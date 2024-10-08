@@ -1,12 +1,14 @@
-'use client'
+'use client';
+
+import { useState } from 'react';
+
+import { Button } from '@/shared/ui/Button';
+import { BaseButtonProps } from '@/shared/ui/Button/types';
+import { DropdownBackdrop } from '@/shared/ui/DropdownBackdrop';
+import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
+import { Icon } from '@/shared/ui/Icon';
 
 import styles from './styles.module.scss';
-import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
-import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import { useState } from 'react';
-import { DropdownBackdrop } from '@/shared/ui/DropdownBackdrop';
-import { BaseButtonProps } from '@/shared/ui/Button/types';
 
 interface MoreOptionsDropdownProps extends BaseButtonProps<'button'> {
 	className?: string;
@@ -23,17 +25,12 @@ export const MoreOptionsDropdown = ({
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<DropdownWrapper
-			setIsOpen={setIsOpen}
-			className={className}>
+		<DropdownWrapper setIsOpen={setIsOpen} className={className}>
 			<Button
 				onClick={() => setIsOpen(!isOpen)}
 				className={className}
 				{...props}>
-				<Icon
-					name='more-options'
-					className={styles.buttonIcon}
-				/>
+				<Icon name="more-options" className={styles.buttonIcon} />
 			</Button>
 			{isOpen && (
 				<DropdownBackdrop

@@ -1,4 +1,5 @@
 import { Search } from '@/features/Search/ui';
+
 import styles from './styles.module.scss';
 
 interface MainHeaderProps {
@@ -8,7 +9,7 @@ interface MainHeaderProps {
 export const MainHeader = ({ isMobile }: MainHeaderProps) => {
 	return (
 		<div className={styles.mainContainer}>
-			<Search isMobile={isMobile}/>
+			<Search isMobile={isMobile} />
 		</div>
 	);
 };

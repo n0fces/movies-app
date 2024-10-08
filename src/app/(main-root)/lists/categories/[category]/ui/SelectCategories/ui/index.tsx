@@ -1,8 +1,10 @@
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { CategoriesName, CategoriesType } from '@/shared/types';
+
 import { Category } from './Category';
+import styles from './styles.module.scss';
 
 export interface SelectCategoriesProps {
 	route: string;
@@ -31,11 +33,7 @@ export const SelectCategories = ({ route }: SelectCategoriesProps) => {
 				[styles.carousel]: isMobile,
 			})}>
 			{list.map((item, index) => (
-				<Category
-					route={route}
-					key={index}
-					{...item}
-				/>
+				<Category route={route} key={index} {...item} />
 			))}
 		</div>
 	);

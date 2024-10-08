@@ -1,5 +1,7 @@
-import { SelectOptions } from '@/features/SelectOptions';
 import { CategoryDescription } from '@/widgets/CategoryDescription';
+
+import { SelectOptions } from '@/features/SelectOptions';
+
 import { ButtonsWatch } from '../ButtonsWatch';
 import { ToggleFilters } from '../ToggleFilters';
 import { Topbar } from '../Topbar';

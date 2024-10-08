@@ -1,11 +1,12 @@
 'use client';
 
-import { useCallback, useState } from 'react';
-import { Watchability } from '@/shared/types';
-import { useNoscroll } from '@/shared/hooks/useNoscroll';
 import dynamic from 'next/dynamic';
-import { ModalLoader } from '@/shared/ui/ModalLoader';
+import { useCallback, useState } from 'react';
+
+import { useNoscroll } from '@/shared/hooks/useNoscroll';
+import { Watchability } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
+import { ModalLoader } from '@/shared/ui/ModalLoader';
 
 interface MoreServicesBtnProps {
 	amountServices: number;
@@ -32,10 +33,7 @@ export const MoreServicesBtn = ({
 
 	return (
 		<>
-			<Button
-				onClick={showModal}
-				id='services'
-				theme='moreButton'>
+			<Button onClick={showModal} id="services" theme="moreButton">
 				{amountServices}
 			</Button>
 			{isOpen && (

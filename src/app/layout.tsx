@@ -1,8 +1,11 @@
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import '@/styles/main.scss';
 import { clsx } from 'clsx';
 import { Open_Sans } from 'next/font/google';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import styles from './styles.module.scss';
+
+import '@/styles/main.scss';
 
 const openSans = Open_Sans({
 	subsets: ['cyrillic', 'latin'],
@@ -16,18 +19,14 @@ export default function RootLayout({
 }) {
 	const isMobile = deviceDetectServer();
 	return (
-		<html lang='ru'>
+		<html lang="ru">
 			<body
 				className={clsx(openSans.className, {
 					full: !isMobile,
 				})}>
 				{children}
-				<div
-					id='modal-root'
-					className={styles.modalRoot}></div>
-				<div
-					id='popover-root'
-					className={styles.popoverRoot}></div>
+				<div id="modal-root" className={styles.modalRoot}></div>
+				<div id="popover-root" className={styles.popoverRoot}></div>
 			</body>
 		</html>
 	);

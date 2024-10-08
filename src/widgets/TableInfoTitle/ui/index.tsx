@@ -1,17 +1,21 @@
+import Link from 'next/link';
+
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
+
 import { LinkItems } from '@/entities/LinkItems';
 import { TableInfo } from '@/entities/TableInfo';
+
 import { ratingMpaaDescription } from '@/shared/constants/ratingMpaaDescription';
 import { getPath } from '@/shared/helpers/getPath';
 import { mergeString } from '@/shared/helpers/mergeString';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
 import { sortPersons } from '@/shared/helpers/sortPersons';
 import { InfoItem, LinkItem } from '@/shared/types';
-import Link from 'next/link';
+
 import { setTime } from '../lib/setTime';
 import styles from './styles.module.scss';
 import { Audiences } from './ui/Audiences';
 import { LinkItemsPersons } from './ui/LinkItemsPersons';
-import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface TableInfoProps {
 	className?: string;
@@ -69,10 +73,7 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 							{'('}
 							<Link href={'#'}>
 								{seasonsInfo.length}{' '}
-								{setCorrectEndWord(
-									'сезон',
-									seasonsInfo.length % 10
-								)}
+								{setCorrectEndWord('сезон', seasonsInfo.length % 10)}
 							</Link>
 							{')'}
 						</>
@@ -82,17 +83,13 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 		},
 		{
 			titleRow: 'Страна',
-			valueRow: countries?.length ? (
-				<LinkItems array={countriesList} />
-			) : null,
+			valueRow: countries?.length ? <LinkItems array={countriesList} /> : null,
 		},
 		{
 			titleRow: 'Жанр',
 			valueRow: genres?.length ? <LinkItems array={genresList} /> : null,
 			additionalComp: (
-				<Link
-					href={'#'}
-					className={styles.additionalLink}>
+				<Link href={'#'} className={styles.additionalLink}>
 					слова
 				</Link>
 			),
@@ -172,9 +169,7 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 		},
 		{
 			titleRow: 'Зрители',
-			valueRow: audience?.length ? (
-				<Audiences audience={audience} />
-			) : null,
+			valueRow: audience?.length ? <Audiences audience={audience} /> : null,
 		},
 		{
 			titleRow: 'Премьера в России',
@@ -215,12 +210,8 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 		{
 			titleRow: 'Рейтинг MPAA',
 			valueRow: ratingMpaa && (
-				<Link
-					href={'#'}
-					className={styles.restrictionLink}>
-					<div className={styles.highContrast}>
-						{ratingMpaa.toUpperCase()}
-					</div>
+				<Link href={'#'} className={styles.restrictionLink}>
+					<div className={styles.highContrast}>{ratingMpaa.toUpperCase()}</div>
 					<div className={styles.restrictionDescription}>
 						{ratingMpaaDescription[ratingMpaa]}
 					</div>

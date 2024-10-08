@@ -1,12 +1,16 @@
-import styles from './styles.module.scss';
-import { ListItemProps } from '@/shared/types';
-import { FeedbackButtons } from '@/features/FeedbackButtons';
-import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
-import { RatingModal } from '@/features/SetRating/ui/RatingModal';
+
 import { AddToFoldersModal } from '@/features/AddToFolders/ui/AddToFoldersModal';
-import { TouchModal } from '@/entities/TouchModal';
+import { FeedbackButtons } from '@/features/FeedbackButtons';
 import { ModalTrailer } from '@/features/ModalTrailer';
+import { RatingModal } from '@/features/SetRating/ui/RatingModal';
+
+import { TouchModal } from '@/entities/TouchModal';
+
+import { ListItemProps } from '@/shared/types';
+import { Icon } from '@/shared/ui/Icon';
+
+import styles from './styles.module.scss';
 
 interface ModalOptions extends ListItemProps {
 	className?: string;
@@ -14,25 +18,18 @@ interface ModalOptions extends ListItemProps {
 }
 
 const BtnContentOptions = () => (
-	<Icon
-		name='more-options'
-		className={styles.buttonIcon}
-	/>
+	<Icon name="more-options" className={styles.buttonIcon} />
 );
 
 const BtnContentTrailer = () => (
 	<>
-		<Icon
-			name='trailer'
-			className={styles.icon}
-			/>
-			Трейлер
+		<Icon name="trailer" className={styles.icon} />
+		Трейлер
 	</>
 );
 
 export const ModalOptions = (props: ModalOptions) => {
-	const { className, poster, name, alternativeName, enName, isMobile } =
-		props;
+	const { className, poster, name, alternativeName, enName, isMobile } = props;
 
 	return (
 		<TouchModal
@@ -46,28 +43,28 @@ export const ModalOptions = (props: ModalOptions) => {
 				{/* здесь с пропсами надо подумать. если поставить деструктуризацию пропсов в конец, то все сломается по стилям */}
 				<ModalTrailer
 					{...props}
-					theme='modal'
-					size='size_64'
+					theme="modal"
+					size="size_64"
 					withoutPadding
 					className={styles.trailerBtn}
 					btnContent={BtnContentTrailer()}
 				/>
 				<RatingModal
 					{...props}
-					theme='modal'
-					size='size_64'
+					theme="modal"
+					size="size_64"
 					withoutPadding
 					className={styles.ratingBtn}
 				/>
 				<AddToFoldersModal
-				theme='modal'
-				size='size_64'
-				withoutPadding
+					theme="modal"
+					size="size_64"
+					withoutPadding
 					secondaryTitle={name}
 					poster={poster?.previewUrl}
 					className={styles.addToFoldersModal}
 				/>
-				<FeedbackButtons theme='modal' />
+				<FeedbackButtons theme="modal" />
 			</div>
 		</TouchModal>
 	);

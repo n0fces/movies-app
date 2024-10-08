@@ -10,7 +10,7 @@ export const setColorClasses = (
 	},
 	value?: number,
 	i?: number,
-	allPrevBtns?: boolean
+	allPrevBtns?: boolean,
 ) => ({
 	[styles.default]: colorChoice('default', value, i, allPrevBtns),
 	[styles.positive]: colorChoice('positive', value, i, allPrevBtns),

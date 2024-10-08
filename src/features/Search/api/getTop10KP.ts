@@ -1,4 +1,5 @@
 import { cache } from 'react';
+
 import { api } from '@/shared/api';
 import { SearchMovies } from '@/shared/types';
 

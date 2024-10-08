@@ -1,9 +1,11 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { MyImage } from '@/shared/ui/MyImage';
-import { List } from '@/shared/types';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { List } from '@/shared/types';
+import { MyImage } from '@/shared/ui/MyImage';
+
+import styles from './styles.module.scss';
 
 export interface CategoryItemProps extends List {
 	watchStat?: React.ReactNode;
@@ -41,9 +43,7 @@ export const CategoryItem = ({
 					})}>
 					{name}
 				</span>
-				<span className={clsx(styles.filmsCount)}>
-					{moviesCount} тайтлов
-				</span>
+				<span className={clsx(styles.filmsCount)}>{moviesCount} тайтлов</span>
 			</div>
 			{watchStat && (
 				<div className={styles.watchStatContainer}>{watchStat}</div>

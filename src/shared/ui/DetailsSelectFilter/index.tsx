@@ -1,8 +1,9 @@
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+
 import { Icon } from '../Icon';
-import { SelectProps } from '../Select/types';
 import { Select } from '../Select';
+import { SelectProps } from '../Select/types';
+import styles from './styles.module.scss';
 
 interface SelectFilter
 	extends Omit<SelectProps, 'position' | 'className' | 'description'> {
@@ -19,14 +20,9 @@ export const DetailsSelectFilter = ({
 	action,
 }: SelectFilter) => {
 	return (
-		<details
-			className={clsx(styles.detailsItem, className)}
-			open>
+		<details className={clsx(styles.detailsItem, className)} open>
 			<summary className={styles.heading}>
-				<Icon
-					name='arrow-summary'
-					className={styles.icon}
-				/>
+				<Icon name="arrow-summary" className={styles.icon} />
 				{title}
 			</summary>
 			<Select

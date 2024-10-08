@@ -1,19 +1,23 @@
 'use client';
 
-import { LinkItems } from '@/entities/LinkItems';
-import { PopoverCard } from '@/entities/PopoverCard';
-import { Poster } from '@/entities/Poster';
+import { clsx } from 'clsx';
+import { useState } from 'react';
+
 import { PlannedToWatch } from '@/features/PlannedToWatch';
 import { TicketsOnSaleBtn } from '@/features/TicketsOnSaleBtn';
 import { WatchButton } from '@/features/WatchButton';
+
+import { LinkItems } from '@/entities/LinkItems';
+import { PopoverCard } from '@/entities/PopoverCard';
+import { Poster } from '@/entities/Poster';
+
 import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
 import { getPath } from '@/shared/helpers/getPath';
 import { sortPersons } from '@/shared/helpers/sortPersons';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { CardItemEntity, LinkItem } from '@/shared/types';
 import { IsLink } from '@/shared/ui/IsLink';
-import { clsx } from 'clsx';
-import { useState } from 'react';
+
 import { useModel } from '../../model/useModel';
 import { AdditionalInfoList, LinkItemProps } from '../../types';
 import { LinkItemEntity } from '../LinkItemEntity';
@@ -57,9 +61,7 @@ export const LinkItemTitle = ({
 		'В главных ролях': actorsList.length ? (
 			<LinkItems array={actorsList} />
 		) : null,
-		Режиссер: directorsList.length ? (
-			<LinkItems array={directorsList} />
-		) : null,
+		Режиссер: directorsList.length ? <LinkItems array={directorsList} /> : null,
 	};
 
 	const titleName = title?.name || title?.alternativeName || title?.enName;
@@ -99,16 +101,26 @@ export const LinkItemTitle = ({
 			{title?.ticketsOnSale ? (
 				<TicketsOnSaleBtn
 					id={id}
-					theme='gradient' size='size_40' shape='rounded' className={styles.btn}
+					theme="gradient"
+					size="size_40"
+					shape="rounded"
+					className={styles.btn}
 				/>
 			) : (
 				isKP && (
-					<WatchButton theme='gradient' size='size_40' shape='rounded' className={styles.btn} />
+					<WatchButton
+						theme="gradient"
+						size="size_40"
+						shape="rounded"
+						className={styles.btn}
+					/>
 				)
 			)}
 			<PlannedToWatch
-			theme='primary' size='size_40' shape={title?.ticketsOnSale || isKP ? 'circle' :'rounded'}
-			withoutPadding={title?.ticketsOnSale || isKP}
+				theme="primary"
+				size="size_40"
+				shape={title?.ticketsOnSale || isKP ? 'circle' : 'rounded'}
+				withoutPadding={title?.ticketsOnSale || isKP}
 				small={title?.ticketsOnSale || isKP}
 			/>
 		</>

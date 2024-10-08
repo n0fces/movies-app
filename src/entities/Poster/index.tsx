@@ -1,9 +1,11 @@
+import { clsx } from 'clsx';
+
+import { MyImage } from '@/shared/ui/MyImage';
+import { Nameplate } from '@/shared/ui/Nameplate';
+import { Rating } from '@/shared/ui/Rating';
+
 import styles from './styles.module.scss';
 import { PosterProps } from './types';
-import { Rating } from '@/shared/ui/Rating';
-import { Nameplate } from '@/shared/ui/Nameplate';
-import { MyImage } from '@/shared/ui/MyImage';
-import { clsx } from 'clsx';
 
 // * Здесь надо будет в интерфейсе уменьшить количество штук, которое ожидается сверху
 
@@ -30,7 +32,7 @@ export const Poster = ({
 				<Rating
 					className={styles.ratingSlot}
 					rating={rating}
-					theme='nameplate'
+					theme="nameplate"
 				/>
 				<Nameplate
 					className={styles.nameplateSlot}

@@ -1,9 +1,11 @@
-import styles from './styles.module.scss';
+import { clsx } from 'clsx';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { MyImage } from '@/shared/ui/MyImage';
 import { Title } from '@/shared/ui/Title';
-import { clsx } from 'clsx';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import { getCategory } from './api/getCategory';
+import styles from './styles.module.scss';
 
 interface DescriptionCategoryProps {
 	params: { [key: string]: string };
@@ -21,8 +23,8 @@ export async function CategoryDescription({
 			})}>
 			<div className={styles.description}>
 				<Title
-					as='h1'
-					size='large'
+					as="h1"
+					size="large"
 					className={clsx(styles.categoryTitle, {
 						[styles.center]: isMobile,
 					})}>

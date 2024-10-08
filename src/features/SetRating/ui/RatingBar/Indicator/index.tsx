@@ -1,4 +1,5 @@
 import { Icon } from '@/shared/ui/Icon';
+
 import { useSettersBase, useValue } from '../../../context';
 import styles from './styles.module.scss';
 
@@ -10,12 +11,9 @@ export const Indicator = () => {
 		<div className={styles.indicator}>
 			{value ?? (
 				<button
-					aria-label='Отменить выбор оценки'
+					aria-label="Отменить выбор оценки"
 					onClick={() => setIsOpen(false)}>
-					<Icon
-						name='close-black'
-						className={styles.closeIcon}
-					/>
+					<Icon name="close-black" className={styles.closeIcon} />
 				</button>
 			)}
 		</div>

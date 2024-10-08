@@ -1,9 +1,11 @@
 'use client';
 
-import { Video } from '@/shared/types';
 import { clsx } from 'clsx';
 import Image from 'next/image';
 import { useCallback, useRef } from 'react';
+
+import { Video } from '@/shared/types';
+
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { generateURL } from './lib/generateURL';
@@ -49,36 +51,28 @@ export const VideoYT = ({
 				src={`https://i.ytimg.com/vi_webp/${id}/sddefault.webp`}
 				className={styles.image}
 				alt={name ?? ''}
-				placeholder='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM88x8AAp0BzdNtlUkAAAAASUVORK5CYII='
+				placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mM88x8AAp0BzdNtlUkAAAAASUVORK5CYII="
 				fill
-				sizes='50vw'
+				sizes="50vw"
 			/>
-			<div
-				className={styles.previewInfo}
-				ref={previewRef}>
+			<div className={styles.previewInfo} ref={previewRef}>
 				{withBtn && (
 					<div className={styles.buttonWrapper}>
 						{isWatchable ? (
 							<Button
-								theme='gradient'
-								size='size_60'
-								shape='circle'
+								theme="gradient"
+								size="size_60"
+								shape="circle"
 								aria-label={`Смотреть трейлер: ${name}`}>
-								<Icon
-									name='watch'
-									className={styles.icon}
-								/>
+								<Icon name="watch" className={styles.icon} />
 							</Button>
 						) : (
 							<Button
-							component='div'
-							theme='gradient'
-							size='size_60'
-							shape='circle'>
-								<Icon
-									name='watch'
-									className={styles.icon}
-								/>
+								component="div"
+								theme="gradient"
+								size="size_60"
+								shape="circle">
+								<Icon name="watch" className={styles.icon} />
 							</Button>
 						)}
 					</div>

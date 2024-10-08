@@ -1,7 +1,14 @@
 import { TouchModal } from '@/entities/TouchModal';
+
+import {
+	ReverseDirection,
+	ShapeButton,
+	SizeButton,
+	ThemeButton,
+} from '@/shared/ui/Button/types';
 import { Icon } from '@/shared/ui/Icon';
+
 import { AddToFoldersList } from '../AddToFoldersList';
-import { ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 interface AddToFoldersModalProps {
 	className?: string;
@@ -19,7 +26,7 @@ interface AddToFoldersModalProps {
 
 const BtnContent = (title?: string | null) => (
 	<>
-		<Icon name='addToFolder' />
+		<Icon name="addToFolder" />
 		{title}
 	</>
 );
@@ -45,7 +52,7 @@ export const AddToFoldersModal = ({
 			poster={poster}
 			reverseDirection={reverseDirection}
 			btnContent={BtnContent(title)}
-			title='Добавить в папку'
+			title="Добавить в папку"
 			secondaryTitle={secondaryTitle}
 			isTitle>
 			<AddToFoldersList />

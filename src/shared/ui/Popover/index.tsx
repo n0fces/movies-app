@@ -1,7 +1,8 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { Portal } from '../Portal';
 import { HTMLAttributes } from 'react';
+
+import { Portal } from '../Portal';
+import styles from './styles.module.scss';
 
 interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
@@ -15,9 +16,7 @@ export const Popover = ({
 }: PopoverProps) => {
 	return (
 		<Portal element={document.getElementById('popover-root')!}>
-			<div
-				className={clsx(styles.popover, className)}
-				{...otherProps}>
+			<div className={clsx(styles.popover, className)} {...otherProps}>
 				{children}
 			</div>
 		</Portal>

@@ -1,10 +1,14 @@
+import { clsx } from 'clsx';
+
 import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
+
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
+
 import { getGrowth } from '@/shared/helpers/getGrowth';
 import { getProfessions } from '@/shared/helpers/getProfessions';
 import { getZodiac } from '@/shared/helpers/getZodiac';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
-import { clsx } from 'clsx';
+
 import { getDatePersonString } from '../lib/getDatePersonString';
 import styles from './styles.module.scss';
 

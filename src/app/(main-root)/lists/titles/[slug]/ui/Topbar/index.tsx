@@ -1,8 +1,10 @@
+import { clsx } from 'clsx';
 import Link from 'next/link';
-import styles from './styles.module.scss';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { Icon } from '@/shared/ui/Icon';
-import { clsx } from 'clsx';
+
+import styles from './styles.module.scss';
 
 interface LinkItemProps {
 	href: string;
@@ -10,9 +12,7 @@ interface LinkItemProps {
 }
 
 const LinkItem = ({ href, text }: LinkItemProps) => (
-	<Link
-		href={href}
-		className={styles.link}>
+	<Link href={href} className={styles.link}>
 		{text}
 	</Link>
 );
@@ -36,18 +36,12 @@ export const Topbar = () => {
 				href={'/lists/categories/movies'}
 				className={styles.link + ' ' + styles.breadcrumbs}>
 				Все списки
-				<Icon
-					name='all-lists'
-					className={styles.allLists}
-				/>
+				<Icon name="all-lists" className={styles.allLists} />
 			</Link>
 			{!isMobile && (
 				<ul className={styles.list}>
 					{list.map((item, index) => (
-						<LinkItem
-							key={index}
-							{...item}
-						/>
+						<LinkItem key={index} {...item} />
 					))}
 				</ul>
 			)}

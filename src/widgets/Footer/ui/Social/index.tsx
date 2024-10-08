@@ -1,8 +1,10 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { Icon } from '@/shared/ui/Icon';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { Icon } from '@/shared/ui/Icon';
+
+import styles from './styles.module.scss';
 
 interface SocialItem {
 	href: string;
@@ -39,7 +41,7 @@ const SocialLink = ({ href, label, name }: SocialItem) => {
 			href={href}
 			aria-label={label}
 			className={styles.link}
-			target='_blank'>
+			target="_blank">
 			<Icon name={name} />
 		</Link>
 	);
@@ -53,10 +55,7 @@ export const Social = () => {
 				[styles.full]: !isMobile,
 			})}>
 			{list.map((item, index) => (
-				<SocialLink
-					key={index}
-					{...item}
-				/>
+				<SocialLink key={index} {...item} />
 			))}
 		</section>
 	);

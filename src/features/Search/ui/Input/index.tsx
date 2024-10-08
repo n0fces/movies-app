@@ -1,10 +1,12 @@
+import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation';
 import { ChangeEvent, useEffect } from 'react';
-import { useIsOpen, useSetters } from '../../model/context';
-import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { SearchPanelProps } from '../SearchPanel';
+
 import { useDebouce } from '@/shared/hooks/useDebounce';
+
+import { useIsOpen, useSetters } from '../../model/context';
+import { SearchPanelProps } from '../SearchPanel';
+import styles from './styles.module.scss';
 
 export const Input = ({ isMobile }: SearchPanelProps) => {
 	const pathname = usePathname();
@@ -31,9 +33,9 @@ export const Input = ({ isMobile }: SearchPanelProps) => {
 			key={pathname}
 			autoFocus={isMobile}
 			onFocus={() => setIsOpen(true)}
-			type='search'
-			placeholder='Фильмы, сериалы, персоны'
-			title='Заполните это поле.'
+			type="search"
+			placeholder="Фильмы, сериалы, персоны"
+			title="Заполните это поле."
 			onChange={useDebouce((e: ChangeEvent<HTMLInputElement>) => {
 				setValue(e.target.value);
 				setIsChange(true);

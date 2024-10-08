@@ -1,6 +1,8 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
 import { Spinner } from '@/shared/ui/Spinner';
+
+import styles from './styles.module.scss';
 
 interface LoadingBackdropProps {
 	className?: string;

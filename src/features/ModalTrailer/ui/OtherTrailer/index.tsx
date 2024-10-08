@@ -1,6 +1,7 @@
-import { VideoYT } from '@/shared/ui/VideoYT';
-import styles from './styles.module.scss';
 import { Video } from '@/shared/types';
+import { VideoYT } from '@/shared/ui/VideoYT';
+
+import styles from './styles.module.scss';
 
 interface OtherTrailerProps extends Video {
 	className?: string;
@@ -20,10 +21,7 @@ export const OtherTrailer = ({
 				onClick={() => changeCurrentTrailer(trailer)}
 				className={styles.otherTrailer}
 				aria-label={`Посмотреть трейлер ${name}`}>
-				<VideoYT
-					className={styles.trailerImage}
-					{...trailer}
-				/>
+				<VideoYT className={styles.trailerImage} {...trailer} />
 				<div className={styles.trailerName}>{name}</div>
 			</button>
 		</li>

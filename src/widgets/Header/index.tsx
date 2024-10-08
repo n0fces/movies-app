@@ -1,6 +1,8 @@
-import styles from './styles.module.scss';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
+import styles from './styles.module.scss';
 import { LogoHeader } from './ui/LogoContainer';
 import { MainHeader } from './ui/MainContainer';
 import { UserHeader } from './ui/UserContainer';

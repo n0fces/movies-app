@@ -1,6 +1,7 @@
-import { useNoscroll } from '@/shared/hooks/useNoscroll';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+import { useNoscroll } from '@/shared/hooks/useNoscroll';
 
 export const useModel = (isMobile: boolean) => {
 	const pathname = usePathname();

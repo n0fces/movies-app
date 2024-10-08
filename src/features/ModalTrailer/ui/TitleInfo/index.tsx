@@ -1,11 +1,13 @@
-import { MyImage } from '@/shared/ui/MyImage';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
-import { ListItemProps } from '@/shared/types';
-import { getPath } from '@/shared/helpers/getPath';
 import Link from 'next/link';
+
+import { getPath } from '@/shared/helpers/getPath';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { ListItemProps } from '@/shared/types';
+import { MyImage } from '@/shared/ui/MyImage';
 import { Rating } from '@/shared/ui/Rating';
+
+import styles from './styles.module.scss';
 
 interface TitleInfoProps extends ListItemProps {
 	className?: string;
@@ -41,17 +43,10 @@ export const TitleInfo = ({
 	return (
 		<div className={clsx(styles.titleInfo, className)}>
 			<Link href={path}>
-				<MyImage
-					width={80}
-					height={120}
-					src={poster?.previewUrl}
-					alt={title}
-				/>
+				<MyImage width={80} height={120} src={poster?.previewUrl} alt={title} />
 			</Link>
 			<div className={styles.content}>
-				<Link
-					href={path}
-					className={styles.title}>
+				<Link href={path} className={styles.title}>
 					{title}
 				</Link>
 				<div className={styles.subTitle}>
@@ -62,11 +57,7 @@ export const TitleInfo = ({
 				</div>
 				{/* Здесь еще может быть кнопка смотреть, если тайтл доступен на кп */}
 				<div className={styles.ratingContainer}>
-					<Rating
-						className={styles.rating}
-						rating={rating}
-						theme='default'
-					/>
+					<Rating className={styles.rating} rating={rating} theme="default" />
 					<span className={styles.votes}>
 						{Number(votes?.kp).toLocaleString('ru-RU')}
 					</span>

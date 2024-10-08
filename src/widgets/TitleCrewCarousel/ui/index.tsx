@@ -1,11 +1,14 @@
-import { Title } from '@/shared/ui/Title';
 import { clsx } from 'clsx';
 import Link from 'next/link';
+
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
+
+import { Button } from '@/shared/ui/Button';
+import { Title } from '@/shared/ui/Title';
+
 import { getArrayStuffForRender } from '../lib/getArrayStuffForRender';
 import { TitleCrewItem } from './TitleCrewItem';
 import styles from './styles.module.scss';
-import { Button } from '@/shared/ui/Button';
-import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 export type TitleCrewCarouselType = 'actors' | 'creators';
 
@@ -28,14 +31,12 @@ export const TitleCrewCarousel = async ({
 	return stuff ? (
 		<div className={clsx(styles.titleCrewCarousel, className)}>
 			<div className={styles.heading}>
-				<Title
-					size='small'
-					as='h3'>
+				<Title size="small" as="h3">
 					{type === 'actors' ? 'Актёры' : 'Создатели'}
 				</Title>
 				<Button
 					component={Link}
-					theme='moreButton'
+					theme="moreButton"
 					href={href}
 					className={styles.allLinkCast}>
 					Все
@@ -48,13 +49,8 @@ export const TitleCrewCarousel = async ({
 						[styles.listCreators]: type === 'creators',
 					})}>
 					{stuff.map((item) => (
-						<li
-							key={item.id}
-							className={styles.listItem}>
-							<TitleCrewItem
-								personInfo={item}
-								type={type}
-							/>
+						<li key={item.id} className={styles.listItem}>
+							<TitleCrewItem personInfo={item} type={type} />
 						</li>
 					))}
 				</ul>

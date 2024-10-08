@@ -1,6 +1,8 @@
-import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
 import { useEffect, useRef } from 'react';
+
+import { Icon } from '@/shared/ui/Icon';
+
 import { useSettersBase } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
@@ -20,13 +22,10 @@ export const VoitingBar = ({ className }: VoitingBarProps) => {
 	return (
 		<div
 			className={clsx(styles.voitingBar, className)}
-			aria-label='Панель выставления рейтинга'
+			aria-label="Панель выставления рейтинга"
 			tabIndex={0}
 			ref={ref}>
-			<Icon
-				name='star'
-				className={styles.iconStar}
-			/>
+			<Icon name="star" className={styles.iconStar} />
 			{[...Array(10)].map((_, i) => {
 				i = i + 1;
 				return (
@@ -38,10 +37,7 @@ export const VoitingBar = ({ className }: VoitingBarProps) => {
 							setIsOpen(false);
 							// * здесь будет логика по установлению рейтинга со стороны пользователя
 						}}
-						className={clsx(
-							styles.button,
-							setColorClasses(styles, i, i)
-						)}>
+						className={clsx(styles.button, setColorClasses(styles, i, i))}>
 						{i}
 					</button>
 				);

@@ -1,9 +1,9 @@
-import { ReadonlyURLSearchParams } from "next/navigation";
+import { ReadonlyURLSearchParams } from 'next/navigation';
 
 export const createURLSearchParams = (
 	searchParams: ReadonlyURLSearchParams,
 	typeParam: string,
-	valueParam: string
+	valueParam: string,
 ) => {
 	const arr = [];
 	let selectedParam = false;
@@ -12,7 +12,7 @@ export const createURLSearchParams = (
 			if (key !== typeParam) {
 				arr.push(`${key}=${value}`);
 			} else {
-				if(value === valueParam) {
+				if (value === valueParam) {
 					selectedParam = true;
 					arr.push(`${key}=${value}`);
 				}

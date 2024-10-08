@@ -1,5 +1,7 @@
 import axios from 'axios';
+
 import { TimeoutRequestError } from '../errors/timeout-error';
+
 const qs = require('qs');
 
 // инстанс для работы с запросами
@@ -25,9 +27,9 @@ api.interceptors.response.use(
 	(error) => {
 		// Превышен таймаут запроса
 		if (error.code === 'ECONNABORTED') {
-			throw new TimeoutRequestError()
+			throw new TimeoutRequestError();
 		}
 		// Прочие ошибки
 		return Promise.reject(error);
-	}
+	},
 );

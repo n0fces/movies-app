@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
 import Link from 'next/link';
+
 import { PaginationProps } from '..';
 import { createURLSearchParams } from '../../lib/createURLSearchParams';
+import styles from './styles.module.scss';
 
 interface PaginationItemProps extends PaginationProps {
 	item: number | '...';
@@ -22,15 +23,15 @@ export const PaginationItem = ({
 		item !== '...'
 			? item
 			: index === allPages.length - 2
-			? Number(allPages[index - 1]) + 1
-			: Number(allPages[index + 1]) - 1;
+				? Number(allPages[index - 1]) + 1
+				: Number(allPages[index + 1]) - 1;
 
 	return (
 		<Link
 			href={`/lists/titles/${slug}${createURLSearchParams(
 				searchParams,
 				'page',
-				`${numberPage}`
+				`${numberPage}`,
 			)}`}
 			key={index}
 			title={item === '...' ? `${numberPage} страница` : ''}

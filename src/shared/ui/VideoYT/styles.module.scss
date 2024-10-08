@@ -35,7 +35,7 @@
 	}
 
 	&::after {
-		content: '\2639'' ' attr(alt);
+		content: '\2639' ' ' attr(alt);
 		display: inline-block;
 		margin: auto;
 

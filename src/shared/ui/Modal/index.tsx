@@ -1,7 +1,8 @@
 import { clsx } from 'clsx';
+import { useCallback, useEffect, useRef } from 'react';
+
 import { Portal } from '../Portal';
 import styles from './styles.module.scss';
-import { useCallback, useEffect, useRef } from 'react';
 
 interface ModalProps extends React.ComponentProps<'dialog'> {
 	closeModal: () => void;
@@ -30,15 +31,14 @@ export const Modal = ({
 		(e: KeyboardEvent) => {
 			if (e.key === 'Escape') unmountModal();
 		},
-		[unmountModal]
+		[unmountModal],
 	);
 
 	const focusTrap = useCallback((e: KeyboardEvent) => {
 		// * потом надо фиксануть это. При каждом нажатии на клавишу будет срабатывать этот поиск интерактивных элементов. Но пока это работает
-		const focusableElements =
-			dialogRef.current?.querySelectorAll<HTMLElement>(
-				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-			);
+		const focusableElements = dialogRef.current?.querySelectorAll<HTMLElement>(
+			'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+		);
 		let firstElement: HTMLElement | undefined,
 			lastElement: HTMLElement | undefined;
 		if (focusableElements) {
@@ -64,7 +64,7 @@ export const Modal = ({
 				unmountModal();
 			}
 		},
-		[unmountModal]
+		[unmountModal],
 	);
 
 	useEffect(() => {
@@ -85,14 +85,7 @@ export const Modal = ({
 			dialog?.addEventListener('keydown', focusTrap);
 			dialog?.addEventListener('click', clickByBackdrop);
 		};
-	}, [
-		isOpen,
-		showModal,
-		unmountModal,
-		onKeyDown,
-		focusTrap,
-		clickByBackdrop,
-	]);
+	}, [isOpen, showModal, unmountModal, onKeyDown, focusTrap, clickByBackdrop]);
 
 	return isOpen ? (
 		<Portal element={document.getElementById('modal-root')!}>

@@ -1,10 +1,12 @@
-import { ReadMoreTextBlock } from '@/entities/ReadMoreTextBlock';
-import { WatchingServices } from '@/entities/WatchingServices';
+import { BasicMediaMovieMobile } from '@/widgets/BasicMediaMovieMobile';
 import { FeaturesMoviePage } from '@/widgets/FeaturesMoviePage';
 import { TitleCrewCarousel } from '@/widgets/TitleCrewCarousel';
+
+import { ReadMoreTextBlock } from '@/entities/ReadMoreTextBlock';
+import { WatchingServices } from '@/entities/WatchingServices';
+
 import { getTitle } from '../../api/getTitle';
 import styles from './styles.module.scss';
-import { BasicMediaMovieMobile } from '@/widgets/BasicMediaMovieMobile';
 
 interface MobileProps {
 	id: number;
@@ -17,9 +19,7 @@ export const MobileTitle = async ({ id }: MobileProps) => {
 			<BasicMediaMovieMobile id={id} />
 			<FeaturesMoviePage id={id} />
 			{shortDescription && (
-				<div className={styles.shortDescription}>
-					{shortDescription}
-				</div>
+				<div className={styles.shortDescription}>{shortDescription}</div>
 			)}
 			{description && <ReadMoreTextBlock text={description} />}
 			<WatchingServices
@@ -27,15 +27,11 @@ export const MobileTitle = async ({ id }: MobileProps) => {
 				isMobile={true}
 				className={styles.watchingServices}
 			/>
+			<TitleCrewCarousel id={id} href="#" className={styles.titleCrew} />
 			<TitleCrewCarousel
 				id={id}
-				href='#'
-				className={styles.titleCrew}
-			/>
-			<TitleCrewCarousel
-				id={id}
-				href='#'
-				type='creators'
+				href="#"
+				type="creators"
 				className={styles.titleCrew}
 			/>
 		</div>

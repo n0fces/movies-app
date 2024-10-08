@@ -1,13 +1,17 @@
+import { clsx } from 'clsx';
+import Link from 'next/link';
+
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
+
 import { AddToFoldersDropdown } from '@/features/AddToFolders/ui/AddToFoldersDropdown';
 import { ModalTrailer } from '@/features/ModalTrailer';
 import { SocialServices } from '@/features/SocialServices';
+
 import { Video as VideoAPI } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
 import { VideoYT } from '@/shared/ui/VideoYT';
-import { clsx } from 'clsx';
-import Link from 'next/link';
+
 import styles from './styles.module.scss';
-import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface BasicMediaMovieProps {
 	className?: string;
@@ -15,11 +19,7 @@ interface BasicMediaMovieProps {
 }
 
 const TrailerBtnContent = (props?: VideoAPI) => (
-	<VideoYT
-		className={styles.trailer}
-		{...props}
-		withBtn
-	/>
+	<VideoYT className={styles.trailer} {...props} withBtn />
 );
 
 export const BasicMediaMovie = async ({
@@ -62,14 +62,10 @@ export const BasicMediaMovie = async ({
 						<ModalTrailer
 							className={styles.trailerWrapper}
 							isSidebar
-							btnContent={TrailerBtnContent(
-								videos?.trailers?.[0]
-							)}
+							btnContent={TrailerBtnContent(videos?.trailers?.[0])}
 							{...title}
 						/>
-						<Link
-							href={'#'}
-							className={styles.linkTrailers}>
+						<Link href={'#'} className={styles.linkTrailers}>
 							{videos?.trailers?.[0]?.name}
 						</Link>
 					</>

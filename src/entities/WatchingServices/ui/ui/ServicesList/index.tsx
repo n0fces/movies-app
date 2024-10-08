@@ -1,8 +1,10 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
 import { HTMLAttributes } from 'react';
-import { WatchingService } from '../WatchingService';
+
 import { Watchability } from '@/shared/types';
+
+import { WatchingService } from '../WatchingService';
+import styles from './styles.module.scss';
 
 interface ServicesListProps extends HTMLAttributes<HTMLUListElement> {
 	className?: string;

@@ -1,8 +1,10 @@
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import styles from './styles.module.scss';
-import { Title } from '@/shared/ui/Title';
-import { CategoriesType } from '@/shared/types';
 import { Metadata } from 'next';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { CategoriesType } from '@/shared/types';
+import { Title } from '@/shared/ui/Title';
+
+import styles from './styles.module.scss';
 import { SelectCategories } from './ui/SelectCategories';
 
 export const metadata: Metadata = {
@@ -21,9 +23,7 @@ export default function CategoriesLayout({
 		<main className={styles.main}>
 			<div className={!isMobile ? styles.header : undefined}>
 				<div className={!isMobile ? styles.titleContainer : undefined}>
-					<Title
-						size='large'
-						as='h1'>
+					<Title size="large" as="h1">
 						Списки
 					</Title>
 				</div>

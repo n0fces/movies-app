@@ -1,6 +1,6 @@
-import { OptionProps } from '../types';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
+import { OptionProps } from '../types';
 import styles from './styles.module.scss';
 
 export interface OptionPropsExtented extends OptionProps {
@@ -21,21 +21,18 @@ export const Option = ({
 	return (
 		<li
 			tabIndex={-1}
-			role='option'
+			role="option"
 			aria-selected={selected}
 			className={className}>
 			<Button
-				theme='list'
-				size='size_40'
+				theme="list"
+				size="size_40"
 				maxWidth
 				onClick={() => choiceAction(value, label)}
 				className={styles.itemBtn}>
 				{label}
 				{selected ? (
-					<Icon
-						name='selected-option'
-						className={styles.icon}
-					/>
+					<Icon name="selected-option" className={styles.icon} />
 				) : null}
 			</Button>
 		</li>

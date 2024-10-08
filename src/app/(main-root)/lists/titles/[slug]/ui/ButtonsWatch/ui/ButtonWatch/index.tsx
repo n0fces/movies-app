@@ -1,10 +1,11 @@
 'use client';
 
-import styles from './styles.module.scss';
+import { clsx } from 'clsx';
 import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
+
 import { createURLSearchParams } from '../../lib/createURLSearchParams';
-import { clsx } from 'clsx';
+import styles from './styles.module.scss';
 
 interface ButtonProps {
 	watchability?: string;
@@ -26,7 +27,7 @@ export const ButtonWatch = ({ watchability, className, text }: ButtonProps) => {
 			href={`/lists/titles/${params.slug}${createURLSearchParams(
 				searchParams,
 				'watchability.items.name',
-				watchability ?? ''
+				watchability ?? '',
 			)}`}
 			className={clsx(styles.link, className, {
 				[styles.active]: active,

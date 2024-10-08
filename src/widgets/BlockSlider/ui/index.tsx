@@ -1,13 +1,15 @@
+import Link from 'next/link';
+import { Suspense } from 'react';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { CardItemEntity } from '@/shared/types';
 import { Carousel } from '@/shared/ui/Carousel';
 import { Icon } from '@/shared/ui/Icon';
 import { Title } from '@/shared/ui/Title';
-import Link from 'next/link';
-import { Suspense } from 'react';
-import styles from './styles.module.scss';
-import { Card } from './Card/Card';
+
 import { BlockSliderSkeleton } from './BlockSliderSkeleton';
+import { Card } from './Card/Card';
+import styles from './styles.module.scss';
 
 interface BlockSliderProps {
 	text: string;
@@ -31,34 +33,21 @@ async function BlockSliderLoaded({
 	}`;
 
 	const data =
-		typeof dataProvider === 'function'
-			? await dataProvider()
-			: dataProvider;
+		typeof dataProvider === 'function' ? await dataProvider() : dataProvider;
 
 	return (
 		<section className={styles.section}>
 			<style>{buttonsPosition}</style>
-			<Title
-				size='medium'
-				as='h2'
-				className={styles.title}>
+			<Title size="medium" as="h2" className={styles.title}>
 				{href ? (
-					<Link
-						href={href}
-						className={styles.link}>
-						{text}{' '}
-						<Icon
-							name='arrow-link'
-							className={styles.arrowLink}
-						/>
+					<Link href={href} className={styles.link}>
+						{text} <Icon name="arrow-link" className={styles.arrowLink} />
 					</Link>
 				) : (
 					text
 				)}
 			</Title>
-			<Carousel
-				ariaLabel={text}
-				isMobile={isMobile}>
+			<Carousel ariaLabel={text} isMobile={isMobile}>
 				{data?.map((item) => (
 					<Card
 						key={item.id}

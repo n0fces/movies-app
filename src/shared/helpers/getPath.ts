@@ -7,6 +7,8 @@ export const getPath = {
 	afisha: (id: Id) => `https://www.kinopoisk.ru/afisha/new/city/${id}/`,
 	top250: (isSeries: boolean) =>
 		`/lists/titles/${isSeries ? 'series-top250' : 'top250'}`,
-	popularSeriesFilter: (filter: string) => `/lists/titles/popular-series?${filter}`,
-	popularMoviesFilter: (filter: string) => `/lists/titles/popular-films?${filter}`,
+	popularSeriesFilter: (filter: string) =>
+		`/lists/titles/popular-series?${filter}`,
+	popularMoviesFilter: (filter: string) =>
+		`/lists/titles/popular-films?${filter}`,
 };

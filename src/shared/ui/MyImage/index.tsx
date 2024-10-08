@@ -1,8 +1,9 @@
-import Image, { ImageProps } from 'next/image';
-import styles from './styles.module.scss';
 import clsx from 'clsx';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import Image, { ImageProps } from 'next/image';
+
 import { Icon } from '../Icon';
+import styles from './styles.module.scss';
 
 // * потом надо подумать, можно ли сделать это решение более изящно
 interface MyImageProps extends Omit<ImageProps, 'src' | 'alt'> {
@@ -21,11 +22,7 @@ export const MyImage = ({
 }: MyImageProps) => {
 	return src ? (
 		<div
-			style={
-				!Boolean(className)
-					? { width: width, height: height }
-					: undefined
-			}
+			style={!Boolean(className) ? { width: width, height: height } : undefined}
 			className={clsx('animation', className)}>
 			<Image
 				className={styles.image}
@@ -38,16 +35,9 @@ export const MyImage = ({
 		</div>
 	) : (
 		<div
-			style={
-				!Boolean(className)
-					? { width: width, height: height }
-					: undefined
-			}
+			style={!Boolean(className) ? { width: width, height: height } : undefined}
 			className={clsx(styles.imageCap, className)}>
-			<Icon
-				name='main-logo'
-				className={styles.svgCap}
-			/>
+			<Icon name="main-logo" className={styles.svgCap} />
 		</div>
 	);
 };

@@ -1,10 +1,12 @@
 'use client';
 
+import clsx from 'clsx';
+
 import { Icon } from '@/shared/ui/Icon';
+
+import { clickSwipe } from '../../lib';
 import { useShare } from '../../model';
 import styles from './styles.module.scss';
-import clsx from 'clsx';
-import { clickSwipe } from '../../lib';
 
 interface ButtonsProps {
 	isMobile: boolean;
@@ -25,24 +27,18 @@ export const Buttons = ({ isMobile, ariaLabel, className }: ButtonsProps) => {
 				<button
 					ref={leftButtonRef}
 					className={clsx(styles.button, styles.buttonLeft)}
-					aria-label='Предыдущий'
+					aria-label="Предыдущий"
 					onClick={() => clickSwipe('left', carouselRef)}>
-					<Icon
-						name='arrow-slider'
-						className={styles.icon}
-					/>
+					<Icon name="arrow-slider" className={styles.icon} />
 				</button>
 			</li>
 			<li>
 				<button
 					ref={rightButtonRef}
 					className={clsx(styles.button, styles.buttonRight)}
-					aria-label='Следующий'
+					aria-label="Следующий"
 					onClick={() => clickSwipe('right', carouselRef)}>
-					<Icon
-						name='arrow-slider'
-						className={styles.icon}
-					/>
+					<Icon name="arrow-slider" className={styles.icon} />
 				</button>
 			</li>
 		</ul>

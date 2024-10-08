@@ -1,17 +1,22 @@
+import { clsx } from 'clsx';
+
+import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
+
+import { FeedbackButtons } from '@/features/FeedbackButtons';
+import { PlannedToWatch } from '@/features/PlannedToWatch';
+import { RatingPicker } from '@/features/SetRating/ui/RatingPicker';
+import { TicketsOnSaleBtn } from '@/features/TicketsOnSaleBtn';
+import { WatchButton } from '@/features/WatchButton';
+
 import { HeaderNamespace } from '@/entities/HeaderNamespace';
 import { MoreOptionsDropdown } from '@/entities/MoreOptionsDropdown';
 import { RatingBlockTitle } from '@/entities/RatingBlockTitle';
 import { WatchingServices } from '@/entities/WatchingServices';
-import { FeedbackButtons } from '@/features/FeedbackButtons';
-import { PlannedToWatch } from '@/features/PlannedToWatch';
-import { TicketsOnSaleBtn } from '@/features/TicketsOnSaleBtn';
-import { WatchButton } from '@/features/WatchButton';
+
 import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { clsx } from 'clsx';
+
 import styles from './styles.module.scss';
-import { RatingPicker } from '@/features/SetRating/ui/RatingPicker';
-import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
 interface HeaderTitlePageProps {
 	className?: string;
@@ -55,23 +60,28 @@ export const HeaderTitlePage = async ({
 					{ticketsOnSale ? (
 						<TicketsOnSaleBtn
 							id={id}
-							shape='rounded'
-							size='size_52'
-							theme='gradient'
+							shape="rounded"
+							size="size_52"
+							theme="gradient"
 						/>
 					) : (
-						isKP && <WatchButton size='size_52' theme='gradient' shape='rounded' className={styles.watchBtn} />
+						isKP && (
+							<WatchButton
+								size="size_52"
+								theme="gradient"
+								shape="rounded"
+								className={styles.watchBtn}
+							/>
+						)
 					)}
 					<PlannedToWatch
 						small={isSmall}
-						theme='primary'
+						theme="primary"
 						shape={isSmall ? 'circle' : 'rounded'}
 						withoutPadding={isSmall}
-						size='size_52'/>
-					<MoreOptionsDropdown
-						theme='primary'
-						size='size_52'
-						shape='circle'>
+						size="size_52"
+					/>
+					<MoreOptionsDropdown theme="primary" size="size_52" shape="circle">
 						<FeedbackButtons />
 					</MoreOptionsDropdown>
 				</div>
@@ -87,10 +97,7 @@ export const HeaderTitlePage = async ({
 				isSeries={isSeries}
 				top250={top250}
 				className={styles.ratingBlockTitle}>
-				<RatingPicker
-					className={styles.ratingPicker}
-					isSeries={isSeries}
-				/>
+				<RatingPicker className={styles.ratingPicker} isSeries={isSeries} />
 			</RatingBlockTitle>
 		</div>
 	);

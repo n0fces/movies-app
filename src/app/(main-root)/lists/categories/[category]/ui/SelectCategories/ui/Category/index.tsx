@@ -1,7 +1,8 @@
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
 import Link from 'next/link';
+
 import { CategoryItem, SelectCategoriesProps } from '..';
+import styles from './styles.module.scss';
 
 interface CategoryProps extends CategoryItem, SelectCategoriesProps {}
 

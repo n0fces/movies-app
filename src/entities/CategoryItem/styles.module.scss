@@ -12,8 +12,9 @@
 			background-color: var(--button-default-color);
 		}
 	}
-	
-	&:focus, &:active {
+
+	&:focus,
+	&:active {
 		transition: background-color 0.15s ease-out;
 		background-color: var(--button-default-color);
 	}

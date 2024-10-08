@@ -1,4 +1,4 @@
-import { Watchability } from "@/shared/types";
+import { Watchability } from '@/shared/types';
 
 export interface NameplateProps {
 	watchability?: Watchability;

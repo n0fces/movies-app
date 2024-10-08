@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
 import { Spinner } from '../Spinner';
+import styles from './styles.module.scss';
 
 interface ModalLoaderProps {
 	className?: string;

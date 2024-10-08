@@ -15,15 +15,16 @@
 	line-height: 0.833;
 	color: #fff;
 	margin-bottom: 0.3125rem;
-	
+
 	a {
 		opacity: 0.4;
-		@media(any-hover: hover) {
+		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.8;
 			}
 		}
-		&:focus, &:active {
+		&:focus,
+		&:active {
 			opacity: 0.8;
 		}
 	}

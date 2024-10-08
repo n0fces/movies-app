@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+
 import { useShare } from '../../model';
 import styles from './styles.module.scss';
 
@@ -27,7 +28,7 @@ export const ObserverItem = ({
 			},
 			{
 				root: carouselRef.current,
-			}
+			},
 		);
 
 		let carouselObserverFirstItem: IntersectionObserver | undefined;
@@ -44,7 +45,7 @@ export const ObserverItem = ({
 				{
 					root: carouselRef.current,
 					threshold: [0.75],
-				}
+				},
 			);
 		}
 
@@ -56,15 +57,13 @@ export const ObserverItem = ({
 						rightButtonRef.current?.classList.add(styles.visible);
 					}
 					if (entry.intersectionRatio >= 0.75) {
-						rightButtonRef.current?.classList.remove(
-							styles.visible
-						);
+						rightButtonRef.current?.classList.remove(styles.visible);
 					}
 				},
 				{
 					root: carouselRef.current,
 					threshold: [0.75],
-				}
+				},
 			);
 		}
 

@@ -1,7 +1,9 @@
-export const makeSortParams = (lists: string,
-	searchParams: { [key: string]: string }) => {
+export const makeSortParams = (
+	lists: string,
+	searchParams: { [key: string]: string },
+) => {
 	const arr: string[][] = [[], []];
-	if(Boolean(searchParams['sortField'])) {
+	if (Boolean(searchParams['sortField'])) {
 		arr[0].push(searchParams['sortField']);
 		searchParams['sortField'] === 'name' ? arr[1].push('1') : arr[1].push('-1');
 	} else {

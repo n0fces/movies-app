@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { useModelReturned } from '../../model/useModel';
 import { LinkItemProps } from '../../types';
 
@@ -23,20 +24,28 @@ export const LinkItemEntity = ({
 		<Link
 			href={href}
 			className={className}
-			onMouseEnter={!isMobile ? (e) => {
-				onMouseEnter();
-				setPosition(e);
-			} : undefined}
+			onMouseEnter={
+				!isMobile
+					? (e) => {
+							onMouseEnter();
+							setPosition(e);
+						}
+					: undefined
+			}
 			onMouseLeave={onMouseLeave}>
 			{name}
 		</Link>
 	) : (
 		<span
 			className={className}
-			onMouseEnter={!isMobile ? (e) => {
-				onMouseEnter();
-				setPosition(e);
-			} : undefined}
+			onMouseEnter={
+				!isMobile
+					? (e) => {
+							onMouseEnter();
+							setPosition(e);
+						}
+					: undefined
+			}
 			onMouseLeave={onMouseLeave}>
 			{name}
 		</span>

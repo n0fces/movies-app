@@ -1,12 +1,17 @@
+import { clsx } from 'clsx';
+import Link from 'next/link';
+
 import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
-import { TopListLinksBlock } from '@/entities/TopListLinksBlock';
+
 import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';
+
+import { TopListLinksBlock } from '@/entities/TopListLinksBlock';
+
 import { getPath } from '@/shared/helpers/getPath';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
 import { sortPersons } from '@/shared/helpers/sortPersons';
 import { PersonInMovie } from '@/shared/types';
-import { clsx } from 'clsx';
-import Link from 'next/link';
+
 import styles from './styles.module.scss';
 
 interface TitleCrewProps {
@@ -38,11 +43,10 @@ const CastBlock = ({ array, title }: CastBlockProps) =>
 					return null;
 				}
 			})}
-			href='#'
+			href="#"
 			seeMoreLink={
-				<Link href='#'>
-					{array.length}{' '}
-					{setCorrectEndWord('актер', array.length % 10)}
+				<Link href="#">
+					{array.length} {setCorrectEndWord('актер', array.length % 10)}
 				</Link>
 			}
 		/>
@@ -54,14 +58,8 @@ export const TitleCrew = async ({ className, id }: TitleCrewProps) => {
 
 	return (
 		<div className={clsx(styles.titleCrew, className)}>
-			<CastBlock
-				array={stuff.actor}
-				title='В главных ролях'
-			/>
-			<CastBlock
-				array={stuff.voice_actor}
-				title='Роли дублировали'
-			/>
+			<CastBlock array={stuff.actor} title="В главных ролях" />
+			<CastBlock array={stuff.voice_actor} title="Роли дублировали" />
 		</div>
 	);
 };

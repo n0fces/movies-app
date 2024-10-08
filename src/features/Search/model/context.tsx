@@ -1,4 +1,3 @@
-import { SearchMovie } from '@/shared/types';
 import {
 	Dispatch,
 	SetStateAction,
@@ -7,6 +6,8 @@ import {
 	useMemo,
 	useState,
 } from 'react';
+
+import { SearchMovie } from '@/shared/types';
 
 interface ContextProviderProps {
 	children: React.ReactNode;
@@ -36,7 +37,7 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 
 	const setters = useMemo(
 		() => ({ setSuggests, setIsLoading, setValue, setIsOpen, setIsChange }),
-		[]
+		[],
 	);
 
 	return (

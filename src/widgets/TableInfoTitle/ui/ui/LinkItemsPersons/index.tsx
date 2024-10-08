@@ -1,6 +1,8 @@
-import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';
-import { PersonInMovie } from '@/shared/types';
 import Link from 'next/link';
+
+import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';
+
+import { PersonInMovie } from '@/shared/types';
 
 // * Надо обязательно подумать, как объединить в единый компонент LinkItems и LinkItemsPersons. Они практически одинаковы, за исключением работающей ссылки
 
@@ -26,11 +28,7 @@ export const LinkItemsPersons = ({
 			if (text && id) {
 				return (
 					<>
-						<LinkItemPerson
-							key={index}
-							name={text}
-							id={id}
-						/>
+						<LinkItemPerson key={index} name={text} id={id} />
 						{array?.length && index !== array.length - 1 && ', '}
 					</>
 				);
@@ -43,7 +41,7 @@ export const LinkItemsPersons = ({
 			mappedArr.push(
 				<>
 					, <Link href={moreLink}>...</Link>
-				</>
+				</>,
 			);
 		}
 

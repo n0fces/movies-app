@@ -1,6 +1,7 @@
-import { flags } from '@/shared/types/flags';
-import { Audience } from '@/shared/types';
 import Link from 'next/link';
+
+import { Audience } from '@/shared/types';
+import { flags } from '@/shared/types/flags';
 
 interface AudiencesProps {
 	audience: Audience[] | null | undefined;
@@ -30,7 +31,7 @@ export const Audiences = ({ audience }: AudiencesProps) => {
 			audienceList.push(
 				<>
 					, <Link href={'#'}>...</Link>
-				</>
+				</>,
 			);
 		}
 

@@ -1,9 +1,12 @@
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import { Metadata } from 'next';
+
 import { BasicMediaMovie } from '@/widgets/BasicMediaMovie';
 import { HeaderTitlePage } from '@/widgets/HeaderTitlePage';
 import { TableInfoTitle } from '@/widgets/TableInfoTitle';
 import { TitleCrew } from '@/widgets/TitleCrew';
-import { Metadata } from 'next';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import { getTitle } from '../../api/getTitle';
 import { Desktop } from '../../ui/Desktop';
 import { MobileTitle } from '../../ui/MobileTitle';
@@ -32,10 +35,7 @@ export default async function TitleRoot({
 	return !isMobile ? (
 		<Desktop
 			basicMediaSection={() => (
-				<BasicMediaMovie
-					id={params.id}
-					className={styles.basicMediaSection}
-				/>
+				<BasicMediaMovie id={params.id} className={styles.basicMediaSection} />
 			)}
 			headerTitle={() => <HeaderTitlePage id={params.id} />}
 			tableInfo={() => <TableInfoTitle id={params.id} />}

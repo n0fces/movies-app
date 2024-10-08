@@ -1,8 +1,10 @@
 import { TouchModal } from '@/entities/TouchModal';
+
 import { Profession } from '@/shared/types';
-import { Icon } from '@/shared/ui/Icon';
-import { AddToFoldersPersonList } from '../AddToFoldersPersonList';
 import { ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
+import { Icon } from '@/shared/ui/Icon';
+
+import { AddToFoldersPersonList } from '../AddToFoldersPersonList';
 
 interface AddToFoldersPersonModalProps {
 	className?: string;
@@ -17,7 +19,7 @@ interface AddToFoldersPersonModalProps {
 
 const BtnContent = (title?: string | null) => (
 	<>
-		<Icon name='addToFolder' />
+		<Icon name="addToFolder" />
 		{title}
 	</>
 );
@@ -40,7 +42,7 @@ export const AddToFoldersPersonModal = ({
 			className={className}
 			poster={poster}
 			btnContent={BtnContent(title)}
-			title='Добавить в папку'
+			title="Добавить в папку"
 			secondaryTitle={secondaryTitle}
 			isTitle>
 			<AddToFoldersPersonList profession={profession} />

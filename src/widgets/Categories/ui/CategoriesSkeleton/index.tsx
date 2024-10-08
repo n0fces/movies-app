@@ -1,7 +1,9 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
+
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+
 import { RectSkeleton } from '../../../../shared/ui/Skeleton';
+import styles from './styles.module.scss';
 
 interface SkeletonProps {
 	width: number;
@@ -18,10 +20,7 @@ export const CategoriesSkeleton = ({ width, height, count }: SkeletonProps) => {
 				[styles.cardFull]: !isMobile,
 			})}
 			key={i}>
-			<RectSkeleton
-				width={width}
-				height={height}
-			/>
+			<RectSkeleton width={width} height={height} />
 			<div className={styles.meta}>
 				<RectSkeleton
 					className={clsx(styles.title, {

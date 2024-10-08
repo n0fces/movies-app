@@ -1,10 +1,12 @@
+import Link from 'next/link';
+
+import { getPath } from '@/shared/helpers/getPath';
+import { getRating } from '@/shared/helpers/getRating';
 import { Movie } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 import { Rating } from '@/shared/ui/Rating';
-import Link from 'next/link';
+
 import styles from './styles.module.scss';
-import { getPath } from '@/shared/helpers/getPath';
-import { getRating } from '@/shared/helpers/getRating';
 
 interface RatingBlockTitleProps
 	extends Pick<Movie, 'rating' | 'top250' | 'votes' | 'isSeries'> {
@@ -42,20 +44,12 @@ export const RatingBlockTitle = ({
 						<Link
 							href={getPath.top250(isSeries)}
 							className={styles.positionBadge}>
-							<Icon
-								name='left-leaf'
-								className={styles.leaf}
-							/>
+							<Icon name="left-leaf" className={styles.leaf} />
 							<div className={styles.text}>
 								<span className={styles.isTop250}>топ 250</span>
-								<span className={styles.position}>
-									{top250} место
-								</span>
+								<span className={styles.position}>{top250} место</span>
 							</div>
-							<Icon
-								name='right-leaf'
-								className={styles.leaf}
-							/>
+							<Icon name="right-leaf" className={styles.leaf} />
 						</Link>
 					)}
 				</div>

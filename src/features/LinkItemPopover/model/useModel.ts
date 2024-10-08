@@ -1,4 +1,3 @@
-import { useHover } from '@/shared/hooks/useHover';
 import {
 	Dispatch,
 	MouseEvent,
@@ -7,6 +6,8 @@ import {
 	useEffect,
 	useState,
 } from 'react';
+
+import { useHover } from '@/shared/hooks/useHover';
 
 const DURING = 300;
 const SIZE_WIDTH = 380;
@@ -30,7 +31,7 @@ export interface useModelReturned {
 export const useModel = (
 	data: any,
 	setData: Dispatch<SetStateAction<any>>,
-	response: () => Promise<any>
+	response: () => Promise<any>,
 ): useModelReturned => {
 	const { isHover, onMouseEnter, onMouseLeave } = useHover();
 	const [isOpen, setIsOpen] = useState(false);
@@ -41,8 +42,7 @@ export const useModel = (
 	const setPosition = useCallback(
 		(e: MouseHoverEvent) => {
 			if (!isHover) {
-				const isCanRight =
-					window.innerWidth - e.clientX > SIZE_WIDTH + 2 * GAP;
+				const isCanRight = window.innerWidth - e.clientX > SIZE_WIDTH + 2 * GAP;
 				const isCanBottom =
 					window.innerHeight - e.clientY > SIZE_HEIGHT + 2 * GAP;
 				const left = isCanRight ? e.pageX + GAP : e.pageX - SIZE_WIDTH;
@@ -52,7 +52,7 @@ export const useModel = (
 			}
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[]
+		[],
 	);
 
 	useEffect(() => {

@@ -1,10 +1,11 @@
 'use client';
 
+import { clsx } from 'clsx';
 import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
-import styles from './styles.module.scss';
-import { clsx } from 'clsx';
+
 import { createURLSearchParams } from '../../lib/createURLSearchParams';
+import styles from './styles.module.scss';
 
 export interface ToggleButton {
 	typeParam: string;
@@ -21,7 +22,7 @@ export const ToggleButton = ({ typeParam, valueParam, text }: ToggleButton) => {
 			href={`/lists/titles/${params.slug}${createURLSearchParams(
 				searchParams,
 				typeParam,
-				valueParam
+				valueParam,
 			)}`}
 			className={clsx(styles.toggleButton, {
 				[styles.active]: Boolean(searchParams.get(typeParam)),

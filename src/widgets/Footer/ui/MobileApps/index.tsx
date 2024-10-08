@@ -1,6 +1,8 @@
-import { Icon } from '@/shared/ui/Icon';
-import styles from './styles.module.scss';
 import Link from 'next/link';
+
+import { Icon } from '@/shared/ui/Icon';
+
+import styles from './styles.module.scss';
 
 interface MobileAppsItemProps {
 	href: string;
@@ -36,7 +38,7 @@ const MobileAppsItem = ({ href, label, name }: MobileAppsItemProps) => (
 		href={href}
 		className={styles.mobileAppsItem}
 		aria-label={label}
-		target='_blank'>
+		target="_blank">
 		<Icon name={name} />
 	</Link>
 );
@@ -45,10 +47,7 @@ export const MobileApps = () => {
 	return (
 		<div className={styles.mobileAppsMenu}>
 			{list.map((item, index) => (
-				<MobileAppsItem
-					key={index}
-					{...item}
-				/>
+				<MobileAppsItem key={index} {...item} />
 			))}
 		</div>
 	);

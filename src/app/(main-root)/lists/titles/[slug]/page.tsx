@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { ListItems } from '@/widgets/ListItems';
+
 // * здесь надо подумать еще над тем, выносить ли это в паблик апи или нет. по методолгии получается надо, но очково из-за раздувания бандла
 import { getCategory } from '@/widgets/CategoryDescription/api/getCategory';
+import { ListItems } from '@/widgets/ListItems';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 
 interface Props {
 	params: { slug: string };
@@ -28,11 +30,7 @@ export default async function ListTitles({
 	const limit = isMobile ? 25 : 50;
 
 	return (
-		<ListItems
-			params={params}
-			searchParams={searchParams}
-			limit={limit}
-		/>
+		<ListItems params={params} searchParams={searchParams} limit={limit} />
 		// <></>
 	);
 }

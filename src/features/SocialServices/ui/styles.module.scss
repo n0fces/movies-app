@@ -18,7 +18,8 @@
 	align-items: center;
 	justify-content: center;
 
-	transition: background-color var(--button-transition-duration) ease,
+	transition:
+		background-color var(--button-transition-duration) ease,
 		transform var(--button-transition-duration) ease;
 
 	@media (any-hover: hover) {
@@ -28,7 +29,7 @@
 
 		// пока это не работает почему-то
 		&:hover .vk {
-			background-color: black
+			background-color: black;
 		}
 
 		&:hover .twitter {

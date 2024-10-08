@@ -1,9 +1,10 @@
-import styles from './styles.module.scss';
-import { Modal } from '@/shared/ui/Modal';
-import { Header } from '../Header';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { Modal } from '@/shared/ui/Modal';
+
 import { TouchModalProps } from '../../';
+import { Header } from '../Header';
+import styles from './styles.module.scss';
 
 export interface TouchModalRootProps extends TouchModalProps {
 	isOpen: boolean;
@@ -28,14 +29,11 @@ const TouchModalRoot = ({
 				<Header {...otherProps} className={styles.header} />
 				<div className={styles.closeBtnContainer}>
 					<Button
-						theme='primary'
-						shape='circle'
-						size='size_28'
+						theme="primary"
+						shape="circle"
+						size="size_28"
 						onClick={closeModal}>
-						<Icon
-							name='close'
-							className={styles.closeIcon}
-						/>
+						<Icon name="close" className={styles.closeIcon} />
 					</Button>
 				</div>
 			</div>

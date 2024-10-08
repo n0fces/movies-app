@@ -1,4 +1,4 @@
-.section{
+.section {
 	display: block;
 }
 
@@ -12,7 +12,8 @@
 	align-items: center;
 	column-gap: 0.25rem;
 
-	&:focus, &:active {
+	&:focus,
+	&:active {
 		outline: 0.125rem solid black;
 		outline-offset: 0.125rem;
 		border-radius: 0.125rem;

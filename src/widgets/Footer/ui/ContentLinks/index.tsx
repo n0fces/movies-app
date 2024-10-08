@@ -1,8 +1,10 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { RoutesEnum } from '@/shared/routes';
+
+import styles from './styles.module.scss';
 
 interface ListItemProps {
 	text: string;
@@ -54,9 +56,7 @@ const list: ListItemProps[] = [
 
 const ListItem = ({ href, text }: ListItemProps) => (
 	<li className={styles.contentMenuItem}>
-		<Link
-			href={href}
-			target='_blank'>
+		<Link href={href} target="_blank">
 			{text}
 		</Link>
 	</li>
@@ -71,10 +71,7 @@ export const ContentLinks = () => {
 				[styles.column]: isMobile,
 			})}>
 			{list.map((item, index) => (
-				<ListItem
-					key={index}
-					{...item}
-				/>
+				<ListItem key={index} {...item} />
 			))}
 		</ul>
 	);

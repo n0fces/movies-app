@@ -1,9 +1,11 @@
-import Link from 'next/link';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+import Link from 'next/link';
+
 import { Icon } from '@/shared/ui/Icon';
+
 import { PaginationProps } from '../';
 import { createURLSearchParams } from '../../lib/createURLSearchParams';
+import styles from './styles.module.scss';
 
 interface PaginationArrowProps extends PaginationProps {
 	type: 'Вперед' | 'Назад';
@@ -25,11 +27,11 @@ export const PaginationArrow = ({
 			href={`/lists/titles/${slug}${createURLSearchParams(
 				searchParams,
 				'page',
-				`${move}`
+				`${move}`,
 			)}`}
 			className={clsx(styles.arrow, { [styles.end]: isForward })}
 			title={`${type}`}>
-			<Icon name='arrow-pagination' className={styles.arrowPagination} />
+			<Icon name="arrow-pagination" className={styles.arrowPagination} />
 		</Link>
 	) : null;
 };

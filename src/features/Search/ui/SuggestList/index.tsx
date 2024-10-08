@@ -1,10 +1,11 @@
 'use client';
 
-import styles from './styles.module.scss';
 import Link from 'next/link';
-import { SuggestItem } from '../SuggestItem';
+
 import { useInputValue, useIsLoading, useSuggests } from '../../model/context';
 import { LoadingBackdrop } from '../LoadingBackdrop';
+import { SuggestItem } from '../SuggestItem';
+import styles from './styles.module.scss';
 
 const SuggestList = () => {
 	const isLoading = useIsLoading();
@@ -26,10 +27,7 @@ const SuggestList = () => {
 							</div>
 							<ul className={styles.list}>
 								{suggests.map((suggest) => (
-									<SuggestItem
-										key={suggest.id}
-										{...suggest}
-									/>
+									<SuggestItem key={suggest.id} {...suggest} />
 								))}
 							</ul>
 							{/* потом надо добавить */}

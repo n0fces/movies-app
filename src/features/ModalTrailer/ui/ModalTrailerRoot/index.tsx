@@ -1,15 +1,17 @@
 'use client';
 
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { Modal } from '@/shared/ui/Modal';
-import { VideoYT } from '@/shared/ui/VideoYT';
-import { TitleInfo } from '../TitleInfo';
-import { OtherTrailers } from '../OtherTrailers';
+import { useState } from 'react';
+
+import { ListItemProps, Video } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
-import { ListItemProps, Video } from '@/shared/types';
-import { useState } from 'react';
+import { Modal } from '@/shared/ui/Modal';
+import { VideoYT } from '@/shared/ui/VideoYT';
+
+import { OtherTrailers } from '../OtherTrailers';
+import { TitleInfo } from '../TitleInfo';
+import styles from './styles.module.scss';
 
 interface ModalTrailerRootProps extends ListItemProps {
 	isOpen: boolean;
@@ -25,9 +27,7 @@ const ModalTrailerRoot = ({
 }: ModalTrailerRootProps) => {
 	const { videos } = otherProps;
 	console.log(videos);
-	const trailers = videos?.trailers
-		?.filter((trailer) => trailer.url)
-		.slice(1);
+	const trailers = videos?.trailers?.filter((trailer) => trailer.url).slice(1);
 	console.log(trailers);
 	const [otherTrailers, setOtherTrailers] = useState(trailers?.slice(1));
 	const [currentVideo, setCurrentVideo] = useState(trailers?.[0]);
@@ -36,8 +36,8 @@ const ModalTrailerRoot = ({
 		setCurrentVideo(trailer);
 		setOtherTrailers((otherTrailers) =>
 			otherTrailers?.map((item) =>
-				item.url === trailer.url ? (currentVideo as Video) : item
-			)
+				item.url === trailer.url ? (currentVideo as Video) : item,
+			),
 		);
 	};
 
@@ -67,13 +67,8 @@ const ModalTrailerRoot = ({
 					/>
 				</div>
 			)}
-			<button
-				className={styles.closeBtn}
-				onClick={closeModal}>
-				<Icon
-					name='close'
-					className={styles.closeIcon}
-				/>
+			<button className={styles.closeBtn} onClick={closeModal}>
+				<Icon name="close" className={styles.closeIcon} />
 			</button>
 		</Modal>
 	);

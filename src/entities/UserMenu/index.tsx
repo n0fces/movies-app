@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import styles from './styles.module.scss';
 
@@ -6,7 +6,7 @@ interface UserMenuProps {}
 
 export const UserMenu = ({}: UserMenuProps) => {
 	return (
-		<nav className={styles.userMenu} id='user-menu'>
+		<nav className={styles.userMenu} id="user-menu">
 			{/* Потом это будет линка на страницу пользователя */}
 			<div className={styles.userName}>Username</div>
 			<ul className={styles.list}>

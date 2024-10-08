@@ -1,4 +1,5 @@
 import { Title } from '@/shared/ui/Title';
+
 import styles from './styles.module.scss';
 
 interface HeaderNamespaceProps {
@@ -19,7 +20,7 @@ export const HeaderNamespace = ({
 	return (
 		<div className={className}>
 			<div className={styles.headerBlock}>
-				{title && <Title size='xl'>{title}</Title>}
+				{title && <Title size="xl">{title}</Title>}
 				{subtitle && (
 					<div className={styles.subtitle}>
 						<span>{subtitle}</span>

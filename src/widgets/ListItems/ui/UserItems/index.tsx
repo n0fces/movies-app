@@ -1,9 +1,12 @@
+import { clsx } from 'clsx';
+
 import { PlannedToWatch } from '@/features/PlannedToWatch';
+import { RatingBar } from '@/features/SetRating/ui/RatingBar';
+
+import { ListItemProps } from '@/shared/types';
+
 import styles from './styles.module.scss';
 import { MoreOptions } from './ui/MoreOptions';
-import { clsx } from 'clsx';
-import { ListItemProps } from '@/shared/types';
-import { RatingBar } from '@/features/SetRating/ui/RatingBar';
 
 interface UserItemsProps extends ListItemProps {
 	isMobile: boolean;
@@ -13,11 +16,11 @@ export const UserItems = ({ isMobile, ...otherProps }: UserItemsProps) => {
 	return (
 		<div className={clsx(styles.userItems, { [styles.column]: isMobile })}>
 			<PlannedToWatch
-			size='size_32'
+				size="size_32"
 				small={isMobile}
 				className={clsx({
 					[styles.plannedToWatchSmall]: isMobile,
-					[styles.plannedToWatch]: !isMobile
+					[styles.plannedToWatch]: !isMobile,
 				})}
 				theme={!isMobile ? 'primary' : undefined}
 				shape={!isMobile ? 'rounded' : 'circle'}

@@ -1,8 +1,10 @@
-import styles from './styles.module.scss';
 import clsx from 'clsx';
-import { NameplateProps } from './types';
-import { Icon } from '../Icon';
+
 import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+
+import { Icon } from '../Icon';
+import styles from './styles.module.scss';
+import { NameplateProps } from './types';
 
 export const Nameplate = ({
 	ticketsOnSale,

@@ -1,10 +1,13 @@
+import clsx from 'clsx';
+
 import { LinkItemTitle } from '@/features/LinkItemPopover/ui/LinkItemTitle';
+
+import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { CardItemEntity } from '@/shared/types';
-import clsx from 'clsx';
-import styles from './styles.module.scss';
+
 import { IsLink } from '../../shared/ui/IsLink';
-import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import styles from './styles.module.scss';
 
 // * Здесь надо будет сузить интерфейс (не все штуки, которые поступают, на самом деле здесь нужны)
 interface CardItemProps extends CardItemEntity {

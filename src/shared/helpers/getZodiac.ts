@@ -2,7 +2,7 @@ import { zodiacSigns } from '../constants/zodiac';
 import { ZodiacSign } from '../types';
 
 export const getZodiac = (
-	date: string | null | undefined
+	date: string | null | undefined,
 ): ZodiacSign | undefined => {
 	if (date) {
 		const birthDate = new Date(date);
@@ -12,9 +12,8 @@ export const getZodiac = (
 		// если дата рождения есть, то точно сможем определить знак зодиака, поэтому в конце !
 		const sign = zodiacSigns.find(
 			(zodiac) =>
-				(birthMonth === zodiac.startMonth &&
-					birthDay >= zodiac.startDate) ||
-				(birthMonth === zodiac.endMonth && birthDay <= zodiac.endDate)
+				(birthMonth === zodiac.startMonth && birthDay >= zodiac.startDate) ||
+				(birthMonth === zodiac.endMonth && birthDay <= zodiac.endDate),
 		)!;
 
 		return sign.sign;

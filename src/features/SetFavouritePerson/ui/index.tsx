@@ -1,9 +1,10 @@
 'use client';
 
 import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import styles from './styles.module.scss';
 import { ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
+import { Icon } from '@/shared/ui/Icon';
+
+import styles from './styles.module.scss';
 
 interface SetFavouritePersonProps {
 	className?: string;
@@ -30,10 +31,7 @@ export const SetFavouritePerson = ({
 			onClick={() => {
 				// * здесь будет логика по открытию модального окна с фильмом
 			}}>
-			<Icon
-				name='favourite'
-				className={styles.icon}
-			/>
+			<Icon name="favourite" className={styles.icon} />
 			Любимая звезда
 		</Button>
 	);

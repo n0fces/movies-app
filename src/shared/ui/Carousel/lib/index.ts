@@ -2,7 +2,7 @@ import { RefObject } from 'react';
 
 export const clickSwipe = (
 	type: 'left' | 'right',
-	carouselRef: RefObject<HTMLUListElement>
+	carouselRef: RefObject<HTMLUListElement>,
 ) => {
 	if (carouselRef.current !== null) {
 		const visibleItems = document.querySelectorAll('.visible');
@@ -12,9 +12,9 @@ export const clickSwipe = (
 		const scroll =
 			type === 'right'
 				? lastVisible.getBoundingClientRect().left -
-				  carouselRef.current.getBoundingClientRect().left
+					carouselRef.current.getBoundingClientRect().left
 				: firstVisible.getBoundingClientRect().right -
-				  carouselRef.current.getBoundingClientRect().right;
+					carouselRef.current.getBoundingClientRect().right;
 
 		carouselRef.current.scrollBy({
 			top: 0,

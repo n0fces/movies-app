@@ -15,7 +15,8 @@
 		}
 	}
 
-	&:focus, &:active {
+	&:focus,
+	&:active {
 		outline: none;
 		img {
 			filter: brightness(0.9);

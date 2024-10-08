@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
+
 import { createURLSearchParams } from '../lib/createURLSearchParams';
 
 export const useModel = () => {
@@ -13,8 +14,8 @@ export const useModel = () => {
 			`/lists/titles/${params.slug}${createURLSearchParams(
 				searchParams,
 				`${typeParam}`,
-				`${value}`
-			)}`
+				`${value}`,
+			)}`,
 		);
 	};
 };

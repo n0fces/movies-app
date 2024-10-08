@@ -1,8 +1,11 @@
 import { clsx } from 'clsx';
-import styles from './styles.module.scss';
-import { SetFavouritePerson } from '@/features/SetFavouritePerson';
-import { AddToFoldersPersonModal } from '@/features/AddToFoldersPerson/ui/AddToFoldersPersonModal';
+
 import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
+
+import { AddToFoldersPersonModal } from '@/features/AddToFoldersPerson/ui/AddToFoldersPersonModal';
+import { SetFavouritePerson } from '@/features/SetFavouritePerson';
+
+import styles from './styles.module.scss';
 
 interface FeaturesPersonPageProps {
 	className?: string;
@@ -17,13 +20,13 @@ export const FeaturesPersonPage = async ({
 	return (
 		<div className={clsx(styles.featuresPersonPage, className)}>
 			<SetFavouritePerson
-			size='size_52'
-				theme='textBelow'
+				size="size_52"
+				theme="textBelow"
 				className={styles.feature}
 			/>
 			<AddToFoldersPersonModal
-			size='size_52'
-				theme='textBelow'
+				size="size_52"
+				theme="textBelow"
 				profession={profession}
 				poster={photo}
 				secondaryTitle={name || enName}

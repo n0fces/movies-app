@@ -1,6 +1,10 @@
 'use client';
 
+import Link from 'next/link';
+import { useState } from 'react';
+
 import { PopoverCard } from '@/entities/PopoverCard';
+
 import { getPath } from '@/shared/helpers/getPath';
 import { getProfessions } from '@/shared/helpers/getProfessions';
 import { Person } from '@/shared/types';
@@ -8,18 +12,14 @@ import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { IsLink } from '@/shared/ui/IsLink';
 import { MyImage } from '@/shared/ui/MyImage';
-import Link from 'next/link';
-import { useState } from 'react';
+
 import { useModel } from '../../model/useModel';
 import { AdditionalInfoList, LinkItemProps } from '../../types';
 import { LinkItemEntity } from '../LinkItemEntity';
 import styles from './styles.module.scss';
 
 export interface PersonLoaded
-	extends Pick<
-		Person,
-		'name' | 'enName' | 'profession' | 'photo' | 'movies'
-	> {}
+	extends Pick<Person, 'name' | 'enName' | 'profession' | 'photo' | 'movies'> {}
 
 interface LinkItemPersonProps extends LinkItemProps {
 	data?: PersonLoaded | null;
@@ -32,7 +32,7 @@ export const LinkItemPerson = ({
 	data,
 	href: h,
 	wordIsLink = true,
-	isMobile
+	isMobile,
 }: LinkItemPersonProps) => {
 	const [person, setPerson] = useState<typeof data>(data);
 
@@ -87,13 +87,10 @@ export const LinkItemPerson = ({
 		<Button
 			component={Link}
 			href={'#'}
-			theme='primary'
-			size='size_40'
-			shape='rounded'>
-			<Icon
-				name='subscribe'
-				className={styles.subscribeIcon}
-			/>
+			theme="primary"
+			size="size_40"
+			shape="rounded">
+			<Icon name="subscribe" className={styles.subscribeIcon} />
 			Подписаться
 		</Button>
 	);

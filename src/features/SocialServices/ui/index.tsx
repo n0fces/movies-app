@@ -1,8 +1,10 @@
-import { IconName } from '@/shared/types';
-import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
 import { headers } from 'next/headers';
 import Link from 'next/link';
+
+import { IconName } from '@/shared/types';
+import { Icon } from '@/shared/ui/Icon';
+
 import styles from './styles.module.scss';
 
 interface SocialServicesProps {
@@ -24,15 +26,12 @@ const SocialService = ({
 	<li className={styles.service}>
 		<Link
 			href={shareLink}
-			target='_blank'
+			target="_blank"
 			title={socialName}
-			rel='nofollow noopener'
+			rel="nofollow noopener"
 			className={clsx(styles.link, styles[enName])}>
-			<span className='visually-hidden'>{socialName}</span>
-			<Icon
-				name={enName}
-				className={styles.icon}
-			/>
+			<span className="visually-hidden">{socialName}</span>
+			<Icon name={enName} className={styles.icon} />
 		</Link>
 	</li>
 );
@@ -63,10 +62,7 @@ export const SocialServices = ({ className, text }: SocialServicesProps) => {
 	return (
 		<ul className={clsx(styles.socialServices, className)}>
 			{socialServicesList.map((socialService, index) => (
-				<SocialService
-					key={index}
-					{...socialService}
-				/>
+				<SocialService key={index} {...socialService} />
 			))}
 		</ul>
 	);

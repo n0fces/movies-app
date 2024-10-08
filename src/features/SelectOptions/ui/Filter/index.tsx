@@ -1,14 +1,17 @@
-'use client'
+'use client';
 
-import styles from './styles.module.scss';
-import { TouchModal } from '@/entities/TouchModal';
-import { OptionProps } from '@/shared/ui/Select/types';
-import { Option } from '@/shared/ui/Select/Option';
-import { useModel } from '../../model';
-import { useSearchParams } from 'next/navigation';
-import { Icon } from '@/shared/ui/Icon';
-import { additionalText } from '../../lib/additionalText';
 import { clsx } from 'clsx';
+import { useSearchParams } from 'next/navigation';
+
+import { TouchModal } from '@/entities/TouchModal';
+
+import { Icon } from '@/shared/ui/Icon';
+import { Option } from '@/shared/ui/Select/Option';
+import { OptionProps } from '@/shared/ui/Select/types';
+
+import { additionalText } from '../../lib/additionalText';
+import { useModel } from '../../model';
+import styles from './styles.module.scss';
 
 interface FilterProps {
 	className?: string;
@@ -17,19 +20,15 @@ interface FilterProps {
 	options: OptionProps[];
 }
 
-const BtnContent = (title?: string, additionalText?: string) =>
-	(
-		<>
-			<span>{title}</span>
-			<div className={styles.showOptions}>
-				<span>{additionalText}</span>
-				<Icon
-					name='all-lists'
-					className={styles.icon}
-				/>
-			</div>
-		</>
-	);
+const BtnContent = (title?: string, additionalText?: string) => (
+	<>
+		<span>{title}</span>
+		<div className={styles.showOptions}>
+			<span>{additionalText}</span>
+			<Icon name="all-lists" className={styles.icon} />
+		</div>
+	</>
+);
 
 export const Filter = ({ className, title, type, options }: FilterProps) => {
 	const model = useModel();
@@ -37,7 +36,7 @@ export const Filter = ({ className, title, type, options }: FilterProps) => {
 
 	return (
 		<TouchModal
-			theme='modal'
+			theme="modal"
 			className={clsx(styles.button, className)}
 			btnContent={BtnContent(
 				title,
@@ -45,8 +44,8 @@ export const Filter = ({ className, title, type, options }: FilterProps) => {
 					type,
 					options,
 					`Все ${title.toLowerCase()}`,
-					searchParams
-				)
+					searchParams,
+				),
 			)}
 			title={title}>
 			<ul className={styles.list}>
@@ -55,9 +54,7 @@ export const Filter = ({ className, title, type, options }: FilterProps) => {
 					<Option
 						className={styles.option}
 						choiceAction={model(type)}
-						selectedOptionValue={
-							searchParams.get(type) ?? undefined
-						}
+						selectedOptionValue={searchParams.get(type) ?? undefined}
 						key={index}
 						{...option}
 					/>

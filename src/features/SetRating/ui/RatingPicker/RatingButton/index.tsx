@@ -1,12 +1,14 @@
+import { clsx } from 'clsx';
+
 import { Movie } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
-import { clsx } from 'clsx';
+
 import {
 	useIsOpenDropdown,
 	useIsOpenDropdownSetter,
 	useRating,
-	useSettersBase
+	useSettersBase,
 } from '../../../context';
 import { setColorClasses } from '../../../lib/setColorClasses';
 import styles from './styles.module.scss';
@@ -23,10 +25,10 @@ export const RatingButton = ({ className, isSeries }: RatingButtonProps) => {
 
 	return (
 		<Button
-			theme='primary'
-			size='size_32'
+			theme="primary"
+			size="size_32"
 			maxWidth
-			shape='rounded'
+			shape="rounded"
 			withoutPadding
 			onClick={() => {
 				if (rating) {
@@ -46,12 +48,9 @@ export const RatingButton = ({ className, isSeries }: RatingButtonProps) => {
 					<span
 						className={clsx(
 							styles.ratingNameplate,
-							setColorClasses(styles, rating)
+							setColorClasses(styles, rating),
 						)}>
-						<Icon
-							name='star'
-							className={styles.iconRating}
-						/>
+						<Icon name="star" className={styles.iconRating} />
 						{rating}
 					</span>
 				</div>

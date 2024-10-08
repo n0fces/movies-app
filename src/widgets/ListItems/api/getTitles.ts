@@ -1,13 +1,15 @@
-import { api } from '@/shared/api';
 import { cache } from 'react';
-import { makeSortParams } from '../lib/makeSortParams';
+
+import { api } from '@/shared/api';
 import { ListItemsReq } from '@/shared/types';
+
+import { makeSortParams } from '../lib/makeSortParams';
 
 export const getTitles = cache(
 	async (
 		lists: string,
 		searchParams: { [key: string]: string },
-		limit: number
+		limit: number,
 	) => {
 		const [sortField, sortType] = makeSortParams(lists, searchParams);
 
@@ -53,5 +55,5 @@ export const getTitles = cache(
 		});
 
 		return data;
-	}
+	},
 );

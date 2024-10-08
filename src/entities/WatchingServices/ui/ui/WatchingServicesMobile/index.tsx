@@ -1,11 +1,12 @@
 'use client';
 
-import styles from './styles.module.scss';
-import { Watchability } from '@/shared/types';
 import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
-import { ServicesList } from '../ServicesList';
-import { MoreServicesBtn } from '../MoreServicesBtn';
+import { Watchability } from '@/shared/types';
 import { Title } from '@/shared/ui/Title';
+
+import { MoreServicesBtn } from '../MoreServicesBtn';
+import { ServicesList } from '../ServicesList';
+import styles from './styles.module.scss';
 
 interface WatchingServicesMobileProps {
 	className?: string;
@@ -24,16 +25,14 @@ export const WatchingServicesMobile = ({
 	return (
 		<div className={className}>
 			<div className={styles.servicesHeader}>
-				<Title size='small' as='h3'>
+				<Title size="small" as="h3">
 					{isKP ? 'Где еще посмотреть' : 'Где смотреть'}
 				</Title>
 				{amountServices - 1 > 3 && (
 					<MoreServicesBtn
 						isMobile={isMobile}
 						watchability={watchability}
-						amountServices={
-							isKP ? amountServices - 1 : amountServices
-						}
+						amountServices={isKP ? amountServices - 1 : amountServices}
 					/>
 				)}
 			</div>

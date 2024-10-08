@@ -1,12 +1,15 @@
+import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
+
 import { ReadMoreComponent } from '@/entities/ReadMoreComponent';
 import { TableInfoMobile } from '@/entities/TableInfoMobile';
+
 import { getDatePersonString } from '@/shared/helpers/getDatePersonString';
 import { getGrowth } from '@/shared/helpers/getGrowth';
 import { getProfessions } from '@/shared/helpers/getProfessions';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';
+
 import styles from './styles.module.scss';
-import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 
 interface TableInfoPersonMobileProps {
 	className?: string;
@@ -73,7 +76,7 @@ export const TableInfoPersonMobile = async ({
 
 	return (
 		<ReadMoreComponent
-			textOnClose='Все детали о персоне'
+			textOnClose="Все детали о персоне"
 			className={styles.readMoreBtn}>
 			<TableInfoMobile
 				title={'Детали'}

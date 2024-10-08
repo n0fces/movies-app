@@ -4,7 +4,7 @@ export const colorChoice = (
 	type: ColorType,
 	value?: number,
 	i?: number,
-	allPrevBtns?: boolean
+	allPrevBtns?: boolean,
 ) => {
 	if (value !== undefined) {
 		if (i !== undefined) {

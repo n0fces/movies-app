@@ -1,6 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
+
 import styles from './styles.module.scss';
 
 interface DropdownHeaderItemProps {
@@ -20,8 +21,7 @@ export const DropdownHeaderItem = ({
 				[styles.dropdownActive]: isOpen,
 				[styles.touch]: isMobile,
 				[styles.desktop]: !isMobile,
-			})}
-			>
+			})}>
 			{children}
 		</div>
 	);

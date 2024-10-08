@@ -1,6 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes, forwardRef } from 'react';
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+import { DetailedHTMLProps, HTMLAttributes, forwardRef } from 'react';
+
+import styles from './styles.module.scss';
 
 interface DropdownBackdropProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

@@ -10,6 +10,6 @@ export interface PosterProps
 	widthPoster: number;
 	heightPoster: number;
 	interactiveBtns?: React.ReactNode;
-	className?: string
+	className?: string;
 	alt: string | null | undefined;
 }

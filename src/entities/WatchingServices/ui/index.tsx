@@ -1,4 +1,5 @@
 import { Watchability } from '@/shared/types';
+
 import { WatchingServicesDetails } from './ui/WatchingServicesDetails';
 import { WatchingServicesMobile } from './ui/WatchingServicesMobile';
 

@@ -8,9 +8,7 @@ interface IsLinkProps {
 
 export const IsLink = ({ children, href, className }: IsLinkProps) => {
 	return href ? (
-		<Link
-			href={href}
-			className={className}>
+		<Link href={href} className={className}>
 			{children}
 		</Link>
 	) : (
