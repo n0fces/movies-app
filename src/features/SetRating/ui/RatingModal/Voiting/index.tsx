@@ -1,4 +1,3 @@
-import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { clsx } from 'clsx';
 import { useValue, useValueSetter } from '../../../context';
@@ -14,10 +13,9 @@ export const Voiting = () => {
 			{[...Array(10)].map((_, i) => {
 				i = i + 1;
 				return (
-					<Button
+					<button
 						key={i}
 						aria-label={`Оценка ${i}`}
-						theme='clear'
 						onClick={() => {
 							setValue(i);
 						}}>
@@ -28,7 +26,7 @@ export const Voiting = () => {
 								setColorClasses(styles, value, i, true)
 							)}
 						/>
-					</Button>
+					</button>
 				);
 			})}
 		</div>

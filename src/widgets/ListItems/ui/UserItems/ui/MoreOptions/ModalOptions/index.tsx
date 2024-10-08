@@ -25,8 +25,8 @@ const BtnContentTrailer = () => (
 		<Icon
 			name='trailer'
 			className={styles.icon}
-		/>
-		Трейлер
+			/>
+			Трейлер
 	</>
 );
 
@@ -36,7 +36,6 @@ export const ModalOptions = (props: ModalOptions) => {
 
 	return (
 		<TouchModal
-			theme='clear'
 			className={clsx(styles.button, className)}
 			btnContent={BtnContentOptions()}
 			poster={poster?.previewUrl}
@@ -44,23 +43,31 @@ export const ModalOptions = (props: ModalOptions) => {
 			secondaryTitle={alternativeName || enName}
 			isTitle>
 			<div className={styles.buttonsCnt}>
+				{/* здесь с пропсами надо подумать. если поставить деструктуризацию пропсов в конец, то все сломается по стилям */}
 				<ModalTrailer
 					{...props}
-					theme='modalFull'
-					btnContent={BtnContentTrailer()}
+					theme='modal'
+					size='size_64'
+					withoutPadding
 					className={styles.trailerBtn}
+					btnContent={BtnContentTrailer()}
 				/>
 				<RatingModal
 					{...props}
+					theme='modal'
+					size='size_64'
+					withoutPadding
 					className={styles.ratingBtn}
-					theme='modalFull'
 				/>
 				<AddToFoldersModal
+				theme='modal'
+				size='size_64'
+				withoutPadding
 					secondaryTitle={name}
 					poster={poster?.previewUrl}
 					className={styles.addToFoldersModal}
 				/>
-				<FeedbackButtons theme='modalFull' />
+				<FeedbackButtons theme='modal' />
 			</div>
 		</TouchModal>
 	);

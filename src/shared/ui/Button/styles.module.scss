@@ -1,8 +1,10 @@
 .button {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 
 	line-height: 1.2;
+	font-weight: 500;
 	white-space: nowrap;
 
 	transition: transform var(--button-transition-duration) ease,
@@ -10,11 +12,76 @@
 		color var(--button-transition-duration) ease;
 }
 
-.default {
-	font-weight: 500;
+$sizes: (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64);
+
+@each $size in $sizes {
+	$sizes-gap-map: (
+  48: 1rem,
+  32: 0.9375rem,
+  24: 0.8125rem,
+  default: 0.6875rem
+);
+$fontSize: if($size > 48, map-get($sizes-gap-map, 48), 
+			if($size > 32, map-get($sizes-gap-map, 32), 
+			if($size > 24, map-get($sizes-gap-map, 24), 
+       map-get($sizes-gap-map, default))));
+
+	   $index: index($sizes, $size) - 1;  // Индекс начинается с 1, поэтому вычитаем 1
+	   $padding: 10px + $index * 2px;
+	   $gap: if($size >= 48, 8px, if($size >= 32, 6px, 4px));
+
+  .size_#{$size} {
+    min-height: #{$size}px;
+	font-size: $fontSize;
+	padding: 0 #{$padding};
+	gap: #{$gap};
+  }
+}
+
+@each $size in $sizes {
+  .circle {
+	&.size_#{$size} {
+		width: #{$size}px;
+	}
+	border-radius: 50%;
+	padding: 0;
+  }
+}
+
+.rounded {
+  border-radius: 9999px;
+}
+
+.borderRadius_8 {
+	border-radius: var(--border-radius-default);
+}
+
+.borderRadius_16 {
+	border-radius: var(--border-radius-secondary);
+}
+
+.maxWidth {
+	width: 100%;
+}
+
+.maxHeight {
+	height: 100%;
+}
+
+.withoutPadding {
+	padding: 0;
+}
+
+.rowReverse {
+	flex-direction: row-reverse;
+}
+
+.columnReverse {
+	flex-direction: column-reverse;
+}
+
+.select {
 	background: var(--button-default-color);
-	column-gap: 0.8em;
-	border-radius: 0.533em;
 	@media (any-hover: hover) {
 		&:hover {
 			background: var(--button-default-color-intense);
@@ -29,7 +96,7 @@
 	text-align: left;
 }
 
-.useFeature {
+.primary {
 	background: var(--button-default-color);
 
 	@media (any-hover: hover) {
@@ -43,14 +110,6 @@
 		transform: scale(1.05) translateZ(0);
 		background: var(--button-default-color-intense);
 	}
-}
-
-.useFeature,
-.gradient {
-	border-radius: 7.692em;
-	justify-content: center;
-	column-gap: 0.462em;
-	font-weight: 600;
 }
 
 .gradient {
@@ -82,22 +141,19 @@
 	}
 }
 
-.clear {
-	background: none;
-	justify-content: center;
+.primary,
+.gradient {
+	font-weight: 600;
 }
+
 
 .textBelow {
-	background: none;
 	flex-direction: column;
-	row-gap: 0.462em;
 }
 
-.modal {
-	font-weight: 500;
+.list {
 	text-align: left;
 	justify-content: space-between;
-	outline: none;
 
 	@media (any-hover: hover) {
 		&:hover {
@@ -110,22 +166,18 @@
 	}
 }
 
-.modalFull {
-	font-weight: 500;
+.modal {
 	border-bottom: 0.0625rem solid var(--delimiter-color);
-	text-align: left;
-	column-gap: 1.333em;
+	gap: 1.25rem;
 }
 
-.orange {
+.moreButton {
 	font-weight: 600;
 	color: var(--kp-main-color);
 }
 
 .outlineWhite {
 	border: 0.125em solid #fff;
-	border-radius: 0.533em;
-	font-weight: 500;
 	color: #fff;
 	background: transparent;
 

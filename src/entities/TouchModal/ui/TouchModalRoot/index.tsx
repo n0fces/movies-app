@@ -28,9 +28,10 @@ const TouchModalRoot = ({
 				<Header {...otherProps} className={styles.header} />
 				<div className={styles.closeBtnContainer}>
 					<Button
-						theme='useFeature'
-						onClick={closeModal}
-						className={styles.closeBtn}>
+						theme='primary'
+						shape='circle'
+						size='size_28'
+						onClick={closeModal}>
 						<Icon
 							name='close'
 							className={styles.closeIcon}

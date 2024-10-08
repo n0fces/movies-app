@@ -31,7 +31,9 @@ const ModalServicesRoot = ({
 						{isKP ? 'Где еще посмотреть' : 'Где смотреть'}
 					</h3>
 					<Button
-						theme='useFeature'
+						theme='primary'
+						shape='circle'
+						size='size_28'
 						onClick={closeModal}
 						className={styles.closeBtn}>
 						<Icon

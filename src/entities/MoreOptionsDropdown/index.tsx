@@ -6,21 +6,19 @@ import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { useState } from 'react';
 import { DropdownBackdrop } from '@/shared/ui/DropdownBackdrop';
-import { ThemeButton } from '@/shared/types';
+import { BaseButtonProps } from '@/shared/ui/Button/types';
 
-interface MoreOptionsDropdownProps {
+interface MoreOptionsDropdownProps extends BaseButtonProps<'button'> {
 	className?: string;
 	children: React.ReactNode;
 	position?: 'left' | 'right';
-	
-	theme?: ThemeButton
 }
 
 export const MoreOptionsDropdown = ({
 	className,
 	children,
 	position = 'left',
-	theme = 'default'
+	...props
 }: MoreOptionsDropdownProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -30,8 +28,8 @@ export const MoreOptionsDropdown = ({
 			className={className}>
 			<Button
 				onClick={() => setIsOpen(!isOpen)}
-				theme={theme}
-				className={className}>
+				className={className}
+				{...props}>
 				<Icon
 					name='more-options'
 					className={styles.buttonIcon}

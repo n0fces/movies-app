@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import { useIsOpen, useSetters } from '../../model/context';
 import { Input } from '../Input';
 import styles from './styles.module.scss';
+import { Button } from '@/shared/ui/Button';
 
 export interface SearchPanelProps {
 	isMobile: boolean;
@@ -16,32 +17,35 @@ export const SearchPanel = ({ isMobile }: SearchPanelProps) => {
 
 	return isMobile ? (
 		<>
-			<button
-				className={styles.button}
+			<Button
+				size='size_24'
+				withoutPadding
 				aria-label={'Найти'}
 				onClick={() => setIsOpen(true)}>
-				<Icon name='search' />
-			</button>
+				<Icon name='search' className={styles.icon} />
+			</Button>
 			{isOpen && (
 				<div
 					className={clsx(styles.searchContainer, {
 						[styles.searchContainerActive]: isOpen,
 					})}>
-					<button
-						className={styles.button}
+					<Button
+						size='size_24'
+						withoutPadding
 						aria-label={'Скрыть поиск'}
 						onClick={() => setIsOpen(false)}>
-						<Icon name='search' />
-					</button>
+						<Icon name='search' className={styles.icon} />
+					</Button>
 					<Input isMobile={isMobile} />
-					<button
-						className={styles.button}
+					<Button
+						size='size_24'
+						withoutPadding
 						onClick={() => setIsOpen(false)}>
 						<Icon
 							name='close'
-							className={styles.closeIcon}
+							className={clsx(styles.icon, styles.closeIcon)}
 						/>
-					</button>
+					</Button>
 				</div>
 			)}
 		</>

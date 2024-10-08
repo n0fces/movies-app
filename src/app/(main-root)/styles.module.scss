@@ -19,6 +19,10 @@
 	display: flex;
 }
 
+.aside, .mainFull {
+	--aside-width: 12.5rem;
+}
+
 .aside {
 	display: none;
 	visibility: hidden;
@@ -27,8 +31,8 @@
 		display: block;
 		padding-left: 1.5rem;
 		visibility: visible;
-		flex: 0 0 12.5rem;
-		width: 12.5rem;
+		flex: 0 0 var(--aside-width);
+		width: var(--aside-width);
 		border-right: 0.0625rem solid var(--delimiter-color);
 	}
 }
@@ -42,11 +46,12 @@
 	max-width: 100%;
 	padding: 1.25rem 0;
 }
+
 .mainFull {
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 	@media (min-width: 80em) {
 		padding-left: 2.5rem;
-		max-width: calc(100% - 12.5rem);
+		max-width: calc(100% - var(--aside-width));
 	}
 }

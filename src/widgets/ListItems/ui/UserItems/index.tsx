@@ -13,12 +13,15 @@ export const UserItems = ({ isMobile, ...otherProps }: UserItemsProps) => {
 	return (
 		<div className={clsx(styles.userItems, { [styles.column]: isMobile })}>
 			<PlannedToWatch
+			size='size_32'
 				small={isMobile}
-				className={clsx(styles.plannedToWatch, {
+				className={clsx({
 					[styles.plannedToWatchSmall]: isMobile,
-					[styles.iconDesk]: !isMobile
+					[styles.plannedToWatch]: !isMobile
 				})}
-				theme={isMobile ? 'clear' : 'useFeature'}
+				theme={!isMobile ? 'primary' : undefined}
+				shape={!isMobile ? 'rounded' : 'circle'}
+				withoutPadding={isMobile}
 			/>
 			{!isMobile && <RatingBar className={styles.setRating} />}
 			<MoreOptions

@@ -33,7 +33,8 @@ export default function GlobalError({
 						<div className={styles.actions}>
 							<Button
 								theme='outlineWhite'
-								className={styles.btn}
+								size='size_40'
+						shape='rounded'
 								onClick={() => {
 									router.refresh();
 									startTransition(reset);
@@ -42,7 +43,8 @@ export default function GlobalError({
 							</Button>
 							<Button
 								theme='outlineWhite'
-								className={styles.btn}
+								size='size_40'
+						shape='rounded'
 								component={Link}
 								href='/'>
 								Вернуться на главную

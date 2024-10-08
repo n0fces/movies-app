@@ -16,6 +16,8 @@ const BtnContent = () => (
 export const Filters = () => {
 	return (
 		<TouchModal
+		theme='primary'
+		borderRadius='8'
 			btnContent={BtnContent()}
 			className={styles.button}
 			title='Фильтры'>

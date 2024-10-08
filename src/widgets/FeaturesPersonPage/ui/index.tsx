@@ -17,10 +17,13 @@ export const FeaturesPersonPage = async ({
 	return (
 		<div className={clsx(styles.featuresPersonPage, className)}>
 			<SetFavouritePerson
+			size='size_52'
 				theme='textBelow'
 				className={styles.feature}
 			/>
 			<AddToFoldersPersonModal
+			size='size_52'
+				theme='textBelow'
 				profession={profession}
 				poster={photo}
 				secondaryTitle={name || enName}

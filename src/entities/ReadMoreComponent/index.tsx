@@ -1,10 +1,10 @@
 'use client';
 
-import { ThemeButton } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+import { ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 interface ReadMoreComponentProps {
 	className?: string;
@@ -12,6 +12,8 @@ interface ReadMoreComponentProps {
 	textOnClose?: string;
 	textOnOpen?: string;
 	theme?: ThemeButton;
+	size?: SizeButton;
+	shape?: ShapeButton
 	children: React.ReactNode;
 }
 
@@ -20,7 +22,9 @@ export const ReadMoreComponent = ({
 	isInitialOpen = false,
 	textOnClose = 'Все детали',
 	textOnOpen = 'Скрыть детали',
-	theme = 'useFeature',
+	theme = 'primary',
+	size='size_32',
+	shape='rounded',
 	children,
 }: ReadMoreComponentProps) => {
 	const [isOpen, setIsOpen] = useState(isInitialOpen);
@@ -35,6 +39,8 @@ export const ReadMoreComponent = ({
 			<div className={styles.readMoreCnt}>
 				<Button
 					theme={theme}
+					size={size}
+					shape={shape}
 					className={className}
 					onClick={() => setIsOpen(!isOpen)}>
 					{isOpen ? textOnOpen : textOnClose}

@@ -73,55 +73,6 @@
 	z-index: 5;
 }
 
-.button {
-	width: 3.75rem;
-	height: 3.75rem;
-
-	opacity: 0;
-
-	border-radius: 50%;
-}
-
-.btnGradient {
-	display: inline-flex;
-	align-items: center;
-
-	line-height: 1.2;
-	white-space: nowrap;
-
-	transition: transform var(--button-transition-duration) ease,
-		background var(--button-transition-duration) ease;
-
-	justify-content: center;
-
-	background: linear-gradient(
-		135deg,
-		var(--kp-main-color) 69.93%,
-		var(--kp-secondary-color)
-	);
-	color: #fff;
-
-	@media (any-hover: hover) {
-		&:hover {
-			transform: scale(1.05) translateZ(0);
-			background: linear-gradient(
-				135deg,
-				var(--kp-main-color) 75%,
-				var(--kp-secondary-color)
-			);
-		}
-	}
-
-	&:focus {
-		transform: scale(1.05) translateZ(0);
-		background: linear-gradient(
-			135deg,
-			var(--kp-main-color) 75%,
-			var(--kp-secondary-color)
-		);
-	}
-}
-
 .icon {
 	width: 1.5rem;
 	height: 1.5rem;

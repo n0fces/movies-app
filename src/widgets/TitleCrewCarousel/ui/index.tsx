@@ -35,7 +35,7 @@ export const TitleCrewCarousel = async ({
 				</Title>
 				<Button
 					component={Link}
-					theme='orange'
+					theme='moreButton'
 					href={href}
 					className={styles.allLinkCast}>
 					Все

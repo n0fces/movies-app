@@ -1,9 +1,9 @@
 .itemBtn {
-	width: 100%;
 	// * эта кринжатина здесь из-за проблемы с дублированием стилей в layout.css и page.css
 	white-space: normal !important;
-	padding: 0.667em 1.333em;
-	column-gap: 0.267em;
+	line-height: 1.333 !important;
+	padding-top: 0.625rem !important;
+	padding-bottom: 0.625rem !important;
 }
 
 .icon {

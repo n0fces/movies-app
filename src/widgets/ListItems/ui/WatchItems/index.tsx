@@ -26,11 +26,13 @@ export const WatchItems = ({ isMobile, ...props }: WatchItemsProps) => {
 
 	return (
 		<div className={styles.watchItems}>
-			{isKP && <WatchButton className={styles.button} />}
+			{isKP && <WatchButton shape='rounded'
+		theme='gradient' size='size_24' />}
 			{!isMobile && (
 				<ModalTrailer
-					theme='useFeature'
-					className={isKP ? styles.buttonSmall : styles.button}
+					shape={isKP ? 'circle' : 'rounded'}
+					theme='primary'
+					size='size_24'
 					btnContent={BtnContent(isKP)}
 					isSidebar
 					{...props}

@@ -7,6 +7,7 @@ import { UserMenu } from '@/entities/UserMenu';
 import { Icon } from '@/shared/ui/Icon';
 import { useModel } from '../../model';
 import { DropdownHeaderItem } from '../DropdownHeaderItem';
+import { Button } from '@/shared/ui/Button';
 
 interface UserHeaderProps {
 	isMobile: boolean;
@@ -34,11 +35,13 @@ export const UserHeader = ({ isMobile }: UserHeaderProps) => {
 				})}
 				onMouseEnter={isMobile ? undefined : () => setIsOpen(true)}
 				onMouseLeave={isMobile ? undefined : () => setIsOpen(false)}>
-				<button
+				<Button
+				size='size_40'
+				shape='circle'
 					className={styles.userAvatar}
 					aria-expanded={!isOpen ? 'false' : 'true'}
 					aria-controls='user-menu'
-					onClick={() => setIsOpen(!isOpen)}></button>
+					onClick={() => setIsOpen(!isOpen)}/>
 				<DropdownHeaderItem
 					isOpen={isOpen}
 					isMobile={isMobile}>

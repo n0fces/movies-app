@@ -25,7 +25,9 @@ export const Option = ({
 			aria-selected={selected}
 			className={className}>
 			<Button
-				theme='modal'
+				theme='list'
+				size='size_40'
+				maxWidth
 				onClick={() => choiceAction(value, label)}
 				className={styles.itemBtn}>
 				{label}

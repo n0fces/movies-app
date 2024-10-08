@@ -1,19 +1,19 @@
 'use client';
 
-import { ThemeButton } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
+import { BaseButtonProps } from '@/shared/ui/Button/types';
 import { Icon } from '@/shared/ui/Icon';
+import styles from './styles.module.scss'
 
-interface PlannedToWatchProps {
+interface PlannedToWatchProps extends BaseButtonProps<'button'> {
 	className?: string;
-	theme?: ThemeButton;
 	small?: boolean;
 }
 
 export const PlannedToWatch = ({
 	className,
-	theme = 'useFeature',
 	small,
+	...props
 }: PlannedToWatchProps) => {
 	return (
 		// пока здесь будет функция заглушка, потом мы добавим сюда функцию, которая будет отвечать за добавление фильма в категорию буду смотреть
@@ -21,8 +21,8 @@ export const PlannedToWatch = ({
 			onClick={() => {}}
 			title='Буду смотреть'
 			className={className}
-			theme={theme}>
-			<Icon name='want-to-plan' />
+			{...props}>
+			<Icon name='want-to-plan' className={styles.icon} />
 			<span className={small ? 'visually-hidden' : undefined}>
 				Буду смотреть
 			</span>

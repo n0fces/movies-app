@@ -67,15 +67,14 @@ const ModalTrailerRoot = ({
 					/>
 				</div>
 			)}
-			<Button
+			<button
 				className={styles.closeBtn}
-				onClick={closeModal}
-				theme='clear'>
+				onClick={closeModal}>
 				<Icon
 					name='close'
 					className={styles.closeIcon}
 				/>
-			</Button>
+			</button>
 		</Modal>
 	);
 };

@@ -18,8 +18,11 @@ export const SetRatingButtons = () => {
 	return (
 		<div className={styles.setRatingButtons}>
 			<Button
-				theme='useFeature'
-				className={styles.button}
+				theme='primary'
+				size='size_48'
+				shape='rounded'
+				withoutPadding
+				maxWidth
 				onClick={() => {
 					closeModal();
 					// * не забывай, что потом надо будет послать запрос на удаление рейтинга у пользователя в бд
@@ -31,7 +34,10 @@ export const SetRatingButtons = () => {
 			{value && (
 				<Button
 					theme='gradient'
-					className={styles.button}
+					shape='rounded'
+					size='size_48'
+					withoutPadding
+					maxWidth
 					onClick={() => {
 						closeModal();
 						// * не забывай, что потом надо будет послать запрос на обновление рейтинга у пользователя в бд

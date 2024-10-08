@@ -53,6 +53,10 @@ export const Select = ({
 			className={clsx(styles.select, className)}
 			ref={headRef}>
 			<Button
+			theme='select'
+			size='size_40'
+			borderRadius='8'
+			maxWidth
 				className={styles.selectHead}
 				onClick={() => {
 					setIsOpen(!isOpen);

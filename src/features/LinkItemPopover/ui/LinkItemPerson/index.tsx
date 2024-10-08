@@ -87,8 +87,9 @@ export const LinkItemPerson = ({
 		<Button
 			component={Link}
 			href={'#'}
-			theme='useFeature'
-			className={styles.subscribeBtn}>
+			theme='primary'
+			size='size_40'
+			shape='rounded'>
 			<Icon
 				name='subscribe'
 				className={styles.subscribeIcon}

@@ -62,7 +62,6 @@ export const BasicMediaMovie = async ({
 						<ModalTrailer
 							className={styles.trailerWrapper}
 							isSidebar
-							theme='clear'
 							btnContent={TrailerBtnContent(
 								videos?.trailers?.[0]
 							)}

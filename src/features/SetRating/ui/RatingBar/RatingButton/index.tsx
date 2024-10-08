@@ -14,7 +14,10 @@ export const RatingButton = () => {
 
 	return (
 		<Button
-			theme='useFeature'
+			theme='primary'
+			shape='circle'
+			maxWidth
+			maxHeight
 			onClick={() => {
 				if (rating) {
 					// * здесь будет логика по удалению рейтинга из бд
@@ -26,7 +29,6 @@ export const RatingButton = () => {
 			}}
 			onMouseOver={rating ? onMouseEnter : undefined}
 			onMouseOut={rating ? onMouseLeave : undefined}
-			className={clsx(styles.button)}
 			aria-label={rating ? 'Удалить оценку' : 'Оценить'}
 			title={rating ? 'Удалить оценку' : 'Оценить'}>
 			{rating ? (

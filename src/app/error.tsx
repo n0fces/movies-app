@@ -34,7 +34,8 @@ export default function Error({
 				<div className={styles.actions}>
 					<Button
 						theme='outlineWhite'
-						className={styles.btn}
+						size='size_40'
+						shape='rounded'
 						onClick={() => {
 							router.refresh();
 							startTransition(reset);
@@ -43,7 +44,8 @@ export default function Error({
 					</Button>
 					<Button
 						theme='outlineWhite'
-						className={styles.btn}
+						size='size_40'
+						shape='rounded'
 						component={Link}
 						href='/'>
 						Вернуться на главную

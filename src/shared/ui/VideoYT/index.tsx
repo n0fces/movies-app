@@ -61,7 +61,8 @@ export const VideoYT = ({
 						{isWatchable ? (
 							<Button
 								theme='gradient'
-								className={styles.button}
+								size='size_60'
+								shape='circle'
 								aria-label={`Смотреть трейлер: ${name}`}>
 								<Icon
 									name='watch'
@@ -69,16 +70,16 @@ export const VideoYT = ({
 								/>
 							</Button>
 						) : (
-							<div
-								className={clsx(
-									styles.button,
-									styles.btnGradient
-								)}>
+							<Button
+							component='div'
+							theme='gradient'
+							size='size_60'
+							shape='circle'>
 								<Icon
 									name='watch'
 									className={styles.icon}
 								/>
-							</div>
+							</Button>
 						)}
 					</div>
 				)}

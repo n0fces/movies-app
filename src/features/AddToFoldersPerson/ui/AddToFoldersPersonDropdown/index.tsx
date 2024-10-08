@@ -15,6 +15,7 @@ interface AddToFoldersPersonDropdownProps {
 	profession: Profession[] | undefined;
 }
 
+// ! то же самое, что и AddToFoldersDropdown
 export const AddToFoldersPersonDropdown = ({
 	className,
 	profession,
@@ -26,9 +27,11 @@ export const AddToFoldersPersonDropdown = ({
 			setIsOpen={setIsOpen}
 			className={className}>
 			<Button
-				theme='useFeature'
-				onClick={() => setIsOpen(!isOpen)}
-				className={styles.addToFoldersDropdown}>
+				theme='primary'
+				size='size_48'
+				shape='rounded'
+				maxWidth
+				onClick={() => setIsOpen(!isOpen)}>
 				<Icon
 					name='addToFolder'
 					className={styles.icon}
@@ -42,8 +45,10 @@ export const AddToFoldersPersonDropdown = ({
 						<Button
 							component={Link}
 							href={'#'}
-							theme='useFeature'
-							className={styles.allFolders}>
+							theme='primary'
+							shape='rounded'
+							size='size_40'
+							maxWidth>
 							Все папки
 						</Button>
 					</div>

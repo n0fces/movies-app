@@ -13,7 +13,8 @@ interface AddToFoldersPersonListProps {
 
 const ItemFolder = ({ category, text }: ItemFolderProps) => (
 	<Button
-		theme='modal'
+		theme='list'
+		size='size_40'
 		className={styles.button}
 		onClick={() => {
 			// * здесь будет логика по добавлению тайтла в папку

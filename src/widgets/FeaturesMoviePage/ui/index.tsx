@@ -37,6 +37,7 @@ export const FeaturesMoviePage = async ({
 				title='Добавить'
 				secondaryTitle={secondaryTitle}
 				theme='textBelow'
+				size='size_52'
 				className={styles.feature}
 			/>
 			<MoreOptions

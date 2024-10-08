@@ -51,7 +51,7 @@ export const ReadMoreTextBlock = ({
 			</p>
 			{showReadMoreBtn && (
 				<Button
-					theme='orange'
+					theme='moreButton'
 					className={styles.readMoreBtn}
 					onClick={() => setIsOpen(!isOpen)}>
 					{isOpen ? 'Свернуть' : 'Полное описание'}

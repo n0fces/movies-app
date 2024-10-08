@@ -16,7 +16,6 @@
 	--header-height-mobile: 3.25rem;
 	--header-gap-items: 1.25rem;
 	--header-dropdown-padding: 1.5rem;
-	--header-icons-size: 1.5rem;
 
 	--overlay-background-color: #000000d9;
 	--overlay-background-modal: rgba(0, 0, 0, 0.7);
@@ -45,6 +44,9 @@
 	--box-shadow-header-items: 0 0.625rem 1.25rem -0.125rem rgba(0, 0, 0, 0.4);
 
 	--footer-background-color: #000;
+
+	--border-radius-default: 0.5rem;
+	--border-radius-secondary: 1rem;
 }
 
 ::backdrop {

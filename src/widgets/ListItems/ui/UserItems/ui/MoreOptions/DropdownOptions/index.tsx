@@ -11,7 +11,6 @@ export const DropdownOptions = ({ className }: DropdownOptionsProps) => {
 	return (
 		<MoreOptionsDropdown
 			position='right'
-			theme='clear'
 			className={className}>
 			<FeedbackButtons />
 			<div className={styles.delimiter}></div>

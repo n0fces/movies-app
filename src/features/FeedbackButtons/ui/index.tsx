@@ -4,9 +4,9 @@ import { Icon } from '@/shared/ui/Icon';
 import styles from './styles.module.scss';
 import { clsx } from 'clsx';
 import { Button } from '@/shared/ui/Button';
-import { ThemeButton } from '@/shared/types';
+import { BaseButtonProps, ThemeButton } from '@/shared/ui/Button/types';
 
-type ThemeFeedbackButtons = Extract<ThemeButton, 'modal' | 'modalFull'>;
+type ThemeFeedbackButtons = Extract<ThemeButton, 'list' | 'modal'>;
 
 interface FeedbackButtonsProps {
 	className?: string;
@@ -15,13 +15,19 @@ interface FeedbackButtonsProps {
 
 export const FeedbackButtons = ({
 	className,
-	theme = 'modal',
+	theme = 'list',
 }: FeedbackButtonsProps) => {
+	const generalProps: Partial<BaseButtonProps<'button'>> = {
+		theme: theme,
+				size: theme === 'list' ? 'size_40' : 'size_64',
+				withoutPadding: theme === 'modal',
+				reverseDirection: theme === 'modal' ? 'rowReverse' : undefined,
+	}
 	return (
 		<div className={clsx(styles.buttonsContainer, className)}>
 			<Button
-				theme={theme}
-				className={clsx(styles.button, styles[theme])}
+			{...generalProps}
+				className={styles[theme]}
 				onClick={() => {
 					// Здесь будет логика по отметке фильма в опред категорию
 				}}>
@@ -32,7 +38,7 @@ export const FeedbackButtons = ({
 				/>
 			</Button>
 			<Button
-				theme={theme}
+				{...generalProps}
 				className={clsx(styles.button, styles[theme])}
 				onClick={() => {
 					// Здесь будет логика по отметке фильма в опред категорию

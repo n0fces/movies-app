@@ -55,20 +55,23 @@ export const HeaderTitlePage = async ({
 					{ticketsOnSale ? (
 						<TicketsOnSaleBtn
 							id={id}
-							className={styles.btn}
+							shape='rounded'
+							size='size_52'
+							theme='gradient'
 						/>
 					) : (
-						isKP && <WatchButton className={styles.btn} />
+						isKP && <WatchButton size='size_52' theme='gradient' shape='rounded' className={styles.watchBtn} />
 					)}
 					<PlannedToWatch
 						small={isSmall}
-						className={clsx(styles.btn, {
-							[styles.btnSmall]: isSmall,
-						})}
-					/>
+						theme='primary'
+						shape={isSmall ? 'circle' : 'rounded'}
+						withoutPadding={isSmall}
+						size='size_52'/>
 					<MoreOptionsDropdown
-						theme='useFeature'
-						className={clsx(styles.btn, styles.btnSmall)}>
+						theme='primary'
+						size='size_52'
+						shape='circle'>
 						<FeedbackButtons />
 					</MoreOptionsDropdown>
 				</div>

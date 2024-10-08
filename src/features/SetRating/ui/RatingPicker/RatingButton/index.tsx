@@ -23,7 +23,11 @@ export const RatingButton = ({ className, isSeries }: RatingButtonProps) => {
 
 	return (
 		<Button
-			theme='useFeature'
+			theme='primary'
+			size='size_32'
+			maxWidth
+			shape='rounded'
+			withoutPadding
 			onClick={() => {
 				if (rating) {
 					if (isOpenDropdown) {

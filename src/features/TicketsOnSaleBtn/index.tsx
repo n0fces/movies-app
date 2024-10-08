@@ -3,19 +3,22 @@ import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import { ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 interface TicketsOnSaleBtnProps {
-	className?: string;
 	id?: number | null | string;
+	shape?: ShapeButton;
+	size?: SizeButton;
+	theme?: ThemeButton;
+	className?: string;
 }
 
-export const TicketsOnSaleBtn = ({ className, id }: TicketsOnSaleBtnProps) => {
+export const TicketsOnSaleBtn = ({ id, ...props }: TicketsOnSaleBtnProps) => {
 	return (
 		<Button
 			component={Link}
-			theme='gradient'
-			className={className}
-			href={getPath.afisha(id)}>
+			href={getPath.afisha(id)}
+			{...props}>
 			<Icon
 				name='ticket'
 				className={styles.icon}

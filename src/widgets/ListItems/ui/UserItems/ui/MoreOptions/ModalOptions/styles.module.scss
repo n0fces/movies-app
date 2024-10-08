@@ -24,25 +24,13 @@
 	flex-direction: column;
 }
 
-.trailerBtn {
-	font-size: 0.9375rem;
-	height: 4rem;
-	margin: 0 1rem;
-}
-
-.ratingBtn {
-	height: 4rem;
-	margin: 0 1rem;
-
-	svg {
-		width: 1.5rem;
-		height: 1.5rem;
-	}
-}
-
+.trailerBtn,
+.ratingBtn,
 .addToFoldersModal {
-	height: 4rem;
+	font-size: 0.9375rem;
 	margin: 0 1rem;
+	padding: 0 0.5rem;
+	justify-content: flex-start;
 
 	svg {
 		width: 1.5rem;

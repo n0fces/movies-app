@@ -37,7 +37,7 @@ export const MoreOptions = ({
 			secondaryTitle={secondaryTitle}
 			isTitle>
 			<div className={styles.buttonsCnt}>
-				<FeedbackButtons theme='modalFull' />
+				<FeedbackButtons theme='modal' />
 			</div>
 		</TouchModal>
 	);

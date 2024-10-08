@@ -1,7 +1,8 @@
 'use client'
 
-import { ListItemProps, ThemeButton } from '@/shared/types';
+import { ListItemProps } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
+import { ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 import { ModalLoader } from '@/shared/ui/ModalLoader';
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
@@ -10,6 +11,10 @@ interface ModalTrailerProps extends ListItemProps {
 	className?: string;
 	isSidebar?: boolean;
 	theme?: ThemeButton;
+	shape?: ShapeButton;
+	size?: SizeButton;
+	withoutPadding?: boolean;
+	reverseDirection?: ReverseDirection;
 	btnContent?: React.ReactNode;
 }
 
@@ -20,8 +25,12 @@ const ModalTrailerRoot = dynamic(() => import('./ModalTrailerRoot'), {
 
 export const ModalTrailer = ({
 	className,
-	theme = 'default',
+	theme,
+	shape,
+	size,
 	btnContent,
+	withoutPadding,
+	reverseDirection,
 	...otherProps
 }: ModalTrailerProps) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +43,11 @@ export const ModalTrailer = ({
 			<Button
 				onClick={showModal}
 				className={className}
-				theme={theme}>
+				theme={theme}
+				shape={shape}
+				size={size}
+				reverseDirection={reverseDirection}
+				withoutPadding={withoutPadding}>
 				{btnContent}
 			</Button>
 			{isOpen && (

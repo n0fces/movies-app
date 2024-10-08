@@ -23,9 +23,11 @@ export const AddToFoldersDropdown = ({
 			setIsOpen={setIsOpen}
 			className={className}>
 			<Button
-				theme='useFeature'
-				onClick={() => setIsOpen(!isOpen)}
-				className={styles.addToFoldersDropdown}>
+				theme='primary'
+				size='size_48'
+				shape='rounded'
+				maxWidth
+				onClick={() => setIsOpen(!isOpen)}>
 				<Icon
 					name='addToFolder'
 					className={styles.icon}
@@ -39,8 +41,10 @@ export const AddToFoldersDropdown = ({
 						<Button
 							component={Link}
 							href={'#'}
-							theme='useFeature'
-							className={styles.allFolders}>
+							theme='primary'
+							size='size_40'
+							shape='rounded'
+							maxWidth>
 							Все папки
 						</Button>
 					</div>

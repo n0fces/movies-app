@@ -99,16 +99,17 @@ export const LinkItemTitle = ({
 			{title?.ticketsOnSale ? (
 				<TicketsOnSaleBtn
 					id={id}
-					className={clsx(styles.btn, styles.btnFull)}
+					theme='gradient' size='size_40' shape='rounded' className={styles.btn}
 				/>
 			) : (
 				isKP && (
-					<WatchButton className={clsx(styles.btn, styles.btnFull)} />
+					<WatchButton theme='gradient' size='size_40' shape='rounded' className={styles.btn} />
 				)
 			)}
 			<PlannedToWatch
+			theme='primary' size='size_40' shape={title?.ticketsOnSale || isKP ? 'circle' :'rounded'}
+			withoutPadding={title?.ticketsOnSale || isKP}
 				small={title?.ticketsOnSale || isKP}
-				className={styles.btn}
 			/>
 		</>
 	);

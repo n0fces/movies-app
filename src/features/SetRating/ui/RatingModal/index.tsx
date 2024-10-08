@@ -1,7 +1,7 @@
 'use client';
 
 import { TouchModal } from '@/entities/TouchModal';
-import { ListItemProps, ThemeButton } from '@/shared/types';
+import { ListItemProps } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 import { useEffect } from 'react';
 import {
@@ -12,6 +12,7 @@ import {
 import { PreviewRating } from './PreviewRating';
 import { SetRatingButtons } from './SetRatingButtons';
 import { Voiting } from './Voiting';
+import { ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 const BtnContent = () => (
 	<>
@@ -22,7 +23,11 @@ const BtnContent = () => (
 
 interface RatingModalProps extends ListItemProps {
 	theme?: ThemeButton;
+	shape?: ShapeButton;
+	size?: SizeButton;
+	withoutPadding?: boolean;
 	className?: string;
+	reverseDirection?: ReverseDirection;
 }
 
 const RatingModalObj = ({
@@ -31,7 +36,11 @@ const RatingModalObj = ({
 	alternativeName,
 	enName,
 	className,
-	theme = 'default',
+	theme,
+	shape,
+	size,
+	withoutPadding,
+	reverseDirection
 }: RatingModalProps) => {
 	const setValue = useValueSetter();
 
@@ -42,6 +51,10 @@ const RatingModalObj = ({
 	return (
 		<TouchModal
 			theme={theme}
+			shape={shape}
+			size={size}
+			withoutPadding={withoutPadding}
+			reverseDirection={reverseDirection}
 			className={className}
 			poster={poster?.previewUrl}
 			btnContent={BtnContent()}

@@ -2,16 +2,21 @@
 
 import { Button } from '@/shared/ui/Button';
 import { useEffect } from 'react';
-import { ThemeButton } from '@/shared/types';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import { ModalLoader } from '@/shared/ui/ModalLoader';
 import { TouchModalProvider, useTouchModal } from './context';
+import { BorderRadiusBtn, ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 export interface TouchModalProps {
 	children: React.ReactNode;
 	className?: string;
 	theme?: ThemeButton;
+	shape?: ShapeButton;
+	size?: SizeButton;
+	borderRadius?: BorderRadiusBtn;
+	reverseDirection?: ReverseDirection;
+	withoutPadding?: boolean;
 	btnContent?: React.ReactNode;
 	isTitle?: boolean;
 	poster?: string | null;
@@ -27,8 +32,13 @@ const TouchModalRoot = dynamic(() => import('./ui/TouchModalRoot'), {
 const TouchModalObj = ({
 	children,
 	className,
-	theme = 'default',
+	theme,
+	shape,
+	size,
 	btnContent,
+	withoutPadding,
+	borderRadius,
+	reverseDirection,
 	...otherProps
 }: TouchModalProps) => {
 	const { isOpen, closeModal, showModal } = useTouchModal();
@@ -47,6 +57,11 @@ const TouchModalObj = ({
 				onClick={showModal}
 				className={className}
 				theme={theme}
+				shape={shape}
+				size={size}
+				reverseDirection={reverseDirection}
+				borderRadius={borderRadius}
+				withoutPadding={withoutPadding}
 				id={`dialog-${title || secondaryTitle}`}>
 				{btnContent}
 			</Button>

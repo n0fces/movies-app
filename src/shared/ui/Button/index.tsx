@@ -1,36 +1,28 @@
-import { ThemeButton } from '@/shared/types';
 import { clsx } from 'clsx';
 import {
-	Attributes,
-	ComponentPropsWithRef,
-	ComponentType,
 	createElement,
 } from 'react';
 import styles from './styles.module.scss';
-
-type BaseButtonComponent = keyof JSX.IntrinsicElements | ComponentType<any>;
-
-type BaseProps<C extends BaseButtonComponent = 'button'> = {
-	component?: C;
-	theme?: ThemeButton;
-} & Attributes;
-
-export type BaseButtonProps<C extends BaseButtonComponent = 'button'> =
-	C extends keyof JSX.IntrinsicElements
-		? Omit<ComponentPropsWithRef<C>, keyof BaseProps<C>> & BaseProps<C>
-		: C extends ComponentType<infer P>
-		? P extends ComponentPropsWithRef<any>
-			? Omit<P, keyof BaseProps<C>> & BaseProps<C>
-			: never
-		: never;
+import { BaseButtonComponent, BaseButtonProps } from './types';
 
 export const Button = <C extends BaseButtonComponent = 'button'>({
 	component = 'button',
 	children,
 	className,
-	theme = 'default',
+	theme,
+	maxWidth,
+	maxHeight,
+	shape,
+	size,
+	withoutPadding,
+	borderRadius,
+	reverseDirection,
 	...otherProps
 }: BaseButtonProps<C>) => {
-	className = clsx(styles.button, className, styles[theme]);
+	className = clsx(styles.button, theme && styles[theme], shape && styles[shape], size && styles[size], borderRadius && styles[`borderRadius_${borderRadius}`], reverseDirection && styles[reverseDirection],{
+        [styles.maxWidth]: maxWidth,
+        [styles.maxHeight]: maxHeight,
+		[styles.withoutPadding]: withoutPadding,
+	}, className);
 	return createElement(component, { ...otherProps, className }, children);
 };

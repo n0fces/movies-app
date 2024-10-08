@@ -1,7 +1,7 @@
 import { TouchModal } from '@/entities/TouchModal';
-import { ThemeButton } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 import { AddToFoldersList } from '../AddToFoldersList';
+import { ReverseDirection, ShapeButton, SizeButton, ThemeButton } from '@/shared/ui/Button/types';
 
 interface AddToFoldersModalProps {
 	className?: string;
@@ -9,6 +9,10 @@ interface AddToFoldersModalProps {
 	secondaryTitle?: string | null;
 	poster?: string | null;
 	theme?: ThemeButton;
+	shape?: ShapeButton;
+	size?: SizeButton;
+	withoutPadding?: boolean;
+	reverseDirection?: ReverseDirection;
 }
 
 // * Я сюда добавил штуку, что можно устанавливать свой заголовок. В будущем можно это сделать и у других подобных фич для единообразия
@@ -25,13 +29,21 @@ export const AddToFoldersModal = ({
 	title = 'Добавить в папку',
 	secondaryTitle,
 	poster,
-	theme = 'modalFull',
+	theme = 'modal',
+	size,
+	shape,
+	withoutPadding,
+	reverseDirection,
 }: AddToFoldersModalProps) => {
 	return (
 		<TouchModal
 			theme={theme}
+			size={size}
+			shape={shape}
+			withoutPadding={withoutPadding}
 			className={className}
 			poster={poster}
+			reverseDirection={reverseDirection}
 			btnContent={BtnContent(title)}
 			title='Добавить в папку'
 			secondaryTitle={secondaryTitle}

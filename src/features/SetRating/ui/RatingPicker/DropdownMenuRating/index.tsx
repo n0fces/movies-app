@@ -30,27 +30,29 @@ export const DropdownMenuRating = ({ className }: DropdownMenuRatingProps) => {
 			aria-label='Выберите действие'
 			className={clsx(styles.dropdownMenuRating, className)}>
 			<ul className={styles.dropdownList}>
-				<li className={styles.dropdownItem}>
+				<li>
 					<Button
-						theme='modal'
+						theme='list'
+						size='size_40'
+						maxWidth
 						onClick={() => {
 							setIsOpenDropdown(false);
 							setIsOpen(true);
-						}}
-						className={styles.dropdownBtn}>
+						}}>
 						Изменить оценку
 					</Button>
 				</li>
-				<li className={styles.dropdownItem}>
+				<li>
 					<Button
-						theme='modal'
+						theme='list'
+						size='size_40'
+						maxWidth
 						onClick={() => {
 							// * здесь будет логика по удалению рейтинга из бд
 							setRating(undefined);
 							setValue(undefined);
 							setIsOpenDropdown(false);
-						}}
-						className={styles.dropdownBtn}>
+						}}>
 						Удалить оценку
 					</Button>
 				</li>
