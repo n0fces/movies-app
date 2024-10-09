@@ -1,12 +1,8 @@
-import { clsx } from 'clsx';
-
 import { FeedbackButtons } from '@/features/FeedbackButtons';
 
 import { TouchModal } from '@/entities/TouchModal';
 
 import { Icon } from '@/shared/ui/Icon';
-
-import styles from './styles.module.scss';
 
 interface MoreOptionsProps {
 	className?: string;
@@ -17,7 +13,7 @@ interface MoreOptionsProps {
 
 const BtnContentOptions = () => (
 	<>
-		<Icon name="more-options" className={styles.buttonIcon} />
+		<Icon name="more-options" />
 		Еще
 	</>
 );
@@ -31,13 +27,13 @@ export const MoreOptions = ({
 	return (
 		<TouchModal
 			theme="textBelow"
-			className={clsx(styles.moreOptions, className)}
+			className={className}
 			btnContent={BtnContentOptions()}
 			poster={poster}
 			title={title}
 			secondaryTitle={secondaryTitle}
 			isTitle>
-			<div className={styles.buttonsCnt}>
+			<div>
 				<FeedbackButtons theme="modal" />
 			</div>
 		</TouchModal>

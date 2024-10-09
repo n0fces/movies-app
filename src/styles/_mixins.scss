@@ -1,22 +1,24 @@
 @use 'sass:math';
 
-//Percent
+// Percent
 @function percent($px, $from) {
 	$result: math.div($px, $from) * 100%;
 	@return $result;
 }
-//REM
+
+// REM
 @function rem($px) {
 	$result: math.div($px, 16) + rem;
 	@return $result;
 }
-//EM
+
+// EM
 @function em($px, $current: 16) {
 	$result: math.div($px, $current) + em;
 	@return $result;
 }
 
-@mixin adaptiveValue(
+@mixin adaptive-value(
 	$property,
 	$minViewportWidth,
 	$maxViewportWidth,

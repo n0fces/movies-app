@@ -22,7 +22,7 @@ export const TopListLinksBlock = ({
 	seeMoreLink,
 }: TopListLinksBlockProps) => {
 	return (
-		<div className={clsx(styles.topListLinksBlock, className)}>
+		<div className={className}>
 			<Title size="small" as="h3" className={styles.titleBlock}>
 				{href ? (
 					<Link href={href} className={styles.link}>

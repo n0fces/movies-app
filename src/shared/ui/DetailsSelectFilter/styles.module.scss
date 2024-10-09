@@ -1,7 +1,14 @@
+.icon {
+	transform: rotate(180deg);
+	width: 1rem;
+	height: 1rem;
+}
+
 .detailsItem {
 	&:not(:last-child) {
 		margin-bottom: 0.533em;
 	}
+
 	&[open] .icon {
 		transform: rotate(0deg);
 	}
@@ -30,10 +37,4 @@
 	&:active {
 		outline: none;
 	}
-}
-
-.icon {
-	transform: rotate(180deg);
-	width: 1rem;
-	height: 1rem;
 }

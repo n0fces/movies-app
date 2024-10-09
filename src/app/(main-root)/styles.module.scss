@@ -28,7 +28,7 @@
 	display: none;
 	visibility: hidden;
 
-	@media (min-width: 80em) {
+	@media (width >= 80em) {
 		display: block;
 		padding-left: 1.5rem;
 		visibility: visible;
@@ -51,7 +51,7 @@
 .mainFull {
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
-	@media (min-width: 80em) {
+	@media (width >= 80em) {
 		padding-left: 2.5rem;
 		max-width: calc(100% - var(--aside-width));
 	}

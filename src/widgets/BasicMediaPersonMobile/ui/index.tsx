@@ -1,5 +1,3 @@
-import { clsx } from 'clsx';
-
 import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
@@ -10,7 +8,6 @@ import { getZodiac } from '@/shared/helpers/getZodiac';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
 
 import { getDatePersonString } from '../lib/getDatePersonString';
-import styles from './styles.module.scss';
 
 interface BasicMediaPersonMobileProps {
 	className?: string;
@@ -31,13 +28,12 @@ export const BasicMediaPersonMobile = async ({
 	const thirdLine = stringWithDelimiter(' • ', [zodiac, growthValue]);
 
 	return (
-		<div className={clsx(styles.basicMediaPersonMobile, className)}>
+		<div className={className}>
 			<BasicSectionMobile
 				title={name}
 				secondaryTitle={enName}
 				poster={photo}
 				metaInfo={[professions, birthData, thirdLine]}
-				className={styles.basicSection}
 			/>
 		</div>
 	);

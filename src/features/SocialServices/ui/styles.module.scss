@@ -10,6 +10,18 @@
 	height: 3.25rem;
 }
 
+.vk {
+	background-color: #4c74a2;
+}
+
+.twitter {
+	background-color: #55acee;
+}
+
+.telegram {
+	background-color: #08c;
+}
+
 .link {
 	height: 100%;
 	border-radius: 50%;
@@ -56,18 +68,6 @@
 	&:focus .telegram {
 		background-color: #08c;
 	}
-}
-
-.vk {
-	background-color: #4c74a2;
-}
-
-.twitter {
-	background-color: #55acee;
-}
-
-.telegram {
-	background-color: #08c;
 }
 
 .icon {

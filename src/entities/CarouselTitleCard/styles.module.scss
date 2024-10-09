@@ -1,3 +1,12 @@
+.title {
+	font-size: 0.9375rem;
+	font-weight: 500;
+	line-height: 1.2;
+	color: #000;
+
+	margin-bottom: 0.266em;
+}
+
 .card {
 	display: flex;
 	flex-direction: column;
@@ -8,6 +17,7 @@
 				filter: brightness(0.9);
 				transition: filter 0.2s ease;
 			}
+
 			.title {
 				color: var(--kp-main-color);
 				transition: color 0.2s ease;
@@ -18,28 +28,22 @@
 	&:focus,
 	&:active {
 		outline: none;
+
 		img {
 			filter: brightness(0.9);
 			transition: filter 0.2s ease;
 		}
+
 		.title {
 			color: var(--kp-main-color);
 			transition: color 0.2s ease;
 		}
 	}
 }
+
 .captions {
 	width: 100%;
 	margin-top: 0.5rem;
-}
-
-.title {
-	font-size: 0.9375rem;
-	font-weight: 500;
-	line-height: 1.2;
-	color: #000;
-
-	margin-bottom: 0.266em;
 }
 
 .linkItem {
@@ -53,6 +57,6 @@
 	hyphens: auto;
 	font-size: 0.8125rem;
 	font-weight: 400;
-	line-height: 1.230769;
+	line-height: 1.231;
 	color: var(--text-minor-color);
 }

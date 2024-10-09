@@ -3,6 +3,12 @@
 	flex-direction: column;
 }
 
+.iconButton {
+	flex: 0 0 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
 .list {
 	.iconButton {
 		opacity: 0.4;
@@ -21,10 +27,4 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.iconButton {
-	flex: 0 0 1.5rem;
-	width: 1.5rem;
-	height: 1.5rem;
 }

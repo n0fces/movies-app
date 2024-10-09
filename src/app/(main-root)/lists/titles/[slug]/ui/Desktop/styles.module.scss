@@ -4,7 +4,7 @@
 	grid-template-areas: 'topbar topbar' 'aside content';
 	grid-template-columns: 13.75rem 1fr;
 	max-width: 60rem;
-	@media (min-width: 80em) {
+	@media (width >= 80em) {
 		grid-template-columns: 16.25rem 1fr;
 		max-width: 75rem;
 	}
@@ -21,6 +21,7 @@
 
 .asideSlot {
 	grid-area: aside;
+
 	// position: relative;
 }
 

@@ -1,54 +1,42 @@
 :root {
 	--kp-main-color: #f50;
 	--kp-secondary-color: #d6bb00;
-
 	--background-color-body: #f4f4f4;
 	--main-background-color: #fff;
 	--error-background-color: #141414;
-
 	--container-width: 1280px;
 	--container-width-middle: 1030px;
 	--container-padding: 2.5rem;
 	--container-padding-mobile: 1rem;
-
 	--header-background-color: #141414;
 	--header-height: 4.5rem;
 	--header-height-mobile: 3.25rem;
 	--header-gap-items: 1.25rem;
 	--header-dropdown-padding: 1.5rem;
-
 	--overlay-background-color: #000000d9;
-	--overlay-background-modal: rgba(0, 0, 0, 0.7);
-
+	--overlay-background-modal: rgb(0 0 0 / 70%);
 	--positive-rating-color: #3bb33b;
-	--negative-rating-color: #ff0000;
-	--default-rating-color: #777777;
-
-	--text-minor-color: rgba(0, 0, 0, 0.6);
-	--text-minor-color-reverse: rgba(255, 255, 255, 0.5);
-	--title-error-color: rgba(255, 255, 255, 0.9);
-
+	--negative-rating-color: #f00;
+	--default-rating-color: #777;
+	--text-minor-color: rgb(0 0 0 / 60%);
+	--text-minor-color-reverse: rgb(255 255 255 / 50%);
+	--title-error-color: rgb(255 255 255 / 90%);
 	--padding-hor-list-item: 1.25rem;
-
-	--button-default-color: rgba(0, 0, 0, 0.05);
+	--button-default-color: rgb(0 0 0 / 5%);
 	--button-default-color-without-opacity: #f2f2f2;
-	--button-default-color-intense: rgba(0, 0, 0, 0.15);
-	--button-active-color: rgb(31, 31, 31);
+	--button-default-color-intense: rgb(0 0 0 / 15%);
+	--button-active-color: rgb(31 31 31);
 	--button-transition-duration: 0.2s;
-	--delimiter-color: rgba(0, 0, 0, 0.08);
-
-	--backdrop-background-color: rgb(20, 20, 20);
-
-	--box-shadow-default: 0 0 0.625rem rgba(0, 0, 0, 0.06),
-		0 0.25rem 0.625rem rgba(0, 0, 0, 0.06);
-	--box-shadow-header-items: 0 0.625rem 1.25rem -0.125rem rgba(0, 0, 0, 0.4);
-
+	--delimiter-color: rgb(0 0 0 / 8%);
+	--backdrop-background-color: rgb(20 20 20);
+	--box-shadow-default: 0 0 0.625rem rgb(0 0 0 / 6%),
+		0 0.25rem 0.625rem rgb(0 0 0 / 6%);
+	--box-shadow-header-items: 0 0.625rem 1.25rem -0.125rem rgb(0 0 0 / 40%);
 	--footer-background-color: #000;
-
 	--border-radius-default: 0.5rem;
 	--border-radius-secondary: 1rem;
 }
 
 ::backdrop {
-	--color-backdrop: rgba(0, 0, 0, 0.7);
+	--color-backdrop: rgb(0 0 0 / 70%);
 }

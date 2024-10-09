@@ -6,7 +6,7 @@
 	width: 90%;
 	padding: 1.75rem 0 1.8125rem;
 
-	border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+	border-top: 1px solid hsl(0deg 0% 100% / 5%);
 	color: #fff;
 	font-size: 0.8125rem;
 	line-height: 0.867;
@@ -15,7 +15,7 @@
 .mobile {
 	flex-direction: column;
 	border-top: none;
-	padding: 2.0625rem 0 0 0;
+	padding: 2.0625rem 0 0;
 }
 
 .bottomSectionInfo {
@@ -36,6 +36,7 @@
 			opacity: 0.8;
 		}
 	}
+
 	&:focus,
 	&:active {
 		opacity: 0.8;
@@ -64,6 +65,7 @@
 			opacity: 0.8;
 		}
 	}
+
 	&:focus,
 	&:active {
 		opacity: 0.8;

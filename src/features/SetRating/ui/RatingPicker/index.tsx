@@ -1,7 +1,5 @@
 'use client';
 
-import { clsx } from 'clsx';
-
 import { Movie } from '@/shared/types';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
 
@@ -17,7 +15,6 @@ import {
 import { DropdownMenuRating } from './DropdownMenuRating';
 import { RatingButton } from './RatingButton';
 import { VoitingBar } from './VoitingBar';
-import styles from './styles.module.scss';
 
 interface RatingPickerProps extends Pick<Movie, 'isSeries'> {
 	className?: string;
@@ -32,7 +29,7 @@ const RatingPickerObj = ({ className, isSeries }: RatingPickerProps) => {
 	return (
 		<DropdownWrapper
 			setIsOpen={isOpenDropdown ? setIsOpenDropdown : setIsOpen}
-			className={clsx(styles.ratingPicker, className)}>
+			className={className}>
 			<RatingButton isSeries={isSeries} />
 			{isOpen && <VoitingBar />}
 			{isOpenDropdown && <DropdownMenuRating />}

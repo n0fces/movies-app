@@ -7,11 +7,11 @@
 	width: 89vw;
 	margin: 0 auto;
 
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		max-width: 62.5rem;
 	}
 
-	@media (max-width: 64em) {
+	@media (width <= 64em) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -20,10 +20,10 @@
 
 .imageLink {
 	padding: 1.5rem 0 15vh;
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		padding: 5rem 0 6.25rem;
 	}
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		padding: 11vh 0 0;
 	}
 }
@@ -72,15 +72,15 @@
 .content {
 	display: flex;
 
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		padding-top: 17vh;
 	}
 
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		justify-content: space-between;
 	}
 
-	@media (max-width: 64em) {
+	@media (width <= 64em) {
 		flex-direction: column-reverse;
 		row-gap: 3.75rem;
 		text-align: center;
@@ -118,21 +118,21 @@
 
 .link {
 	align-self: center;
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		align-self: flex-start;
 	}
 
-	color: rgba(255, 255, 255, 0.7);
+	color: rgb(255 255 255 / 70%);
 	transition: color 0.1s ease-out;
 	@media (any-hover: hover) {
 		&:hover {
-			color: rgba(255, 255, 255, 1);
+			color: rgb(255 255 255 / 100%);
 		}
 	}
 
 	&:focus,
 	&:active {
-		color: rgba(255, 255, 255, 1);
+		color: rgb(255 255 255 / 100%);
 	}
 }
 

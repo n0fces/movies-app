@@ -7,14 +7,12 @@ import { PersonInMovie } from '@/shared/types';
 // * Надо обязательно подумать, как объединить в единый компонент LinkItems и LinkItemsPersons. Они практически одинаковы, за исключением работающей ссылки
 
 interface LinkItemsPersonsProps {
-	className?: string;
 	array?: PersonInMovie[] | null;
 	limitItems?: number;
 	moreLink?: string;
 }
 
 export const LinkItemsPersons = ({
-	className,
 	array,
 	limitItems = 3,
 	moreLink,

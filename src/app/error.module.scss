@@ -12,21 +12,21 @@
 	align-items: center;
 	row-gap: 1.5rem;
 
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		row-gap: 5vh;
 	}
 
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		max-width: 62.5rem;
 	}
 }
 
 .subtitle {
 	padding-top: 1.5rem;
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		padding-top: 10vh;
 	}
-	@media (min-width: 64em) {
+	@media (width >= 64em) {
 		padding-top: 15vh;
 	}
 

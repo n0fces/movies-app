@@ -15,10 +15,11 @@
 		height: 1rem;
 	}
 
-	@media (max-width: 80em) {
+	@media (width <= 80em) {
 		width: 2rem;
 		border-radius: 50%;
 		padding: 0;
+
 		span {
 			position: absolute;
 			width: 1px;

@@ -9,12 +9,15 @@
 	column-gap: 0.5rem;
 
 	overflow-x: scroll;
+
 	// для Chrome, Safari, Opera
 	&::-webkit-scrollbar {
 		display: none;
 	}
+
 	// Firefox
 	scrollbar-width: none;
+
 	// IE и Edge
 	-ms-overflow-style: none;
 }

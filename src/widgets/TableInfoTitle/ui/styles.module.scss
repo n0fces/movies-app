@@ -1,8 +1,11 @@
-.tableInfo {
-}
-
 .titleHeader {
 	margin-bottom: 0.5625rem;
+}
+
+.restrictionDescription {
+	display: none;
+	opacity: 0.4;
+	word-wrap: break-word;
 }
 
 .restrictionLink {
@@ -17,17 +20,11 @@
 	}
 }
 
-.restrictionDescription {
-	display: none;
-	opacity: 0.4;
-	word-wrap: break-word;
-}
-
 .highContrast {
 	align-self: flex-start;
 	padding: 0.1875rem 0.25rem;
-	color: rgba(51, 51, 51, 0.9);
-	border: 0.0625rem solid rgba(51, 51, 51, 0.9);
+	color: rgb(51 51 51 / 90%);
+	border: 0.0625rem solid rgb(51 51 51 / 90%);
 
 	font-size: 0.8125rem;
 	font-weight: 600;

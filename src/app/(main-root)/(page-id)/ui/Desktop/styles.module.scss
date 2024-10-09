@@ -6,7 +6,7 @@
 .sidebar {
 	flex: 0 0 13.875rem;
 
-	@media (min-width: 80em) {
+	@media (width >= 80em) {
 		flex: 0 0 18.875rem;
 	}
 }

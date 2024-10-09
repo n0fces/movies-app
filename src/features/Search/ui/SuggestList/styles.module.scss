@@ -4,7 +4,7 @@
 	overflow: hidden;
 
 	background-color: #fff;
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		border-radius: 0.5rem;
 	}
 	box-shadow: var(--box-shadow-header-items);
@@ -13,8 +13,8 @@
 .title,
 .showAll {
 	font-size: 0.8125rem;
-	line-height: 1.230769;
-	padding: 0.9231em 1.230769em;
+	line-height: 1.2308;
+	padding: 0.9231em 1.2308em;
 	color: var(--text-minor-color);
 }
 

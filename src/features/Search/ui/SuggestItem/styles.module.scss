@@ -1,10 +1,16 @@
+.suggestItem {
+	padding: 0.625rem 1rem;
+	display: flex;
+	column-gap: 0.875rem;
+}
+
 .link {
 	outline: none;
 	@media (any-hover: hover) {
 		&:hover {
 			.suggestItem {
 				transition: background-color 0.15s ease-out;
-				background-color: rgba(0, 0, 0, 0.03);
+				background-color: rgb(0 0 0 / 3%);
 			}
 		}
 	}
@@ -12,15 +18,9 @@
 	&:focus {
 		.suggestItem {
 			transition: background-color 0.15s ease-out;
-			background-color: rgba(0, 0, 0, 0.03);
+			background-color: rgb(0 0 0 / 3%);
 		}
 	}
-}
-
-.suggestItem {
-	padding: 0.625rem 1rem;
-	display: flex;
-	column-gap: 0.875rem;
 }
 
 .image {

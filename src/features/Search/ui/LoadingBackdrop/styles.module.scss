@@ -11,7 +11,7 @@
 	color: var(--text-minor-color);
 	background-color: #fff;
 
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		border-radius: 0.5rem;
 	}
 

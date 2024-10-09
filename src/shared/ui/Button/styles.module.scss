@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:list";
+
 .button {
 	display: inline-flex;
 	align-items: center;
@@ -16,7 +19,7 @@
 $sizes: (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64);
 
 @each $size in $sizes {
-	$sizes-gap-map: (
+	$sizesGapMap: (
 		48: 1rem,
 		32: 0.9375rem,
 		24: 0.8125rem,
@@ -24,19 +27,18 @@ $sizes: (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64);
 	);
 	$fontSize: if(
 		$size > 48,
-		map-get($sizes-gap-map, 48),
+		map.get($sizesGapMap, 48),
 		if(
 			$size > 32,
-			map-get($sizes-gap-map, 32),
+			map.get($sizesGapMap, 32),
 			if(
 				$size > 24,
-				map-get($sizes-gap-map, 24),
-				map-get($sizes-gap-map, default)
+				map.get($sizesGapMap, 24),
+				map.get($sizesGapMap, default)
 			)
 		)
 	);
-
-	$index: index($sizes, $size) - 1; // Индекс начинается с 1, поэтому вычитаем 1
+	$index: list.index($sizes, $size) - 1; // Индекс начинается с 1, поэтому вычитаем 1
 	$padding: 10px + $index * 2px;
 	$gap: if($size >= 48, 8px, if($size >= 32, 6px, 4px));
 
@@ -106,6 +108,11 @@ $sizes: (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64);
 	text-align: left;
 }
 
+.primary,
+.gradient {
+	font-weight: 600;
+}
+
 .primary {
 	background: var(--button-default-color);
 
@@ -149,11 +156,6 @@ $sizes: (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64);
 			var(--kp-secondary-color)
 		);
 	}
-}
-
-.primary,
-.gradient {
-	font-weight: 600;
 }
 
 .textBelow {

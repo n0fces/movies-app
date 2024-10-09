@@ -6,7 +6,7 @@
 .small {
 	font-size: 1.125rem;
 
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		font-size: 0.9375rem;
 		font-weight: 600;
 		line-height: 1.3333;
@@ -15,20 +15,20 @@
 
 .medium {
 	font-size: 1.125rem;
-	line-height: 1.333333;
+	line-height: 1.3333;
 
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		font-weight: 600;
 		font-size: 1.375rem;
-		line-height: 1.272727;
+		line-height: 1.2727;
 	}
 }
 
 .large {
 	font-size: 1.5rem;
-	line-height: 1.666667;
+	line-height: 1.6667;
 
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		font-size: 2rem;
 		line-height: 1.25;
 	}
@@ -36,9 +36,9 @@
 
 .xl {
 	font-size: 1.5rem;
-	line-height: 1.666667;
+	line-height: 1.6667;
 
-	@media (min-width: 48em) {
+	@media (width >= 48em) {
 		font-size: 2.5rem;
 		line-height: 1.2;
 	}

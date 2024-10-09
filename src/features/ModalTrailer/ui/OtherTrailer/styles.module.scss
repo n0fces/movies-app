@@ -10,12 +10,12 @@
 
 	@media (any-hover: hover) {
 		&:hover {
-			background: rgba(255, 255, 255, 0.07);
+			background: rgb(255 255 255 / 7%);
 		}
 	}
 
 	&:focus-within {
-		background: rgba(255, 255, 255, 0.07);
+		background: rgb(255 255 255 / 7%);
 	}
 }
 

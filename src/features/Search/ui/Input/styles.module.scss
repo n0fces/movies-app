@@ -1,29 +1,30 @@
-.search,
-.searchTouch {
-	display: block;
-	width: 100%;
-	color: #fff;
-	font-size: 0.9375rem;
-	padding: 0.53333em 0 0.53333em 1.066667em;
-
-	&:placeholder-shown {
-		text-overflow: ellipsis;
-	}
-}
-
 .search {
-	background-color: rgba(255, 255, 255, 0.15);
-	border-radius: 0.466667em;
-}
-
-.focus {
-	color: #000;
-	outline: none;
-	background-color: #fff;
+	background-color: rgb(255 255 255 / 15%);
+	border-radius: 0.4667em;
 }
 
 .searchTouch {
 	border: none;
 	outline: none;
 	background: transparent;
+}
+
+
+.search,
+.searchTouch {
+	display: block;
+	width: 100%;
+	color: #fff;
+	font-size: 0.9375rem;
+	padding: 0.5333em 0 0.5333em 1.0667em;
+
+	&:placeholder-shown {
+		text-overflow: ellipsis;
+	}
+}
+
+.focus {
+	color: #000;
+	outline: none;
+	background-color: #fff;
 }

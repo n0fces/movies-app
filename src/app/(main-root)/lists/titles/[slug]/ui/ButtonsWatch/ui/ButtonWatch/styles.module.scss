@@ -5,13 +5,13 @@
 
 	@media (any-hover: hover) {
 		&:hover {
-			color: rgba(0, 0, 0, 1);
+			color: rgb(0 0 0 / 100%);
 		}
 	}
 }
 
 .active {
-	color: rgba(0, 0, 0, 1);
+	color: rgb(0 0 0 / 100%);
 	border-bottom: 0.125em solid var(--kp-main-color);
 }
 

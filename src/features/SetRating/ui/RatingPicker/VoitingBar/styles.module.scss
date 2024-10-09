@@ -31,7 +31,7 @@
 	transition: all 0.2s ease;
 }
 
-@mixin ratingStyles($color) {
+@mixin rating-styles($color) {
 	& {
 		@media (any-hover: hover) {
 			&:hover {
@@ -50,13 +50,13 @@
 }
 
 .default {
-	@include ratingStyles(default);
+	@include rating-styles(default);
 }
 
 .positive {
-	@include ratingStyles(positive);
+	@include rating-styles(positive);
 }
 
 .negative {
-	@include ratingStyles(negative);
+	@include rating-styles(negative);
 }
