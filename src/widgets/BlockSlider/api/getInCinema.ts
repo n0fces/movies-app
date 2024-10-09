@@ -23,7 +23,7 @@ export const getInCinema = cache(async () => {
 				'isSeries',
 			],
 			sortField: ['year', 'votes.kp'],
-			sortType: [-1, 1],
+			sortType: [-1, -1],
 			limit: 20,
 		},
 	});

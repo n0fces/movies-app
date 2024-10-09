@@ -21,33 +21,38 @@ interface TitleCrewProps {
 
 interface CastBlockProps {
 	array: PersonInMovie[];
+	castBlockConstaint?: number;
 	title: string;
 }
 
-const CastBlock = ({ array, title }: CastBlockProps) =>
+const CastBlock = ({ array, title, castBlockConstaint = 3 }: CastBlockProps) =>
 	array.length ? (
 		<TopListLinksBlock
 			text={title}
-			list={array.map(({ name, id, enName }, index) => {
-				const text = name || enName;
-				if (text && id) {
-					return (
-						<LinkItemPerson
-							key={index}
-							href={getPath.person(id)}
-							name={text}
-							id={id}
-						/>
-					);
-				} else {
-					return null;
-				}
-			})}
+			list={array
+				.slice(0, castBlockConstaint)
+				.map(({ name, id, enName }, index) => {
+					const text = name || enName;
+					if (text && id) {
+						return (
+							<LinkItemPerson
+								key={index}
+								href={getPath.person(id)}
+								name={text}
+								id={id}
+							/>
+						);
+					} else {
+						return null;
+					}
+				})}
 			href="#"
 			seeMoreLink={
-				<Link href="#">
-					{array.length} {setCorrectEndWord('актер', array.length % 10)}
-				</Link>
+				array.length > castBlockConstaint ? (
+					<Link href="#">
+						{array.length} {setCorrectEndWord('актер', array.length % 10)}
+					</Link>
+				) : null
 			}
 		/>
 	) : null;
@@ -58,8 +63,16 @@ export const TitleCrew = async ({ className, id }: TitleCrewProps) => {
 
 	return (
 		<div className={clsx(styles.titleCrew, className)}>
-			<CastBlock array={stuff.actor} title="В главных ролях" />
-			<CastBlock array={stuff.voice_actor} title="Роли дублировали" />
+			<CastBlock
+				array={stuff.actor}
+				castBlockConstaint={10}
+				title="В главных ролях"
+			/>
+			<CastBlock
+				array={stuff.voice_actor}
+				castBlockConstaint={5}
+				title="Роли дублировали"
+			/>
 		</div>
 	);
 };

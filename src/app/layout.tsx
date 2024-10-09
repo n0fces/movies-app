@@ -5,7 +5,7 @@ import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 
 import styles from './styles.module.scss';
 
-import '@/styles/main.scss';
+import '@/shared/styles/main.scss';
 
 const openSans = Open_Sans({
 	subsets: ['cyrillic', 'latin'],
