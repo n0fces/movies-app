@@ -7,7 +7,7 @@ export const makeSortParams = (
 		arr[0].push(searchParams['sortField']);
 		searchParams['sortField'] === 'name' ? arr[1].push('1') : arr[1].push('-1');
 	} else {
-		if (lists === ('top250' || 'series-top250' || 'top500')) {
+		if (lists === 'top250' || lists === 'series-top250' || lists === 'top500') {
 			arr[0].push('top250');
 			arr[1].push('1');
 		} else if (lists.startsWith('box-usa')) {
