@@ -66,6 +66,9 @@ const NextConfig = {
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')],
 	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 };
 
 module.exports = NextConfig;

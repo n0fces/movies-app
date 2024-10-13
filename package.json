@@ -1,39 +1,48 @@
 {
-  "name": "movies-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prettier": "prettier --write .",
-    "lint:scss": "npx stylelint \"**/*.scss\"",
-    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "api": "npx swagger-typescript-api -p https://api.kinopoisk.dev/documentation-json -o ./src/shared/types -n api.ts --no-client"
-  },
-  "dependencies": {
-    "axios": "^1.5.1",
-    "clsx": "^2.1.0",
-    "next": "^14.2.14",
-    "nextjs-toploader": "^1.5.3",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/node": "^20",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.4",
-    "prettier": "^3.3.3",
-    "qs": "^6.11.2",
-    "sass": "^1.69.0",
-    "stylelint": "^16.9.0",
-    "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-order": "^6.0.4",
-    "typescript": "^5.3.3"
-  }
+	"name": "movies-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"lint": "eslint .",
+		"dev": "next dev",
+		"prebuild": "npm run lint",
+		"build": "next build",
+		"start": "next start",
+		"prettier": "prettier --write .",
+		"lint:scss": "npx stylelint \"**/*.scss\"",
+		"lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+		"api": "npx swagger-typescript-api -p https://api.kinopoisk.dev/documentation-json -o ./src/shared/types -n api.ts --no-client"
+	},
+	"dependencies": {
+		"axios": "^1.5.1",
+		"clsx": "^2.1.0",
+		"next": "^14.2.14",
+		"nextjs-toploader": "^1.5.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.2.0",
+		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
+		"@types/node": "^20",
+		"@types/react": "^18.2.45",
+		"@types/react-dom": "^18",
+		"eslint": "^9.12.0",
+		"eslint-config-next": "^14.2.15",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-react-hooks": "^5.0.0",
+		"globals": "^15.11.0",
+		"prettier": "^3.3.3",
+		"qs": "^6.11.2",
+		"sass": "^1.69.0",
+		"stylelint": "^16.9.0",
+		"stylelint-config-prettier-scss": "^1.0.0",
+		"stylelint-config-standard-scss": "^13.1.0",
+		"stylelint-order": "^6.0.4",
+		"typescript": "^5.3.3",
+		"typescript-eslint": "^8.8.1"
+	},
+	"overrides": {
+		"eslint": "$eslint"
+	}
 }
