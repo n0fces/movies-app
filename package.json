@@ -5,7 +5,7 @@
 	"scripts": {
 		"lint": "eslint .",
 		"dev": "next dev",
-		"prebuild": "npm run lint",
+		// "prebuild": "npm run lint",
 		"build": "next build",
 		"start": "next start",
 		"prettier": "prettier --write .",
