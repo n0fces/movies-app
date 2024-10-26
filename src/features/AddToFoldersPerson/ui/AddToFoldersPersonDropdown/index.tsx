@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 
 import { Profession } from '@/shared/types';
@@ -31,7 +30,9 @@ export const AddToFoldersPersonDropdown = ({
 				size="size_48"
 				shape="rounded"
 				maxWidth
-				onClick={() => setIsOpen(!isOpen)}>
+				onClick={() => {
+					setIsOpen(!isOpen);
+				}}>
 				<Icon name="addToFolder" className={styles.icon} />
 				Добавить в папку
 			</Button>
@@ -40,7 +41,7 @@ export const AddToFoldersPersonDropdown = ({
 					<AddToFoldersPersonList profession={profession} />
 					<div className={styles.afterSlot}>
 						<Button
-							component={Link}
+							as="link"
 							href={'#'}
 							theme="primary"
 							shape="rounded"

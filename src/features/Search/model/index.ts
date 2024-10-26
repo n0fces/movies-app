@@ -7,6 +7,7 @@ import {
 	useSetters,
 	useSuggests,
 } from './context';
+import { SearchMovie } from '@/shared/types';
 
 export const useModel = () => {
 	const { setSuggests, setIsLoading, setIsChange } = useSetters();
@@ -21,14 +22,14 @@ export const useModel = () => {
 			controller = new AbortController();
 			const signal = controller.signal;
 			setIsLoading(true);
-			(async () => {
+			void (async () => {
 				try {
 					const response = await fetch('/api/search', {
 						method: 'POST',
 						body: JSON.stringify(value),
 						signal,
 					});
-					const res = await response.json();
+					const res = await response.json() as SearchMovie[];
 					setSuggests(res);
 					setIsChange(false);
 					setIsLoading(false);

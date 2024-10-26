@@ -1,7 +1,8 @@
 import { months } from '@/shared/constants/months';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { getBirthday } from '@/shared/helpers/getBirthday';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 
-import { getBirthday } from '../../../shared/helpers/getBirthday';
+import { getAgeString } from './getAgeString';
 
 export const getDatePersonString = (
 	date: string | null | undefined,
@@ -11,13 +12,8 @@ export const getDatePersonString = (
 	let birth: string | null = null;
 	if (birthData) {
 		const { day, month, year } = birthData;
-		let ageString: string | null = null;
-		if (age) {
-			const word =
-				age % 10 === 1 ? 'год' : [2, 3, 4].includes(age % 10) ? 'года' : 'лет';
-			ageString = `${age} ${word}`;
-		}
-		const birth = stringWithDelimiter(' • ', [
+		const ageString = age ? `${age} ${getAgeString(age)}` : null;
+		birth = stringWithDelimiter(' • ', [
 			`${day} ${months[month]}, ${year}`,
 			ageString,
 		]);

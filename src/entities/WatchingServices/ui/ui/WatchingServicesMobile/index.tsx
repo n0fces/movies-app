@@ -1,6 +1,6 @@
 'use client';
 
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 import { Watchability } from '@/shared/types';
 import { Title } from '@/shared/ui/Title';
 

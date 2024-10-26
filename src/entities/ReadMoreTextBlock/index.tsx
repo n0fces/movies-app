@@ -54,7 +54,7 @@ export const ReadMoreTextBlock = ({
 				<Button
 					theme="moreButton"
 					className={styles.readMoreBtn}
-					onClick={() => setIsOpen(!isOpen)}>
+					onClick={() => { setIsOpen(!isOpen); }}>
 					{isOpen ? 'Свернуть' : 'Полное описание'}
 				</Button>
 			)}

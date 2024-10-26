@@ -16,7 +16,7 @@ export const MoreOptions = ({
 	...otherProps
 }: MoreOptionsProps) => {
 	return isMobile ? (
-		<ModalOptions isMobile={isMobile} className={className} {...otherProps} />
+		<ModalOptions className={className} {...otherProps} />
 	) : (
 		<DropdownOptions className={className} />
 	);

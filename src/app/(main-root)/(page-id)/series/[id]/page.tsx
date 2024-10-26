@@ -25,7 +25,7 @@ export async function generateMetadata({
 	};
 }
 
-export default async function TitleRoot({
+export default function TitleRoot({
 	params,
 }: {
 	params: { id: number };

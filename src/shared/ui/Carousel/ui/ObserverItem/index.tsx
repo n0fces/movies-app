@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 
 import { useShare } from '../../model';
 import styles from './styles.module.scss';
 
 interface ObserverItemProps {
-	children: JSX.Element;
+	children: ReactElement;
 	index: number;
 	length: number;
 }
@@ -22,9 +22,11 @@ export const ObserverItem = ({
 	useEffect(() => {
 		const carouselObserver = new IntersectionObserver(
 			([entry]) => {
-				entry.isIntersecting
-					? entry.target.classList.add('visible')
-					: entry.target.classList.remove('visible');
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				} else {
+					entry.target.classList.remove('visible');
+				}
 			},
 			{
 				root: carouselRef.current,
@@ -67,22 +69,27 @@ export const ObserverItem = ({
 			);
 		}
 
-		carouselObserver.observe(ref.current!);
-		if (carouselObserverFirstItem !== undefined) {
-			carouselObserverFirstItem.observe(ref.current!);
-		}
-		if (carouselObserverLastItem !== undefined) {
-			carouselObserverLastItem.observe(ref.current!);
-		}
-
 		const refVar = ref.current;
-		return () => {
-			carouselObserver.unobserve(refVar!);
+
+		if (refVar) {
+			carouselObserver.observe(refVar);
 			if (carouselObserverFirstItem !== undefined) {
-				carouselObserverFirstItem.unobserve(refVar!);
+				carouselObserverFirstItem.observe(refVar);
 			}
 			if (carouselObserverLastItem !== undefined) {
-				carouselObserverLastItem.unobserve(refVar!);
+				carouselObserverLastItem.observe(refVar);
+			}
+		}
+
+		return () => {
+			if (refVar) {
+				carouselObserver.unobserve(refVar);
+				if (carouselObserverFirstItem !== undefined) {
+					carouselObserverFirstItem.unobserve(refVar);
+				}
+				if (carouselObserverLastItem !== undefined) {
+					carouselObserverLastItem.unobserve(refVar);
+				}
 			}
 		};
 	}, [carouselRef, index, leftButtonRef, length, rightButtonRef]);

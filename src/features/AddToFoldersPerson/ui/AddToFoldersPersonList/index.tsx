@@ -13,7 +13,11 @@ interface AddToFoldersPersonListProps {
 	profession: Profession[] | undefined;
 }
 
-const ItemFolder = ({ category, text }: ItemFolderProps) => (
+const ItemFolder = ({
+	// * закомментировал, чтобы держал в голове о том, что здесь будет в будущем норм функциональность
+	// category,
+	text,
+}: ItemFolderProps) => (
 	<Button
 		theme="list"
 		size="size_40"
@@ -29,22 +33,29 @@ export const AddToFoldersPersonList = ({
 	className,
 	profession,
 }: AddToFoldersPersonListProps) => {
-	let isActor = false;
-	let isActress = false;
-	let isDirector = false;
-	profession?.forEach((prof) => {
-		switch (prof.value) {
-			case 'Актер':
-				isActor = true;
-				break;
-			case 'Актриса':
-				isActress = true;
-				break;
-			case 'Режиссер':
-				isDirector = true;
-				break;
-		}
-	});
+	if (!profession) return null;
+
+	const filteredProf = profession.filter(
+		(prof): prof is Profession & { value: string } => Boolean(prof.value),
+	);
+
+	const { isActor, isActress, isDirector } = filteredProf.reduce(
+		(acc, prof) => {
+			switch (prof.value) {
+				case 'Актер':
+					acc.isActor = true;
+					break;
+				case 'Актриса':
+					acc.isActress = true;
+					break;
+				case 'Режиссер':
+					acc.isDirector = true;
+					break;
+			}
+			return acc;
+		},
+		{ isActor: false, isActress: false, isDirector: false },
+	);
 
 	const list: ItemFolderProps[] = [
 		{

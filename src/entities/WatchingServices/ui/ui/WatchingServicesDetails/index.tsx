@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 import { Watchability } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 import { Title } from '@/shared/ui/Title';
@@ -27,8 +27,8 @@ export const WatchingServicesDetails = ({
 				{`.${styles.servicesListWrapper} {
 					--details-content-max-height: ${
 						watchability.items?.length
-							? Math.ceil(watchability.items?.length / 2) * 32 +
-								Math.floor(watchability.items?.length / 2) * 12
+							? Math.ceil(watchability.items.length / 2) * 32 +
+								Math.floor(watchability.items.length / 2) * 12
 							: 800
 					}px
 				}`}

@@ -1,4 +1,4 @@
-import { Attributes, ComponentPropsWithRef, ComponentType } from 'react';
+import { LinkProps } from 'next/link';
 
 export type ThemeButton =
 	| 'primary'
@@ -30,12 +30,7 @@ export type BorderRadiusBtn = '8' | '16';
 
 export type ReverseDirection = 'rowReverse' | 'columnReverse';
 
-export type BaseButtonComponent =
-	| keyof JSX.IntrinsicElements
-	| ComponentType<any>;
-
-type BaseProps<C extends BaseButtonComponent = 'button'> = {
-	component?: C;
+interface BaseProps {
 	theme?: ThemeButton;
 	maxWidth?: boolean;
 	maxHeight?: boolean;
@@ -44,13 +39,17 @@ type BaseProps<C extends BaseButtonComponent = 'button'> = {
 	withoutPadding?: boolean;
 	borderRadius?: BorderRadiusBtn;
 	reverseDirection?: ReverseDirection;
-} & Attributes;
+	children: React.ReactNode;
+	className?: string;
+}
 
-export type BaseButtonProps<C extends BaseButtonComponent = 'button'> =
-	C extends keyof JSX.IntrinsicElements
-		? Omit<ComponentPropsWithRef<C>, keyof BaseProps<C>> & BaseProps<C>
-		: C extends ComponentType<infer P>
-			? P extends ComponentPropsWithRef<any>
-				? Omit<P, keyof BaseProps<C>> & BaseProps<C>
-				: never
-			: never;
+export type ButtonAsButton = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+	as?: 'button';
+} & BaseProps;
+
+type ButtonAsLink = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+	LinkProps & {
+		as: 'link';
+	} & BaseProps;
+
+export type ButtonProps = ButtonAsButton | ButtonAsLink;

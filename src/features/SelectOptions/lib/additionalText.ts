@@ -10,6 +10,6 @@ export const additionalText = (
 ) => {
 	const searchParam = searchParams.get(typeParam);
 	return (
-		options?.find((option) => searchParam === option.value)?.label ?? addText
+		options.find((option) => searchParam === option.value)?.label ?? addText
 	);
 };

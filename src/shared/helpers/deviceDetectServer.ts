@@ -1,13 +1,11 @@
 import { headers } from 'next/headers';
 
-interface IResult {
-	[key: string]: string;
-}
+type IResult = Record<string, string>;
 
 export const deviceDetectServer = (): boolean => {
 	const headersList = headers();
 
-	let result: IResult = {};
+	const result: IResult = {};
 
 	const createKey = (k: string) => {
 		const kParts = k.split('-');

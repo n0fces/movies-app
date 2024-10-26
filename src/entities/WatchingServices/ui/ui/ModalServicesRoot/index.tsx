@@ -1,4 +1,4 @@
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 import { Watchability } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';

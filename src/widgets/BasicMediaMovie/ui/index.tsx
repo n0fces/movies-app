@@ -9,7 +9,7 @@ import { SocialServices } from '@/features/SocialServices';
 
 import { Video as VideoAPI } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
-import { VideoYT } from '@/shared/ui/VideoYT';
+import { PreviewYT } from '@/shared/ui/PreviewYT';
 
 import styles from './styles.module.scss';
 
@@ -19,7 +19,7 @@ interface BasicMediaMovieProps {
 }
 
 const TrailerBtnContent = (props?: VideoAPI) => (
-	<VideoYT className={styles.trailer} {...props} withBtn />
+	<PreviewYT className={styles.trailer} {...props} withBtn />
 );
 
 export const BasicMediaMovie = async ({
@@ -49,7 +49,7 @@ export const BasicMediaMovie = async ({
 				<Link href={'#'}>
 					<MyImage
 						src={poster?.previewUrl}
-						alt={name || alternativeName || enName}
+						alt={name ?? alternativeName ?? enName}
 						width={302}
 						height={453}
 						className={styles.poster}
@@ -62,11 +62,11 @@ export const BasicMediaMovie = async ({
 						<ModalTrailer
 							className={styles.trailerWrapper}
 							isSidebar
-							btnContent={TrailerBtnContent(videos?.trailers?.[0])}
+							btnContent={TrailerBtnContent(videos.trailers[0])}
 							{...title}
 						/>
 						<Link href={'#'} className={styles.linkTrailers}>
-							{videos?.trailers?.[0]?.name}
+							{videos.trailers[0]?.name}
 						</Link>
 					</>
 				) : null}

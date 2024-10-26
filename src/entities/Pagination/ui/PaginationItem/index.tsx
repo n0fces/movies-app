@@ -19,7 +19,7 @@ export const PaginationItem = ({
 	slug,
 	page,
 }: PaginationItemProps) => {
-	let numberPage =
+	const numberPage =
 		item !== '...'
 			? item
 			: index === allPages.length - 2

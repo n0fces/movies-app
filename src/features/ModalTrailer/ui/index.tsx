@@ -41,8 +41,8 @@ export const ModalTrailer = ({
 }: ModalTrailerProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const showModal = useCallback(() => setIsOpen(true), []);
-	const closeModal = useCallback(() => setIsOpen(false), []);
+	const showModal = useCallback(() => { setIsOpen(true); }, []);
+	const closeModal = useCallback(() => { setIsOpen(false); }, []);
 	// после клика на другой трейлер в общей области просмотра должен появиться именно этот трейлер
 	return (
 		<>

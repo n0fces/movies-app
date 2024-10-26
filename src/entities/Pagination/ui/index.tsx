@@ -11,7 +11,7 @@ export interface PaginationProps {
 	pages: number;
 	page: number;
 	slug: string;
-	searchParams: { [key: string]: string };
+	searchParams: Record<string, string>;
 	className?: string;
 }
 

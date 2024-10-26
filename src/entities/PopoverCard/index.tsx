@@ -11,10 +11,10 @@ import { AdditionalInfo } from './ui/AdditionalInfo';
 interface PopoverCardProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
 	isLoading?: boolean;
-	image?: () => JSX.Element | null;
-	titleName?: () => JSX.Element | null;
+	image?: () => React.ReactElement | null;
+	titleName?: () => React.ReactElement | null;
 	subtitle?: string | null;
-	featureBtns?: () => JSX.Element | null;
+	featureBtns?: () => React.ReactElement | null;
 	additionalInfo?: AdditionalInfoList;
 }
 

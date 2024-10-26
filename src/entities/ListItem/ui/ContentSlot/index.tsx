@@ -3,27 +3,26 @@ import Link from 'next/link';
 
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { getPath } from '@/shared/helpers/getPath';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 
 import { ListItemPropsEx } from '../index';
 import styles from './styles.module.scss';
 
-interface ContentSlotProps
-	extends Pick<
-		ListItemPropsEx,
-		| 'name'
-		| 'alternativeName'
-		| 'enName'
-		| 'year'
-		| 'releaseYears'
-		| 'movieLength'
-		| 'seriesLength'
-		| 'countries'
-		| 'genres'
-		| 'persons'
-		| 'watchItems'
-		| 'id'
-	> {}
+type ContentSlotProps = Pick<
+	ListItemPropsEx,
+	| 'name'
+	| 'alternativeName'
+	| 'enName'
+	| 'year'
+	| 'releaseYears'
+	| 'movieLength'
+	| 'seriesLength'
+	| 'countries'
+	| 'genres'
+	| 'persons'
+	| 'watchItems'
+	| 'id'
+>;
 
 export const ContentSlot = ({
 	name,
@@ -41,8 +40,8 @@ export const ContentSlot = ({
 }: ContentSlotProps) => {
 	const isMobile = deviceDetectServer();
 	const path = releaseYears ? getPath.series(id) : getPath.movie(id);
-	const title = name || alternativeName || enName;
-	const secondaryTitle = alternativeName || enName;
+	const title = name ?? alternativeName ?? enName;
+	const secondaryTitle = alternativeName ?? enName;
 	const during = releaseYears?.length
 		? `${releaseYears[0].start}–${releaseYears[0].end ?? '...'}`
 		: '';
@@ -55,7 +54,7 @@ export const ContentSlot = ({
 		?.filter((person) => person.profession === 'актеры')
 		.map((person) => person.name)
 		.slice(0, 2);
-	const length = movieLength || seriesLength;
+	const length = movieLength ?? seriesLength;
 	const duration = !isMobile && length ? `${length} мин.` : null;
 
 	return (

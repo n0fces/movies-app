@@ -21,8 +21,8 @@ export const FeaturesMoviePage = async ({
 	const title = await getTitle(id);
 	const { name, enName, alternativeName, poster } = title;
 
-	const titleName = name || alternativeName || enName;
-	const secondaryTitle = alternativeName || enName;
+	const titleName = name ?? alternativeName ?? enName;
+	const secondaryTitle = alternativeName ?? enName;
 
 	return (
 		<div className={clsx(styles.featuresMoviePage, className)}>

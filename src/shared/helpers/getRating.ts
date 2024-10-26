@@ -6,7 +6,7 @@ export const getRating = (
 	rating: Rating | null | undefined,
 ): getRatingReturned => {
 	if (rating) {
-		const availableSources: Array<keyof Rating> = [
+		const availableSources: (keyof Rating)[] = [
 			'kp',
 			'imdb',
 			'tmdb',

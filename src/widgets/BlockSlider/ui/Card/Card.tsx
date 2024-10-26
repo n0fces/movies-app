@@ -21,7 +21,7 @@ const PosterNode = ({
 		<Poster
 			widthPoster={width}
 			heightPoster={height}
-			alt={name || enName || alternativeName}
+			alt={name ?? enName ?? alternativeName}
 			{...propsObj}
 		/>
 	);

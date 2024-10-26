@@ -23,7 +23,7 @@ export const Title = <E extends ElementType = typeof DEFAULT_ELEMENT>({
 	as,
 	...props
 }: TitleProps<E>) => {
-	const Element = as || DEFAULT_ELEMENT;
+	const Element = as ?? DEFAULT_ELEMENT;
 
 	return (
 		<Element className={clsx(styles.title, styles[size], className)} {...props}>

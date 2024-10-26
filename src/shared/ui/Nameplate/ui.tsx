@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 
 import { Icon } from '../Icon';
 import styles from './styles.module.scss';

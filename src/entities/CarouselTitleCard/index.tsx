@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import { LinkItemTitle } from '@/features/LinkItemPopover/ui/LinkItemTitle';
 
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { CardItemEntity } from '@/shared/types';
+import { IsLink } from '@/shared/ui/IsLink';
 
-import { IsLink } from '../../shared/ui/IsLink';
 import styles from './styles.module.scss';
 
 // * Здесь надо будет сузить интерфейс (не все штуки, которые поступают, на самом деле здесь нужны)
@@ -21,11 +21,11 @@ export const CarouselTitleCard = ({
 	PosterNode,
 	href,
 	className,
-	withPopover,
+	withPopover = true,
 	...otherProps
 }: CardItemProps) => {
 	const { name, alternativeName, enName, year, genres, id } = otherProps;
-	const text = name || alternativeName || enName || null;
+	const text = name ?? alternativeName ?? enName ?? null;
 	const isMobile = deviceDetectServer();
 
 	return (
@@ -36,7 +36,7 @@ export const CarouselTitleCard = ({
 			<IsLink href={href}>
 				<div className={styles.captions}>
 					<div className={styles.title}>
-						{text ? (
+						{withPopover && text ? (
 							<LinkItemTitle
 								name={text}
 								id={id}
@@ -46,7 +46,9 @@ export const CarouselTitleCard = ({
 								className={styles.linkItem}
 								isMobile={isMobile}
 							/>
-						) : null}
+						) : (
+							text
+						)}
 					</div>
 					<div className={styles.info}>
 						{stringWithDelimiter(', ', [year, genres?.[0]?.name])}

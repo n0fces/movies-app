@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import Link from 'next/link';
 
 import { Icon } from '@/shared/ui/Icon';
@@ -10,7 +9,7 @@ interface TopListLinksBlockProps {
 	className?: string;
 	href?: string;
 	text: string;
-	list: Array<React.ReactNode>;
+	list: React.ReactNode[];
 	seeMoreLink?: React.ReactNode;
 }
 

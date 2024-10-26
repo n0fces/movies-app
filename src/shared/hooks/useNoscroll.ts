@@ -4,9 +4,11 @@ export const useNoscroll = (isMobile: boolean, isOpen: boolean) => {
 	useEffect(() => {
 		if (isMobile) {
 			const root = document.body;
-			isOpen
-				? root.classList.add('noscroll')
-				: root.classList.remove('noscroll');
+			if (isOpen) {
+				root.classList.add('noscroll');
+			} else {
+				root.classList.remove('noscroll');
+			}
 		}
 	}, [isOpen, isMobile]);
 };

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { getPath } from '@/shared/helpers/getPath';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { SearchMovie } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
 import { Nameplate } from '@/shared/ui/Nameplate';

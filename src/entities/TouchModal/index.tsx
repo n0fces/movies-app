@@ -37,6 +37,8 @@ const TouchModalRoot = dynamic(() => import('./ui/TouchModalRoot'), {
 	ssr: false,
 });
 
+// компонент, использующийся как контейнер для фичей, которые скрываются на мобильных
+// устройствах в модалки
 const TouchModalObj = ({
 	children,
 	className,
@@ -70,7 +72,7 @@ const TouchModalObj = ({
 				reverseDirection={reverseDirection}
 				borderRadius={borderRadius}
 				withoutPadding={withoutPadding}
-				id={`dialog-${title || secondaryTitle}`}>
+				id={`dialog-${title ?? secondaryTitle}`}>
 				{btnContent}
 			</Button>
 			{isOpen && (

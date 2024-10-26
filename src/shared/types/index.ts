@@ -39,6 +39,12 @@ export interface Name {
 	type?: string | null;
 }
 
+export interface FactInMovie {
+	value: string;
+	type?: string | null;
+	spoiler?: boolean | null;
+}
+
 export interface Rating {
 	/**
 	 * Рейтинг кинопоиска
@@ -77,11 +83,11 @@ export interface Votes {
 	kp?: string | null;
 	/** @example 50000 */
 	imdb?: number | null;
-	/** @example 60000 */
+	/** @example 10000 */
 	tmdb?: number | null;
 	/**
 	 * Количество голосов кинокритиков
-	 * @example 60000
+	 * @example 10000
 	 */
 	filmCritics?: number | null;
 	/**
@@ -118,14 +124,13 @@ export interface Video {
 	name?: string | null;
 	/** @example "youtube" */
 	site?: string | null;
+	size?: number | null;
 	/** @example "TRAILER" */
 	type?: string | null;
-	size?: number;
 }
 
 export interface VideoTypes {
-	trailers?: Video[];
-	teasers: Video[];
+	trailers?: Video[] | null;
 }
 
 export interface ItemName {
@@ -137,16 +142,16 @@ export interface PersonInMovie {
 	 * Id персоны с кинопоиска
 	 * @example 6317
 	 */
-	id?: number | null;
+	id: number;
 	/** @example "https://st.kp.yandex.net/images/actor_iphone/iphone360_6317.jpg" */
 	photo?: string | null;
 	/** @example "Пол Уокер" */
 	name?: string | null;
 	/** @example "Paul Walker" */
 	enName?: string | null;
-	description: string;
-	profession: string;
-	enProfession: string;
+	description?: string | null;
+	profession?: string | null;
+	enProfession?: string | null;
 }
 
 export interface ReviewInfo {
@@ -201,20 +206,20 @@ export interface Premiere {
 	 * @example "2023-02-25T02:44:39.359Z"
 	 */
 	cinema?: string | null;
-	bluray: string;
-	dvd: string;
+	bluray?: string | null;
+	dvd?: string | null;
 }
 
 export interface LinkedMovie {
-	id?: number | null;
-	rating: Rating;
+	id: number;
+	name?: string | null;
+	enName?: string | null;
+	alternativeName?: string | null;
+	type?: string | null;
+	poster?: ShortImage | null;
+	rating?: Rating | null;
 	/** @example 2021 */
-	year: number;
-	name: string;
-	enName: string;
-	alternativeName: string;
-	type?: string;
-	poster: ShortImage;
+	year?: number | null;
 }
 
 export interface WatchabilityItem {
@@ -245,34 +250,22 @@ export interface Audience {
 	 * Количество просмотров в кино
 	 * @example 1000
 	 */
-	count: number;
+	count?: number | null;
 	/**
 	 * Страна в которой проходил показ
 	 * @example "Россия"
 	 */
-	country: string;
+	country?: string | null;
 }
 
 export interface NetworkItem {
 	/** @example "Netflix" */
-	name: string;
-	logo: Logo;
+	name?: string | null;
+	logo?: Logo | null;
 }
 
 export interface Networks {
-	items: NetworkItem[];
-}
-
-export interface FactInMovie {
-	value: string;
-	type: string;
-	spoiler: boolean;
-}
-
-export interface Images {
-	postersCount: number;
-	backdropsCount: number;
-	framesCount: number;
+	items?: NetworkItem[] | null;
 }
 
 export interface Movie {
@@ -280,25 +273,25 @@ export interface Movie {
 	 * Id фильма с кинопоиска
 	 * @example 666
 	 */
-	id: number;
-	externalId: ExternalId;
+	id?: number | null;
+	externalId?: ExternalId | null;
 	/** @example "Человек паук" */
 	name?: string | null;
 	/** @example "Spider man" */
 	alternativeName?: string | null;
 	/** @example "Spider man" */
 	enName?: string | null;
-	names: Name[];
+	names?: Name[] | null;
 	/**
 	 * Тип тайтла. Доступны: movie | tv-series | cartoon | anime | animated-series | tv-show
 	 * @example "movie"
 	 */
-	type: string;
+	type?: string | null;
 	/**
 	 * Тип тайтла в числовом обозначении. Доступны: 1 (movie) | 2 (tv-series) | 3 (cartoon) | 4 (anime) | 5 (animated-series) | 6 (tv-show)
 	 * @example 1
 	 */
-	typeNumber: number;
+	typeNumber?: number | null;
 	/**
 	 * Год премьеры. При поиске по этому полю, можно использовать интервалы 1860-2030
 	 * @example 2023
@@ -315,6 +308,7 @@ export interface Movie {
 	 * @example "completed"
 	 */
 	status?: string | null;
+	facts?: FactInMovie[] | null;
 	rating?: Rating;
 	votes?: Votes;
 	/**
@@ -344,8 +338,8 @@ export interface Movie {
 	budget?: CurrencyValue;
 	fees?: Fees;
 	premiere?: Premiere;
-	similarMovies?: LinkedMovie[];
-	sequelsAndPrequels?: LinkedMovie[];
+	similarMovies?: LinkedMovie[] | null;
+	sequelsAndPrequels?: LinkedMovie[] | null;
 	watchability?: Watchability;
 	releaseYears?: YearRange[];
 	/**
@@ -377,20 +371,18 @@ export interface Movie {
 	 * Признак сериала
 	 * @example true
 	 */
-	isSeries: boolean;
+	isSeries?: boolean | null;
 	audience?: Audience[] | null;
 	/**
 	 * Список коллекций, в которых находится тайтл.
 	 * @example ["250 лучших сериалов"]
 	 */
 	lists?: string[] | null;
-	networks: Networks | null;
+	networks?: Networks | null;
 	/** @format date-time */
-	updatedAt: string;
+	updatedAt?: string | null;
 	/** @format date-time */
-	createdAt: string;
-	facts: FactInMovie[];
-	imagesInfo: Images;
+	createdAt?: string | null;
 }
 
 export interface UnauthorizedErrorResponseDto {
@@ -419,57 +411,54 @@ export interface ErrorResponseDto {
 
 export interface SearchMovie {
 	id: number;
-	name: string;
-	alternativeName: string;
-	enName: string;
-	type: string;
-	year: number;
-	description: string;
-	shortDescription: string;
-	movieLength: number;
-	names: Name[];
+	name?: string | null;
+	alternativeName?: string | null;
+	enName?: string | null;
+	type?: string | null;
+	year?: number | null;
+	description?: string | null;
+	shortDescription?: string | null;
+	movieLength?: number | null;
+	names?: Name[] | null;
 	externalId?: ExternalId | null;
-	logo?: Logo;
-	poster?: ShortImage;
-	backdrop?: ShortImage;
-	rating?: Rating;
-	votes?: Votes;
-	genres?: ItemName[];
-	countries?: ItemName[];
-	releaseYears?: YearRange[];
-	isSeries: boolean;
-	ticketsOnSale: boolean;
-	totalSeriesLength: number;
-	seriesLength: number;
-	ratingMpaa: string;
-	ageRating: number;
+	logo?: Logo | null;
+	poster?: ShortImage | null;
+	backdrop?: ShortImage | null;
+	rating?: Rating | null;
+	votes?: Votes | null;
+	genres?: ItemName[] | null;
+	countries?: ItemName[] | null;
+	releaseYears?: YearRange[] | null;
+	isSeries?: boolean | null;
+	ticketsOnSale?: boolean | null;
+	totalSeriesLength?: number | null;
+	seriesLength?: number | null;
+	ratingMpaa?: string | null;
+	ageRating?: number | null;
 	top10?: number | null;
 	top250?: number | null;
-	typeNumber: number;
-	status: string;
-	internalNames: string[];
-	internalRating: number;
-	internalVotes: number;
+	typeNumber?: number | null;
+	status?: string | null;
 }
 
 export interface NominationAward {
-	title: string;
-	year: number;
+	title?: string | null;
+	year?: number | null;
 }
 
 export interface Nomination {
-	award: NominationAward;
-	title: string;
+	award?: NominationAward | null;
+	title?: string | null;
 }
 
-export interface PartialTypeClass {
-	nomination?: Nomination;
-	winning?: boolean;
+export interface MovieAward {
+	nomination?: Nomination | null;
+	winning?: boolean | null;
 	/** @format date-time */
-	updatedAt?: string;
+	updatedAt?: string | null;
 	/** @format date-time */
-	createdAt?: string;
-	movieId?: number;
+	createdAt?: string | null;
+	movieId?: number | null;
 }
 
 export interface Episode {
@@ -485,7 +474,7 @@ export interface Episode {
 }
 
 export interface Season {
-	movieId?: number;
+	movieId: number;
 	number?: number;
 	episodesCount?: number;
 	episodes?: Episode[];
@@ -497,21 +486,23 @@ export interface Season {
 	enDescription?: string;
 	airDate?: string;
 	/** @format date-time */
-	updatedAt: string;
+	updatedAt?: string | null;
 	/** @format date-time */
-	createdAt: string;
+	createdAt?: string | null;
 }
 
 export interface Review {
-	id?: number;
-	movieId?: number;
+	id: number;
+	movieId: number;
 	title?: string;
 	type?: string;
 	review?: string;
 	date?: string;
 	author?: string;
-	authorId?: number;
-	userRating: number;
+	userRating?: number;
+	authorId: number;
+	reviewLikes: number;
+	reviewDislikes: number;
 	/** @format date-time */
 	updatedAt: string;
 	/** @format date-time */
@@ -527,7 +518,7 @@ export interface DeathPlace {
 }
 
 export interface Spouses {
-	id?: number;
+	id: number;
 	name?: string;
 	divorced?: boolean;
 	divorcedReason?: string;
@@ -566,8 +557,7 @@ export interface Person {
 	age?: number | null;
 	birthPlace?: BirthPlace[];
 	deathPlace?: DeathPlace[];
-	// здесь надо массив, хотя с сваггера приходит просто Spouses
-	spouses?: Spouses[];
+	spouses?: Spouses;
 	countAwards?: number;
 	profession?: Profession[];
 	facts?: FactInPerson[];
@@ -578,47 +568,46 @@ export interface Person {
 	createdAt: string;
 }
 
-export interface MeiliPersonEntity {
-	'1': object;
+export interface MeiliPersonEntityV14 {
 	id: number;
-	name: string;
-	enName: string;
-	photo: string;
-	sex: string;
-	birthday: string;
-	death: string;
-	age: number;
+	name?: string | null;
+	enName?: string | null;
+	photo?: string | null;
+	sex?: string | null;
+	growth?: number | null;
+	birthday?: string | null;
+	death?: string | null;
+	age?: number | null;
 	birthPlace?: BirthPlace[];
 	deathPlace?: DeathPlace[];
 	profession?: Profession[];
-	growth: number;
 }
 
 export interface MovieInAward {
 	id: number;
-	name: string;
-	rating: number;
+	name?: string | null;
+	rating?: number | null;
 }
 
 export interface PersonAward {
-	nomination: Nomination;
-	winning: boolean;
+	nomination?: Nomination | null;
+	winning?: boolean | null;
 	/** @format date-time */
-	updatedAt: string;
+	updatedAt?: string | null;
 	/** @format date-time */
-	createdAt: string;
+	createdAt?: string | null;
 	personId: number;
-	movie: MovieInAward;
+	movie?: Movie | null;
 }
 
 export interface MovieFromStudio {
-	id?: number;
+	id: number;
 }
 
 export interface Studio {
 	id: string;
-	subType: string;
-	title: string;
+	subType?: string | null;
+	title?: string | null;
 	type?: 'Производство' | 'Спецэффекты' | 'Прокат' | 'Студия дубляжа';
 	movies?: MovieFromStudio;
 	/** @format date-time */
@@ -628,12 +617,12 @@ export interface Studio {
 }
 
 export interface MovieFromKeyword {
-	id?: number;
+	id: number;
 }
 
 export interface Keyword {
 	id: number;
-	title: string;
+	title?: string | null;
 	movies?: MovieFromKeyword;
 	/** @format date-time */
 	updatedAt: string;
@@ -656,10 +645,10 @@ export interface Image {
 }
 
 export interface List {
-	category: string;
-	slug: string;
-	moviesCount: number;
-	cover: ShortImage;
+	category?: string | null;
+	slug?: string | null;
+	moviesCount?: number | null;
+	cover?: ShortImage | null;
 	name: string;
 	/** @format date-time */
 	updatedAt: string;

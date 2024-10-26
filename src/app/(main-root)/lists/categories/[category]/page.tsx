@@ -2,7 +2,7 @@ import { Categories } from '@/widgets/Categories';
 
 import { CategoriesType } from '@/shared/types';
 
-export async function generateMetadata({
+export function generateMetadata({
 	params,
 }: {
 	params: {

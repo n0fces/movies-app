@@ -12,7 +12,7 @@ export const PreviewRating = () => {
 		<div className={clsx(styles.previewRating, setColorClasses(styles, value))}>
 			<span
 				className={clsx(styles.previewValue, {
-					[styles.reviewPreviewValue]: value || rating,
+					[styles.reviewPreviewValue]: value ?? rating,
 				})}>
 				{value ?? rating ?? 'Поставьте оценку'}
 			</span>

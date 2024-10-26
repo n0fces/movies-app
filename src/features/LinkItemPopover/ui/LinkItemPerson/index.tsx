@@ -1,13 +1,12 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 
 import { PopoverCard } from '@/entities/PopoverCard';
 
 import { getPath } from '@/shared/helpers/getPath';
 import { getProfessions } from '@/shared/helpers/getProfessions';
-import { Person } from '@/shared/types';
+import { MovieInPerson, Person } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { IsLink } from '@/shared/ui/IsLink';
@@ -18,8 +17,10 @@ import { AdditionalInfoList, LinkItemProps } from '../../types';
 import { LinkItemEntity } from '../LinkItemEntity';
 import styles from './styles.module.scss';
 
-export interface PersonLoaded
-	extends Pick<Person, 'name' | 'enName' | 'profession' | 'photo' | 'movies'> {}
+export type PersonLoaded = Pick<
+	Person,
+	'name' | 'enName' | 'profession' | 'photo' | 'movies'
+>;
 
 interface LinkItemPersonProps extends LinkItemProps {
 	data?: PersonLoaded | null;
@@ -37,8 +38,10 @@ export const LinkItemPerson = ({
 	const [person, setPerson] = useState<typeof data>(data);
 
 	const personTitles = person?.movies
-		?.filter((movie) => Boolean(movie.rating))
-		.sort((a, b) => b.rating! - a.rating!)
+		?.filter((movie): movie is MovieInPerson & { rating: number } =>
+			Boolean(movie.rating),
+		)
+		.sort((a, b) => b.rating - a.rating)
 		.map((movie) => movie.name)
 		.slice(0, 10);
 
@@ -51,7 +54,8 @@ export const LinkItemPerson = ({
 			method: 'POST',
 			body: JSON.stringify(id),
 		});
-		const res = await response.json();
+		// ! ну такое
+		const res = await response.json() as Person;
 		return res;
 	};
 
@@ -76,7 +80,7 @@ export const LinkItemPerson = ({
 		<IsLink href={href}>
 			<MyImage
 				src={person?.photo}
-				alt={person?.name || person?.enName}
+				alt={person?.name ?? person?.enName}
 				width={112}
 				height={168}
 			/>
@@ -84,12 +88,7 @@ export const LinkItemPerson = ({
 	);
 
 	const FeaturesBtns = () => (
-		<Button
-			component={Link}
-			href={'#'}
-			theme="primary"
-			size="size_40"
-			shape="rounded">
+		<Button as="link" href={'#'} theme="primary" size="size_40" shape="rounded">
 			<Icon name="subscribe" className={styles.subscribeIcon} />
 			Подписаться
 		</Button>

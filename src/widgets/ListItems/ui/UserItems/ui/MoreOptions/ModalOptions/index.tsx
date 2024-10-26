@@ -14,7 +14,6 @@ import styles from './styles.module.scss';
 
 interface ModalOptions extends ListItemProps {
 	className?: string;
-	isMobile: boolean;
 }
 
 const BtnContentOptions = () => (
@@ -29,7 +28,7 @@ const BtnContentTrailer = () => (
 );
 
 export const ModalOptions = (props: ModalOptions) => {
-	const { className, poster, name, alternativeName, enName, isMobile } = props;
+	const { className, poster, name, alternativeName, enName } = props;
 
 	return (
 		<TouchModal
@@ -37,7 +36,7 @@ export const ModalOptions = (props: ModalOptions) => {
 			btnContent={BtnContentOptions()}
 			poster={poster?.previewUrl}
 			title={name}
-			secondaryTitle={alternativeName || enName}
+			secondaryTitle={alternativeName ?? enName}
 			isTitle>
 			<div className={styles.buttonsCnt}>
 				{/* здесь с пропсами надо подумать. если поставить деструктуризацию пропсов в конец, то все сломается по стилям */}

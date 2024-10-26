@@ -4,7 +4,6 @@ import { clsx } from 'clsx';
 import { useState } from 'react';
 
 import { ListItemProps, Video } from '@/shared/types';
-import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { Modal } from '@/shared/ui/Modal';
 import { VideoYT } from '@/shared/ui/VideoYT';
@@ -13,11 +12,11 @@ import { OtherTrailers } from '../OtherTrailers';
 import { TitleInfo } from '../TitleInfo';
 import styles from './styles.module.scss';
 
-interface ModalTrailerRootProps extends ListItemProps {
+type ModalTrailerRootProps = ListItemProps & {
 	isOpen: boolean;
 	closeModal: () => void;
 	isSidebar?: boolean;
-}
+} & { videos: { trailers: Video[] } };
 
 const ModalTrailerRoot = ({
 	isOpen,
@@ -26,17 +25,15 @@ const ModalTrailerRoot = ({
 	...otherProps
 }: ModalTrailerRootProps) => {
 	const { videos } = otherProps;
-	console.log(videos);
-	const trailers = videos?.trailers?.filter((trailer) => trailer.url).slice(1);
-	console.log(trailers);
-	const [otherTrailers, setOtherTrailers] = useState(trailers?.slice(1));
-	const [currentVideo, setCurrentVideo] = useState(trailers?.[0]);
+	const trailers = videos.trailers.filter((trailer) => trailer.url).slice(1);
+	const [otherTrailers, setOtherTrailers] = useState(trailers.slice(1));
+	const [currentVideo, setCurrentVideo] = useState(trailers[0]);
 
 	const changeCurrentTrailer = (trailer: Video) => {
 		setCurrentVideo(trailer);
 		setOtherTrailers((otherTrailers) =>
-			otherTrailers?.map((item) =>
-				item.url === trailer.url ? (currentVideo as Video) : item,
+			otherTrailers.map((item) =>
+				item.url === trailer.url ? currentVideo : item,
 			),
 		);
 	};
@@ -51,9 +48,7 @@ const ModalTrailerRoot = ({
 			closeModal={closeModal}>
 			<div className={styles.trailerContainer}>
 				<VideoYT
-					withBtn
-					isWatchable
-					key={currentVideo?.url}
+					key={currentVideo.url}
 					className={styles.trailer}
 					{...currentVideo}
 				/>

@@ -6,8 +6,13 @@ interface ListItemsSkeletonProps {
 }
 
 export const ListItemsSkeleton = ({ limit }: ListItemsSkeletonProps) => {
+	if (!Number.isInteger(limit) || limit <= 0) {
+		return null;
+	}
+
 	return (
 		<>
+			{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- просто необходимо создать массив с нужным кол-ом элементов, чтобы пройтись по нему и заполнить нужным контентом */}
 			{[...Array(limit)].map((_, index) => (
 				<div className={styles.listItemsSkeleton} key={index}>
 					<RectSkeleton className={styles.image}></RectSkeleton>

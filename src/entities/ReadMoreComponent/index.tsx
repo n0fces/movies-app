@@ -44,7 +44,7 @@ export const ReadMoreComponent = ({
 					size={size}
 					shape={shape}
 					className={className}
-					onClick={() => setIsOpen(!isOpen)}>
+					onClick={() => { setIsOpen(!isOpen); }}>
 					{isOpen ? textOnOpen : textOnClose}
 				</Button>
 			</div>

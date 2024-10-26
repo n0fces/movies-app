@@ -1,5 +1,5 @@
 export const createURLSearchParams = (
-	searchParams: { [key: string]: string },
+	searchParams: Record<string, string>,
 	typeParam: string,
 	valueParam: string,
 ) => {

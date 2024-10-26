@@ -5,7 +5,6 @@ import { LinkItemPerson } from '@/features/LinkItemPopover/ui/LinkItemPerson';
 import { PersonInMovie } from '@/shared/types';
 
 // * Надо обязательно подумать, как объединить в единый компонент LinkItems и LinkItemsPersons. Они практически одинаковы, за исключением работающей ссылки
-
 interface LinkItemsPersonsProps {
 	array?: PersonInMovie[] | null;
 	limitItems?: number;
@@ -22,12 +21,12 @@ export const LinkItemsPersons = ({
 
 	if (array && array.length > 0) {
 		const mappedArr = array.map(({ name, id, enName }, index) => {
-			const text = name || enName;
+			const text = name ?? enName;
 			if (text && id) {
 				return (
 					<>
 						<LinkItemPerson key={index} name={text} id={id} />
-						{array?.length && index !== array.length - 1 && ', '}
+						{array.length && index !== array.length - 1 && ', '}
 					</>
 				);
 			} else {

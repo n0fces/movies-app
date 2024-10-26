@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { useInputValue, useIsLoading, useSuggests } from '../../model/context';
 import { LoadingBackdrop } from '../LoadingBackdrop';
 import { SuggestItem } from '../SuggestItem';

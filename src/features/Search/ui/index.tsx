@@ -9,13 +9,7 @@ import { useNoscroll } from '@/shared/hooks/useNoscroll';
 import { DropdownWrapper } from '@/shared/ui/DropdownWrapper';
 
 import { useModel } from '../model';
-import {
-	ContextProvider,
-	useInputValue,
-	useIsOpen,
-	useSetters,
-	useSuggests,
-} from '../model/context';
+import { ContextProvider, useIsOpen, useSetters } from '../model/context';
 import { LoadingBackdrop } from './LoadingBackdrop';
 import { SearchPanel } from './SearchPanel';
 import styles from './styles.module.scss';
@@ -59,7 +53,11 @@ export const SearchObj = ({ isMobile }: SuggestProps) => {
 				</div>
 			) : null}
 			{isOpen && isMobile && (
-				<div className={styles.overlay} onClick={() => setIsOpen(false)}></div>
+				<div
+					className={styles.overlay}
+					onClick={() => {
+						setIsOpen(false);
+					}}></div>
 			)}
 		</DropdownWrapper>
 	);

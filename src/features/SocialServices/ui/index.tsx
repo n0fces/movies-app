@@ -1,8 +1,8 @@
 import { clsx } from 'clsx';
 import { headers } from 'next/headers';
-import Link from 'next/link';
 
 import { IconName } from '@/shared/types';
+import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './styles.module.scss';
@@ -23,8 +23,11 @@ const SocialService = ({
 	socialName,
 	enName,
 }: SocialServicesItem) => (
-	<li className={styles.service}>
-		<Link
+	<li>
+		<Button
+			as="link"
+			size="size_52"
+			shape="circle"
 			href={shareLink}
 			target="_blank"
 			title={socialName}
@@ -32,14 +35,17 @@ const SocialService = ({
 			className={clsx(styles.link, styles[enName])}>
 			<span className="visually-hidden">{socialName}</span>
 			<Icon name={enName} className={styles.icon} />
-		</Link>
+		</Button>
 	</li>
 );
 
 export const SocialServices = ({ className, text }: SocialServicesProps) => {
 	const headersList = headers();
-	const url = encodeURI(headersList.get('referer')!);
+	const referer = headersList.get('referer');
+	const url = referer ? encodeURI(referer) : '';
 	const msg = encodeURIComponent(text);
+
+	// ! ПОЧЕМУ-ТО КАКАЯ-ТО ПРОБЛЕМА С ССЫЛКАМИ
 
 	const socialServicesList: SocialServicesItem[] = [
 		{

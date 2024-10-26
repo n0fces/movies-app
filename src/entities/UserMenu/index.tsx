@@ -2,9 +2,7 @@
 
 import styles from './styles.module.scss';
 
-interface UserMenuProps {}
-
-export const UserMenu = ({}: UserMenuProps) => {
+export const UserMenu = () => {
 	return (
 		<nav className={styles.userMenu} id="user-menu">
 			{/* Потом это будет линка на страницу пользователя */}

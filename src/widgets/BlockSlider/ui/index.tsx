@@ -48,7 +48,7 @@ async function BlockSliderLoaded({
 				)}
 			</Title>
 			<Carousel ariaLabel={text} isMobile={isMobile}>
-				{data?.map((item) => (
+				{data.map((item) => (
 					<Card
 						key={item.id}
 						width={widthForPoster}

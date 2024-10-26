@@ -27,7 +27,7 @@ export const MyImage = ({
 			<Image
 				className={styles.image}
 				src={src}
-				alt={alt || ''}
+				alt={alt ?? ''}
 				width={width}
 				height={height}
 				{...props}

@@ -24,13 +24,13 @@ export const Header = ({
 		<div className={clsx(styles.header, className)}>
 			<MyImage
 				src={poster}
-				alt={title || secondaryTitle}
+				alt={title ?? secondaryTitle}
 				className={styles.image}
 				width={64}
 				height={96}
 			/>
 			<div className={styles.info}>
-				<div className={styles.title} id={`dialog-${title || secondaryTitle}`}>
+				<div className={styles.title} id={`dialog-${title ??secondaryTitle}`}>
 					{title}
 				</div>
 				<div className={styles.secondaryTitle}>{secondaryTitle}</div>

@@ -1,7 +1,7 @@
 import { ModalTrailer } from '@/features/ModalTrailer';
 import { WatchButton } from '@/features/WatchButton';
 
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 import { ListItemProps } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 

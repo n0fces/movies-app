@@ -17,9 +17,11 @@ export const ToggleButton = ({ typeParam, valueParam, text }: ToggleButton) => {
 	const params = useParams();
 	const searchParams = useSearchParams();
 
+	const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
+
 	return (
 		<Link
-			href={`/lists/titles/${params.slug}${createURLSearchParams(
+			href={`/lists/titles/${slug}${createURLSearchParams(
 				searchParams,
 				typeParam,
 				valueParam,

@@ -8,7 +8,11 @@ import { list } from '../../constants';
 import { AddToFoldersProps, ItemFolderProps } from '../../types';
 import styles from './styles.module.scss';
 
-const ItemFolder = ({ category, text }: ItemFolderProps) => (
+const ItemFolder = ({
+	// * закомментировал, чтобы всегда было перед глазами
+	// category,
+	text,
+}: ItemFolderProps) => (
 	<Button
 		theme="list"
 		size="size_40"

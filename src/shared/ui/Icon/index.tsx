@@ -6,9 +6,9 @@ interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name' | 'type'> {
 	name: IconName;
 }
 
-export const Icon = ({ name, className, viewBox, ...props }: IconProps) => {
+export const Icon = ({ name, ...props }: IconProps) => {
 	return (
-		<svg aria-hidden className={className} focusable="false" {...props}>
+		<svg {...props} aria-hidden focusable="false">
 			<use xlinkHref={`/sprite.svg#${name}`} />
 		</svg>
 	);

@@ -39,9 +39,11 @@ export const Select = ({
 		const bottom = Number(rect?.bottom);
 		const windowHeight = window.innerHeight;
 
-		SELECT_HEIGHT < windowHeight - bottom
-			? setIsAbove(false)
-			: setIsAbove(true);
+		if (SELECT_HEIGHT < windowHeight - bottom) {
+			setIsAbove(false);
+		} else {
+			setIsAbove(true);
+		}
 	};
 
 	const choiceAction = (value: string, label: string) => {
@@ -99,7 +101,7 @@ export const Select = ({
 								<Option
 									key={option.value}
 									choiceAction={choiceAction}
-									selectedOptionValue={value ?? options?.[0].value}
+									selectedOptionValue={value ?? options[0].value}
 									{...option}
 								/>
 							);

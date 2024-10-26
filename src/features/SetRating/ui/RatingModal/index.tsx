@@ -53,7 +53,7 @@ const RatingModalObj = ({
 	const setValue = useValueSetter();
 
 	useEffect(() => {
-		return () => setValue(undefined);
+		return () => { setValue(undefined); };
 	}, [setValue]);
 
 	return (
@@ -66,8 +66,8 @@ const RatingModalObj = ({
 			className={className}
 			poster={poster?.previewUrl}
 			btnContent={BtnContent()}
-			title={name || alternativeName || enName}
-			secondaryTitle={alternativeName || enName}
+			title={name ?? alternativeName ?? enName}
+			secondaryTitle={alternativeName ?? enName}
 			isTitle>
 			<PreviewRating />
 			<Voiting />

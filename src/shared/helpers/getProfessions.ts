@@ -1,4 +1,4 @@
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { Profession } from '@/shared/types';
 
 export const getProfessions = (profession: Profession[] | undefined) => {

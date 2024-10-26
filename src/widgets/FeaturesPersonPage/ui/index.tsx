@@ -29,7 +29,7 @@ export const FeaturesPersonPage = async ({
 				theme="textBelow"
 				profession={profession}
 				poster={photo}
-				secondaryTitle={name || enName}
+				secondaryTitle={name ?? enName}
 				className={styles.feature}
 			/>
 		</div>

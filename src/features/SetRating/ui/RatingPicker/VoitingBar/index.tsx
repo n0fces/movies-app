@@ -26,6 +26,7 @@ export const VoitingBar = ({ className }: VoitingBarProps) => {
 			tabIndex={0}
 			ref={ref}>
 			<Icon name="star" className={styles.iconStar} />
+			{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- просто необходимо создать массив с нужным кол-ом элементов, чтобы пройтись по нему и заполнить нужным контентом */}
 			{[...Array(10)].map((_, i) => {
 				i = i + 1;
 				return (

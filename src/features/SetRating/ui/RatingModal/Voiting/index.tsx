@@ -12,6 +12,7 @@ export const Voiting = () => {
 
 	return (
 		<div className={styles.voiting}>
+			{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- просто необходимо создать массив с нужным кол-ом элементов, чтобы пройтись по нему и заполнить нужным контентом */}
 			{[...Array(10)].map((_, i) => {
 				i = i + 1;
 				return (

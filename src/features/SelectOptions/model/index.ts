@@ -4,19 +4,20 @@ import { useParams, useRouter, useSearchParams } from 'next/navigation';
 
 import { createURLSearchParams } from '../lib/createURLSearchParams';
 
-// ПОКА ОСТАВЛЮ ТАК, НА ВАЖНО ПОМНИТЬ, ЧТО ТЕПЕРЬ У МЕНЯ КОМПОНЕНТ BUTTON УДОБНЫЙ. Я МОГУ НАЗНАЧАТЬ НУЖНЫЙ ДЛЯ МЕНЯ КОМПОНЕНТ С СОХРАНЕНИЕМ НУЖНЫХ СТИЛЕЙ
-
+// ! дублирование кода: в src/features/SelectSortType/model/index.ts такой же код
 export const useModel = () => {
 	const router = useRouter();
 	const params = useParams();
 	const searchParams = useSearchParams();
 
+	const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
+
 	return (typeParam: string) => (value: string) => {
 		router.push(
-			`/lists/titles/${params.slug}${createURLSearchParams(
+			`/lists/titles/${slug}${createURLSearchParams(
 				searchParams,
-				`${typeParam}`,
-				`${value}`,
+				typeParam,
+				value,
 			)}`,
 		);
 	};

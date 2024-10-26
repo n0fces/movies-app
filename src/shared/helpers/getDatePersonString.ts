@@ -1,7 +1,17 @@
 import { months } from '../constants/months';
 import { getBirthday } from './getBirthday';
-import { getZodiac } from './getZodiac';
-import { stringWithDelimiter } from './stringWithDelimiter';
+import { getZodiac } from './getZodiac/getZodiac';
+import { stringWithDelimiter } from './stringWithDelimiter/stringWithDelimiter';
+
+const getAgeString = (age?: number | null) => {
+	if (age) {
+		const word =
+			age % 10 === 1 ? 'год' : [2, 3, 4].includes(age % 10) ? 'года' : 'лет';
+		return `${age} ${word}`;
+	}
+
+	return null;
+};
 
 export const getDatePersonString = (
 	date: string | null | undefined,
@@ -9,16 +19,10 @@ export const getDatePersonString = (
 	withZodiac?: boolean,
 ) => {
 	const birthData = getBirthday(date);
-	let birth: string | null = null;
 	if (birthData) {
 		const { day, month, year } = birthData;
 		const zodiac = withZodiac ? getZodiac(date) : null;
-		let ageString: string | null = null;
-		if (age) {
-			const word =
-				age % 10 === 1 ? 'год' : [2, 3, 4].includes(age % 10) ? 'года' : 'лет';
-			ageString = `${age} ${word}`;
-		}
+		const ageString = getAgeString(age);
 		const birth = stringWithDelimiter(' • ', [
 			`${day} ${months[month]}, ${year}`,
 			zodiac,
@@ -27,5 +31,5 @@ export const getDatePersonString = (
 		return birth;
 	}
 
-	return birth;
+	return null;
 };

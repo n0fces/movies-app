@@ -9,7 +9,7 @@ import { TopListLinksBlock } from '@/entities/TopListLinksBlock';
 
 import { getPath } from '@/shared/helpers/getPath';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
-import { sortPersons } from '@/shared/helpers/sortPersons';
+import { sortPersons } from '@/shared/helpers/sortPersons/sortPersons';
 import { PersonInMovie } from '@/shared/types';
 
 import styles from './styles.module.scss';
@@ -32,7 +32,7 @@ const CastBlock = ({ array, title, castBlockConstaint = 3 }: CastBlockProps) =>
 			list={array
 				.slice(0, castBlockConstaint)
 				.map(({ name, id, enName }, index) => {
-					const text = name || enName;
+					const text = name ?? enName;
 					if (text && id) {
 						return (
 							<LinkItemPerson

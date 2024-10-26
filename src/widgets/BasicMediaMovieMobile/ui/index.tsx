@@ -5,11 +5,11 @@ import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
 import { RatingValue } from '@/entities/RatingValue';
 
-import { convertMinutes } from '@/shared/helpers/convertMinutes';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 
 import styles from './styles.module.scss';
+import { convertMinutes } from '@/shared/helpers/convertMinutes/convertMinutes';
 
 interface BasicMediaMovieMobileProps {
 	className?: string;
@@ -40,8 +40,8 @@ export const BasicMediaMovieMobile = async ({
 		seasonsInfo,
 	} = title;
 
-	const titleName = name || alternativeName || enName;
-	const secondaryTitle = alternativeName || enName;
+	const titleName = name ?? alternativeName ?? enName;
+	const secondaryTitle = alternativeName ?? enName;
 	const timestamp = isSeries
 		? `${releaseYears?.[0].start}-${releaseYears?.[0].end ?? '...'}`
 		: year;
@@ -54,15 +54,15 @@ export const BasicMediaMovieMobile = async ({
 		: null;
 	const amountSeasons = isSeries
 		? seasonsInfo?.length &&
-			`${seasonsInfo?.length} ${setCorrectEndWord(
+			`${seasonsInfo.length} ${setCorrectEndWord(
 				'сезон',
-				seasonsInfo?.length,
+				seasonsInfo.length,
 			)}`
 		: null;
 
 	const firstMetaLine = stringWithDelimiter(', ', [
 		timestamp,
-		...(genres?.map((genre) => genre.name)?.slice(0, 3) ?? []),
+		...(genres?.map((genre) => genre.name).slice(0, 3) ?? []),
 		amountSeasons,
 	]);
 	const secondMetaLine = stringWithDelimiter(', ', [

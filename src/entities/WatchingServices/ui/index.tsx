@@ -9,7 +9,7 @@ interface WatchingServicesProps {
 	watchability?: Watchability;
 }
 
-export const WatchingServices = async ({
+export const WatchingServices = ({
 	className,
 	isMobile,
 	watchability,

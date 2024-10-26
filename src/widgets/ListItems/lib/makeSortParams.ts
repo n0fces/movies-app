@@ -1,11 +1,15 @@
 export const makeSortParams = (
 	lists: string,
-	searchParams: { [key: string]: string },
+	searchParams: Record<string, string>,
 ) => {
 	const arr: string[][] = [[], []];
-	if (Boolean(searchParams['sortField'])) {
-		arr[0].push(searchParams['sortField']);
-		searchParams['sortField'] === 'name' ? arr[1].push('1') : arr[1].push('-1');
+	if (Boolean(searchParams.sortField)) {
+		arr[0].push(searchParams.sortField);
+		if (searchParams.sortField === 'name') {
+			arr[1].push('1');
+		} else {
+			arr[1].push('-1');
+		}
 	} else {
 		if (lists === 'top250' || lists === 'series-top250' || lists === 'top500') {
 			arr[0].push('top250');

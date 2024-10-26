@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 
 import { getPath } from '@/shared/helpers/getPath';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { ListItemProps } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
 import { Rating } from '@/shared/ui/Rating';
@@ -28,8 +28,8 @@ export const TitleInfo = ({
 	votes,
 }: TitleInfoProps) => {
 	const path = releaseYears ? getPath.series(id) : getPath.movie(id);
-	const title = name || alternativeName || enName;
-	const secondaryTitle = alternativeName || enName;
+	const title = name ?? alternativeName ?? enName;
+	const secondaryTitle = alternativeName ?? enName;
 	const during = releaseYears?.length
 		? `${releaseYears[0].start} - ${releaseYears[0].end}`
 		: '';

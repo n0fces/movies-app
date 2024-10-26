@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { startTransition } from 'react';
 
@@ -46,7 +45,7 @@ export default function Error({
 						theme="outlineWhite"
 						size="size_40"
 						shape="rounded"
-						component={Link}
+						as="link"
 						href="/">
 						Вернуться на главную
 					</Button>

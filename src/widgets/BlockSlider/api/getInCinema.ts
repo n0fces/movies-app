@@ -29,8 +29,8 @@ export const getInCinema = cache(async () => {
 	});
 
 	return data.docs.sort((a, b) => {
-		const x = Number(a?.votes?.kp ?? 0);
-		const y = Number(b?.votes?.kp ?? 0);
+		const x = Number(a.votes?.kp ?? 0);
+		const y = Number(b.votes?.kp ?? 0);
 		return x - y;
 	});
 });

@@ -13,7 +13,7 @@ import { MoreOptionsDropdown } from '@/entities/MoreOptionsDropdown';
 import { RatingBlockTitle } from '@/entities/RatingBlockTitle';
 import { WatchingServices } from '@/entities/WatchingServices';
 
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 
 import styles from './styles.module.scss';
@@ -43,7 +43,7 @@ export const HeaderTitlePage = async ({
 		top250,
 	} = await getTitle(id);
 	const isKP = canWatchInKP(watchability);
-	const isSmall = ticketsOnSale || isKP;
+	const isSmall = ticketsOnSale ?? isKP;
 	const timestamp =
 		isSeries && releaseYears
 			? `${releaseYears[0].start} – ${releaseYears[0].end ?? '...'}`
@@ -53,7 +53,7 @@ export const HeaderTitlePage = async ({
 		<div className={clsx(styles.headerTitle, className)}>
 			<HeaderNamespace
 				title={`${name} (${timestamp})`}
-				subtitle={alternativeName || enName}
+				subtitle={alternativeName ?? enName}
 				ageRating={ageRating ? `${ageRating}+` : null}
 				className={styles.headerNamespace}>
 				<div className={styles.btnsContainer}>

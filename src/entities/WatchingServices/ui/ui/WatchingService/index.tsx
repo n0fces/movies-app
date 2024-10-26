@@ -26,7 +26,7 @@ export const WatchingService = ({
 				rel="noopener noreferrer nofollow">
 				<div className={styles.serviceLogo}>
 					<MyImage
-						src={logo?.url}
+						src={logo.url}
 						alt={name}
 						width={isMobile ? 42 : 32}
 						height={isMobile ? 42 : 32}

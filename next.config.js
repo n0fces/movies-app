@@ -58,6 +58,12 @@ const NextConfig = {
 				port: '',
 				pathname: '/vi_webp/**',
 			},
+			{
+				protocol: 'https',
+				hostname: 'i.ytimg.com',
+				port: '',
+				pathname: '/vi/**',
+			},
 		],
 		dangerouslyAllowSVG: true,
 		contentDispositionType: 'attachment',

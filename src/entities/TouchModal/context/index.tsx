@@ -17,8 +17,8 @@ const Context = createContext<IContext | null>(null);
 export const TouchModalProvider = ({ children }: ContextProviderProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const closeModal = useCallback(() => setIsOpen(false), []);
-	const showModal = useCallback(() => setIsOpen(true), []);
+	const closeModal = useCallback(() => { setIsOpen(false); }, []);
+	const showModal = useCallback(() => { setIsOpen(true); }, []);
 
 	return (
 		<Context.Provider

@@ -10,7 +10,13 @@ import styles from './styles.module.scss';
 
 interface TitleCrewItemProps {
 	className?: string;
+	/**
+	 * информация о конкретном участнике состава фильма или сериала
+	 */
 	personInfo: PersonInMovie;
+	/**
+	 * в зависимости от типа карусели будет различаться описание участника профессионального состава
+	 */
 	type?: TitleCrewCarouselType;
 }
 
@@ -20,7 +26,7 @@ export const TitleCrewItem = ({
 	type = 'actors',
 }: TitleCrewItemProps) => {
 	const { photo, id, name, enName, description, profession } = personInfo;
-	const personName = name || enName;
+	const personName = name ?? enName;
 	const subtitle =
 		type === 'actors'
 			? description

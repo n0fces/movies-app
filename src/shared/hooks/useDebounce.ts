@@ -1,8 +1,13 @@
-export const useDebouce = (fn: Function, delay = 300) => {
+export const useDebouce = <T extends unknown[]>(
+	callback: (...args: T) => void,
+	delay = 300,
+) => {
 	let timeout: NodeJS.Timeout;
 
-	return (...args: any[]) => {
+	return (...args: T) => {
 		clearTimeout(timeout);
-		timeout = setTimeout(() => fn(...args), delay);
+		timeout = setTimeout(() => {
+			callback(...args);
+		}, delay);
 	};
 };

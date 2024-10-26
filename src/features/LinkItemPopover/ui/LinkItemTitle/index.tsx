@@ -1,6 +1,5 @@
 'use client';
 
-import { clsx } from 'clsx';
 import { useState } from 'react';
 
 import { PlannedToWatch } from '@/features/PlannedToWatch';
@@ -11,11 +10,11 @@ import { LinkItems } from '@/entities/LinkItems';
 import { PopoverCard } from '@/entities/PopoverCard';
 import { Poster } from '@/entities/Poster';
 
-import { canWatchInKP } from '@/shared/helpers/canWatchInKP';
+import { canWatchInKP } from '@/shared/helpers/canWatchInKP/canWatchInKP';
 import { getPath } from '@/shared/helpers/getPath';
-import { sortPersons } from '@/shared/helpers/sortPersons';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
-import { CardItemEntity, LinkItem } from '@/shared/types';
+import { sortPersons } from '@/shared/helpers/sortPersons/sortPersons';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
+import { CardItemEntity, LinkItem, PersonInMovie } from '@/shared/types';
 import { IsLink } from '@/shared/ui/IsLink';
 
 import { useModel } from '../../model/useModel';
@@ -23,10 +22,10 @@ import { AdditionalInfoList, LinkItemProps } from '../../types';
 import { LinkItemEntity } from '../LinkItemEntity';
 import styles from './styles.module.scss';
 
-interface TitleLoaded extends CardItemEntity {}
+export type Data = CardItemEntity | null | undefined;
 
 interface LinkItemPersonProps extends LinkItemProps {
-	data?: TitleLoaded | null;
+	data: Data;
 }
 
 export const LinkItemTitle = ({
@@ -44,18 +43,23 @@ export const LinkItemTitle = ({
 	const isKP = canWatchInKP(title?.watchability);
 
 	const actorsList: LinkItem[] = stuff.actor
-		.filter((actor) => Boolean(actor.name && actor.id))
+		.filter((actor): actor is PersonInMovie & { name: string; id: string } =>
+			Boolean(actor.name && actor.id),
+		)
 		.map((actor) => ({
 			name: actor.name,
 			href: getPath.person(actor.id),
-		})) as LinkItem[];
+		}));
 
 	const directorsList: LinkItem[] = stuff.director
-		.filter((director) => Boolean(director.name && director.id))
+		.filter(
+			(director): director is PersonInMovie & { name: string; id: string } =>
+				Boolean(director.name && director.id),
+		)
 		.map((director) => ({
 			name: director.name,
 			href: getPath.person(director.id),
-		})) as LinkItem[];
+		}));
 
 	const additionalInfo: AdditionalInfoList = {
 		'В главных ролях': actorsList.length ? (
@@ -64,7 +68,7 @@ export const LinkItemTitle = ({
 		Режиссер: directorsList.length ? <LinkItems array={directorsList} /> : null,
 	};
 
-	const titleName = title?.name || title?.alternativeName || title?.enName;
+	const titleName = title?.name ?? title?.alternativeName ?? title?.enName;
 
 	const TitleName = () => <IsLink href={href}>{titleName}</IsLink>;
 
@@ -73,7 +77,8 @@ export const LinkItemTitle = ({
 			method: 'POST',
 			body: JSON.stringify(id),
 		});
-		return await response.json();
+		// ! ну такое
+		return (await response.json()) as Data;
 	};
 
 	const {
@@ -120,8 +125,8 @@ export const LinkItemTitle = ({
 				theme="primary"
 				size="size_40"
 				shape={title?.ticketsOnSale || isKP ? 'circle' : 'rounded'}
-				withoutPadding={title?.ticketsOnSale || isKP}
-				small={title?.ticketsOnSale || isKP}
+				withoutPadding={title?.ticketsOnSale ?? isKP}
+				small={title?.ticketsOnSale ?? isKP}
 			/>
 		</>
 	);
@@ -129,36 +134,34 @@ export const LinkItemTitle = ({
 	// короче, здесь можно провести некоторые махинации по оптимизации, но я не знаю, насколько это нужно здесь
 	// можно PopoverCard обернуть в memo, а также ноды, которые мы в нее передаем. Тогда при переключении isHover
 	// не будет лишний раз ререндерится карточка с доп инфой. Но не знаю, насколько это вообще нужно
-	return (
-		name && (
-			<>
-				<LinkItemEntity
-					onMouseEnter={onMouseEnter}
+	return name ? (
+		<>
+			<LinkItemEntity
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				setPosition={setPosition}
+				className={className}
+				name={name}
+				href={href}
+				wordIsLink={wordIsLink}
+				isMobile={isMobile}
+			/>
+			{isOpen && (
+				<PopoverCard
 					onMouseLeave={onMouseLeave}
-					setPosition={setPosition}
-					className={className}
-					name={name}
-					href={href}
-					wordIsLink={wordIsLink}
-					isMobile={isMobile}
+					onMouseEnter={onMouseEnter}
+					style={{ top, left }}
+					image={PosterComp}
+					featureBtns={FeaturesBtns}
+					titleName={TitleName}
+					subtitle={stringWithDelimiter(', ', [
+						title?.alternativeName ?? title?.enName,
+						title?.year,
+					])}
+					additionalInfo={additionalInfo}
+					isLoading={isLoading}
 				/>
-				{isOpen && (
-					<PopoverCard
-						onMouseLeave={onMouseLeave}
-						onMouseEnter={onMouseEnter}
-						style={{ top, left }}
-						image={PosterComp}
-						featureBtns={FeaturesBtns}
-						titleName={TitleName}
-						subtitle={stringWithDelimiter(', ', [
-							title?.alternativeName || title?.enName,
-							title?.year,
-						])}
-						additionalInfo={additionalInfo}
-						isLoading={isLoading}
-					/>
-				)}
-			</>
-		)
-	);
+			)}
+		</>
+	) : null;
 };

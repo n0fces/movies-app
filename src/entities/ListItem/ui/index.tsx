@@ -11,9 +11,9 @@ import { ContentSlot } from './ContentSlot';
 import styles from './styles.module.scss';
 
 export interface ListItemPropsEx extends ListItemProps {
-	watchItems?: () => JSX.Element;
-	userItems?: () => JSX.Element;
-	ratingValue?: () => JSX.Element;
+	watchItems?: () => React.ReactElement;
+	userItems?: () => React.ReactElement;
+	ratingValue?: () => React.ReactElement;
 }
 
 export const ListItem = (props: ListItemPropsEx) => {
@@ -40,7 +40,7 @@ export const ListItem = (props: ListItemPropsEx) => {
 				<Poster
 					widthPoster={72}
 					heightPoster={108}
-					alt={name || enName || alternativeName}
+					alt={name ?? enName ?? alternativeName}
 					rating={isMobile ? rating : undefined}
 					poster={poster}
 				/>

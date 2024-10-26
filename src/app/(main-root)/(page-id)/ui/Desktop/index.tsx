@@ -1,10 +1,10 @@
 import styles from './styles.module.scss';
 
 interface DesktopProps {
-	basicMediaSection?: () => JSX.Element;
-	headerTitle?: () => JSX.Element;
-	tableInfo?: () => JSX.Element;
-	sideContent?: () => JSX.Element;
+	basicMediaSection?: () => React.ReactElement;
+	headerTitle?: () => React.ReactElement;
+	tableInfo?: () => React.ReactElement;
+	sideContent?: () => React.ReactElement;
 }
 
 export const Desktop = ({

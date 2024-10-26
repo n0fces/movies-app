@@ -8,7 +8,7 @@ import { getCategory } from './api/getCategory';
 import styles from './styles.module.scss';
 
 interface DescriptionCategoryProps {
-	params: { [key: string]: string };
+	params: Record<string, string>;
 }
 
 export async function CategoryDescription({

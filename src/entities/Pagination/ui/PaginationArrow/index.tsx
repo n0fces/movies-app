@@ -30,7 +30,7 @@ export const PaginationArrow = ({
 				`${move}`,
 			)}`}
 			className={clsx(styles.arrow, { [styles.end]: isForward })}
-			title={`${type}`}>
+			title={type}>
 			<Icon name="arrow-pagination" className={styles.arrowPagination} />
 		</Link>
 	) : null;

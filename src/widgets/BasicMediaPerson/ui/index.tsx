@@ -29,7 +29,7 @@ export const BasicMediaPerson = async ({
 				<Link href={'#'}>
 					<MyImage
 						src={photo}
-						alt={name || enName}
+						alt={name ?? enName}
 						width={302}
 						height={453}
 						className={styles.poster}

@@ -8,12 +8,12 @@ import { makeSortParams } from '../lib/makeSortParams';
 export const getTitles = cache(
 	async (
 		lists: string,
-		searchParams: { [key: string]: string },
+		searchParams: Record<string, string>,
 		limit: number,
 	) => {
 		const [sortField, sortType] = makeSortParams(lists, searchParams);
 
-		const params: { [key: string]: string | string[] | number } = {
+		const params: Record<string, string | string[] | number> = {
 			limit,
 			selectFields: [
 				'id',
@@ -39,15 +39,15 @@ export const getTitles = cache(
 		};
 
 		if (lists === 'top250' || lists === 'series-top250') {
-			params['notNullFields'] = ['top250'];
+			params.notNullFields = ['top250'];
 		}
 
 		if (sortField.length > 0) {
-			params['sortField'] = sortField;
+			params.sortField = sortField;
 		}
 
 		if (sortType.length > 0) {
-			params['sortType'] = sortType;
+			params.sortType = sortType;
 		}
 
 		const { data } = await api.get<ListItemsReq>('v1.4/movie', {

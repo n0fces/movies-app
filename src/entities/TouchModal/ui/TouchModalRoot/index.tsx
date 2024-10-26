@@ -23,7 +23,7 @@ const TouchModalRoot = ({
 			className={styles.modal}
 			closeModal={closeModal}
 			isOpen={isOpen}
-			aria-labelledby={`dialog-${title || secondaryTitle}`}>
+			aria-labelledby={`dialog-${title ?? secondaryTitle}`}>
 			<div className={styles.headerContainer}>
 				{/* надо будет переименовать, чтобы точно понимал, что это хедер модалки */}
 				<Header {...otherProps} className={styles.header} />

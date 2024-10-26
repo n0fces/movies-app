@@ -28,7 +28,7 @@ export const Option = ({
 				theme="list"
 				size="size_40"
 				maxWidth
-				onClick={() => choiceAction(value, label)}
+				onClick={() => { choiceAction(value, label); }}
 				className={styles.itemBtn}>
 				{label}
 				{selected ? (

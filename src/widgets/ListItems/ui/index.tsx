@@ -14,8 +14,8 @@ import { WatchItems } from './WatchItems';
 import styles from './styles.module.scss';
 
 interface ListItemsProps {
-	params: { [key: string]: string };
-	searchParams: { [key: string]: string };
+	params: Record<string, string>;
+	searchParams: Record<string, string>;
 	limit: number;
 }
 

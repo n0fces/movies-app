@@ -1,4 +1,4 @@
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { Spouses } from '@/shared/types';
 
 export const getSpousesData = (spouses: Spouses[] | undefined) => {

@@ -9,12 +9,14 @@ export const useModel = () => {
 	const params = useParams();
 	const searchParams = useSearchParams();
 
+	const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
+
 	return (typeParam: string) => (value: string) => {
 		router.push(
-			`/lists/titles/${params.slug}${createURLSearchParams(
+			`/lists/titles/${slug}${createURLSearchParams(
 				searchParams,
-				`${typeParam}`,
-				`${value}`,
+				typeParam,
+				value,
 			)}`,
 		);
 	};

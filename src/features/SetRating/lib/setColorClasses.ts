@@ -5,9 +5,7 @@ import { colorChoice } from './colorChoice';
 // то при использовании данной функции ставим вместо value i
 
 export const setColorClasses = (
-	styles: {
-		readonly [key: string]: string;
-	},
+	styles: Readonly<Record<string, string>>,
 	value?: number,
 	i?: number,
 	allPrevBtns?: boolean,

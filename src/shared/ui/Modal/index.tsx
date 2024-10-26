@@ -88,6 +88,7 @@ export const Modal = ({
 	}, [isOpen, showModal, unmountModal, onKeyDown, focusTrap, clickByBackdrop]);
 
 	return isOpen ? (
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- данная нода точно существует в `/app/layout.tsx`
 		<Portal element={document.getElementById('modal-root')!}>
 			<dialog
 				ref={dialogRef}

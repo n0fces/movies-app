@@ -1,5 +1,5 @@
 import { Video } from '@/shared/types';
-import { VideoYT } from '@/shared/ui/VideoYT';
+import { PreviewYT } from '@/shared/ui/PreviewYT';
 
 import styles from './styles.module.scss';
 
@@ -18,10 +18,14 @@ export const OtherTrailer = ({
 	return (
 		<li className={className}>
 			<button
-				onClick={() => changeCurrentTrailer(trailer)}
+				onClick={() => { changeCurrentTrailer(trailer); }}
 				className={styles.otherTrailer}
 				aria-label={`Посмотреть трейлер ${name}`}>
-				<VideoYT className={styles.trailerImage} {...trailer} />
+				<PreviewYT
+					className={styles.trailerImage}
+					alt={trailer.name}
+					url={trailer.url}
+				/>
 				<div className={styles.trailerName}>{name}</div>
 			</button>
 		</li>

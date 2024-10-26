@@ -10,6 +10,7 @@ interface LinkItemEntityProps
 		>,
 		Omit<LinkItemProps, 'id'> {}
 
+// ! скорее всего можно вынести в entity
 export const LinkItemEntity = ({
 	className,
 	onMouseEnter,

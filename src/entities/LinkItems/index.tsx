@@ -24,7 +24,7 @@ export const LinkItems = ({
 				<Link key={index} href={href} className={className}>
 					{name}
 				</Link>
-				{array?.length && index !== array.length - 1 && ', '}
+				{array.length && index !== array.length - 1 && ', '}
 			</>
 		));
 

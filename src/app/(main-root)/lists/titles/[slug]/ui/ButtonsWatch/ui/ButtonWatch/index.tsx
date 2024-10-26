@@ -17,6 +17,9 @@ export const ButtonWatch = ({ watchability, className, text }: ButtonProps) => {
 	const searchParams = useSearchParams();
 	const params = useParams();
 
+	// ! эта строчка кода часто повторяется в кодовой базе
+	const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
+
 	const active =
 		watchability === undefined
 			? !searchParams.has('watchability.items.name')
@@ -24,7 +27,7 @@ export const ButtonWatch = ({ watchability, className, text }: ButtonProps) => {
 
 	return (
 		<Link
-			href={`/lists/titles/${params.slug}${createURLSearchParams(
+			href={`/lists/titles/${slug}${createURLSearchParams(
 				searchParams,
 				'watchability.items.name',
 				watchability ?? '',

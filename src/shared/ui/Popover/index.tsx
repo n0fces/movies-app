@@ -15,6 +15,7 @@ export const Popover = ({
 	...otherProps
 }: PopoverProps) => {
 	return (
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- данная нода точно существует в `/app/layout.tsx`
 		<Portal element={document.getElementById('popover-root')!}>
 			<div className={clsx(styles.popover, className)} {...otherProps}>
 				{children}

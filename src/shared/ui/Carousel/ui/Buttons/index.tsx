@@ -28,7 +28,7 @@ export const Buttons = ({ isMobile, ariaLabel, className }: ButtonsProps) => {
 					ref={leftButtonRef}
 					className={clsx(styles.button, styles.buttonLeft)}
 					aria-label="Предыдущий"
-					onClick={() => clickSwipe('left', carouselRef)}>
+					onClick={() => { clickSwipe('left', carouselRef); }}>
 					<Icon name="arrow-slider" className={styles.icon} />
 				</button>
 			</li>
@@ -37,7 +37,7 @@ export const Buttons = ({ isMobile, ariaLabel, className }: ButtonsProps) => {
 					ref={rightButtonRef}
 					className={clsx(styles.button, styles.buttonRight)}
 					aria-label="Следующий"
-					onClick={() => clickSwipe('right', carouselRef)}>
+					onClick={() => { clickSwipe('right', carouselRef); }}>
 					<Icon name="arrow-slider" className={styles.icon} />
 				</button>
 			</li>

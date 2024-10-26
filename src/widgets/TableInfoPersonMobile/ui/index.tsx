@@ -6,7 +6,7 @@ import { TableInfoMobile } from '@/entities/TableInfoMobile';
 import { getDatePersonString } from '@/shared/helpers/getDatePersonString';
 import { getGrowth } from '@/shared/helpers/getGrowth';
 import { getProfessions } from '@/shared/helpers/getProfessions';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';
 
 import styles from './styles.module.scss';
@@ -28,8 +28,9 @@ export const TableInfoPersonMobile = async ({
 		birthPlace,
 		death,
 		movies,
-		spouses,
-		sex,
+		// сейчас с апи не приходит имя супруги или мужа
+		// spouses,
+		// sex,
 	} = await getPerson(id);
 
 	const professions = getProfessions(profession);
@@ -37,6 +38,7 @@ export const TableInfoPersonMobile = async ({
 	const birth = getDatePersonString(birthday, death ? null : age);
 	const deathStr = getDatePersonString(death, age);
 	const countMovies = movies?.length ?? 0;
+
 	// const spousesList = getSpousesData(spouses);
 
 	const birthPlaceArr = birthPlace

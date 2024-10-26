@@ -7,18 +7,20 @@ import { TableInfo } from '@/entities/TableInfo';
 
 import { ratingMpaaDescription } from '@/shared/constants/ratingMpaaDescription';
 import { getPath } from '@/shared/helpers/getPath';
-import { mergeString } from '@/shared/helpers/mergeString';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
-import { sortPersons } from '@/shared/helpers/sortPersons';
+import { sortPersons } from '@/shared/helpers/sortPersons/sortPersons';
 import { InfoItem, LinkItem } from '@/shared/types';
 
-import { setTime } from '../lib/setTime';
+import { getDurationString } from '../lib/getDurationString/getDurationString';
 import styles from './styles.module.scss';
 import { Audiences } from './ui/Audiences';
 import { LinkItemsPersons } from './ui/LinkItemsPersons';
 
 interface TableInfoProps {
 	className?: string;
+	/**
+	 * По id будет сделан запрос для получения информации о фильме
+	 */
 	id: number;
 }
 
@@ -48,18 +50,18 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 			: getPath.popularMoviesFilter(filter);
 
 	const countriesList: LinkItem[] | undefined = countries
-		?.filter((country) => Boolean(country?.name))
+		?.filter((country): country is { name: string } => Boolean(country.name))
 		.map((country) => ({
 			name: country.name,
-			href: popularLink(mergeString('countries.name=', country.name!)),
-		})) as LinkItem[] | undefined;
+			href: popularLink(`countries.name=${country.name}`),
+		}));
 
 	const genresList: LinkItem[] | undefined = genres
-		?.filter((genre) => Boolean(genre.name))
+		?.filter((genre): genre is { name: string } => Boolean(genre.name))
 		.map((genre) => ({
 			name: genre.name,
-			href: popularLink(mergeString('genres.name=', genre.name!)),
-		})) as LinkItem[] | undefined;
+			href: popularLink(`genres.name=${genre.name}`),
+		}));
 
 	const infoList: InfoItem[] = [
 		{
@@ -146,21 +148,21 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 			titleRow: 'Бюджет',
 			valueRow:
 				budget?.currency &&
-				budget?.value &&
+				budget.value &&
 				`${budget.currency}${budget.value.toLocaleString('ru-RU')}`,
 		},
 		{
 			titleRow: 'Сборы в США',
 			valueRow:
 				fees?.usa?.currency &&
-				fees?.usa?.value &&
+				fees.usa.value &&
 				`${fees.usa.currency}${fees.usa.value.toLocaleString('ru-RU')}`,
 		},
 		{
 			titleRow: 'Сборы в мире',
 			valueRow:
 				fees?.world?.value &&
-				fees?.usa?.value &&
+				fees.usa?.value &&
 				`+${fees.usa.currency}${(
 					Number(fees.world.value) - Number(fees.usa.value)
 				).toLocaleString('ru-RU')}=${
@@ -220,7 +222,7 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 		},
 		{
 			titleRow: 'Время',
-			valueRow: setTime(isSeries ? seriesLength : movieLength),
+			valueRow: getDurationString(isSeries ? seriesLength : movieLength),
 		},
 	];
 

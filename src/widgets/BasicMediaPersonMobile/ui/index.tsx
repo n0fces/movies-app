@@ -4,8 +4,8 @@ import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
 
 import { getGrowth } from '@/shared/helpers/getGrowth';
 import { getProfessions } from '@/shared/helpers/getProfessions';
-import { getZodiac } from '@/shared/helpers/getZodiac';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { getZodiac } from '@/shared/helpers/getZodiac/getZodiac';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 
 import { getDatePersonString } from '../lib/getDatePersonString';
 

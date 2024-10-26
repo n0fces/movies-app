@@ -8,7 +8,8 @@ import { months } from '@/shared/constants/months';
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
 import { getBirthday } from '@/shared/helpers/getBirthday';
 import { getProfessions } from '@/shared/helpers/getProfessions';
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
+import { MovieInPerson } from '@/shared/types';
 
 import { getPerson } from '../../api/getPerson';
 import { Desktop } from '../../ui/Desktop';
@@ -36,8 +37,11 @@ export async function generateMetadata({
 	let works: string | null = null;
 	if (movies) {
 		const worksArr = movies
-			.filter((movie) => movie.rating)
-			.sort((a, b) => b.rating! - a.rating!)
+			.filter(
+				(movie): movie is MovieInPerson & { rating: number } =>
+					typeof movie.rating === 'number',
+			)
+			.sort((a, b) => b.rating - a.rating)
 			.map((movie) => movie.name)
 			.slice(0, 5);
 		works = `Лучшие фильмы: ${stringWithDelimiter(', ', worksArr)}`;
@@ -49,7 +53,7 @@ export async function generateMetadata({
 	};
 }
 
-export default async function TitleRoot({
+export default function TitleRoot({
 	params,
 }: {
 	params: { id: number };

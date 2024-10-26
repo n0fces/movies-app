@@ -2,7 +2,7 @@ import { getPerson } from '@/app/(main-root)/(page-id)/api/getPerson';
 
 import { TableInfo } from '@/entities/TableInfo';
 
-import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter';
+import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 import { InfoItem } from '@/shared/types';
 
 import { getDatePersonString } from '../../../shared/helpers/getDatePersonString';

@@ -32,7 +32,7 @@ export const Input = ({ isMobile }: SearchPanelProps) => {
 			})}
 			key={pathname}
 			autoFocus={isMobile}
-			onFocus={() => setIsOpen(true)}
+			onFocus={() => { setIsOpen(true); }}
 			type="search"
 			placeholder="Фильмы, сериалы, персоны"
 			title="Заполните это поле."

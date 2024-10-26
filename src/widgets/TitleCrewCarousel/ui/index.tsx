@@ -1,5 +1,4 @@
 import { clsx } from 'clsx';
-import Link from 'next/link';
 
 import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
@@ -14,8 +13,17 @@ export type TitleCrewCarouselType = 'actors' | 'creators';
 
 interface TitleCrewCarouselProps {
 	className?: string;
+	/**
+	 * По id будет сделан запрос для получения информации о фильме (в частности, информацию профессиональном составе)
+	 */
 	id: number;
+	/**
+	 * Ссылка на страницу со всем профессиональным составом
+	 */
 	href: string;
+	/**
+	 * Тип роли (актеры или создатели)
+	 */
 	type?: TitleCrewCarouselType;
 }
 
@@ -35,7 +43,7 @@ export const TitleCrewCarousel = async ({
 					{type === 'actors' ? 'Актёры' : 'Создатели'}
 				</Title>
 				<Button
-					component={Link}
+					as="link"
 					theme="moreButton"
 					href={href}
 					className={styles.allLinkCast}>

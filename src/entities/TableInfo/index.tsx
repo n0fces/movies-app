@@ -6,7 +6,13 @@ import { TableRow } from './ui/TableRow';
 
 interface TableInfoProps {
 	className?: string;
+	/**
+	 * Заголовок для таблицы
+	 */
 	title: string;
+	/**
+	 * Информация для отображения таблицы
+	 */
 	infoList: InfoItem[];
 }
 

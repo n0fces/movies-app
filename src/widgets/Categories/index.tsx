@@ -26,7 +26,7 @@ async function CategoryObj({ category }: CategoryProps) {
 
 	return (
 		<div className={styles.wrapperItems}>
-			{categories?.map((category) => (
+			{categories.map((category) => (
 				<CategoryItem key={category.slug} {...category} />
 			))}
 		</div>

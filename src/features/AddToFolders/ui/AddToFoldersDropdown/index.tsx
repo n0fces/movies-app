@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 
 import { Button } from '@/shared/ui/Button';
@@ -27,7 +26,9 @@ export const AddToFoldersDropdown = ({
 				size="size_48"
 				shape="rounded"
 				maxWidth
-				onClick={() => setIsOpen(!isOpen)}>
+				onClick={() => {
+					setIsOpen(!isOpen);
+				}}>
 				<Icon name="addToFolder" className={styles.icon} />
 				Добавить в папку
 			</Button>
@@ -36,7 +37,7 @@ export const AddToFoldersDropdown = ({
 					<AddToFoldersList />
 					<div className={styles.afterSlot}>
 						<Button
-							component={Link}
+							as="link"
 							href={'#'}
 							theme="primary"
 							size="size_40"

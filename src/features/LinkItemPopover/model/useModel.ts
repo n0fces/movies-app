@@ -9,14 +9,16 @@ import {
 
 import { useHover } from '@/shared/hooks/useHover';
 
+import { Data } from '../ui/LinkItemTitle';
+
 const DURING = 300;
 const SIZE_WIDTH = 380;
 const SIZE_HEIGHT = 220;
 const GAP = 15;
 
 type MouseHoverEvent =
-	| MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>
-	| MouseEvent<HTMLSpanElement, globalThis.MouseEvent>;
+	| MouseEvent<HTMLAnchorElement>
+	| MouseEvent<HTMLSpanElement>;
 
 export interface useModelReturned {
 	onMouseLeave: () => void;
@@ -29,9 +31,9 @@ export interface useModelReturned {
 }
 
 export const useModel = (
-	data: any,
-	setData: Dispatch<SetStateAction<any>>,
-	response: () => Promise<any>,
+	data: Data,
+	setData: Dispatch<SetStateAction<Data>>,
+	response: () => Promise<Data>,
 ): useModelReturned => {
 	const { isHover, onMouseEnter, onMouseLeave } = useHover();
 	const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +63,7 @@ export const useModel = (
 				setIsOpen(true);
 				if ((data === null || data === undefined) && !isLoading) {
 					setIsLoading(true);
-					(async () => {
+					void (async () => {
 						try {
 							const res = await response();
 							setData(res);
@@ -77,7 +79,9 @@ export const useModel = (
 				setIsOpen(false);
 			}
 		}, DURING);
-		return () => clearTimeout(timerRef);
+		return () => {
+			clearTimeout(timerRef);
+		};
 	}, [isHover]);
 
 	return {

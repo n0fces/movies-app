@@ -32,6 +32,7 @@ export const BlockSliderSkeleton = ({
 				height={isMobile ? 24 : 28}
 			/>
 			<div className={styles.carousel}>
+				{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- просто необходимо создать массив с нужным кол-ом элементов, чтобы пройтись по нему и заполнить нужным контентом */}
 				{[...Array(countCards)].map((_, i) => (
 					<Card key={i} width={width} height={height} />
 				))}

@@ -1,9 +1,8 @@
-import Link from 'next/link';
-
 import { getPath } from '@/shared/helpers/getPath';
 import { getRating } from '@/shared/helpers/getRating';
 import { Movie } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
+import { IsLink } from '@/shared/ui/IsLink';
 import { Rating } from '@/shared/ui/Rating';
 
 import styles from './styles.module.scss';
@@ -25,6 +24,9 @@ export const RatingBlockTitle = ({
 	const ratingArr = getRating(rating);
 
 	if (ratingArr !== null) {
+		// * вообще можно потом подумать, так как вызов функции getRating
+		// * происходит здесь и в компоненте Rating
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const [_, typeRating] = ratingArr;
 		const isAwait = typeRating === 'await';
 		const description = isAwait ? 'ждут премьеры' : 'оценки';
@@ -41,16 +43,19 @@ export const RatingBlockTitle = ({
 						className={styles.ratingValue}
 					/>
 					{top250 && (
-						<Link
-							href={getPath.top250(isSeries)}
-							className={styles.positionBadge}>
-							<Icon name="left-leaf" className={styles.leaf} />
-							<div className={styles.text}>
-								<span className={styles.isTop250}>топ 250</span>
-								<span className={styles.position}>{top250} место</span>
-							</div>
-							<Icon name="right-leaf" className={styles.leaf} />
-						</Link>
+						<IsLink
+							href={
+								typeof isSeries === 'boolean' ? getPath.top250(isSeries) : null
+							}>
+							<span className={styles.positionBadge}>
+								<Icon name="left-leaf" className={styles.leaf} />
+								<div className={styles.text}>
+									<span className={styles.isTop250}>топ 250</span>
+									<span className={styles.position}>{top250} место</span>
+								</div>
+								<Icon name="right-leaf" className={styles.leaf} />
+							</span>
+						</IsLink>
 					)}
 				</div>
 				{votesValue && (

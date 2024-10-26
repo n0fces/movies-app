@@ -10,8 +10,8 @@ interface BasicSectionMobileProps {
 	title: string | null | undefined;
 	poster: string | null | undefined;
 	secondaryTitle: string | null | undefined;
-	ratingBlock?: () => JSX.Element;
-	metaInfo?: Array<string | undefined | null>;
+	ratingBlock?: () => React.ReactElement;
+	metaInfo?: (string | undefined | null)[];
 }
 
 export const BasicSectionMobile = ({

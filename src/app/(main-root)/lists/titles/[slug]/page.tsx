@@ -18,12 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	};
 }
 
-export default async function ListTitles({
+export default function ListTitles({
 	params,
 	searchParams,
 }: {
-	params: { [key: string]: string };
-	searchParams: { [key: string]: string };
+	params: Record<string, string>;
+	searchParams: Record<string, string>;
 }) {
 	const isMobile = deviceDetectServer();
 
@@ -31,6 +31,5 @@ export default async function ListTitles({
 
 	return (
 		<ListItems params={params} searchParams={searchParams} limit={limit} />
-		// <></>
 	);
 }
