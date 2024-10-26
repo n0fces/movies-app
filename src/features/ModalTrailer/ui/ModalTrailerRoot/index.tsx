@@ -3,20 +3,21 @@
 import { clsx } from 'clsx';
 import { useState } from 'react';
 
-import { ListItemProps, Video } from '@/shared/types';
+import { Video } from '@/shared/types';
 import { Icon } from '@/shared/ui/Icon';
 import { Modal } from '@/shared/ui/Modal';
 import { VideoYT } from '@/shared/ui/VideoYT';
 
+import { ListTrailersProps } from '../';
 import { OtherTrailers } from '../OtherTrailers';
 import { TitleInfo } from '../TitleInfo';
 import styles from './styles.module.scss';
 
-type ModalTrailerRootProps = ListItemProps & {
+type ModalTrailerRootProps = ListTrailersProps & {
 	isOpen: boolean;
 	closeModal: () => void;
 	isSidebar?: boolean;
-} & { videos: { trailers: Video[] } };
+};
 
 const ModalTrailerRoot = ({
 	isOpen,
@@ -25,7 +26,7 @@ const ModalTrailerRoot = ({
 	...otherProps
 }: ModalTrailerRootProps) => {
 	const { videos } = otherProps;
-	const trailers = videos.trailers.filter((trailer) => trailer.url).slice(1);
+	const trailers = videos.filter((trailer) => trailer.url).slice(1);
 	const [otherTrailers, setOtherTrailers] = useState(trailers.slice(1));
 	const [currentVideo, setCurrentVideo] = useState(trailers[0]);
 

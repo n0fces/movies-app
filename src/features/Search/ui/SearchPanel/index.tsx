@@ -23,7 +23,9 @@ export const SearchPanel = ({ isMobile }: SearchPanelProps) => {
 				size="size_24"
 				withoutPadding
 				aria-label={'Найти'}
-				onClick={() => { setIsOpen(true); }}>
+				onClick={() => {
+					setIsOpen(true);
+				}}>
 				<Icon name="search" className={styles.icon} />
 			</Button>
 			{isOpen && (
@@ -35,14 +37,18 @@ export const SearchPanel = ({ isMobile }: SearchPanelProps) => {
 						size="size_24"
 						withoutPadding
 						aria-label={'Скрыть поиск'}
-						onClick={() => { setIsOpen(false); }}>
+						onClick={() => {
+							setIsOpen(false);
+						}}>
 						<Icon name="search" className={styles.icon} />
 					</Button>
 					<Input isMobile={isMobile} />
 					<Button
 						size="size_24"
 						withoutPadding
-						onClick={() => { setIsOpen(false); }}>
+						onClick={() => {
+							setIsOpen(false);
+						}}>
 						<Icon
 							name="close"
 							className={clsx(styles.icon, styles.closeIcon)}

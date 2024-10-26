@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { SearchMovie } from '@/shared/types';
+
 import {
 	useInputValue,
 	useIsChange,
@@ -7,7 +9,6 @@ import {
 	useSetters,
 	useSuggests,
 } from './context';
-import { SearchMovie } from '@/shared/types';
 
 export const useModel = () => {
 	const { setSuggests, setIsLoading, setIsChange } = useSetters();
@@ -29,7 +30,7 @@ export const useModel = () => {
 						body: JSON.stringify(value),
 						signal,
 					});
-					const res = await response.json() as SearchMovie[];
+					const res = (await response.json()) as SearchMovie[];
 					setSuggests(res);
 					setIsChange(false);
 					setIsLoading(false);

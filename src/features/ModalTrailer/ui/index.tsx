@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
 
-import { ListItemProps } from '@/shared/types';
+import { ListItemProps, Video } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
 import {
 	ReverseDirection,
@@ -13,7 +13,11 @@ import {
 } from '@/shared/ui/Button/types';
 import { ModalLoader } from '@/shared/ui/ModalLoader';
 
-interface ModalTrailerProps extends ListItemProps {
+export type ListTrailersProps = Omit<ListItemProps, 'videos'> & {
+	videos: Video[];
+};
+
+type ModalTrailerProps = ListTrailersProps & {
 	className?: string;
 	isSidebar?: boolean;
 	theme?: ThemeButton;
@@ -22,7 +26,7 @@ interface ModalTrailerProps extends ListItemProps {
 	withoutPadding?: boolean;
 	reverseDirection?: ReverseDirection;
 	btnContent?: React.ReactNode;
-}
+};
 
 const ModalTrailerRoot = dynamic(() => import('./ModalTrailerRoot'), {
 	loading: () => <ModalLoader />,
@@ -41,8 +45,12 @@ export const ModalTrailer = ({
 }: ModalTrailerProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const showModal = useCallback(() => { setIsOpen(true); }, []);
-	const closeModal = useCallback(() => { setIsOpen(false); }, []);
+	const showModal = useCallback(() => {
+		setIsOpen(true);
+	}, []);
+	const closeModal = useCallback(() => {
+		setIsOpen(false);
+	}, []);
 	// после клика на другой трейлер в общей области просмотра должен появиться именно этот трейлер
 	return (
 		<>

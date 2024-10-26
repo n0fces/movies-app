@@ -16,6 +16,11 @@ import styles from './styles.module.scss';
 import { Audiences } from './ui/Audiences';
 import { LinkItemsPersons } from './ui/LinkItemsPersons';
 
+export interface SortedAudience {
+	count: number;
+	country: string;
+}
+
 interface TableInfoProps {
 	className?: string;
 	/**
@@ -62,6 +67,11 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 			name: genre.name,
 			href: popularLink(`genres.name=${genre.name}`),
 		}));
+
+	const audienceList: SortedAudience[] | undefined = audience?.filter(
+		(audience): audience is SortedAudience =>
+			Boolean(audience.count && audience.country),
+	);
 
 	const infoList: InfoItem[] = [
 		{
@@ -171,7 +181,9 @@ export const TableInfoTitle = async ({ className, id }: TableInfoProps) => {
 		},
 		{
 			titleRow: 'Зрители',
-			valueRow: audience?.length ? <Audiences audience={audience} /> : null,
+			valueRow: audienceList?.length ? (
+				<Audiences audience={audienceList} />
+			) : null,
 		},
 		{
 			titleRow: 'Премьера в России',

@@ -1,54 +1,54 @@
 .errorRoot {
-  min-height: 100vh;
-  background-color: var(--error-background-color);
+	min-height: 100vh;
+	background-color: var(--error-background-color);
 }
 
 .errorCnt {
-  width: 89vw;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 1.5rem;
+	width: 89vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 1.5rem;
 }
 @media (width >= 48em) {
-  .errorCnt {
-    row-gap: 5vh;
-  }
+	.errorCnt {
+		row-gap: 5vh;
+	}
 }
 @media (width >= 64em) {
-  .errorCnt {
-    max-width: 62.5rem;
-  }
+	.errorCnt {
+		max-width: 62.5rem;
+	}
 }
 
 .subtitle {
-  padding-top: 1.5rem;
-  color: var(--title-error-color);
+	padding-top: 1.5rem;
+	color: var(--title-error-color);
 }
 @media (width >= 48em) {
-  .subtitle {
-    padding-top: 10vh;
-  }
+	.subtitle {
+		padding-top: 10vh;
+	}
 }
 @media (width >= 64em) {
-  .subtitle {
-    padding-top: 15vh;
-  }
+	.subtitle {
+		padding-top: 15vh;
+	}
 }
 
 .title {
-  color: var(--title-error-color) !important;
+	color: var(--title-error-color) !important;
 }
 
 .message {
-  color: var(--text-minor-color-reverse);
+	color: var(--text-minor-color-reverse);
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-}/*# sourceMappingURL=error.module.css.map */
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+} /*# sourceMappingURL=error.module.css.map */

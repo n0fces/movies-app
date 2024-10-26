@@ -7,4 +7,7 @@ export interface LinkItemProps {
 	isMobile?: boolean;
 }
 
-export type AdditionalInfoList = Record<string, string[] | React.ReactElement | null>;
+export type AdditionalInfoList = Record<
+	string,
+	string[] | React.ReactElement | null
+>;

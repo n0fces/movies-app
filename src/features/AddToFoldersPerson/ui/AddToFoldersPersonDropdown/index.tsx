@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { Profession } from '@/shared/types';
@@ -41,7 +42,7 @@ export const AddToFoldersPersonDropdown = ({
 					<AddToFoldersPersonList profession={profession} />
 					<div className={styles.afterSlot}>
 						<Button
-							as="link"
+							as={Link}
 							href={'#'}
 							theme="primary"
 							shape="rounded"

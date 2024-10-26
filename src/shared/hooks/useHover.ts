@@ -9,8 +9,12 @@ interface UseHoverResult {
 export const useHover = (): UseHoverResult => {
 	const [isHover, setIsHover] = useState(false);
 
-	const onMouseEnter = useCallback(() => { setIsHover(true); }, []);
-	const onMouseLeave = useCallback(() => { setIsHover(false); }, []);
+	const onMouseEnter = useCallback(() => {
+		setIsHover(true);
+	}, []);
+	const onMouseLeave = useCallback(() => {
+		setIsHover(false);
+	}, []);
 
 	return { isHover, onMouseEnter, onMouseLeave };
 };

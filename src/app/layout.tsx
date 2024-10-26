@@ -2,10 +2,9 @@ import { clsx } from 'clsx';
 import { Open_Sans } from 'next/font/google';
 
 import { deviceDetectServer } from '@/shared/helpers/deviceDetectServer';
+import '@/shared/styles/main.scss';
 
 import styles from './styles.module.scss';
-
-import '@/shared/styles/main.scss';
 
 const openSans = Open_Sans({
 	subsets: ['cyrillic', 'latin'],

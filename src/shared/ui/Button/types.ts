@@ -1,4 +1,4 @@
-import { LinkProps } from 'next/link';
+import { PolymorphicComponentProp } from '../../types';
 
 export type ThemeButton =
 	| 'primary'
@@ -30,7 +30,8 @@ export type BorderRadiusBtn = '8' | '16';
 
 export type ReverseDirection = 'rowReverse' | 'columnReverse';
 
-interface BaseProps {
+export interface BaseButtonProp {
+	className?: string;
 	theme?: ThemeButton;
 	maxWidth?: boolean;
 	maxHeight?: boolean;
@@ -39,17 +40,19 @@ interface BaseProps {
 	withoutPadding?: boolean;
 	borderRadius?: BorderRadiusBtn;
 	reverseDirection?: ReverseDirection;
-	children: React.ReactNode;
-	className?: string;
 }
 
-export type ButtonAsButton = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-	as?: 'button';
-} & BaseProps;
+/**
+ * This is the updated component props using PolymorphicComponentPropWithRef
+ */
+export type ButtonProps<C extends React.ElementType> = PolymorphicComponentProp<
+	C,
+	BaseButtonProp
+>;
 
-type ButtonAsLink = React.AnchorHTMLAttributes<HTMLAnchorElement> &
-	LinkProps & {
-		as: 'link';
-	} & BaseProps;
-
-export type ButtonProps = ButtonAsButton | ButtonAsLink;
+/**
+ * This is the type used in the type annotation for the component
+ */
+export type ButtonComponent = <C extends React.ElementType = 'button'>(
+	props: ButtonProps<C>,
+) => React.ReactElement | null;

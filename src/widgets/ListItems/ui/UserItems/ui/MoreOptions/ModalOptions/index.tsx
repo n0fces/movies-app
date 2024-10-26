@@ -28,7 +28,7 @@ const BtnContentTrailer = () => (
 );
 
 export const ModalOptions = (props: ModalOptions) => {
-	const { className, poster, name, alternativeName, enName } = props;
+	const { className, poster, name, alternativeName, enName, videos } = props;
 
 	return (
 		<TouchModal
@@ -40,14 +40,17 @@ export const ModalOptions = (props: ModalOptions) => {
 			isTitle>
 			<div className={styles.buttonsCnt}>
 				{/* здесь с пропсами надо подумать. если поставить деструктуризацию пропсов в конец, то все сломается по стилям */}
-				<ModalTrailer
-					{...props}
-					theme="modal"
-					size="size_64"
-					withoutPadding
-					className={styles.trailerBtn}
-					btnContent={BtnContentTrailer()}
-				/>
+				{videos?.trailers?.length ? (
+					<ModalTrailer
+						{...props}
+						videos={videos.trailers}
+						theme="modal"
+						size="size_64"
+						withoutPadding
+						className={styles.trailerBtn}
+						btnContent={BtnContentTrailer()}
+					/>
+				) : null}
 				<RatingModal
 					{...props}
 					theme="modal"

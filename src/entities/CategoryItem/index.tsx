@@ -27,7 +27,7 @@ export const CategoryItem = ({
 				[styles.categoryItemFull]: !isMobile,
 			})}>
 			<MyImage
-				src={cover.url}
+				src={cover?.url}
 				alt={name}
 				width={88}
 				height={88}

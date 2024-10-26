@@ -26,8 +26,12 @@ export const MoreServicesBtn = ({
 }: MoreServicesBtnProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const showModal = useCallback(() => { setIsOpen(true); }, []);
-	const closeModal = useCallback(() => { setIsOpen(false); }, []);
+	const showModal = useCallback(() => {
+		setIsOpen(true);
+	}, []);
+	const closeModal = useCallback(() => {
+		setIsOpen(false);
+	}, []);
 
 	useNoscroll(isMobile, isOpen);
 

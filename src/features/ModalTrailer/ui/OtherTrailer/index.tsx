@@ -18,7 +18,9 @@ export const OtherTrailer = ({
 	return (
 		<li className={className}>
 			<button
-				onClick={() => { changeCurrentTrailer(trailer); }}
+				onClick={() => {
+					changeCurrentTrailer(trailer);
+				}}
 				className={styles.otherTrailer}
 				aria-label={`Посмотреть трейлер ${name}`}>
 				<PreviewYT

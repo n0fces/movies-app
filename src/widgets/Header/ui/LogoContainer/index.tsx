@@ -24,8 +24,20 @@ export const LogoHeader = ({ isMobile }: LogoProps) => {
 			className={clsx(styles.logoContainer, {
 				[styles.fullLogoContainer]: !isMobile,
 			})}
-			onMouseEnter={isMobile ? undefined : () => { setIsOpen(true); }}
-			onMouseLeave={isMobile ? undefined : () => { setIsOpen(false); }}>
+			onMouseEnter={
+				isMobile
+					? undefined
+					: () => {
+							setIsOpen(true);
+						}
+			}
+			onMouseLeave={
+				isMobile
+					? undefined
+					: () => {
+							setIsOpen(false);
+						}
+			}>
 			<button
 				className={clsx(styles.buttonBurger, {
 					[styles.buttonBurgerActive]: isOpen,
@@ -34,7 +46,9 @@ export const LogoHeader = ({ isMobile }: LogoProps) => {
 				aria-label={isOpen ? 'Закрыть меню' : 'Открыть меню'}
 				aria-expanded={!isOpen ? 'false' : 'true'}
 				aria-controls="nav-menu"
-				onClick={() => { setIsOpen(!isOpen); }}>
+				onClick={() => {
+					setIsOpen(!isOpen);
+				}}>
 				<span></span>
 			</button>
 			<DropdownHeaderItem isOpen={isOpen} isMobile={isMobile}>

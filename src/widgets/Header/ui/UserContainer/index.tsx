@@ -33,15 +33,31 @@ export const UserHeader = ({ isMobile }: UserHeaderProps) => {
 				className={clsx(styles.buttonMenu, {
 					[styles.computer]: !isMobile,
 				})}
-				onMouseEnter={isMobile ? undefined : () => { setIsOpen(true); }}
-				onMouseLeave={isMobile ? undefined : () => { setIsOpen(false); }}>
+				onMouseEnter={
+					isMobile
+						? undefined
+						: () => {
+								setIsOpen(true);
+							}
+				}
+				onMouseLeave={
+					isMobile
+						? undefined
+						: () => {
+								setIsOpen(false);
+							}
+				}>
 				<Button
 					size="size_40"
 					shape="circle"
 					className={styles.userAvatar}
+					// Здесь потом будет еще упоминаться имя пользователя
+					aria-label="Аватар пользователя"
 					aria-expanded={!isOpen ? 'false' : 'true'}
 					aria-controls="user-menu"
-					onClick={() => { setIsOpen(!isOpen); }}
+					onClick={() => {
+						setIsOpen(!isOpen);
+					}}
 				/>
 				<DropdownHeaderItem isOpen={isOpen} isMobile={isMobile}>
 					<UserMenu />

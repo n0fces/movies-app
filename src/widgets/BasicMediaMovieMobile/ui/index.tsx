@@ -5,11 +5,11 @@ import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 import { BasicSectionMobile } from '@/entities/BasicSectionMobile';
 import { RatingValue } from '@/entities/RatingValue';
 
+import { convertMinutes } from '@/shared/helpers/convertMinutes/convertMinutes';
 import { setCorrectEndWord } from '@/shared/helpers/setCorrectEndWord';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
 
 import styles from './styles.module.scss';
-import { convertMinutes } from '@/shared/helpers/convertMinutes/convertMinutes';
 
 interface BasicMediaMovieMobileProps {
 	className?: string;
@@ -54,10 +54,7 @@ export const BasicMediaMovieMobile = async ({
 		: null;
 	const amountSeasons = isSeries
 		? seasonsInfo?.length &&
-			`${seasonsInfo.length} ${setCorrectEndWord(
-				'сезон',
-				seasonsInfo.length,
-			)}`
+			`${seasonsInfo.length} ${setCorrectEndWord('сезон', seasonsInfo.length)}`
 		: null;
 
 	const firstMetaLine = stringWithDelimiter(', ', [

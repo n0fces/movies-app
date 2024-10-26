@@ -34,7 +34,7 @@ const jsxA11yWarnRules = Object.keys(jsxA11yConfig.rules || {}).reduce(
 		acc[rule] = 'warn';
 		return acc;
 	},
-	{}
+	{},
 );
 
 export default tseslint.config(

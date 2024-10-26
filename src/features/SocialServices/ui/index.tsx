@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { headers } from 'next/headers';
+import Link from 'next/link';
 
 import { IconName } from '@/shared/types';
 import { Button } from '@/shared/ui/Button';
@@ -25,7 +26,7 @@ const SocialService = ({
 }: SocialServicesItem) => (
 	<li>
 		<Button
-			as="link"
+			as={Link}
 			size="size_52"
 			shape="circle"
 			href={shareLink}

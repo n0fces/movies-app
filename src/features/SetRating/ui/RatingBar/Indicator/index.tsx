@@ -12,7 +12,9 @@ export const Indicator = () => {
 			{value ?? (
 				<button
 					aria-label="Отменить выбор оценки"
-					onClick={() => { setIsOpen(false); }}>
+					onClick={() => {
+						setIsOpen(false);
+					}}>
 					<Icon name="close-black" className={styles.closeIcon} />
 				</button>
 			)}

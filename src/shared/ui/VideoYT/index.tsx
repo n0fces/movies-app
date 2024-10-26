@@ -13,11 +13,7 @@ interface VideoProps extends Video {
 	className?: string;
 }
 
-export const VideoYT = ({
-	url,
-	name,
-	className,
-}: VideoProps) => {
+export const VideoYT = ({ url, name, className }: VideoProps) => {
 	const previewRef = useRef<HTMLDivElement | null>(null);
 	const videoRef = useRef<HTMLDivElement | null>(null);
 

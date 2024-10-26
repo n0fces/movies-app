@@ -29,21 +29,20 @@ async function ListItemsObj({ params, searchParams, limit }: ListItemsProps) {
 
 	return titles.length > 0 ? (
 		<>
-			{titles.map((title) => (
-				<ListItem
-					ratingValue={() => (
-						<RatingValue
-							rating={title.rating}
-							top250={title.top250}
-							votes={title.votes}
-						/>
-					)}
-					userItems={() => <UserItems isMobile={isMobile} {...title} />}
-					watchItems={() => <WatchItems isMobile={isMobile} {...title} />}
-					{...title}
-					key={title.id}
-				/>
-			))}
+			{titles.map((title) => {
+				const { rating, top250, votes } = title;
+				return (
+					<ListItem
+						ratingValue={() => (
+							<RatingValue rating={rating} top250={top250} votes={votes} />
+						)}
+						userItems={() => <UserItems isMobile={isMobile} {...title} />}
+						watchItems={() => <WatchItems isMobile={isMobile} {...title} />}
+						{...title}
+						key={title.id}
+					/>
+				);
+			})}
 			{pages > 1 && (
 				<Pagination
 					page={page}

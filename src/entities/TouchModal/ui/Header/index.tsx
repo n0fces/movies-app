@@ -30,7 +30,7 @@ export const Header = ({
 				height={96}
 			/>
 			<div className={styles.info}>
-				<div className={styles.title} id={`dialog-${title ??secondaryTitle}`}>
+				<div className={styles.title} id={`dialog-${title ?? secondaryTitle}`}>
 					{title}
 				</div>
 				<div className={styles.secondaryTitle}>{secondaryTitle}</div>

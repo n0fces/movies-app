@@ -557,7 +557,7 @@ export interface Person {
 	age?: number | null;
 	birthPlace?: BirthPlace[];
 	deathPlace?: DeathPlace[];
-	spouses?: Spouses;
+	spouses?: Spouses[];
 	countAwards?: number;
 	profession?: Profession[];
 	facts?: FactInPerson[];
@@ -821,3 +821,27 @@ export interface ZodiacSignDateRange {
 	endMonth: number;
 	endDate: number;
 }
+
+// https://blog.logrocket.com/build-strongly-typed-polymorphic-components-react-typescript/
+interface AsProp<C extends React.ElementType> {
+	as?: C;
+}
+
+type PropsToOmit<C extends React.ElementType, P> = keyof (AsProp<C> & P);
+
+// This is the first reusable type utility we built
+export type PolymorphicComponentProp<
+	C extends React.ElementType,
+	Props = object,
+> = React.PropsWithChildren<Props & AsProp<C>> &
+	Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+
+// This is the type for the "ref" only
+export type PolymorphicRef<C extends React.ElementType> =
+	React.ComponentPropsWithRef<C>['ref'];
+
+// This is a new type utitlity with ref!
+export type PolymorphicComponentPropWithRef<
+	C extends React.ElementType,
+	Props = object,
+> = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };

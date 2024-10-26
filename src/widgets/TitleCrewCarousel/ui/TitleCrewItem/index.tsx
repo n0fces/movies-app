@@ -27,10 +27,10 @@ export const TitleCrewItem = ({
 }: TitleCrewItemProps) => {
 	const { photo, id, name, enName, description, profession } = personInfo;
 	const personName = name ?? enName;
-	const subtitle =
-		type === 'actors'
-			? description
-			: profession[0].toUpperCase() + profession.slice(1);
+	const customPros = profession
+		? profession[0].toUpperCase() + profession.slice(1)
+		: null;
+	const subtitle = type === 'actors' ? description : customPros;
 
 	return (
 		<Link

@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "sass:list";
+@use 'sass:map';
+@use 'sass:list';
 
 .button {
 	display: inline-flex;
@@ -31,14 +31,11 @@ $sizes: (20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64);
 		if(
 			$size > 32,
 			map.get($sizesGapMap, 32),
-			if(
-				$size > 24,
-				map.get($sizesGapMap, 24),
-				map.get($sizesGapMap, default)
-			)
+			if($size > 24, map.get($sizesGapMap, 24), map.get($sizesGapMap, default))
 		)
 	);
-	$index: list.index($sizes, $size) - 1; // Индекс начинается с 1, поэтому вычитаем 1
+	$index: list.index($sizes, $size) -
+		1; // Индекс начинается с 1, поэтому вычитаем 1
 	$padding: 10px + $index * 2px;
 	$gap: if($size >= 48, 8px, if($size >= 32, 6px, 4px));
 

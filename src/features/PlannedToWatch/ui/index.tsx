@@ -1,12 +1,12 @@
 'use client';
 
 import { Button } from '@/shared/ui/Button';
-import { ButtonAsButton } from '@/shared/ui/Button/types';
+import { BaseButtonProp } from '@/shared/ui/Button/types';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './styles.module.scss';
 
-interface PlannedToWatchProps extends Omit<ButtonAsButton, 'children'> {
+interface PlannedToWatchProps extends BaseButtonProp {
 	small?: boolean;
 }
 

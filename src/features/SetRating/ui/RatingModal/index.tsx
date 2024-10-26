@@ -53,7 +53,9 @@ const RatingModalObj = ({
 	const setValue = useValueSetter();
 
 	useEffect(() => {
-		return () => { setValue(undefined); };
+		return () => {
+			setValue(undefined);
+		};
 	}, [setValue]);
 
 	return (

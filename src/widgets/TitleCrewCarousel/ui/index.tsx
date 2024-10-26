@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import Link from 'next/link';
 
 import { getTitle } from '@/app/(main-root)/(page-id)/api/getTitle';
 
@@ -43,7 +44,7 @@ export const TitleCrewCarousel = async ({
 					{type === 'actors' ? 'Актёры' : 'Создатели'}
 				</Title>
 				<Button
-					as="link"
+					as={Link}
 					theme="moreButton"
 					href={href}
 					className={styles.allLinkCast}>

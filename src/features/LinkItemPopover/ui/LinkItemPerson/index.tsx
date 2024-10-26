@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { PopoverCard } from '@/entities/PopoverCard';
@@ -55,7 +56,7 @@ export const LinkItemPerson = ({
 			body: JSON.stringify(id),
 		});
 		// ! ну такое
-		const res = await response.json() as Person;
+		const res = (await response.json()) as Person;
 		return res;
 	};
 
@@ -88,7 +89,7 @@ export const LinkItemPerson = ({
 	);
 
 	const FeaturesBtns = () => (
-		<Button as="link" href={'#'} theme="primary" size="size_40" shape="rounded">
+		<Button as={Link} href={'#'} theme="primary" size="size_40" shape="rounded">
 			<Icon name="subscribe" className={styles.subscribeIcon} />
 			Подписаться
 		</Button>

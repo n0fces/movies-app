@@ -53,11 +53,7 @@ export async function generateMetadata({
 	};
 }
 
-export default function TitleRoot({
-	params,
-}: {
-	params: { id: number };
-}) {
+export default function TitleRoot({ params }: { params: { id: number } }) {
 	const isMobile = deviceDetectServer();
 
 	return !isMobile ? (

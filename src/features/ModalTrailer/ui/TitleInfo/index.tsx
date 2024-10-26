@@ -3,15 +3,15 @@ import Link from 'next/link';
 
 import { getPath } from '@/shared/helpers/getPath';
 import { stringWithDelimiter } from '@/shared/helpers/stringWithDelimiter/stringWithDelimiter';
-import { ListItemProps } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
 import { Rating } from '@/shared/ui/Rating';
 
+import { ListTrailersProps } from '../';
 import styles from './styles.module.scss';
 
-interface TitleInfoProps extends ListItemProps {
+type TitleInfoProps = ListTrailersProps & {
 	className?: string;
-}
+};
 
 export const TitleInfo = ({
 	className,

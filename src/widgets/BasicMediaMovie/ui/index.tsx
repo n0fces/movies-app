@@ -7,7 +7,7 @@ import { AddToFoldersDropdown } from '@/features/AddToFolders/ui/AddToFoldersDro
 import { ModalTrailer } from '@/features/ModalTrailer';
 import { SocialServices } from '@/features/SocialServices';
 
-import { Video as VideoAPI } from '@/shared/types';
+import { Video } from '@/shared/types';
 import { MyImage } from '@/shared/ui/MyImage';
 import { PreviewYT } from '@/shared/ui/PreviewYT';
 
@@ -18,7 +18,7 @@ interface BasicMediaMovieProps {
 	id: number;
 }
 
-const TrailerBtnContent = (props?: VideoAPI) => (
+const TrailerBtnContent = (props?: Video) => (
 	<PreviewYT className={styles.trailer} {...props} withBtn />
 );
 
@@ -60,10 +60,11 @@ export const BasicMediaMovie = async ({
 				{videos?.trailers?.length ? (
 					<>
 						<ModalTrailer
+							{...title}
 							className={styles.trailerWrapper}
 							isSidebar
 							btnContent={TrailerBtnContent(videos.trailers[0])}
-							{...title}
+							videos={videos.trailers}
 						/>
 						<Link href={'#'} className={styles.linkTrailers}>
 							{videos.trailers[0]?.name}

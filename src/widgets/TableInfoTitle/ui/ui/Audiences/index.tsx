@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
-import { Audience } from '@/shared/types';
 import { flags } from '@/shared/types/flags';
 
+import { SortedAudience } from '../../';
+
 interface AudiencesProps {
-	audience: Audience[] | null | undefined;
+	audience: SortedAudience[] | null | undefined;
 }
 
 export const Audiences = ({ audience }: AudiencesProps) => {

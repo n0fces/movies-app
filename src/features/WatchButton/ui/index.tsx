@@ -1,13 +1,13 @@
 'use client';
 
 import { Button } from '@/shared/ui/Button';
-import { ButtonAsButton } from '@/shared/ui/Button/types';
+import { ButtonProps } from '@/shared/ui/Button/types';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './styles.module.scss';
 
 export const WatchButton = (
-	props: Omit<ButtonAsButton, 'onClick' | 'children'>,
+	props: Omit<ButtonProps<'button'>, 'onClick' | 'children'>,
 ) => {
 	return (
 		<Button

@@ -3,7 +3,7 @@
 import { clsx } from 'clsx';
 
 import { Button } from '@/shared/ui/Button';
-import { BaseButtonProps, ThemeButton } from '@/shared/ui/Button/types';
+import { BaseButtonProp, ThemeButton } from '@/shared/ui/Button/types';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './styles.module.scss';
@@ -19,7 +19,7 @@ export const FeedbackButtons = ({
 	className,
 	theme = 'list',
 }: FeedbackButtonsProps) => {
-	const generalProps: Partial<BaseButtonProps<'button'>> = {
+	const generalProps: Partial<Omit<BaseButtonProp, 'as'>> = {
 		theme: theme,
 		size: theme === 'list' ? 'size_40' : 'size_64',
 		withoutPadding: theme === 'modal',

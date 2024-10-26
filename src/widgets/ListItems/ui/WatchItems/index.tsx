@@ -19,22 +19,23 @@ const BtnContent = (isKP: boolean) => (
 );
 
 export const WatchItems = ({ isMobile, ...props }: WatchItemsProps) => {
-	const { watchability } = props;
+	const { watchability, videos } = props;
 	const isKP = canWatchInKP(watchability);
 
 	return (
 		<div className={styles.watchItems}>
 			{isKP && <WatchButton shape="rounded" theme="gradient" size="size_24" />}
-			{!isMobile && (
+			{!isMobile && videos?.trailers?.length ? (
 				<ModalTrailer
+					{...props}
+					videos={videos.trailers}
 					shape={isKP ? 'circle' : 'rounded'}
 					theme="primary"
 					size="size_24"
 					btnContent={BtnContent(isKP)}
 					isSidebar
-					{...props}
 				/>
-			)}
+			) : null}
 		</div>
 	);
 };

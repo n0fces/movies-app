@@ -17,7 +17,9 @@ export const CategoriesSkeleton = ({ width, height, count }: SkeletonProps) => {
 	}
 	const isMobile = deviceDetectServer();
 
-	{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- просто необходимо создать массив с нужным кол-ом элементов, чтобы пройтись по нему и заполнить нужным контентом */}
+	{
+		/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- просто необходимо создать массив с нужным кол-ом элементов, чтобы пройтись по нему и заполнить нужным контентом */
+	}
 	return [...Array(count)].map((_, i) => (
 		<div
 			className={clsx(styles.card, {

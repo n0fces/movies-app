@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 export type ThemeRating = 'default' | 'nameplate' | 'top';
 
 export interface RatingProps {
-	rating?: RatingType;
+	rating?: RatingType | null;
 	className?: string;
 	theme?: ThemeRating;
 }

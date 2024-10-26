@@ -1,22 +1,25 @@
 import { clsx } from 'clsx';
-import Link from 'next/link';
 
 import styles from './styles.module.scss';
-import { ButtonProps } from './types';
+import { ButtonComponent, ButtonProps } from './types';
 
-export const Button = (props: ButtonProps) => {
-	const {
-		className,
-		theme,
-		maxWidth,
-		maxHeight,
-		shape,
-		size,
-		withoutPadding,
-		borderRadius,
-		reverseDirection,
-		...rest
-	} = props;
+export const Button: ButtonComponent = <
+	C extends React.ElementType = 'button',
+>({
+	as,
+	children,
+	className,
+	theme,
+	shape,
+	size,
+	borderRadius,
+	reverseDirection,
+	maxWidth,
+	maxHeight,
+	withoutPadding,
+	...rest
+}: ButtonProps<C>) => {
+	const Component = as ?? 'button';
 
 	const computedStyles = clsx(
 		styles.button,
@@ -33,15 +36,9 @@ export const Button = (props: ButtonProps) => {
 		className,
 	);
 
-	// if (rest.as === 'link') {
-	// 	return <Link {...rest} className={computedStyles} />;
-	// } else {
-	// 	return <button {...rest} className={computedStyles} />;
-	// }
-
-	return rest.as === 'link' ? (
-		<Link {...rest} className={computedStyles} />
-	) : (
-		<button {...rest} className={computedStyles} />
+	return (
+		<Component {...rest} className={computedStyles}>
+			{children}
+		</Component>
 	);
 };
