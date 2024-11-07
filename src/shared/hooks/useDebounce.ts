@@ -1,12 +1,14 @@
+import { useRef } from 'react';
+
 export const useDebouce = <T extends unknown[]>(
 	callback: (...args: T) => void,
 	delay = 300,
 ) => {
-	let timeout: NodeJS.Timeout;
+	const timeoutIdRef = useRef<NodeJS.Timeout | number>();
 
 	return (...args: T) => {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => {
+		if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
+		timeoutIdRef.current = setTimeout(() => {
 			callback(...args);
 		}, delay);
 	};
